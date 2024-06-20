@@ -1,0 +1,16 @@
+.bottomNavItem{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.bottomNavItem span{
+  color:#FFFFFF;
+  opacity: 30%;
+  font-size: 14px;
+}
+
+::ng-deep .active{
+  color: var(--secondary-color) !important;
+  opacity: 100% !important;
+}

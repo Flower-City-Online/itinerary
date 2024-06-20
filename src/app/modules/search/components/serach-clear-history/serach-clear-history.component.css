@@ -1,0 +1,18 @@
+.searchSubHeading{
+  color: #BDBDBD;
+}
+
+.clearHistoryMain{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 0px;
+  width: 120px;
+  margin-top: 10px;
+  font-weight: lighter;
+  position: relative;
+}
+
+.clearHistoryMain span{
+  margin-bottom: 2px;
+}

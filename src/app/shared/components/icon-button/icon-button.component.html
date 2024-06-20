@@ -1,0 +1,6 @@
+<lib-icon-btn (click)="clickFunc()" *ngIf="type == 'lib'" [class]="customClass.length > 0 ? customClass : 'backBtn'">
+  <img ngSrc="{{iconPath}}" height="{{height}}" width="{{width}}"/>
+</lib-icon-btn>
+<button *ngIf="type == 'btn'" (click)="clickFunc()" [disabled]="disabled">
+  <img ngSrc="{{iconPath}}" height="{{height}}" width="{{width}}">
+</button>

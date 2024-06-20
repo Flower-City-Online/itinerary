@@ -1,0 +1,19 @@
+::ng-deep .p-tabmenu-nav-content{
+  font-family: 'Calistoga', cursive;
+  margin: 0px 0px !important;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+::ng-deep .p-ripple.p-element.p-menuitem-link.p-menuitem-link-active{
+  border-width: 3px !important;
+}
+
+::ng-deep .p-menuitem-text{
+  color: rgb(255, 255, 255,0.5) !important;
+}
+
+::ng-deep .p-menuitem-link-active .p-menuitem-text{
+  color: #ffff !important;
+}

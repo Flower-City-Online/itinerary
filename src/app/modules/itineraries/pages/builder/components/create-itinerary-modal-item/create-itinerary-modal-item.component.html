@@ -1,0 +1,23 @@
+<div class="mainContent" (click)="clickEventEmitter()">
+  <div class="mainContentSub">
+    <div class="content">
+      <span class="contentIcon">
+        <img [ngSrc]="icon" height="60" width="61">
+      </span>
+      <div class="contentText">
+        <span class="font-bold">
+          <div *ngIf="shortTitle">
+            <span class="headingSubPart">{{ titleList[0] }}</span>
+          </div>
+          <div *ngIf="!shortTitle">
+            {{ titleList[0] }} <span class="headingSubPart">{{ titleList[1] }}</span>
+          </div>
+        </span>
+        <p>{{description}}</p>
+      </div>
+    </div>
+    <span class="contentIconLast">
+      <img ngSrc="assets/icons/more_forward.svg" height="50" width="51">
+    </span>
+  </div>
+</div>

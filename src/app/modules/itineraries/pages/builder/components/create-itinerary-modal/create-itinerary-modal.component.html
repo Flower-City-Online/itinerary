@@ -1,0 +1,8 @@
+<app-create-itinerary-modal-item *ngFor="let item of contentList" [icon]="item.icon"
+                                 [title]="item.title"
+                                 [description]="item.description"
+                                 [shortTitle]="item.shortTitle"
+                                 (clickEvent)="modalClick(item.id)"
+></app-create-itinerary-modal-item>
+
+<lib-primary-btn class="backBtn mt-5" (click)="backButton()">Back</lib-primary-btn>

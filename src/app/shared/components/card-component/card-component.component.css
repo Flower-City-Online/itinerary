@@ -1,0 +1,31 @@
+.cardComponent{
+  background: #27242C;
+}
+
+.bottomTags{
+  font-size: 12px;
+}
+
+.draftHeader{
+  color: #BDBDBD;
+  font-weight: normal !important;
+  font-size: 11px !important;
+  margin-top: 7px;
+  /* margin-left: 80px; */
+  position: relative;
+  left: 36px;
+}
+
+.draftDescription{
+  color:#ffff;
+}
+
+.userIconText{
+  color: #BDBDBD;
+  margin-top: 2px;
+}
+
+.bottomIcons{
+  height: 15px;
+  width: 16px;
+}

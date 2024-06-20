@@ -1,0 +1,33 @@
+<div class="pt-10 max-padd-container">
+    <app-map-header [title]="'Create Itinerary'" [backLink]="'/'" [customcss]="''"></app-map-header>
+</div>
+<div class="mt-6">
+    <app-googlemapdemo #mapDemo></app-googlemapdemo>
+</div>
+<div class="absolute bottom-0 py-3">
+    <section class="fixed bottom-0 w-full">
+        <div class="tracking-widest px-5 py-6 rounded-t-xl drawer-shadow  bg-[#28252D]">
+          <div class="flex justify-between items-center">
+            <h1 class="font-Calistoga xs:text-sm sm:text-md">No Visual Filter</h1>
+            <div class="bg-grey rounded-full searchbar-shadow flex items-center justify-between">
+
+                <button class="rounded-full p-2 px-4 focus:bg-primary">
+                  <img src="/assets/icons/locationicon.svg" alt=""/>
+                </button>
+
+              <button class="rounded-full p-2 px-4 focus:bg-primary" (click)="toggleDrawingTool()">
+                <img src="/assets/icons/write.svg" alt="">
+              </button>
+              <button class="rounded-full p-2 px-4 focus:bg-primary">
+                <img src="/assets/icons/warn.svg" alt="">
+              </button>
+            </div>
+          </div>
+          <div class="text-xs py-2 mt-2">No filter</div>
+        </div>
+
+        <div class="background-gradient py-5 px-16">
+            <lib-primary-btn class="">Continue</lib-primary-btn>
+        </div>
+      </section>
+</div>

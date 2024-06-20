@@ -1,0 +1,9 @@
+<div class="{{cssClass}} filterMenu py-3">
+  <lib-selectable class="test" (click)="changeSelection()"  (selectionchange)="changeSelection()" [formGroup]="formGroup" [formControl]="formGroup.controls.filter" [options]="options" [singleSelectionOnly]="false"></lib-selectable>
+<!--  <lib-icon-btn class="filterBtn">-->
+<!--    <img ngSrc="assets/icons/filter.svg" height="12" width="13">-->
+<!--  </lib-icon-btn>-->
+  <button class="filterBtn">
+    <img ngSrc="assets/icons/filter.svg" height="17" width="18">
+  </button>
+</div>

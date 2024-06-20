@@ -1,0 +1,16 @@
+.builderMainSection{
+  display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    justify-content: start;
+    align-items: center;
+}
+
+.builderContent{
+  width: 100%;
+}
+
+.secondComp{
+  margin-top: 10px !important;
+}

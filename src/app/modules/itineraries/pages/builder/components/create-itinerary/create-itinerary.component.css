@@ -1,0 +1,16 @@
+.builderAddBtn{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  width: 340px !important;
+  box-shadow: -4.1px -4.1px 13.13px -2.46px #CBC7D140;
+  border-radius: 10px;
+  color: var(--lib-secondary-button-font-color);
+  text-shadow: var(--lib-secondary-button-text-shadow);
+  line-height: 10px;
+  font-family: 'Calistoga';
+}
+.builderAddBtn span{
+  margin-right: 10px;
+}

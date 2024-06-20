@@ -1,0 +1,20 @@
+.searchHistoryBar{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0px;
+}
+
+.searchHistoryBarSub{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.searchHistoryText{
+  margin-left: 10px;
+  margin-top: 2px;
+  font-weight: lighter;
+  color: #939195;
+  font-size: 16px;
+}

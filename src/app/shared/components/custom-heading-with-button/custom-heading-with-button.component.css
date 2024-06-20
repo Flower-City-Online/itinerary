@@ -1,0 +1,21 @@
+p{
+  color: #FE3C72;
+  margin-left: 2px;
+}
+
+.heading{
+  font-size: 12px;
+}
+
+.archiveCss{
+  margin-top: 10px;
+}
+.archiveCss h4{
+  font-size: 12px !important;
+  color: #BDBDBD !important;
+}
+
+.archiveCss p{
+  margin-top: 4px;
+  font-size: 10px !important;
+}

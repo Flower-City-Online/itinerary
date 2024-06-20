@@ -1,0 +1,18 @@
+::ng-deep .cdk-overlay-dark-backdrop{
+  opacity: 80.2% !important;
+  background: #000;
+  backdrop-filter: blur(16.40999984741211px) !important;
+}
+
+::ng-deep .mat-mdc-dialog-surface.mdc-dialog__surface{
+  background: transparent !important;
+  margin-bottom: 40px !important;
+}
+
+::ng-deep .cdk-global-overlay-wrapper{
+  align-items: end !important;
+}
+
+.backBtn{
+  padding-inline: 10px;
+}

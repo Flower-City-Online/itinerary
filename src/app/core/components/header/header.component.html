@@ -1,0 +1,11 @@
+<div class="{{cssClass}} headerMainBar pt-5 pb-5 flex items-center justify-between">
+<!--  <lib-icon-btn class="headerBackBtn">-->
+<!--    <img ngSrc="assets/icons/back.svg" height="12" width="13">-->
+<!--  </lib-icon-btn>-->
+<!--  <app-icon-button class="headerBtn" (clickFunction)="this.firstButton.emit()" iconPath="assets/icons/back.svg" type="lib"></app-icon-button>-->
+  <button class="headerBtn" (click)="this.firstButton.emit()">
+    <img ngSrc="assets/icons/back.svg" height="15" width="16">
+  </button>
+  <h4>{{heading}}</h4>
+  <app-icon-button class="headerBtn" (clickFunction)="this.lastButton.emit()" iconPath="assets/icons/search.svg" type="btn"></app-icon-button>
+</div>

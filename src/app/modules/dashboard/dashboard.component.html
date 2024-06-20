@@ -1,0 +1,14 @@
+<div class="w-screen h-screen max-padd-container">
+  <app-navbar></app-navbar>
+
+  <div class="flex">
+    <div class="w-64"> <!-- Hidden for medium and larger screens -->
+      <app-sidebar></app-sidebar>
+    </div>
+
+    <main class="flex-grow p-4">
+      <!-- Your main content goes here -->
+      <router-outlet></router-outlet>
+    </main>
+  </div>
+</div>

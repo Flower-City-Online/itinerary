@@ -1,0 +1,20 @@
+<div class="mainSection builderMainSection">
+  <app-create-itinerary></app-create-itinerary>
+  <app-custom-heading-with-button class="customHeadingSectionHeading"
+                                  [heading]="'My Creations'"
+                                  [buttonText]="'Archives'"
+                                  [buttonIcon]="'assets/icons/archives.svg'"
+                                  (buttonClick)="navigateToArchive()">
+  </app-custom-heading-with-button>
+  <div class="builderContent">
+    <app-card-component [libMenuItem]="libMenuItem" [isDraft]="true"></app-card-component>
+    <br>
+    <app-card-component class="secondComp" [libMenuItem]="libMenuItem" [isDraft]="false"></app-card-component>
+  </div>
+<!--  <button (click)="openModal2()">Report Itinerary</button>-->
+</div>
+
+<!--<button (click)="openModal()">delete modal</button>-->
+
+
+<!--<app-report-itinerary-modal></app-report-itinerary-modal>-->

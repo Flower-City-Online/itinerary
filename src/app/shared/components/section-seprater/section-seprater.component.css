@@ -1,0 +1,11 @@
+.seprater{
+  margin: 30px auto;
+  position: relative;
+  width: 262.56px !important;
+  height: 0.821px !important;
+  flex-shrink: 0;
+  border-radius: 6.827px;
+  opacity: 0.15;
+  background: #DCDCDC;
+  box-shadow: -1.707px -1.707px 3.413px 0px rgba(255, 255, 255, 0.25) inset, 1.707px 1.707px 3.413px 0px rgba(0, 0, 0, 0.25) inset;
+}
