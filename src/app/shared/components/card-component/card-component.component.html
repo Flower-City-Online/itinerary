@@ -3,7 +3,7 @@
       <div class="flex gap-5 items-start">
         <div class="text-primary items-center sm:text-[10px] xs:text-[7px] flex flex-col gap-y-[0px]">
           <img src="/assets/images/upvote.svg" alt="">
-          <span class="text-[7] font-normal text-primary">{{ cardDataValidater(cardData.upVotes,"upVotes") }}</span>
+          <span class="text-[7] text-primary opacity-100">{{ cardDataValidater(cardData.upVotes,"upVotes") }}</span>
           <img src="/assets/images/downvote.svg" alt="">
         </div>
         <div class="font-gilroy">
@@ -31,39 +31,39 @@
       <div class="2">
         <div *ngIf="!cardData.isDraft" class="font-Gilroy font-normal text-secondary flex items-center gap-x-4 text-sm">
           <ul class="flex flex-col gap-y-[6px] xs:text-[9px] sm:text-[12px]">
-            <li class="flex items-center text-primary gap-1">
+            <li class="locationItemMain flex items-center text-primary gap-1">
               <img src="/assets/images/temp.svg" alt="" />
-              Palace
+              <span class="flex items-center text-primary">Palace</span>
               </li>
-              <li class="flex items-center gap-1">
+              <li class="locationItem flex items-center gap-1">
                 <img src="/assets/images/palace (2).svg" alt="" />
-                <span class="truncate sm:max-w-11">Template</span>
+                <span class="truncate sm:max-w-10 xs:max-w-12">Template</span>
                 </li>
-                <li class="flex items-center gap-1">
+                <li class="locationItem flex items-center gap-1">
                 <img src="/assets/images/palace (2).svg" alt="" />
-                <span class="truncate sm:max-w-10 xs:max-w-8">Optional</span>
+                <span class="truncate sm:max-w-10 xs:max-w-11">Optional</span>
                 </li>
-                <li class="flex items-center gap-1">
+                <li class="locationItem flex items-center gap-1">
                 <img src="/assets/images/palace (2).svg" alt="" />
-              <span class="truncate sm:max-w-10 xs:max-w-8">Optional</span>
+              <span class="truncate sm:max-w-10 xs:max-w-11">Optional</span>
               </li>
               </ul>
               <ul class="flex flex-col gap-y-[6px] xs:text-[9px] sm:text-[12px]">
-                <li class="flex items-center gap-1">
+                <li class="locationItem flex items-center gap-1">
               <img src="/assets/images/cofee.svg" alt="" />
-              <span class="truncate sm:max-w-11 xs:max-w-9">Coffee shop</span>
+              <span class="truncate sm:max-w-10 xs:max-w-11">Coffee shop</span>
               </li>
-              <li class="flex items-center gap-1">
+              <li class="locationItem flex items-center gap-1">
               <img src="/assets/images/template.svg" alt="" />
-              <span class="truncate sm:max-w-10 xs:max-w-8">Optional</span>
+              <span class="truncate sm:max-w-10 xs:max-w-11">Optional</span>
               </li>
-              <li class="flex items-center gap-1">
+              <li class="locationItem flex items-center gap-1">
               <img src="/assets/images/template.svg" alt="" />
-              <span class="truncate sm:max-w-10 xs:max-w-8">Optional</span>
+              <span class="truncate sm:max-w-10 xs:max-w-11">Optional</span>
               </li>
-              <li class="flex items-center gap-1">
+              <li class="locationItem flex items-center gap-1">
               <img src="/assets/images/template.svg" alt="" />
-              <span class="truncate sm:max-w-10 xs:max-w-8">Optional</span>
+              <span class="truncate sm:max-w-10 xs:max-w-11">Optional</span>
             </li>
           </ul>
         </div>

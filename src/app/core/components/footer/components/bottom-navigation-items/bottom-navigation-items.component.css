@@ -7,7 +7,13 @@
 .bottomNavItem span{
   color:#FFFFFF;
   opacity: 30%;
-  font-size: 14px;
+  font-size: 11px;
+  line-height: 15px;
+}
+
+.bottomNavItem .spanText:nth-child(3){
+  background: red !important;
+  margin-top: 3px !important;
 }
 
 ::ng-deep .active{

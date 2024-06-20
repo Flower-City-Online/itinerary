@@ -54,7 +54,7 @@
   right: 10px;
 }
 /*menu*/
-::ng-deep #mat-menu-panel-0.mat-mdc-menu-panel.lib-btn-menu-panel button.mat-mdc-menu-item .mat-mdc-menu-item-text{
+::ng-deep #mat-menu-panel-0 .mat-mdc-menu-panel.lib-btn-menu-panel button.mat-mdc-menu-item .mat-mdc-menu-item-text{
   /*flex-direction: row-reverse !important;*/
   justify-content: start !important;
 }

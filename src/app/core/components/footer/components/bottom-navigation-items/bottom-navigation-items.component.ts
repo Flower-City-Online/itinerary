@@ -11,4 +11,6 @@ export class BottomNavigationItemsComponent {
   @Input() routerLink!: string;
   @Input() cssClass!: string;
   @Input() selected!: boolean;
+  @Input() height: string = "16";
+  @Input() width: string = "17";
 }

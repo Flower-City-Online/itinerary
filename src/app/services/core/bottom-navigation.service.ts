@@ -46,6 +46,7 @@ export class BottomNavigationService {
       id:4,
       label: 'Itineraries',
       iconPath: 'assets/icons/itineraries.svg',
+      clickedIconPath: 'assets/icons/itineraries_red.svg',
       routerLink: '/itineraries',
       cssClass:''
     });
@@ -56,8 +57,6 @@ export class BottomNavigationService {
       element.cssClass = '';
     });
     nav.cssClass = 'active'
-    if(nav.id == 4){
-      nav.iconPath = 'assets/icons/itineraries_red.svg'
-    }
+    // nav.iconPath = nav.clickedIconPath
   }
 }
