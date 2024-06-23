@@ -17,3 +17,11 @@
 ::ng-deep .p-menuitem-link-active .p-menuitem-text{
   color: #ffff !important;
 }
+
+@media screen and (max-width: 380px){
+  ::ng-deep .p-tabmenu-nav-content{
+  }
+  ::ng-deep .p-tabmenu-nav-content ul{
+    font-size: 12px !important;
+  }
+}

@@ -7,7 +7,7 @@ import {BuilderComponent} from "./pages/builder/builder.component";
 import {FavoritesComponent} from "./pages/favorites/favorites.component";
 
 const routes: Routes = [
-  {path:'itineraries',component:ItinerariesComponent},
+  {path:'',redirectTo:'explore',pathMatch:'full'},
   {path:'explore',component:ExploreComponent},
   {path:'builder',component:BuilderComponent},
   {path:'favorites',component:FavoritesComponent},

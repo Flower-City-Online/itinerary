@@ -3,7 +3,7 @@
   justify-content: center;
   align-items: center;
   flex-direction: row;
-  width: 340px !important;
+  width: 100% !important;
   box-shadow: -4.1px -4.1px 13.13px -2.46px #CBC7D140;
   border-radius: 10px;
   color: var(--lib-secondary-button-font-color);
@@ -13,4 +13,15 @@
 }
 .builderAddBtn span{
   margin-right: 10px;
+}
+
+@media (max-width: 380px){
+  .builderAddBtn{
+    width: 100% !important;
+    font-size: 14px !important;
+  }
+  .builderAddBtn img{
+    height: 13px;
+    width: 13px;
+  }
 }

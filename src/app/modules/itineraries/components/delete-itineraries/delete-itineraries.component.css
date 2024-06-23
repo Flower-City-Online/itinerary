@@ -46,3 +46,19 @@
 ::ng-deep .mat-mdc-dialog-surface{
   border-radius: 10px !important;
 }
+
+@media  screen and (max-width: 380px){
+  .deleteModal p{
+    font-size: 10px;
+    padding: 0px 11px;
+  }
+  .checkBox {
+    height: 13px !important;
+    width: 13px !important;
+    margin-top: -1px;
+  }
+
+  .checkBoxFeild{
+    margin-top: 20px !important;
+  }
+}
