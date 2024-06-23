@@ -3,3 +3,9 @@
   padding: 15px 10px;
   z-index: 999;
 }
+
+@media screen and (max-width: 380px){
+  .bottomNavigation{
+    padding: 8px 8px;
+  }
+}

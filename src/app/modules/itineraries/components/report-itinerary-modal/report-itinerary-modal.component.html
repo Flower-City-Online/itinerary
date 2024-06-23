@@ -8,7 +8,7 @@
     </div>
   </div>
 
-  <lib-text-box *ngIf="this.selectedItem == 8" [label]="'Comment'"></lib-text-box>
+  <lib-text-box class="textFeild" *ngIf="this.selectedItem == 9" [label]="'Please brief your issue'"></lib-text-box>
 
   <app-modal-bottom-bar class="parentClassForModal" [okText]="'Report'" [cancelText]="'Cancel'"
                         (cancel)="this.modalService.closeModal()" (ok)="test()"></app-modal-bottom-bar>

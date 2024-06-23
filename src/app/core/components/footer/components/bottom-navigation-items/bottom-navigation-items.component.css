@@ -20,3 +20,14 @@
   color: var(--secondary-color) !important;
   opacity: 100% !important;
 }
+
+@media screen and (max-width: 380px){
+  .bottomNavItem img{
+    height: 13px !important;
+    width: 13px !important;
+  }
+  .bottomNavItem span{
+    font-size: 10px;
+    line-height: 12px;
+  }
+}

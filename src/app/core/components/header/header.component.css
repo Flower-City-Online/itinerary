@@ -2,7 +2,7 @@
   font-family: 'Calistoga', cursive;
 }
 .headerMainBar h4{
-  font-size: 15px;
+  font-size: 1rem;
 }
 .headerBackBtn{
   height: 26px;
@@ -38,4 +38,18 @@
 .headerBtn img{
   margin-top: 1px;
   margin-left: 2px;
+}
+
+@media screen and (max-width: 390px){
+  .headerBtn{
+    height: 27px !important;
+    width: 27px !important;
+  }
+  .headerBtn img{
+    height: 13px !important;
+    width: 13px !important;
+  }
+  .headerMainBar{
+    padding-inline: 10px !important;
+  }
 }

@@ -18,3 +18,30 @@
   right: 6%;
   top: 39%;
 }
+
+@media screen and (max-width: 390px){
+  .searchField{
+    margin-top: 10px !important;
+  }
+  ::ng-deep .container{
+    margin: 0px 5px;
+    position: relative;
+    padding: 0px;
+  }
+
+  ::ng-deep .container__search-bar__input{
+    font-size: 12px !important;
+  }
+
+  ::ng-deep .container__search-bar__input::placeholder{
+    font-size: 12px !important;
+    padding-bottom: 2px;
+  }
+
+  ::ng-deep .container__search-bar__icon.container__search-bar__search-icon{
+    position: absolute;
+    right: 6%;
+    height: 12px !important;
+    width: 12px !important;
+  }
+}

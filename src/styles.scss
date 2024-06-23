@@ -243,7 +243,7 @@ body { margin: 0; font-family: Gilroy-Regular; }
 .parentClassForModal{
   width: 100%;
   padding: 0px 20px;
-  margin-top: 30px;
+  margin-top: 15px;
   font-family: 'Calistoga';
   border-radius: 10px;
 }
@@ -251,7 +251,7 @@ body { margin: 0; font-family: Gilroy-Regular; }
 
 .customHeadingSectionHeading{
   width: 100%;
-  padding: 10px 20px;
+  padding: 8px 4px;
   margin-top: 15px;
 }
 
@@ -293,3 +293,11 @@ body { margin: 0; font-family: Gilroy-Regular; }
   background-color: var(--secondary-color) !important; /* Change this to your desired corner color */
 }
 
+@media (max-width: 380px){
+  .minScreenMain{
+    padding: 0px !important;
+  }
+  .minScreen{
+    padding: 5px 10px !important;
+  }
+}
