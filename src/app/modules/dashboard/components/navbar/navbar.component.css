@@ -11,10 +11,15 @@
   padding: 0 !important;
 }
 
+::ng-deep .navTopSearch .container__search-bar__input{
+  font-size: 10px !important;
+}
+
 ::ng-deep .navTopSearch .container__search-bar{
   width: 320px !important;
   height: 30px !important;
   padding: 3px 5px !important;
+  font-size: 10px !important;
 }
 
 ::ng-deep .navTopSearch .container__search-bar__input::placeholder{
@@ -47,6 +52,7 @@
   justify-content: start;
   /*justify-content: space-between;*/
   flex-direction: row;
+  gap:130px
 }
 
 .profileIcon{
@@ -69,6 +75,40 @@
 }
 
 ::ng-deep .menu-btn-notification-icon{
-  top: 0 !important;
+  top: 1px !important;
   right: -4px !important;
 }
+
+::ng-deep .dashboardMenu .lib-button-container{
+  box-shadow: none !important;
+  background: none !important;
+}
+
+::ng-deep .dashboardMenu .lib-button-component{
+  height: 29px !important;
+  width: 29px !important;
+}
+
+::ng-deep .dashboardMenu .btn-text img{
+  height: 24px !important;
+  width: 24px !important;
+}
+@media screen and (max-width: 1492px){
+  .subNav{
+    gap: 100px;
+  }
+}
+
+@media screen and (max-width: 1282px){
+  .subNav{
+    gap: 80px;
+  }
+}
+
+@media screen and (max-width: 1152px){
+  .subNav{
+    gap: 50px;
+  }
+}
+
+

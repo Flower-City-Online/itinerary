@@ -1,6 +1,8 @@
-<div class="w-screen h-screen max-padd-container">
+<div class="minScreenMain w-screen h-screen max-padd-container">
   <app-header (firstButton)="backButtonClick()" (lastButton)="searchButtonClick()" [heading]="'Itineraries'"></app-header>
   <app-tab-bar></app-tab-bar>
-  <router-outlet></router-outlet>
+  <div class="minScreen">
+    <router-outlet></router-outlet>
+  </div>
   <app-footer></app-footer>
 </div>

@@ -43,3 +43,22 @@
   width: 200px;
   text-align: start;
 }
+
+@media screen and (max-width: 380px){
+  .content{
+    width: fit-content;
+  }
+  .contentText{
+    width: fit-content;
+  }
+  .contentText span{
+    font-size: 12px;
+  }
+  .content p{
+    font-size: 9px;
+    width: 100%;
+  }
+  .contentIconLast{
+    margin-left: 0px;
+  }
+}

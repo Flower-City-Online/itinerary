@@ -22,3 +22,20 @@
 .mainBtn span{
   margin-top: 2px;
 }
+
+@media screen and (max-width: 380px){
+  .mainBtn{
+    width: 140px;
+    font-size: 16px !important;
+  }
+  .mainBtn:last-child{
+    width: 168px;
+  }
+  .mainBtn span img{
+    height: 14px !important;
+    width: 15px !important;
+  }
+  .mainBtn span{
+    margin-top: 0px !important;
+  }
+}

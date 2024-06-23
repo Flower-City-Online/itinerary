@@ -44,3 +44,27 @@
   font-size: 12px;
   margin-top: 2px;
 }
+
+
+@media screen and (max-width: 380px){
+  .title{
+    font-size: 13px !important;
+  }
+  .draftHeader{
+    font-size: 10px !important;
+    left: 20px;
+  }
+  .bottomIcons{
+    height: 12px;
+    width: 13px;
+  }
+  .userIconText{
+    font-size: 11px;
+  }
+  .bottomTags{
+    font-size: 10px;
+  }
+  .draftDescription{
+    font-size: 10px;
+  }
+}
