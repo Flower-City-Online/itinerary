@@ -16,7 +16,7 @@ export class CardComponent implements OnInit {
   constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
-    console.log(this.isDraft)
+    // console.log(this.isDraft)
     if(!this.isDraft){
       this.http.get<any>('/assets/data.json').subscribe(data => {
         this.cardData = data;
@@ -28,7 +28,7 @@ export class CardComponent implements OnInit {
         "title": "",
         "userName": "",
         "timeAgo": "",
-        "location": "WESTMINSITERO",
+        "location": "",
         "views": 0,
         "comments": 0,
         "shares": 0,
@@ -41,10 +41,10 @@ export class CardComponent implements OnInit {
   }
 
   test($event: any) {
-    console.log($event);
+    // console.log($event);
   }
   nullCheck(data:any):boolean{
-    console.log(data)
+    // console.log(data)
     return (data.toString().length == 0 || data == null || data == undefined || (data == "0" || data == 0) || data == "-");
   }
   cardDataValidater(data:any,type:string):string{
@@ -68,6 +68,8 @@ export class CardComponent implements OnInit {
       return "0"
     }else if(type == "userimageSrc" && this.nullCheck(data)){
       return "assets/icons/questionMark.svg"
+    }else if(type == "location" && this.nullCheck(data)){
+      return "Not Specified"
     }
     return data;
   }

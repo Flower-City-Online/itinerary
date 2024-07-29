@@ -1,7 +1,7 @@
 .reportItineraies{
   width: 330px;
-  background: #28252D;
-  box-shadow: -2.46px -2.46px 13.13px 0px #FFFFFF1A;
+  /*background: #28252D;*/
+  /*box-shadow: -2.46px -2.46px 13.13px 0px #FFFFFF1A;*/
   border-radius: 10px;
   overflow: hidden;
   padding: 20px 20px;
@@ -27,84 +27,99 @@ input{
   width: 40px;
 }
 
-.radioGroup{
-  display: flex;
-  justify-content: start;
-  align-items: center;
-  flex-direction: row-reverse;
-  font-size: 13px;
-}
+/*.radioGroup{*/
+/*  display: flex;*/
+/*  justify-content: start;*/
+/*  align-items: center;*/
+/*  flex-direction: row-reverse;*/
+/*  font-size: 13px;*/
+/*}*/
 
 ::ng-deep .input-group-wrapper{
   border-radius: 4px !important;
   height: 80px;
 }
 
-input[type=radio]{
-  /*position: relative !important;*/
-  /*top: -1px !important;*/
-  padding: 3px 3px !important;
-  border-radius: 9.846px;
-  width: 14px;
-  height: 14px;
-  appearance: none;
-  background-clip: content-box;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  background-color: #27242C;
-  margin-right: 10px;
-  box-shadow: -2.462px -2.462px 13.128px 0px rgba(255, 255, 255, 0.10), 4.102px 4.102px 13.128px 0px rgba(0, 0, 0, 0.32);
+/*input[type=radio]{*/
+/*  !*position: relative !important;*!*/
+/*  !*top: -1px !important;*!*/
+/*  padding: 3px 3px !important;*/
+/*  border-radius: 9.846px;*/
+/*  width: 14px;*/
+/*  height: 14px;*/
+/*  appearance: none;*/
+/*  background-clip: content-box;*/
+/*  border: 1px solid rgba(255, 255, 255, 0.3);*/
+/*  background-color: #27242C;*/
+/*  margin-right: 10px;*/
+/*  box-shadow: -2.462px -2.462px 13.128px 0px rgba(255, 255, 255, 0.10), 4.102px 4.102px 13.128px 0px rgba(0, 0, 0, 0.32);*/
+/*}*/
+
+/*input[type="radio"]:checked{*/
+/*  background: linear-gradient(94deg, #FE3C72 1.26%, #E15561 100%) !important;*/
+/*  box-shadow: inset 0 0 0 2px #27242C;*/
+/*  border: 1px solid var(--secondary-color) !important;*/
+/*}*/
+
+/*::ng-deep label{*/
+/*  position: absolute !important;*/
+/*  top: 21% !important;*/
+/*}*/
+
+/*::ng-deep .input-group-wrapper div{*/
+/*  position: absolute !important;*/
+/*  top: 18px !important;*/
+/*  overflow: auto;*/
+/*  width: -webkit-fill-available !important;*/
+/*  padding-right: 10px;*/
+/*}*/
+
+/*::ng-deep .input-label .ng-star-inserted .with-value{*/
+/*  margin-top: 3px !important;*/
+/*}*/
+
+::ng-deep .mdc-label{
+  padding:  5px 4px !important;
+  font-size: 12px;
 }
 
-input[type="radio"]:checked{
-  background: linear-gradient(94deg, #FE3C72 1.26%, #E15561 100%) !important;
-  box-shadow: inset 0 0 0 2px #27242C;
-  border: 1px solid var(--secondary-color) !important;
+.textFeild{
+  position: relative;
+  width: 100%;
+  padding: 5px 0px;
 }
 
-::ng-deep label{
-  position: absolute !important;
-  top: 21% !important;
-}
-
-::ng-deep .input-group-wrapper div{
-  position: absolute !important;
-  top: 18px !important;
-  overflow: auto;
-  width: -webkit-fill-available !important;
-  padding-right: 10px;
-}
-
-::ng-deep .input-label .ng-star-inserted .with-value{
-  margin-top: 3px !important;
-}
 @media screen and (max-width: 430px){
-  input[type=radio]{
-    width: 13px;
-    height: 13px;
-    position: relative !important;
-    top: -1px !important;
-  }
-  .reportItineraies {
-    width: 100%;
-  }
+  /*input[type=radio]{*/
+  /*  width: 13px;*/
+  /*  height: 13px;*/
+  /*  position: relative !important;*/
+  /*  top: -1px !important;*/
+  /*}*/
+  /*.reportItineraies {*/
+  /*  width: 100%;*/
+  /*}*/
 }
 
 @media screen and (max-width: 380px){
-  input[type=radio]{
-    position: relative !important;
-    top: -2px !important;
+  .reportItineraies{
+    padding: 0px 20px;
   }
-  .textFeild{
-    width: 280px;
-  }
+  /*input[type=radio]{*/
+  /*  position: relative !important;*/
+  /*  top: -2px !important;*/
+  /*}*/
+  /*.textFeild{*/
+  /*  width: 280px;*/
+  /*}*/
   .radioGroup{
     font-size: 11px !important;
   }
 }
 
 @media screen and (max-width: 330px){
-  .textFeild{
-    width: 250px;
-    font-size: 10px;
-  }
+  /*.textFeild{*/
+  /*  width: 250px;*/
+  /*  font-size: 10px;*/
+  /*}*/
 }

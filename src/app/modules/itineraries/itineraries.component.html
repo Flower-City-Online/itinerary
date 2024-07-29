@@ -4,5 +4,8 @@
   <div class="minScreen">
     <router-outlet></router-outlet>
   </div>
+  <lib-popup [isOpen]="this.modalService.toggleModal">
+    <app-report-itinerary-modal></app-report-itinerary-modal>
+  </lib-popup>
   <app-footer></app-footer>
 </div>

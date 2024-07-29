@@ -5,6 +5,8 @@ import {MatDialog, MatDialogRef} from "@angular/material/dialog";
   providedIn: 'root'
 })
 export class ModalService {
+  public toggleModal = false;
+  public bottomToggleModal = false;
   dialogRef!: MatDialogRef<any>;
 
   constructor(private dialog: MatDialog) {}

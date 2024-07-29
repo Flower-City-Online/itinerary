@@ -1,11 +1,16 @@
 ::ng-deep .btn-selectable {
-  padding: 10px 15px;
+  /* padding: 10px 15px; */
+  padding: 0;
   font-size: 13px !important;
   margin-right: 12px !important;
   position: relative;
   /*top: 10px;*/
   /* First Box Shadow */
-  box-shadow: -4.1px -4.1px 13.13px -2.46px #CBC7D140;
+  box-shadow: -4.1px -4.1px 13.13px -2.46px #cbc7d140;
+}
+
+::ng-deep .btn-selectable button {
+  background: transparent !important;
 }
 
 /*::ng-deep .filterBtn .mat-ripple{*/
@@ -36,63 +41,65 @@
     margin-right: 7px !important;
   }
 
-  ::ng-deep .selectable-container{
+  ::ng-deep .selectable-container {
     padding: 0 14px !important;
   }
 }
 
-::ng-deep .selectable-container{
+::ng-deep .selectable-container {
   padding: 0 !important;
 }
 
-::ng-deep .btn-selectable.selected{
-  background: linear-gradient(94.44deg, #FE3C72 1.26%, #E15561 100%);
+::ng-deep .btn-selectable.selected {
+  background: linear-gradient(94.44deg, #fe3c72 1.26%, #e15561 100%);
 }
 
-
-.filterMenu{
+.filterMenu {
   display: flex;
-  /*justify-content: space-between !important;*/
   align-items: center;
   justify-content: center;
   margin-top: 10px;
 }
 
-.filterBtn{
-  border-radius:20px;;
+.filterBtn {
+  border-radius: 20px;
   margin-bottom: 3px;
   height: 34px;
   width: 34px;
-   background: #27242C;
-  box-shadow: 9.026px 8.205px 22.153px 2.051px rgba(17, 16, 20, 0.65), -4.102px -4.102px 13.128px -2.462px rgba(203, 199, 209, 0.25) !important;
+  background: #27242c;
+  box-shadow:
+    9.026px 8.205px 22.153px 2.051px rgba(17, 16, 20, 0.65),
+    -4.102px -4.102px 13.128px -2.462px rgba(203, 199, 209, 0.25) !important;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.filterBtn img{
+.filterBtn img {
   margin-top: 3px;
   margin-left: 2px;
 }
 
-@media screen and (max-width: 380px){
+@media screen and (max-width: 380px) {
   ::ng-deep .btn-selectable {
-    padding: 9px 14px;
+    /* padding: 9px 14px; */
     font-size: 11px !important;
     margin-right: 7px !important;
     position: relative;
-    /*top: 10px;*/
-    /* First Box Shadow */
-    box-shadow: -4.1px -4.1px 13.13px -2.46px #CBC7D140;
+    box-shadow: -4.1px -4.1px 13.13px -2.46px #cbc7d140;
   }
 
-  .filterBtn{
+  .filterBtn {
     height: 27px !important;
     width: 27px !important;
   }
 
-  .filterBtn img{
+  .filterBtn img {
     height: 14px !important;
     width: 14px !important;
   }
+}
+
+::ng-deep .button-native {
+  background: transparent !important;
 }

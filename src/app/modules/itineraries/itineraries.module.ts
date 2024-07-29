@@ -25,6 +25,7 @@ import { CreateItineraryModalItemComponent } from './pages/builder/components/cr
 import {TranslateModule} from "@ngx-translate/core";
 import {ExploreListComponent} from "./pages/explore/components/explore-list/explore-list.component";
 import { DeleteItinerariesComponent } from './components/delete-itineraries/delete-itineraries.component';
+import { IonicModule } from '@ionic/angular';
 @NgModule({
   declarations: [
     ItinerariesComponent,
@@ -40,7 +41,8 @@ import { DeleteItinerariesComponent } from './components/delete-itineraries/dele
     DeleteItinerariesComponent,
   ],
   exports: [
-    FilterMenuComponent
+    FilterMenuComponent,
+    DeleteItinerariesComponent,
   ],
     imports: [
         CommonModule,

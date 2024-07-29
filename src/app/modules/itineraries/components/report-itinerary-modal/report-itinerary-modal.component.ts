@@ -10,8 +10,8 @@ import {FormBuilder, FormControl, FormGroup} from "@angular/forms";
 })
 export class ReportItineraryModalComponent implements OnInit {
   selectedItem: any;
-  form: FormGroup = new FormGroup({
-    rd: new FormControl(),
+  formGroup = new FormGroup({
+    radio: new FormControl(0),
   });
   options = [
     { label: 'Spam & Unwanted Content', value: 1,selected:false },
@@ -26,22 +26,38 @@ export class ReportItineraryModalComponent implements OnInit {
   ];
   constructor(private fb: FormBuilder,public modalService: ModalService) {
   }
-  radioChecked(id:number, i:number){
-    this.options.forEach(item=>{
-      if(item.value !== id){
-        item.selected = false;
-      }else{
-        item.selected = true;
-      }
-    })
-    this.selectedItem = id
-    console.log(this.selectedItem)
+
+  radioChecked(){
+    console.log("sdasdasd")
+    console.log(this.formGroup.controls.radio.value)
+    if(this.formGroup.controls.radio.value == 9){
+      this.selectedItem = 9
+    }else{
+      this.selectedItem = 0
+    }
+    // this.options.forEach(item=>{
+    //   if(item.value !== id){
+    //     item.selected = false;
+    //   }else{
+    //     item.selected = true;
+    //   }
+    // })
+    // this.selectedItem = id
+    // console.log(this.selectedItem)
   }
   ngOnInit(): void {
-
+    this.formGroup.controls.radio.valueChanges.subscribe((e) => {
+      if(e == 9){
+        this.selectedItem = 9
+      }else{
+        this.selectedItem = 0
+      }
+    })
   }
 
-  test(){
-
+  closeModal(){
+    this.modalService.toggleModal = !this.modalService.toggleModal
   }
+
+  protected readonly FormFieldType = FormFieldType;
 }

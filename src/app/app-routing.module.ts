@@ -5,6 +5,10 @@ import {SearchComponent} from "./modules/search/search.component";
 import {ArchivesComponent} from "./modules/archives/archives.component";
 import {DashboardComponent} from "./modules/dashboard/dashboard.component";
 import {PathwayComponent} from "./modules/pathway/pathway.component";
+import { RangeSelectorDemoComponent } from './components/range-selector-demo/range-selector-demo.component';
+import { BottomModalDemoComponent } from './components/bottom-modal-demo/bottom-modal-demo.component';
+import { PopupModalDemoComponent } from './components/popup-modal-demo/popup-modal-demo.component';
+import { ButtonsDemoComponent } from './components/buttons-demo/buttons-demo.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'itineraries', pathMatch: 'full' },
@@ -13,6 +17,10 @@ const routes: Routes = [
   { path: 'archives', component: ArchivesComponent, loadChildren: () => import('./modules/archives/archives.module').then(x => x.ArchivesModule) },
   { path: 'dashboard', component: DashboardComponent, loadChildren: () => import('./modules/dashboard/dashboard.module').then(x => x.DashboardModule) },
   { path: 'pathway', component: PathwayComponent, loadChildren: () => import('./modules/pathway/pathway.module').then(x => x.PathwayModule) },
+  { path: 'range', component: RangeSelectorDemoComponent},
+  { path: 'bottom', component: BottomModalDemoComponent},
+  { path: 'popup', component: PopupModalDemoComponent},
+  { path: 'button', component: ButtonsDemoComponent},
 ];
 
 @NgModule({

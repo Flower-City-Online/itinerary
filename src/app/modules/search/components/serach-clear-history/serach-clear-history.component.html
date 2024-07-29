@@ -5,5 +5,10 @@
     </span>
     Clear History
   </div>
+  <lib-popup
+    [isOpen]="this.modalService.toggleModal"
+  >
+    <app-delete-modal></app-delete-modal>
+  </lib-popup>
   <app-section-seprater></app-section-seprater>
 </div>

@@ -25,3 +25,8 @@
     width: 13px;
   }
 }
+
+::ng-deep .modal-wrapper{
+  background: transparent !important;
+  box-shadow: none !important;
+}
