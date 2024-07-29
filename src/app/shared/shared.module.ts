@@ -45,6 +45,7 @@ import { CustomMenuComponent } from './components/custom-menu/custom-menu.compon
     ModalBottomBarComponent,
     SectionSepraterComponent,
     CustomHeadingWithButtonComponent,
+    DeleteModalComponent,
   ],
   imports: [
     CommonModule,

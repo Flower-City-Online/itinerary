@@ -9,4 +9,8 @@ import {ModalService} from "../../../../services/core/modal/modal.service";
 export class DeleteItinerariesComponent {
   constructor(public modalService: ModalService) {
   }
+
+  closeModal(){
+    this.modalService.toggleModal = !this.modalService.toggleModal;
+  }
 }

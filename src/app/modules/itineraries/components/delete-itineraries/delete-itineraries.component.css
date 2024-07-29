@@ -1,8 +1,8 @@
 .deleteModal{
-  background: #28252D;
-  box-shadow: -2.46px -2.46px 13.13px 0px #FFFFFF1A;
+  /*background: #28252D;*/
+  /*box-shadow: -2.46px -2.46px 13.13px 0px #FFFFFF1A;*/
   /*border-radius: 10px;*/
-  padding: 20px 10px;
+  padding: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -18,7 +18,7 @@
 .deleteModal p{
   font-size: 12px;
   color: #FFFFFF;
-  padding: 0px 23px;
+  width: 250px;
 }
 
 .checkBoxFeild{
@@ -45,6 +45,10 @@
 
 ::ng-deep .mat-mdc-dialog-surface{
   border-radius: 10px !important;
+}
+
+.parentClassForModal{
+  margin-top: 30px;
 }
 
 @media  screen and (max-width: 380px){

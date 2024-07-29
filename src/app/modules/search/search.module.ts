@@ -8,7 +8,7 @@ import { RecentSearchesComponent } from './components/recent-searches/recent-sea
 import { QuickActionsComponent } from './components/quick-actions/quick-actions.component';
 import {SharedModule} from "../../shared/shared.module";
 import { MainSearchComponent } from './pages/main-search/main-search.component';
-import {SectionSeparatorComponent} from "nextsapien-component-lib";
+import { LibModalModule, SectionSeparatorComponent } from 'nextsapien-component-lib';
 import { RecentSearchesListComponent } from './components/recent-searches-list/recent-searches-list.component';
 import { RecentSearchesItemComponent } from './components/recent-searches-item/recent-searches-item.component';
 import { SerachBottomBarComponent } from './components/serach-bottom-bar/serach-bottom-bar.component';
@@ -32,7 +32,8 @@ import { SerachClearHistoryComponent } from './components/serach-clear-history/s
     SearchRoutingModule,
     SharedModule,
     SectionSeparatorComponent,
-    NgOptimizedImage
-  ]
+    NgOptimizedImage,
+    LibModalModule,
+  ],
 })
 export class SearchModule { }

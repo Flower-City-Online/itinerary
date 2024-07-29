@@ -40,6 +40,6 @@ export class CreateItineraryModalComponent {
   }
 
   backButton() {
-    this.modalService.closeModal();
+    this.modalService.bottomToggleModal = !this.modalService.bottomToggleModal;
   }
 }

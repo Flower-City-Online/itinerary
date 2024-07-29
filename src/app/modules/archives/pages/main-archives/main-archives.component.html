@@ -3,4 +3,9 @@
   <div class="mt-7">
     <app-card-component [libMenuItem]="libMenuItem"></app-card-component>
   </div>
+  <lib-popup
+    [isOpen]="this.modalService.toggleModal"
+  >
+    <app-delete-itineraries></app-delete-itineraries>
+  </lib-popup>
 </div>

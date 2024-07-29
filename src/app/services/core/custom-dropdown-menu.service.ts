@@ -156,9 +156,11 @@ export class CustomDropdownMenuService{
 
 
   openModal() {
-    this.modalService.openModal(DeleteItinerariesComponent,this.cssClasses)
+    this.modalService.toggleModal = !this.modalService.toggleModal;
+    console.log(this.modalService.toggleModal)
   }
   openModal2() {
-    this.modalService.openModal(ReportItineraryModalComponent,this.cssClasses)
+    this.modalService.toggleModal = !this.modalService.toggleModal;
+    console.log(this.modalService.toggleModal)
   }
 }

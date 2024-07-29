@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Output} from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import {ModalService} from "../../../services/core/modal/modal.service";
 
 @Component({
@@ -13,5 +13,10 @@ export class DeleteModalComponent {
 
   deleteItem() {
     this.delete.emit();
+  }
+
+  cancelToggle(){
+    this.modalService.toggleModal = !this.modalService.toggleModal;
+    console.log(this.modalService.toggleModal)
   }
 }

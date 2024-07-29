@@ -17,6 +17,11 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
+    this.handleScreenSizeChange();
+  }
+
+  //use to change application ui and behaviour based on screen size
+  handleScreenSizeChange(){
     this.checkWindowWidth()
     this.breakpointSubscription = this.breakpointObserver.observe([
       Breakpoints.Small,
@@ -25,7 +30,7 @@ export class AppComponent implements OnInit, OnDestroy {
       this.isSmallScreen = state.matches;
       if (this.isSmallScreen) {
         // this.router.navigate(['/itineraries'])
-        this.renderer.removeClass(document.body, 'cus tomBody');
+        this.renderer.removeClass(document.body, 'customBody');
         console.log('Small screen detected');
       } else {
         this.router.navigate(['/dashboard'])
@@ -49,6 +54,7 @@ export class AppComponent implements OnInit, OnDestroy {
       }
     }
   }
+
   ngOnDestroy(): void {
     this.breakpointSubscription.unsubscribe();
   }

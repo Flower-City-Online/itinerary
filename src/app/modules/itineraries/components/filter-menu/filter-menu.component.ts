@@ -1,14 +1,22 @@
-import {Component, Input} from '@angular/core';
+import { Component, Input, ViewEncapsulation } from '@angular/core';
 import {FormControl, FormGroup} from "@angular/forms";
 import {filter} from "rxjs";
 
 @Component({
   selector: 'app-filter-menu',
   templateUrl: './filter-menu.component.html',
-  styleUrl: './filter-menu.component.css'
+  styleUrl: './filter-menu.component.css',
 })
 export class FilterMenuComponent {
   @Input() cssClass!: string;
+
+  constructor() {
+    const element = document.getElementsByClassName('button-native');
+    console.log(element)
+    if (element) {
+      console.log(element.length)
+    }
+  }
   options = [
     { label: 'Featured', value: '1' },
     { label: 'Hot', value: '2' },
