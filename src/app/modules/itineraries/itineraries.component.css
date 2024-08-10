@@ -1,3 +1,9 @@
-.bottomPadding{
+.minScreenMain {
+  overflow-y: auto;
+}
+.bottomPadding {
   min-height: 10px;
+}
+.minScreen {
+  padding-bottom: 60px;
 }

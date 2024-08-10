@@ -1,4 +1,4 @@
-.reportItineraies{
+.reportItineraies {
   width: 330px;
   /*background: #28252D;*/
   /*box-shadow: -2.46px -2.46px 13.13px 0px #FFFFFF1A;*/
@@ -11,18 +11,18 @@
   flex-direction: column;
 }
 
-::ng-deep .mat-mdc-dialog-surface{
+::ng-deep .mat-mdc-dialog-surface {
   border-radius: 10px !important;
 }
 
-.reportItineraies h1{
-  font-family: 'Calistoga';
+.reportItineraies h1 {
+  font-family: "Calistoga";
 }
 
-input{
+input {
   box-shadow: none;
-  background: #27242C;
-  color: #27242C;
+  background: #27242c;
+  color: #27242c;
   height: 13px;
   width: 40px;
 }
@@ -35,7 +35,7 @@ input{
 /*  font-size: 13px;*/
 /*}*/
 
-::ng-deep .input-group-wrapper{
+::ng-deep .input-group-wrapper {
   border-radius: 4px !important;
   height: 80px;
 }
@@ -78,18 +78,18 @@ input{
 /*  margin-top: 3px !important;*/
 /*}*/
 
-::ng-deep .mdc-label{
-  padding:  5px 4px !important;
+::ng-deep .mdc-label {
+  padding: 5px 4px !important;
   font-size: 12px;
 }
 
-.textFeild{
+.textFeild {
   position: relative;
   width: 100%;
   padding: 5px 0px;
 }
 
-@media screen and (max-width: 430px){
+@media screen and (max-width: 430px) {
   /*input[type=radio]{*/
   /*  width: 13px;*/
   /*  height: 13px;*/
@@ -101,9 +101,10 @@ input{
   /*}*/
 }
 
-@media screen and (max-width: 380px){
-  .reportItineraies{
-    padding: 0px 20px;
+@media screen and (max-width: 380px) {
+  .reportItineraies {
+    width: 280px;
+    padding: 0px 10px;
   }
   /*input[type=radio]{*/
   /*  position: relative !important;*/
@@ -112,14 +113,18 @@ input{
   /*.textFeild{*/
   /*  width: 280px;*/
   /*}*/
-  .radioGroup{
+  .radioGroup {
     font-size: 11px !important;
   }
 }
 
-@media screen and (max-width: 330px){
+@media screen and (max-width: 330px) {
   /*.textFeild{*/
   /*  width: 250px;*/
   /*  font-size: 10px;*/
   /*}*/
+}
+
+::ng-deep .input-label {
+  top: 24px !important;
 }
