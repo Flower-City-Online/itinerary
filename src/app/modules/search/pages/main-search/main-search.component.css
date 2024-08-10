@@ -1,8 +1,13 @@
-@media screen and (max-width: 380px){
-  .subScreen{
+.mainSearchScreen {
+  height: 100%;
+  overflow-y: auto;
+}
+
+@media screen and (max-width: 380px) {
+  .subScreen {
     padding-inline: 15px;
   }
-  .searchChips{
+  .searchChips {
     font-size: 10px !important;
     padding-inline: 2px !important;
   }

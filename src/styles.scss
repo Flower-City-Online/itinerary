@@ -308,6 +308,7 @@ body {
 body {
   margin: 0;
   font-family: Gilroy-Regular;
+  overflow: hidden;
 }
 
 .parentClassForModal {
@@ -380,38 +381,35 @@ body {
   }
 }
 
-
-::ng-deep .lib-bottom-modal .modal-wrapper{
+::ng-deep .lib-bottom-modal .modal-wrapper {
   background: transparent !important;
   box-shadow: none !important;
 }
 
-#bottomModalContentRef{
+#bottomModalContentRef {
   background: transparent;
   margin-top: 0px !important;
 }
 
-.lib-bottom-modal-loader{
+.lib-bottom-modal-loader {
   display: none !important;
 }
 
-.fading-line{
+.fading-line {
   display: none;
 }
 
-.modal-handle{
-    display: none !important;
-}
-
-.lib-bottom-modal-header{
+.modal-handle {
   display: none !important;
 }
 
-.lib-bottom-modal-header.ng-star-inserted{
-  display: none;
+.lib-bottom-modal-header {
+  display: none !important;
 }
 
-
+.lib-bottom-modal-header.ng-star-inserted {
+  display: none;
+}
 
 :host ::ng-deep .button-native {
   border-radius: var(--border-radius);

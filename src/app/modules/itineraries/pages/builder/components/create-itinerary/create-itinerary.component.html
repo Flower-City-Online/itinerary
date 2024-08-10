@@ -1,9 +1,17 @@
 <button (click)="openModal()" class="builderAddBtn p-5 mt-6">
-    <span>
-      <img ngSrc="assets/icons/plus.svg" height="13" width="16">
-    </span>
+  <span>
+    <img ngSrc="assets/icons/plus.svg" height="13" width="16" />
+  </span>
   Create New Itinerary
 </button>
-<lib-bottom-modal class='customBottomModal' [isOpen]='this.modalService.bottomToggleModal'>
+<lib-bottom-modal
+  #testModal
+  [canDismiss]="false"
+  [cancelButtonTitle]="'back'"
+  class="customBottomModal"
+  [showBackBtn]="true"
+  (isOpenChange)="enableBack = !enableBack"
+  [isOpen]="this.modalService.bottomToggleModal"
+>
   <app-create-itinerary-modal></app-create-itinerary-modal>
 </lib-bottom-modal>
