@@ -6,12 +6,10 @@
 </button>
 <lib-bottom-modal
   #testModal
-  [canDismiss]="false"
-  [cancelButtonTitle]="'back'"
   class="customBottomModal"
-  [showBackBtn]="true"
   (isOpenChange)="enableBack = !enableBack"
   [isOpen]="this.modalService.bottomToggleModal"
+  [customClass]="'customModal'"
 >
   <app-create-itinerary-modal></app-create-itinerary-modal>
 </lib-bottom-modal>

@@ -1,32 +1,34 @@
-.bottomNavItem{
+.bottomNavItem {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  min-width: 30px;
+  max-width: 60px;
 }
-.bottomNavItem span{
-  color:#FFFFFF;
+.bottomNavItem span {
+  color: #ffffff;
   opacity: 30%;
   font-size: 11px;
   line-height: 15px;
 }
 
-.bottomNavItem .spanText:nth-child(3){
+.bottomNavItem .spanText:nth-child(3) {
   background: red !important;
   margin-top: 3px !important;
 }
 
-::ng-deep .active{
+::ng-deep .active {
   color: var(--secondary-color) !important;
   opacity: 100% !important;
 }
 
-@media screen and (max-width: 380px){
-  .bottomNavItem img{
+@media screen and (max-width: 380px) {
+  .bottomNavItem img {
     height: 13px !important;
     width: 13px !important;
   }
-  .bottomNavItem span{
+  .bottomNavItem span {
     font-size: 10px;
     line-height: 12px;
   }
