@@ -1,10 +1,11 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, ViewEncapsulation } from "@angular/core";
 import { ModalService } from "../../../../../../services/core/modal/modal.service";
 
 @Component({
   selector: "app-create-itinerary-modal",
   templateUrl: "./create-itinerary-modal.component.html",
   styleUrl: "./create-itinerary-modal.component.css",
+  encapsulation: ViewEncapsulation.Emulated,
 })
 export class CreateItineraryModalComponent implements OnInit {
   constructor(public modalService: ModalService) {}

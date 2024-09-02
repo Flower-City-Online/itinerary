@@ -1,32 +1,54 @@
-.builderAddBtn{
+.builderAddBtn {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: row;
   width: 100% !important;
-  box-shadow: -4.1px -4.1px 13.13px -2.46px #CBC7D140;
+  box-shadow: -4.1px -4.1px 13.13px -2.46px #cbc7d140;
   border-radius: 10px;
   color: var(--lib-secondary-button-font-color);
   text-shadow: var(--lib-secondary-button-text-shadow);
   line-height: 10px;
-  font-family: 'Calistoga';
+  font-family: "Calistoga";
 }
-.builderAddBtn span{
+.builderAddBtn span {
   margin-right: 10px;
 }
 
-@media (max-width: 380px){
-  .builderAddBtn{
+@media (max-width: 380px) {
+  .builderAddBtn {
     width: 100% !important;
     font-size: 14px !important;
   }
-  .builderAddBtn img{
+  .builderAddBtn img {
     height: 13px;
     width: 13px;
   }
 }
 
-::ng-deep .modal-wrapper{
+::ng-deep .customModal .modal-wrapper.ion-overlay-wrapper {
   background: transparent !important;
   box-shadow: none !important;
 }
+/*
+::ng-deep
+  .customModal
+  .ion-delegate-host
+  .wrapper
+  .lib-bottom-modal-cancel-btn
+  .lib-button-component
+  button.mat-ripple:hover,
+.customModal
+  .ion-delegate-host
+  .wrapper
+  .lib-bottom-modal-cancel-btn
+  .lib-button-component
+  button.mat-ripple:active,
+.customModal
+  .ion-delegate-host
+  .wrapper
+  .lib-bottom-modal-cancel-btn
+  .lib-button-component
+  button.mat-ripple:focus {
+  background: red !important;
+} */

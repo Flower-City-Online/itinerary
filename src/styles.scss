@@ -468,3 +468,7 @@ body {
   appearance: none;
   background: transparent !important;
 }
+
+::ng-deep .modal-wrapper.ion-overlay-wrapper {
+  background: transparent !important;
+}
