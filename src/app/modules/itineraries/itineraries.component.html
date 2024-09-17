@@ -1,5 +1,9 @@
 <div class="minScreenMain w-screen h-screen max-padd-container">
-  <app-header (firstButton)="backButtonClick()" (lastButton)="searchButtonClick()" [heading]="'Itineraries'"></app-header>
+  <app-header
+    (firstButton)="backButtonClick()"
+    (lastButton)="searchButtonClick()"
+    [heading]="'Itineraries'"
+  ></app-header>
   <app-tab-bar></app-tab-bar>
   <div class="minScreen">
     <router-outlet></router-outlet>

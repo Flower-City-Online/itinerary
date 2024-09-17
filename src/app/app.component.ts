@@ -14,6 +14,7 @@ import {
 } from "@angular/core";
 import { Router } from "@angular/router";
 import { Subscription } from "rxjs";
+import { BottomNavigationService } from "./services/core/bottom-navigation.service";
 
 @Component({
   selector: "app-root",
@@ -23,13 +24,13 @@ import { Subscription } from "rxjs";
 export class AppComponent implements OnInit, OnDestroy {
   isSmallScreen = false;
   private breakpointSubscription!: Subscription;
-
   constructor(
     private breakpointObserver: BreakpointObserver,
     private router: Router,
     private renderer: Renderer2,
-    private elementRef: ElementRef,
-    public location: Location
+    public el: ElementRef,
+    public location: Location,
+    public navService: BottomNavigationService
   ) {}
 
   ngOnInit(): void {

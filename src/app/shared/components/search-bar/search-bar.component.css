@@ -1,4 +1,5 @@
-.searchField{
+.searchField {
+  display: flex;
   justify-content: center;
   width: 100%;
   padding: 0;
@@ -7,7 +8,15 @@
   top: 10px;
 }
 
-::ng-deep .container{
+::ng-deep .searchField #searchInput::placeholder {
+  /* font-size: 14px !important; */
+}
+
+::ng-deep .searchField .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 46px;
   width: 100%;
   margin: 0px 10px;
   position: relative;
@@ -15,32 +24,32 @@
   min-width: 100%;
 }
 
-::ng-deep .container__search-bar__icon.container__search-bar__search-icon{
+::ng-deep .container__search-bar__icon.container__search-bar__search-icon {
   position: absolute;
   right: 6%;
   top: 39%;
 }
 
-@media screen and (max-width: 390px){
-  .searchField{
+@media screen and (max-width: 390px) {
+  .searchField {
     margin-top: 10px !important;
   }
-  ::ng-deep .container{
+  ::ng-deep .container {
     margin: 0px 5px;
     position: relative;
     padding: 0px;
   }
 
-  ::ng-deep .container__search-bar__input{
+  ::ng-deep .container__search-bar__input {
     font-size: 12px !important;
   }
 
-  ::ng-deep .container__search-bar__input::placeholder{
+  ::ng-deep .container__search-bar__input::placeholder {
     font-size: 12px !important;
     padding-bottom: 2px;
   }
 
-  ::ng-deep .container__search-bar__icon.container__search-bar__search-icon{
+  ::ng-deep .container__search-bar__icon.container__search-bar__search-icon {
     position: absolute;
     right: 6%;
     height: 12px !important;

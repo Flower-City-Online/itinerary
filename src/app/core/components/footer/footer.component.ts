@@ -1,4 +1,10 @@
-import { Component, ElementRef, OnInit, ViewChild } from "@angular/core";
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  OnInit,
+  ViewEncapsulation,
+} from "@angular/core";
 import { BottomNavigationService } from "src/app/services/core/bottom-navigation.service";
 import { ModalService } from "src/app/services/core/modal/modal.service";
 import { ShadowRootHandlerService } from "src/app/services/core/shadow-root-handler.service";
@@ -6,13 +12,13 @@ import { ShadowRootHandlerService } from "src/app/services/core/shadow-root-hand
 @Component({
   selector: "app-footer",
   templateUrl: "./footer.component.html",
-  styleUrl: "./footer.component.css",
+  styleUrls: ["./footer.component.css"],
+  encapsulation: ViewEncapsulation.Emulated,
+  // Corrected from 'styleUrl' to 'styleUrls'
 })
-export class FooterComponent implements OnInit {
-  @ViewChild("testModal", { static: false })
-  testModal: FooterComponent;
-  enableBack: boolean = true;
-  cssClass = ["create-itinerary-modal"];
+export class FooterComponent implements OnInit, AfterViewInit {
+  public enableBack: boolean = false;
+
   constructor(
     public modalService: ModalService,
     private el: ElementRef,
@@ -20,9 +26,6 @@ export class FooterComponent implements OnInit {
     public bottomNavigationService: BottomNavigationService
   ) {}
 
-  ngAfterViewInit(): void {
-    this.initShadowrootHandler();
-  }
   ngOnInit(): void {
     const selectedElement = this.bottomNavList.find((nav) => nav.id === 4);
     if (selectedElement) {
@@ -31,9 +34,60 @@ export class FooterComponent implements OnInit {
         selectedElement
       );
     }
+    setTimeout(() => {
+      this.enableBack = true;
+    }, 0);
   }
 
-  backClick() {}
+  ngAfterViewInit(): void {
+    this.initShadowrootHandler();
+  }
+
+  initShadowrootHandler() {
+    const targetNode = this.el.nativeElement;
+    this.shadowrootHandler.accessShadowRoot(
+      targetNode,
+      "lib-bottom-modal",
+      () => {
+        this.applyStylesToDialog();
+      }
+    );
+  }
+
+  applyStylesToDialog() {
+    const targetNode = this.el.nativeElement.querySelector(
+      "lib-bottom-modal"
+    ) as HTMLElement;
+
+    if (targetNode) {
+      const classNameElements =
+        targetNode.getElementsByClassName("lib-bottom-modal");
+
+      if (classNameElements.length > 0) {
+        const dialogDiv = classNameElements[0].shadowRoot?.querySelector(
+          'div[role="dialog"]'
+        ) as HTMLElement;
+
+        if (dialogDiv) {
+          const modalHandle = dialogDiv.getElementsByClassName(
+            "modal-handle"
+          )[0] as HTMLElement;
+          if (modalHandle) {
+            modalHandle.style.display = "none";
+            console.log("Modal handle hidden");
+          } else {
+            console.log("Modal handle element not found");
+          }
+        } else {
+          console.log("Dialog div not found");
+        }
+      } else {
+        console.log("Class name not found");
+      }
+    } else {
+      console.log("Shadow root not accessible");
+    }
+  }
 
   bottomNavList = [
     {
@@ -88,50 +142,7 @@ export class FooterComponent implements OnInit {
     },
   ];
 
-  initShadowrootHandler() {
-    const targetNode = this.el.nativeElement;
-    this.shadowrootHandler.accessShadowRoot(
-      targetNode,
-      "lib-bottom-modal",
-      () => {
-        this.applyStylesToDialog();
-      }
-    );
-  }
-
-  applyStylesToDialog() {
-    const targetNode = this.el.nativeElement.querySelector(
-      "lib-bottom-modal"
-    ) as HTMLElement;
-
-    if (targetNode) {
-      const classNameElements =
-        targetNode.getElementsByClassName("lib-bottom-modal");
-
-      if (classNameElements.length > 0) {
-        const dialogDiv = classNameElements[0].shadowRoot?.querySelector(
-          'div[role="dialog"]'
-        ) as HTMLElement;
-
-        if (dialogDiv) {
-          const modalHandle = dialogDiv.getElementsByClassName(
-            "modal-handle"
-          )[0] as HTMLElement;
-          if (modalHandle) {
-            modalHandle.style.display = "none";
-            console.log("Modal handle hidden");
-          } else {
-            console.log("Modal handle element not found");
-          }
-          //remove the dialog uppar bar
-        } else {
-          console.log("Dialog div not found");
-        }
-      } else {
-        console.log("Class name not found");
-      }
-    } else {
-      console.log("Shadow root not accessible");
-    }
+  backClick() {
+    // Implementation for back click event
   }
 }

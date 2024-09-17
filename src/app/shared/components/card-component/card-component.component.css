@@ -1,13 +1,13 @@
-.cardComponent{
-  background: #27242C;
+.cardComponent {
+  background: #27242c;
 }
 
-.bottomTags{
+.bottomTags {
   font-size: 12px;
 }
 
-.draftHeader{
-  color: #BDBDBD;
+.draftHeader {
+  color: #bdbdbd;
   font-weight: normal !important;
   font-size: 11px !important;
   margin-top: 7px;
@@ -16,78 +16,85 @@
   left: 36px;
 }
 
-.draftDescription{
-  color:#ffff;
+.draftDescription {
+  color: #ffff;
 }
 
-.userIconText{
-  color: #BDBDBD;
+.userIconText {
+  color: #bdbdbd;
   margin-top: 2px;
   font-size: 11px;
 }
 
-.bottomIcons{
+.bottomIcons {
   height: 15px;
   width: 16px;
 }
 
-.bottomIcons:last-child{
+.bottomIcons:last-child {
   height: 16px !important;
   width: 17px !important;
 }
 
-.draflOcationImage{
-  height:5rem;
+.draflOcationImage {
+  height: 5rem;
   width: 9rem;
 }
 
-.bottomBarLoc{
-  background: #413F47 !important;
+.bottomBarLoc {
+  background: #413f47 !important;
   width: 5rem !important;
   bottom: 1rem !important;
 }
 
-.locationItemMain{
+.locationItemMain {
   font-size: 12px;
 }
 
-.locationItemMain span{
+.locationItemMain span {
   margin-top: 2px;
   font-size: 12px;
 }
 
-.locationItem span{
-  color: #BBBABC !important;
+.locationItem span {
+  color: #bbbabc !important;
   font-size: 12px;
   margin-top: 2px;
 }
 
-.drahVoterHeader{
+.drahVoterHeader {
   font-family: Gilroy-Thin;
   margin-top: 5px !important;
 }
 
+.title {
+  font-family: "Gilroy-Bold";
+}
 
-@media screen and (max-width: 380px){
-  .title{
+.h-1 {
+  opacity: 0.1 !important;
+}
+
+@media screen and (max-width: 380px) {
+  .title {
     font-size: 13px !important;
   }
-  .draftHeader{
+  .draftHeader {
     font-size: 10px !important;
     left: 20px;
   }
-  .bottomIcons{
+  .bottomIcons {
     height: 12px;
     width: 13px;
   }
-  .userIconText{
+  .userIconText {
     font-size: 11px;
   }
-  .bottomTags{
+  .bottomTags {
     font-size: 10px;
     font-family: Gilroy-Thin;
   }
-  .draftDescription{
+  .draftDescription {
     font-size: 10px;
   }
 }

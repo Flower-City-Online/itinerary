@@ -1,31 +1,29 @@
-import { NgModule } from '@angular/core';
-import {CommonModule, NgOptimizedImage} from '@angular/common';
+import { CommonModule, NgOptimizedImage } from "@angular/common";
+import { NgModule } from "@angular/core";
 
-import { ItinerariesRoutingModule } from './itineraries-routing.module';
-import { ItinerariesComponent } from './itineraries.component';
-import {CoreModule} from "../../core/core.module";
-import { FilterMenuComponent } from './components/filter-menu/filter-menu.component';
-import {AppModule} from "../../app.module";
+import { ReactiveFormsModule } from "@angular/forms";
 import {
-    BottomModalComponent,
-    ButtonsModule, DashedCheckboxModule, FormFieldModule,
-    LibModalModule,
-    SearchBarModule,
-    SelectableModule, TextBoxComponent
+  ButtonsModule,
+  DashedCheckboxModule,
+  FormFieldModule,
+  LibModalModule,
+  SelectableModule,
+  TextBoxComponent,
 } from "nextsapien-component-lib";
-import {ReactiveFormsModule} from "@angular/forms";
-import { ExploreComponent } from './pages/explore/explore.component';
-import { BuilderComponent } from './pages/builder/builder.component';
-import { FavoritesComponent } from './pages/favorites/favorites.component';
-import {SharedModule} from "../../shared/shared.module";
-import {CreateItineraryComponent} from "./pages/builder/components/create-itinerary/create-itinerary.component";
-import {ReportItineraryModalComponent} from "./components/report-itinerary-modal/report-itinerary-modal.component";
-import { CreateItineraryModalComponent } from './pages/builder/components/create-itinerary-modal/create-itinerary-modal.component';
-import { CreateItineraryModalItemComponent } from './pages/builder/components/create-itinerary-modal-item/create-itinerary-modal-item.component';
-import {TranslateModule} from "@ngx-translate/core";
-import {ExploreListComponent} from "./pages/explore/components/explore-list/explore-list.component";
-import { DeleteItinerariesComponent } from './components/delete-itineraries/delete-itineraries.component';
-import { IonicModule } from '@ionic/angular';
+import { CoreModule } from "../../core/core.module";
+import { SharedModule } from "../../shared/shared.module";
+import { DeleteItinerariesComponent } from "./components/delete-itineraries/delete-itineraries.component";
+import { FilterMenuComponent } from "./components/filter-menu/filter-menu.component";
+import { ReportItineraryModalComponent } from "./components/report-itinerary-modal/report-itinerary-modal.component";
+import { ItinerariesRoutingModule } from "./itineraries-routing.module";
+import { ItinerariesComponent } from "./itineraries.component";
+import { BuilderComponent } from "./pages/builder/builder.component";
+import { CreateItineraryModalItemComponent } from "./pages/builder/components/create-itinerary-modal-item/create-itinerary-modal-item.component";
+import { CreateItineraryModalComponent } from "./pages/builder/components/create-itinerary-modal/create-itinerary-modal.component";
+import { CreateItineraryComponent } from "./pages/builder/components/create-itinerary/create-itinerary.component";
+import { ExploreListComponent } from "./pages/explore/components/explore-list/explore-list.component";
+import { ExploreComponent } from "./pages/explore/explore.component";
+import { FavoritesComponent } from "./pages/favorites/favorites.component";
 @NgModule({
   declarations: [
     ItinerariesComponent,
@@ -40,23 +38,20 @@ import { IonicModule } from '@ionic/angular';
     ExploreListComponent,
     DeleteItinerariesComponent,
   ],
-  exports: [
-    FilterMenuComponent,
-    DeleteItinerariesComponent,
+  exports: [FilterMenuComponent, DeleteItinerariesComponent],
+  imports: [
+    CommonModule,
+    ItinerariesRoutingModule,
+    CoreModule,
+    SelectableModule,
+    ReactiveFormsModule,
+    ButtonsModule,
+    NgOptimizedImage,
+    SharedModule,
+    LibModalModule,
+    FormFieldModule,
+    TextBoxComponent,
+    DashedCheckboxModule,
   ],
-    imports: [
-        CommonModule,
-        ItinerariesRoutingModule,
-        CoreModule,
-        SelectableModule,
-        ReactiveFormsModule,
-        ButtonsModule,
-        NgOptimizedImage,
-        SharedModule,
-        LibModalModule,
-        FormFieldModule,
-        TextBoxComponent,
-        DashedCheckboxModule,
-    ]
 })
-export class ItinerariesModule { }
+export class ItinerariesModule {}
