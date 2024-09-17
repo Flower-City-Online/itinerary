@@ -5,6 +5,7 @@ import { Injectable } from "@angular/core";
 })
 export class BottomNavigationService {
   public isShowNavigation: boolean = false;
+
   bottomNavList = [
     {
       id: 1,

@@ -4,7 +4,6 @@ import {
   ElementRef,
   OnInit,
   ViewChild,
-  ViewEncapsulation,
 } from "@angular/core";
 import { ShadowRootHandlerService } from "src/app/services/core/shadow-root-handler.service";
 import { ModalService } from "../../../../../../services/core/modal/modal.service";
@@ -13,12 +12,12 @@ import { ModalService } from "../../../../../../services/core/modal/modal.servic
   selector: "app-create-itinerary",
   templateUrl: "./create-itinerary.component.html",
   styleUrl: "./create-itinerary.component.css",
-  encapsulation: ViewEncapsulation.None,
+  // encapsulation: ViewEncapsulation.None,
 })
 export class CreateItineraryComponent implements OnInit, AfterViewInit {
   @ViewChild("testModal", { static: false })
   testModal: CreateItineraryComponent;
-  enableBack: boolean = false;
+  enableBack: boolean = true;
   cssClass = ["create-itinerary-modal"];
   constructor(
     public modalService: ModalService,
@@ -27,7 +26,12 @@ export class CreateItineraryComponent implements OnInit, AfterViewInit {
   ) {
     // this.accessShadowRoot();
   }
+
   ngAfterViewInit(): void {
+    this.initShadowrootHandler();
+  }
+
+  initShadowrootHandler() {
     const targetNode = this.el.nativeElement;
     this.shadowrootHandler.accessShadowRoot(
       targetNode,

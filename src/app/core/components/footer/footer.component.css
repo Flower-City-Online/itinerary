@@ -42,3 +42,17 @@
   height: 100% !important;
   max-width: 100% !important;
 }
+
+@media screen and (min-width: 500px) {
+  ::ng-deep .customNavBottomModal {
+    background: none;
+    z-index: 20003;
+    pointer-events: auto;
+    box-shadow: none;
+    width: 500px !important;
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

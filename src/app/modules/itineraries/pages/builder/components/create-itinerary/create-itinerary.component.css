@@ -1,15 +1,24 @@
-.builderAddBtn {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
+::ng-deep .builderAddBtn lib-base-btn .mat-ripple .btn-text {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  flex-direction: row !important;
   width: 100% !important;
-  box-shadow: -4.1px -4.1px 13.13px -2.46px #cbc7d140;
-  border-radius: 10px;
-  color: var(--lib-secondary-button-font-color);
-  text-shadow: var(--lib-secondary-button-text-shadow);
-  line-height: 10px;
-  font-family: "Calistoga";
+  color: var(--lib-secondary-button-font-color) !important;
+  text-shadow: var(--lib-secondary-button-text-shadow) !important;
+}
+
+::ng-deep .builderAddBtn .lib-button-container {
+  display: none !important;
+}
+::ng-deep .builderAddBtn .mat-ripple {
+  background: none !important;
+  box-shadow: -4.1px -4.1px 13.13px -2.46px #cbc7d140 !important;
+  border-radius: 10px !important;
+  border: none !important;
+  line-height: 10px !important;
+  font-family: "Calistoga" !important;
+  height: 60px !important;
 }
 .builderAddBtn span {
   margin-right: 10px;

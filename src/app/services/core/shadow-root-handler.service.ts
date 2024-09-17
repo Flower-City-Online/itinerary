@@ -6,12 +6,6 @@ import { Injectable } from "@angular/core";
 export class ShadowRootHandlerService {
   constructor() {}
 
-  /**
-   * Accesses a nested shadow root and applies a callback.
-   * @param targetNode - The root element where the custom component is located.
-   * @param componentSelectors - An array of selectors leading to the target shadow DOM element.
-   * @param callback - The function to execute once the shadow DOM is available.
-   */
   accessShadowRoot(
     targetNode: HTMLElement,
     componentName: string,
@@ -39,6 +33,7 @@ export class ShadowRootHandlerService {
 
       // Apply callback when the component is initialized
       callback();
+      // observer.disconnect();
     } else {
       console.log(`${componentName} element not found`);
     }

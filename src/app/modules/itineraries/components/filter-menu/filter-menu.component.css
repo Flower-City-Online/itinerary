@@ -7,33 +7,9 @@
   /*top: 10px;*/
   /* First Box Shadow */
   box-shadow: -4.1px -4.1px 13.13px -2.46px #cbc7d140;
+  background-color: #27242c !important;
+  color: #ffff !important;
 }
-
-::ng-deep .btn-selectable button {
-  background: transparent !important;
-}
-
-/*::ng-deep .filterBtn .mat-ripple{*/
-/*  padding: 0 !important;*/
-/*  margin: 0 !important;*/
-/*  display: block !important;*/
-/*  min-width: 40px !important;*/
-/*}*/
-
-/*::ng-deep .filterBtn button{*/
-/*  min-width: 40px !important;*/
-/*  min-height: 40px !important;*/
-/*}*/
-/*::ng-deep .lib-icon-btn[_nghost-ng-c279558532] button[_ngcontent-ng-c279558532], lib-icon-btn [_nghost-ng-c279558532] button[_ngcontent-ng-c279558532]{*/
-/*  min-width: 40px !important;*/
-/*  min-height: 40px !important;*/
-/*}*/
-/*::ng-deep .filterBtn .lib-button-component button{*/
-/*  box-shadow: 9.026px 8.205px 22.153px 2.051px rgba(17, 16, 20, 0.65), -4.102px -4.102px 13.128px -2.462px rgba(203, 199, 209, 0.25) !important;*/
-/*  background: #27242C !important;*/
-/*  min-width: 40px !important;*/
-/*  min-height: 40px !important;*/
-/*}*/
 
 @media (min-width: 960px) {
   ::ng-deep .btn-selectable {
@@ -64,9 +40,7 @@
 .filterBtn {
   border-radius: 20px;
   margin-bottom: 3px;
-  height: 34px;
-  width: 34px;
-  background: #27242c;
+  background: #27242c !important;
   box-shadow:
     9.026px 8.205px 22.153px 2.051px rgba(17, 16, 20, 0.65),
     -4.102px -4.102px 13.128px -2.462px rgba(203, 199, 209, 0.25) !important;
@@ -75,9 +49,23 @@
   align-items: center;
 }
 
+::ng-deep .filterBtn .lib-button-component .mat-ripple {
+  background: #27242c !important;
+  border: none !important;
+}
+
+.filterBtn {
+  height: 32px !important;
+  width: 32px !important;
+}
+
+::ng-deep .filterBtn .lib-button-component .lib-button-container {
+  display: none !important;
+}
+
 .filterBtn img {
-  margin-top: 3px;
-  margin-left: 2px;
+  /* margin-top: 3px;*/
+  margin-left: 1.6px;
 }
 
 @media screen and (max-width: 380px) {
@@ -90,8 +78,8 @@
   }
 
   .filterBtn {
-    height: 27px !important;
-    width: 27px !important;
+    height: 32px !important;
+    width: 32px !important;
   }
 
   .filterBtn img {
@@ -106,4 +94,17 @@
 
 ::ng-deep .btn-selectable[_ngcontent-ng-c3164006478] {
   padding: 0 !important;
+}
+
+@media screen and (max-width: 320px) {
+  ::ng-deep .btn-selectable {
+    margin: 2px !important;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 327px) {
+  /* Your CSS rules here */
+  ::ng-deep .btn-selectable {
+    margin: 2px !important;
+  }
 }

@@ -322,7 +322,7 @@ body {
 .customHeadingSectionHeading {
   width: 100%;
   padding: 8px 4px;
-  margin-top: 15px;
+  // margin-top: 15px;
 }
 
 ::ng-deep .apply-ng-deep-styles {
@@ -471,4 +471,13 @@ body {
 
 ::ng-deep .modal-wrapper.ion-overlay-wrapper {
   background: transparent !important;
+}
+
+::ng-deep .modal-handle {
+  display: none !important;
+}
+
+::ng-deep ion-modal.lib-bottom-modal[_ngcontent-ng-c1153917535]::part(handle) {
+  opacity: 0 !important;
+  display: none !important;
 }
