@@ -1,4 +1,5 @@
-.favouriteMainSection,.favouriteSubSection{
+.favouriteMainSection,
+.favouriteSubSection {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -7,14 +8,14 @@
   width: 100%;
   height: 100%;
 }
-.favouriteMainSection h1{
-  font-family: 'Calistoga';
+.favouriteMainSection h1 {
+  font-family: "Calistoga";
   font-size: 30px;
 }
-.favouriteMainSection p{
-  color: rgb(255,255, 255,0.7) !important;
+.favouriteMainSection p {
+  color: rgb(255, 255, 255, 0.7) !important;
 }
-::ng-deep .btnStyle .btn-text{
+/* ::ng-deep .btnStyle .btn-text{
   text-shadow: 0px 0px 9.846px rgba(254, 60, 114, 0.35) !important;
   color: var(--primary-font-color) !important;
 }
@@ -25,14 +26,14 @@
   width: 100% !important;
   background: #27242C !important;
   box-shadow: -5.744px -5.744px 11.487px 0px rgba(16, 16, 16, 0.00) inset, 3.282px 1.641px 3.282px 0px #323232 inset, 2.462px 2.462px 4.923px 0px #272A2C inset, -2.462px -2.462px 4.923px 0px rgba(0, 0, 0, 0.32) inset, 4.923px 4.923px 9.846px 0px #151617, -4.102px -4.102px 8.205px 0px #333, 9.026px 8.205px 22.153px 2.051px rgba(17, 16, 20, 0.65), -4.102px -4.102px 13.128px -2.462px rgba(203, 199, 209, 0.25);;
-}
+} */
 
-::ng-deep .btnStyle .lib-button-component{
+::ng-deep .btnStyle .lib-button-component {
   /*background-color: #27242C !important;*/
 }
 
-::ng-deep .btnStyle .lib-button-container{
-  border: none !important;
+::ng-deep .btnStyle .lib-button-container {
+  /* border: none !important; */
   /*box-shadow: -4.744px -64.744px 4.487px 0px rgba(16, 16, 16, 0.00) inset,*/
   /*3.282px 1.641px 0.282px 0px #323232 inset,*/
   /*2.462px 2.462px 1.923px 0px #272A2C inset,*/
@@ -41,12 +42,12 @@
   /*-4.102px -4.102px 6.205px 0px #333,*/
   /*9.026px 8.205px 14.153px 2.051px rgba(17, 16, 20, 0.65),*/
   /*-4.102px -4.102px 8.128px -2.462px rgba(203, 199, 209, 0.25) !important;*/
-  box-shadow: -5.744px -5.744px 11.487px 0px rgba(16, 16, 16, 0.00) inset, 3.282px 1.641px 3.282px 0px #323232 inset, 2.462px 2.462px 4.923px 0px #272A2C inset, -2.462px -2.462px 4.923px 0px rgba(0, 0, 0, 0.32) inset, 4.923px 4.923px 9.846px 0px #151617, -4.102px -4.102px 8.205px 0px #333, 9.026px 8.205px 22.153px 2.051px rgba(17, 16, 20, 0.65), -4.102px -4.102px 13.128px -2.462px rgba(203, 199, 209, 0.25);;
+  /* box-shadow: -5.744px -5.744px 11.487px 0px rgba(16, 16, 16, 0.00) inset, 3.282px 1.641px 3.282px 0px #323232 inset, 2.462px 2.462px 4.923px 0px #272A2C inset, -2.462px -2.462px 4.923px 0px rgba(0, 0, 0, 0.32) inset, 4.923px 4.923px 9.846px 0px #151617, -4.102px -4.102px 8.205px 0px #333, 9.026px 8.205px 22.153px 2.051px rgba(17, 16, 20, 0.65), -4.102px -4.102px 13.128px -2.462px rgba(203, 199, 209, 0.25);;
   width: 200px;
-  border-radius: 30px;
+  border-radius: 30px; */
 }
 
-.btnStyle{
+.btnStyle {
   width: 100%;
   padding-inline: 40px;
   text-shadow: 0px 0px 9.846px rgba(254, 60, 114, 0.35) !important;
@@ -54,39 +55,40 @@
   /*background: #27242C;*/
 }
 
-.btnStyle:last-child{
+.btnStyle:last-child {
   margin-top: 15px;
 }
 
-
-@media (max-width: 380px){
-  .favouriteMainSection,.favouriteSubSection{
+@media (max-width: 380px) {
+  .favouriteMainSection,
+  .favouriteSubSection {
     margin-top: 10% !important;
   }
-  .favouriteSubSection div img{
+  .favouriteSubSection div img {
     height: 120px;
     width: 120px;
   }
-  .favouriteMainSection h1{
+  .favouriteMainSection h1 {
     font-size: 20px;
   }
 
-  .btnStyle{
+  .btnStyle {
     padding-inline: 20px;
   }
 }
-@media (max-height: 630px){
-  .favouriteMainSection,.favouriteSubSection{
+@media (max-height: 630px) {
+  .favouriteMainSection,
+  .favouriteSubSection {
     margin-top: 5% !important;
   }
-  .favouriteSubSection div img{
+  .favouriteSubSection div img {
     height: 120px;
     width: 120px;
   }
-  .favouriteMainSection h1{
+  .favouriteMainSection h1 {
     font-size: 20px;
   }
-  .btnStyle{
+  .btnStyle {
     padding-inline: 20px;
   }
 }

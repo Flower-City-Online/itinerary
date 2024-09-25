@@ -481,3 +481,27 @@ body {
   opacity: 0 !important;
   display: none !important;
 }
+
+@media (max-height: 720px) {
+  .h-screen {
+    padding-bottom: 60px;
+  }
+}
+
+@media (max-height: 720px) and (max-width: 380px) {
+  .h-screen {
+    padding-bottom: 60px !important;
+  }
+}
+
+@media (max-height: 720px) and (max-width: 380px) {
+  .h-screen {
+    padding-bottom: 60px !important;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 379px) {
+  .h-screen {
+    padding-bottom: 100px !important;
+  }
+}

@@ -1,5 +1,5 @@
 .minScreenMain {
-  overflow-y: auto;
+  overflow-y: auto !important;
 }
 .bottomPadding {
   min-height: 10px;
