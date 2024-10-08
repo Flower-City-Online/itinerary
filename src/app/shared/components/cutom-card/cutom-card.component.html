@@ -1,0 +1,179 @@
+<!-- <lib-content-view-card>
+    <div class="client-request-container">
+        <div class="client-request-container__top-content">
+            <div
+                *ngIf="cardData"
+                class="cardComponent px-4 py-4 my-2 rounded-lg outset-downshadow"
+            >
+                <div class="flex items-start justify-between mb-2">
+                    <div class="flex gap-5 items-start">
+                        <div
+                            class="{{
+                                !isDraft ? ' text-primary' : ''
+                            }} items-center sm:text-[10px] xs:text-[9px] flex flex-col gap-y-[0px]"
+                        >
+                            <img
+                                src="{{
+                                    !isDraft
+                                        ? '/assets/images/upvote.svg'
+                                        : '/assets/icons/uparrow_white.svg'
+                                }}"
+                                alt=""
+                            />
+                            <span
+                                class="{{
+                                    !isDraft
+                                        ? 'text-primary'
+                                        : 'drahVoterHeader'
+                                }}"
+                                >{{
+                                    cardDataValidater(
+                                        cardData.upVotes,
+                                        "upVotes"
+                                    )
+                                }}</span
+                            >
+                            <img src="/assets/images/downvote.svg" alt="" />
+                        </div>
+                        <div class="">
+                            <h4 class="title medium-14 p-0 m-0">
+                                {{ cardDataValidater(cardData.title, "title") }}
+                            </h4>
+                            <h5
+                                class="text-secondary opacity-80 text-[10px] xs:text-[9px] flex gap-[6px] items-center"
+                            >
+                                <img src="/assets/images/user.svg" alt="" />
+                                <span
+                                    [class]="
+                                        cardData.userName.length == 0 &&
+                                        this.cardData.timeAgo.length == 0
+                                            ? 'text-primary font-normal opacity-100'
+                                            : ''
+                                    "
+                                    >{{
+                                        cardDataValidater(
+                                            cardData.userName +
+                                                "-" +
+                                                cardData.timeAgo,
+                                            "userName"
+                                        )
+                                    }}</span
+                                >
+                            </h5>
+                        </div>
+                    </div>
+                    <div class="draftHeader" *ngIf="cardData.isDraft">
+                        Draft Saved
+                    </div>
+                    <app-custom-menu [item]="libMenuItem"></app-custom-menu>
+                </div>
+            </div>
+        </div>
+    </div>
+</lib-content-view-card> -->
+
+<lib-content-view-card>
+    <div class="client-request-container">
+        <div class="client-request-container__top-content">
+            <div
+                libContentCardFirstColumn
+                imgSrc="assets/content-card/profile-pic-demo.jpg"
+            >
+                <div section>
+                    <ng-template [libContentToggle]="hidden">
+                        <div contentBlock>
+                            <div heading>Options</div>
+                            <div subHeadings>
+                                <span>Handoff after 3rd exchange</span>
+                                <span>Invisible Mode</span>
+                            </div>
+                        </div>
+                    </ng-template>
+                </div>
+            </div>
+            <div class="mid-column">
+                <div section>
+                    <div contentBlock section>
+                        <div xLSubHeadings>
+                            <span>matchingMaster34, 30</span>
+                        </div>
+                        <div>
+                            <div heading>Request Location</div>
+                            <div subHeadings>
+                                <span>Seattle</span>
+                            </div>
+                        </div>
+                    </div>
+                    <ng-template libContentToggle>
+                        <div contentBlock>
+                            <div heading>Accepted Date-Time</div>
+                            <div subHeadings>
+                                <span>6/11/24 14:32 CST</span>
+                            </div>
+                        </div>
+                        <div contentBlock>
+                            <div heading>Msgs/Date(matcher)</div>
+                            <div subHeadings>
+                                <span>30</span>
+                            </div>
+                        </div>
+                    </ng-template>
+                </div>
+            </div>
+            <div libContentLastColumn class="last-column">
+                <div section>
+                    <div contentBlock>
+                        <div heading></div>
+                    </div>
+                    <div contentBlock>
+                        <div heading>Fee</div>
+                        <div subHeadings>
+                            <span>125</span>
+                        </div>
+                    </div>
+                    <ng-template libContentToggle>
+                        <div contentBlock>
+                            <div heading>Meetups</div>
+                            <div subHeadings>
+                                <span>5</span>
+                            </div>
+                        </div>
+                        <div contentBlock>
+                            <div heading>Timeframe</div>
+                            <div subHeadings>
+                                <span>10 days</span>
+                            </div>
+                        </div>
+                    </ng-template>
+                </div>
+            </div>
+        </div>
+        <ng-template libContentToggle>
+            <div class="client-request-container__bottom-content">
+                <div
+                    class="client-request-container__bottom-content--label"
+                    heading
+                >
+                    Service Enhancement
+                </div>
+                <div
+                    class="client-request-container__bottom-content--sub-headings"
+                    subHeadings
+                >
+                    <div
+                        class="client-request-container__bottom-content__sub-heading-wrapper"
+                    >
+                        <span
+                            >It is recommended that your Public Profile get
+                            enhanced. For best results feel free to use
+                        </span>
+                        <a>our AI </a>
+                        <span>or </span>
+                        <a>your matchers </a>
+                        <span>to do this</span>
+                    </div>
+                </div>
+            </div>
+        </ng-template>
+    </div>
+</lib-content-view-card>

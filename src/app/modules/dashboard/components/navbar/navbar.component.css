@@ -13,7 +13,7 @@
   padding: 0 !important;
 }
 
-::ng-deep .navTopSearch .container__search-bar__input {
+/* ::ng-deep .navTopSearch .container__search-bar__input {
   font-size: 10px !important;
 }
 
@@ -33,11 +33,10 @@
 ::ng-deep .navTopSearch .container__search-bar__icon {
   height: 10px !important;
   width: 10px !important;
-}
+}*/
 ::ng-deep .navMainBar .menu-btn-image {
   height: 26px !important;
   width: 26px !important;
-  /*margin-top: 7px;*/
 }
 
 .navMainBar {
@@ -79,11 +78,11 @@
   /*height: 14px;*/
   /*width: 14px;*/
 }
-
+/*
 ::ng-deep .menu-btn-notification-icon {
   top: 1px !important;
   right: -4px !important;
-}
+} */
 
 ::ng-deep .dashboardMenu .lib-button-container {
   box-shadow: none !important;
