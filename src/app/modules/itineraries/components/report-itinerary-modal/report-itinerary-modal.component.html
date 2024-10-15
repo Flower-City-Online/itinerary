@@ -1,20 +1,28 @@
 <div class="reportItineraies max-padd-container">
   <h1 class="p-4">Report Itinerary</h1>
-<!--  <app-report-itinerary-radio-feild-list [options]="options" [control]="'rd'" [form]="form"></app-report-itinerary-radio-feild-list>-->
   <div>
-<!--    <div class="radioGroup" *ngFor="let item of options;let i = index">-->
-<!--      <span>{{item.label}}</span>-->
-<!--      <input type="radio" [checked]="item.selected" (change)='radioChecked(item.value,i)' [value]="item.value">-->
-<!--    </div>-->
-    <lib-form-field  (select)='radioChecked()' [formFieldControl]="this.formGroup.controls.radio"
-                        [submitted]="false" [required]="true"
-                        [maxLength]="10" [type]="FormFieldType.radio" [options]="this.options"
-                        [radioDeselectable]="false" ></lib-form-field>
-
+    <lib-form-field
+      (select)="radioChecked()"
+      [formFieldControl]="this.formGroup.controls.radio"
+      [submitted]="false"
+      [required]="true"
+      [maxLength]="10"
+      [type]="FormFieldType.radio"
+      [options]="this.options"
+      [radioDeselectable]="false"
+    ></lib-form-field>
   </div>
 
-  <lib-text-box class="textFeild" *ngIf="this.selectedItem == 9" [label]="'Please brief your issue'"></lib-text-box>
+  <lib-text-box
+    class="textFeild"
+    *ngIf="this.selectedItem == 9"
+    [label]="'Please brief your issue'"
+  ></lib-text-box>
 
-  <app-modal-bottom-bar class="parentClassForModal" [okText]="'Report'" [cancelText]="'Cancel'"
-                        (cancel)="this.closeModal()"></app-modal-bottom-bar>
+  <app-modal-bottom-bar
+    class="parentClassForModal"
+    [okText]="'Report'"
+    [cancelText]="'Cancel'"
+    (cancel)="this.closeModal()"
+  ></app-modal-bottom-bar>
 </div>

@@ -1,8 +1,5 @@
-
-.searchBottom{
-  /*position: absolute;*/
-  /*bottom: 5%;*/
-  color: #94939B;
+.searchBottom {
+  color: #94939b;
   width: 100%;
   right: 0%;
   padding-top: 30%;
@@ -10,25 +7,25 @@
   font-size: 12px;
 }
 
-.bottomBar{
+.bottomBar {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: row;
 }
-.bottomBar span img{
+.bottomBar span img {
   margin-bottom: 3px;
   margin-right: 5px;
   height: 14px !important;
   width: 15px !important;
 }
 
-.lightText{
-  color: #94939B !important;
+.lightText {
+  color: #94939b !important;
 }
 
-@media screen and (max-width: 380px){
-  .searchBottom{
+@media screen and (max-width: 380px) {
+  .searchBottom {
     padding-top: 0%;
   }
 }

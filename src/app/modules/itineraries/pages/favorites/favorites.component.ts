@@ -1,23 +1,22 @@
-import {Component, OnInit} from '@angular/core';
-import {LibMenuItem} from "nextsapien-component-lib";
-import {CustomDropdownMenuService} from "../../../../services/core/custom-dropdown-menu.service";
+import { Component, OnInit } from "@angular/core";
+import { LibMenuItem } from "nextsapien-component-lib";
+import { CustomDropdownMenuService } from "../../../../services/core/custom-dropdown-menu.service";
 
 @Component({
-  selector: 'app-favorites',
-  templateUrl: './favorites.component.html',
-  styleUrl: './favorites.component.css'
+  selector: "app-favorites",
+  templateUrl: "./favorites.component.html",
+  styleUrl: "./favorites.component.css",
 })
-export class FavoritesComponent implements OnInit{
+export class FavoritesComponent implements OnInit {
   libMenuItem: LibMenuItem[] = [];
-  cardList = []
+  cardList = [];
   ngOnInit(): void {
-    this.libMenuItem=this.customMenuList.getMenuList('favourite')
+    this.libMenuItem = this.customMenuList.getMenuList("favourite");
   }
-  constructor(public customMenuList:CustomDropdownMenuService) {
-  }
+  constructor(public customMenuList: CustomDropdownMenuService) {}
 
-  goFav(){
+  goFav() {
     // @ts-ignore
-    this.cardList.push(1)
+    this.cardList.push(1);
   }
 }

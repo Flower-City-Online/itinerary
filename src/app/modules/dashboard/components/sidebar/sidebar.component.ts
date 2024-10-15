@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
+import { SideBarMenuItem } from "src/app/interface/dashboardSideBar";
 
 @Component({
   selector: "app-sidebar",
@@ -17,7 +18,7 @@ export class SidebarComponent implements OnInit {
       }
     });
   }
-  sideBarItem: any[] = [
+  sideBarItem: SideBarMenuItem[] = [
     {
       id: 1,
       name: "Explore",
