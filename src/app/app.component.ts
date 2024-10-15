@@ -45,7 +45,6 @@ export class AppComponent implements OnInit, OnDestroy {
       .subscribe((state: BreakpointState) => {
         this.isSmallScreen = state.matches;
         if (this.isSmallScreen) {
-          // this.router.navigate(['/itineraries'])
           this.renderer.removeClass(document.body, "customBody");
           console.log("Small screen detected");
         } else {

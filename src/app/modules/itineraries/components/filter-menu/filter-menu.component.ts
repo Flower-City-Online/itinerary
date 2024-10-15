@@ -1,4 +1,10 @@
-import { AfterViewInit, Component, ElementRef, Input } from "@angular/core";
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  Input,
+  OnInit,
+} from "@angular/core";
 import { FormControl, FormGroup } from "@angular/forms";
 import { ShadowRootHandlerService } from "src/app/services/core/shadow-root-handler.service";
 
@@ -7,13 +13,14 @@ import { ShadowRootHandlerService } from "src/app/services/core/shadow-root-hand
   templateUrl: "./filter-menu.component.html",
   styleUrl: "./filter-menu.component.css",
 })
-export class FilterMenuComponent implements AfterViewInit {
+export class FilterMenuComponent implements OnInit, AfterViewInit {
   @Input() cssClass!: string;
 
   constructor(
     private shadowRootHandlerService: ShadowRootHandlerService,
     private el: ElementRef
-  ) {
+  ) {}
+  ngOnInit(): void {
     const element = document.getElementsByClassName("button-native");
     console.log(element);
     if (element) {

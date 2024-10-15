@@ -32,7 +32,6 @@ import { ItineraryPreviewComponent } from "./pages/itinerary-preview/itinerary-p
 import { NonVisualMapFilterComponent } from "./pages/non-visual-map-filter/non-visual-map-filter.component";
 import { PathwayRoutingModule } from "./pathway-routing.module";
 import { PathwayComponent } from "./pathway.component";
-// import { BottomModalComponent, LibMapsComponent } from 'nextsapien-component-lib';
 
 const COMPONENTS = [
   GoogleMap,

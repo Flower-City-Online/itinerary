@@ -39,62 +39,10 @@ export class ItineraryPreviewComponent implements OnInit {
     console.log("Map Loaded:", event);
   }
 
-  // faLocationDot = faLocationDot;
-
   toggleDrawingTool() {
     console.log("Drawing tool toggled");
     // Add your drawing tool toggle logic here
   }
-
-  // public onMapActionEvent(mapActionEvent: MapActionEvent): void {
-  //   switch (mapActionEvent.type) {
-  //     case MapActionTypes.SetMapsSearch: {
-  //       // Handle "SetMapsSearch" event here
-  //       break;
-  //     }
-
-  //     case MapActionTypes.MapsAlertsEvent: {
-  //       // Handle "MapsAlertsEvent" event here
-  //       break;
-  //     }
-
-  //     case MapActionTypes.MapLoaded: {
-  //       // Handle "MapLoaded" event here
-  //       break;
-  //     }
-
-  //     case MapActionTypes.MarkerClick: {
-  //       // Handle "MarkerClick" event here
-  //       break;
-  //     }
-
-  //     case MapActionTypes.MarkerUpdated: {
-  //       // Handle "MarkerUpdated" event here
-  //       break;
-  //     }
-
-  //     case MapActionTypes.SetDeleteLocationIndex: {
-  //       // Handle "SetDeleteLocationIndex" event here
-  //       break;
-  //     }
-
-  //     case MapActionTypes.SetEditLocationIndex: {
-  //       // Handle "SetEditLocationIndex" event here
-  //       break;
-  //     }
-
-  //     case MapActionTypes.MapCenterChanged: {
-  //       // Handle "MapCenterChanged" event here
-  //       break;
-  //     }
-
-  //     default: {
-  //       // Unhandled Action Event
-  //       break;
-  //     }
-  //   }
-  // }
-
   onMapActionEvent(param: any) {
     console.log(param);
   }

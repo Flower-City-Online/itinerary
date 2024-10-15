@@ -1,7 +1,4 @@
-.deleteModal{
-  /*background: #28252D;*/
-  /*box-shadow: -2.46px -2.46px 13.13px 0px #FFFFFF1A;*/
-  /*border-radius: 10px;*/
+.deleteModal {
   padding: 10px;
   display: flex;
   justify-content: center;
@@ -9,19 +6,18 @@
   flex-direction: column;
 }
 
-.deleteModal h1{
+.deleteModal h1 {
   font-size: 15px;
-  color: #FFFFFF;
-  font-family: 'Calistoga';
+  color: #ffffff;
+  font-family: "Calistoga";
 }
 
-.deleteModal p{
+.deleteModal p {
   font-size: 13px;
-  color: #FFFFFF;
-  /*padding: 0px 20px;*/
+  color: #ffffff;
   width: 245px;
 }
 
-.parentClassForModal{
+.parentClassForModal {
   margin-top: 40px;
 }

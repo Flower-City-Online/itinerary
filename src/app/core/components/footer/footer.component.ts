@@ -14,7 +14,6 @@ import { ShadowRootHandlerService } from "src/app/services/core/shadow-root-hand
   templateUrl: "./footer.component.html",
   styleUrls: ["./footer.component.css"],
   encapsulation: ViewEncapsulation.Emulated,
-  // Corrected from 'styleUrl' to 'styleUrls'
 })
 export class FooterComponent implements OnInit, AfterViewInit {
   public enableBack: boolean = false;
@@ -143,6 +142,6 @@ export class FooterComponent implements OnInit, AfterViewInit {
   ];
 
   backClick() {
-    // Implementation for back click event
+    console.log("back button");
   }
 }

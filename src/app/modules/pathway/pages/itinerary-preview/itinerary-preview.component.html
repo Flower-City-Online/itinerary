@@ -6,11 +6,9 @@
   ></app-map-header>
 </div>
 <div class="mt-6">
-  <!-- <app-googlemapdemo></app-googlemapdemo> -->
   <lib-map
     [mapType]="mapType"
     [markers]="locationsMarkers"
-    [ariaCurrent]=""
     [enableDrag]="true"
     [initialLocation]="initialLocation"
     (mapLoaded)="onMapLoaded($event)"
@@ -55,12 +53,6 @@
               </div>
             </div>
             <div class="flex items-center gap-x-3">
-              <!-- <div class="hamburger text-secondary">
-                        <i class="icon-hamburger"></i>
-                      </div>
-                      <div class="delete text-primary">
-                        <i class="icon-delete"></i>
-                      </div> -->
               <img
                 src="/assets/icons/groupbinbar.svg"
                 alt=""

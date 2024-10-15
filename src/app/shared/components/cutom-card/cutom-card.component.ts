@@ -14,7 +14,6 @@ export class CutomCardComponent {
   constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
-    // console.log(this.isDraft)
     if (!this.isDraft) {
       this.http.get<any>("/assets/data.json").subscribe((data) => {
         this.cardData = data;

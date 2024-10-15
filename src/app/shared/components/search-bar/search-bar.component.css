@@ -8,10 +8,6 @@
   top: 10px;
 }
 
-::ng-deep .searchField #searchInput::placeholder {
-  /* font-size: 14px !important; */
-}
-
 ::ng-deep .searchField .container {
   display: flex;
   justify-content: center;

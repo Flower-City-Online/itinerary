@@ -68,7 +68,7 @@
 }
 
 .title {
-  font-family: "Gilroy-Bold";
+  font-family: var(--font-gilroy-bold);
 }
 
 .h-1 {

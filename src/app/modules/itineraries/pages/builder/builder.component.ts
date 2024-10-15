@@ -17,7 +17,6 @@ export class BuilderComponent implements OnInit {
   cssClasses = ["custom-modal-class"];
 
   ngOnInit(): void {
-    // this.openModal2()
     this.libMenuItem = this.customMenuList.getMenuList("builder");
   }
   constructor(

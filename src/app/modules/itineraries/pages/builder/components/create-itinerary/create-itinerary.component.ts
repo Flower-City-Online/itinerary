@@ -12,7 +12,6 @@ import { ModalService } from "../../../../../../services/core/modal/modal.servic
   selector: "app-create-itinerary",
   templateUrl: "./create-itinerary.component.html",
   styleUrl: "./create-itinerary.component.css",
-  // encapsulation: ViewEncapsulation.None,
 })
 export class CreateItineraryComponent implements OnInit, AfterViewInit {
   @ViewChild("testModal", { static: false })
@@ -23,9 +22,7 @@ export class CreateItineraryComponent implements OnInit, AfterViewInit {
     public modalService: ModalService,
     private el: ElementRef,
     private shadowrootHandler: ShadowRootHandlerService
-  ) {
-    // this.accessShadowRoot();
-  }
+  ) {}
 
   ngAfterViewInit(): void {
     this.initShadowrootHandler();

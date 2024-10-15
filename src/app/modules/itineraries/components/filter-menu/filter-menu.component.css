@@ -1,11 +1,8 @@
 ::ng-deep .btn-selectable {
-  /* padding: 10px 15px; */
   padding: 0px !important;
   font-size: 11px !important;
   margin-right: 12px !important;
   position: relative;
-  /*top: 10px;*/
-  /* First Box Shadow */
   box-shadow: -4.1px -4.1px 13.13px -2.46px #cbc7d140;
   background-color: #27242c !important;
   color: #ffff !important;
@@ -64,13 +61,11 @@
 }
 
 .filterBtn img {
-  /* margin-top: 3px;*/
   margin-left: 1.6px;
 }
 
 @media screen and (max-width: 380px) {
   ::ng-deep .btn-selectable {
-    /* padding: 9px 14px; */
     font-size: 10px !important;
     margin-right: 7px !important;
     position: relative;
@@ -103,7 +98,6 @@
 }
 
 @media (min-width: 320px) and (max-width: 327px) {
-  /* Your CSS rules here */
   ::ng-deep .btn-selectable {
     margin: 2px !important;
   }

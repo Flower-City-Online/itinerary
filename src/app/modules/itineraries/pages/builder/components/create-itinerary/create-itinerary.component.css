@@ -12,12 +12,6 @@
   display: none !important;
 }
 ::ng-deep .builderAddBtn .mat-ripple {
-  /* background: none !important;
-  box-shadow: -4.1px -4.1px 13.13px -2.46px #cbc7d140 !important;
-  border-radius: 10px !important;
-  border: none !important;
-  line-height: 10px !important;
-  font-family: "Calistoga" !important; */
   height: 60px !important;
 }
 .builderAddBtn span {
@@ -39,25 +33,3 @@
   background: transparent !important;
   box-shadow: none !important;
 }
-/*
-::ng-deep
-  .customModal
-  .ion-delegate-host
-  .wrapper
-  .lib-bottom-modal-cancel-btn
-  .lib-button-component
-  button.mat-ripple:hover,
-.customModal
-  .ion-delegate-host
-  .wrapper
-  .lib-bottom-modal-cancel-btn
-  .lib-button-component
-  button.mat-ripple:active,
-.customModal
-  .ion-delegate-host
-  .wrapper
-  .lib-bottom-modal-cancel-btn
-  .lib-button-component
-  button.mat-ripple:focus {
-  background: red !important;
-} */
