@@ -296,8 +296,6 @@ export class GooglemapdemoComponent implements OnChanges {
             lat: vertex.lat(),
             lng: vertex.lng(),
           }));
-          // Handle the complete drawing
-          console.log("Vertices:", this.vertices);
         }
         // Stop drawing mode after a polygon is created
         this.drawingManager.setDrawingMode(null);

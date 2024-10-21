@@ -46,11 +46,9 @@ export class AppComponent implements OnInit, OnDestroy {
         this.isSmallScreen = state.matches;
         if (this.isSmallScreen) {
           this.renderer.removeClass(document.body, "customBody");
-          console.log("Small screen detected");
         } else {
           this.router.navigate(["/dashboard"]);
           this.renderer.addClass(document.body, "customBody");
-          console.log("Large screen detected");
         }
       });
   }
@@ -63,7 +61,6 @@ export class AppComponent implements OnInit, OnDestroy {
   checkWindowWidth(): void {
     const width = window.innerWidth;
     if (width <= 960) {
-      console.log(this.location.path());
       if (this.location.path().includes("dashboard")) {
         this.router.navigate(["/itineraries"]);
       }

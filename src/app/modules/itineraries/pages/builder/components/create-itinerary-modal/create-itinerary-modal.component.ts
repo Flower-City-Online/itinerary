@@ -41,9 +41,7 @@ export class CreateItineraryModalComponent implements OnInit {
       shortTitle: true,
     },
   ];
-  modalClick(id: number) {
-    console.log(id);
-  }
+  modalClick(id: number) {}
 
   backButton() {
     this.modalService.bottomToggleModal = !this.modalService.bottomToggleModal;

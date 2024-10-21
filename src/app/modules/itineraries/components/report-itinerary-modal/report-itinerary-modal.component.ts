@@ -34,8 +34,6 @@ export class ReportItineraryModalComponent implements OnInit {
   ) {}
 
   radioChecked() {
-    console.log("sdasdasd");
-    console.log(this.formGroup.controls.radio.value);
     if (this.formGroup.controls.radio.value == 9) {
       this.selectedItem = 9;
     } else {

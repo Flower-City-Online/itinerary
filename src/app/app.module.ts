@@ -15,21 +15,11 @@ import {
 } from "nextsapien-component-lib";
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
-import { BottomModalDemoComponent } from "./components/bottom-modal-demo/bottom-modal-demo.component";
-import { ButtonsDemoComponent } from "./components/buttons-demo/buttons-demo.component";
-import { PopupModalDemoComponent } from "./components/popup-modal-demo/popup-modal-demo.component";
-import { RangeSelectorDemoComponent } from "./components/range-selector-demo/range-selector-demo.component";
 import { CoreModule } from "./core/core.module";
 export const httpLoaderFactory = (http: HttpBackend): TranslateHttpLoader =>
   new TranslateHttpLoader(new HttpClient(http), "./assets/i18n/", ".json");
 @NgModule({
-  declarations: [
-    AppComponent,
-    RangeSelectorDemoComponent,
-    PopupModalDemoComponent,
-    BottomModalDemoComponent,
-    ButtonsDemoComponent,
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

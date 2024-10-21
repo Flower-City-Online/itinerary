@@ -38,11 +38,8 @@ export class CardComponent implements OnInit {
     }
   }
 
-  test($event: any) {
-    // console.log($event);
-  }
+  test($event: any) {}
   nullCheck(data: any): boolean {
-    // console.log(data)
     return (
       data.toString().length == 0 ||
       data == null ||

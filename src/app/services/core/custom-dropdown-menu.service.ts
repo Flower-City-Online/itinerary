@@ -1,166 +1,159 @@
-import {Injectable, OnInit} from '@angular/core';
-import {LibMenuItem} from "nextsapien-component-lib";
-import {Router} from "@angular/router";
-import {
-  ReportItineraryModalComponent
-} from "../../modules/itineraries/components/report-itinerary-modal/report-itinerary-modal.component";
-import {ModalService} from "./modal/modal.service";
-import {
-  DeleteItinerariesComponent
-} from "../../modules/itineraries/components/delete-itineraries/delete-itineraries.component";
+import { Injectable } from "@angular/core";
+import { Router } from "@angular/router";
+import { LibMenuItem } from "nextsapien-component-lib";
+import { ModalService } from "./modal/modal.service";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root",
 })
-export class CustomDropdownMenuService{
-  cssClasses = ['custom-modal-class'];
+export class CustomDropdownMenuService {
+  cssClasses = ["custom-modal-class"];
   // @ts-ignore
-  itemList:LibMenuItem[] = [
+  itemList: LibMenuItem[] = [
     {
-      title: 'Edit Itinerary',
-      iconUrl: 'assets/icons/edit.svg',
+      title: "Edit Itinerary",
+      iconUrl: "assets/icons/edit.svg",
     },
     {
-      title: 'Archive',
-      iconUrl: 'assets/icons/archives_white.svg',
+      title: "Archive",
+      iconUrl: "assets/icons/archives_white.svg",
     },
     {
-      title: 'Unpublish',
-      iconUrl: '',
+      title: "Unpublish",
+      iconUrl: "",
     },
     {
-      title: 'Assign to Client',
-      iconUrl: 'assets/icons/headphone.svg',
+      title: "Assign to Client",
+      iconUrl: "assets/icons/headphone.svg",
     },
     {
-      title: 'Add to Favorites',
-      iconUrl: 'assets/icons/heart_white.svg',
+      title: "Add to Favorites",
+      iconUrl: "assets/icons/heart_white.svg",
     },
     {
-      title: 'Remove from Favorites',
-      iconUrl: 'assets/icons/heart_fill_red.svg',
+      title: "Remove from Favorites",
+      iconUrl: "assets/icons/heart_fill_red.svg",
     },
     {
-      title: 'Share Itinerary',
-      iconUrl: 'assets/icons/share.svg',
+      title: "Share Itinerary",
+      iconUrl: "assets/icons/share.svg",
     },
     {
-      title: 'Branch the Itinerary',
-      iconUrl: 'assets/icons/branch.svg',
+      title: "Branch the Itinerary",
+      iconUrl: "assets/icons/branch.svg",
     },
     {
-      title: 'Report',
-      iconUrl: 'assets/icons/report.svg',
+      title: "Report",
+      iconUrl: "assets/icons/report.svg",
       command: () => {
-        this.openModal2()
-      }
+        this.openModal2();
+      },
     },
     {
-      title: 'Restore Itinerary',
-      iconUrl: 'assets/icons/restore.svg',
+      title: "Restore Itinerary",
+      iconUrl: "assets/icons/restore.svg",
     },
     {
-      title: 'Delete Forever',
-      iconUrl: 'assets/icons/delete_cross.svg',
+      title: "Delete Forever",
+      iconUrl: "assets/icons/delete_cross.svg",
       command: () => {
-        this.openModal()
-      }
-    }
+        this.openModal();
+      },
+    },
   ];
 
   pageList = [
     {
-      pageName: 'itineraries',
+      pageName: "itineraries",
       itemList: [
-          {
-            title: 'Assign to Client',
-          },
-          {
-            title: 'Add to Favorites',
-          },
-          {
-            title: 'Share Itinerary',
-          },
-          {
-            title: 'Branch the Itinerary',
-          },
-          {
-            title: 'Report',
-          }
-        ]
+        {
+          title: "Assign to Client",
+        },
+        {
+          title: "Add to Favorites",
+        },
+        {
+          title: "Share Itinerary",
+        },
+        {
+          title: "Branch the Itinerary",
+        },
+        {
+          title: "Report",
+        },
+      ],
     },
     {
-      pageName: 'builder',
+      pageName: "builder",
       itemList: [
         {
-          title: 'Edit Itinerary',
+          title: "Edit Itinerary",
         },
         {
-          title: 'Unpublish',
+          title: "Unpublish",
         },
         {
-          title: 'Archive',
+          title: "Archive",
         },
         {
-          title: 'Add to Favorites',
+          title: "Add to Favorites",
         },
         {
-          title: 'Share Itinerary',
-        }
-      ]
+          title: "Share Itinerary",
+        },
+      ],
     },
     {
-      pageName: 'archives',
+      pageName: "archives",
       itemList: [
         {
-          title: 'Restore Itinerary',
+          title: "Restore Itinerary",
         },
         {
-          title: 'Delete Forever',
-        }
-      ]
+          title: "Delete Forever",
+        },
+      ],
     },
     {
-      pageName: 'favourite',
+      pageName: "favourite",
       itemList: [
         {
-          title: 'Remove from Favorites',
+          title: "Remove from Favorites",
         },
         {
-          title: 'Share Itinerary',
+          title: "Share Itinerary",
         },
         {
-          title: 'Report',
-        }
-      ]
+          title: "Report",
+        },
+      ],
     },
+  ];
 
-  ]
-
-  constructor(public router:Router,public modalService: ModalService) { }
+  constructor(
+    public router: Router,
+    public modalService: ModalService
+  ) {}
 
   getMenuList(pageName: string): LibMenuItem[] {
     // Find the pageList entry with matching pageName
-    const page = this.pageList.find(page => page.pageName === pageName);
+    const page = this.pageList.find((page) => page.pageName === pageName);
     if (!page) {
       return []; // Return an empty array if pageName is not found
     }
 
     // Filter the itemList to include only items whose titles are in page.itemList
-    const filteredList = this.itemList.filter(item =>
-      page.itemList.some(pageItem => pageItem.title === item.title)
+    const filteredList = this.itemList.filter((item) =>
+      page.itemList.some((pageItem) => pageItem.title === item.title)
     );
 
     return filteredList;
   }
 
-
   openModal() {
     this.modalService.toggleModal = !this.modalService.toggleModal;
-    console.log(this.modalService.toggleModal)
   }
   openModal2() {
     this.modalService.toggleModal = !this.modalService.toggleModal;
-    console.log(this.modalService.toggleModal)
   }
 }

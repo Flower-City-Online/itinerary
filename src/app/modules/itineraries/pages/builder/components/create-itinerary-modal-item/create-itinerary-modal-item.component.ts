@@ -17,8 +17,6 @@ export class CreateItineraryModalItemComponent implements OnInit {
 
   ngOnInit(): void {
     this.titleList = !this.shortTitle ? this.title.split(",") : [this.title];
-    console.log(this.titleList);
-    console.log(this.shortTitle);
     this.modalService.bottomToggleModal = false;
   }
 
