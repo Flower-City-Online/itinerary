@@ -12,12 +12,10 @@ export class ItineraryPreviewComponent implements OnInit {
     this.locationService.getCurrentLocation().then((location) => {
       this.initialLocation.lat = location.lat;
       this.initialLocation.lng = location.long;
-      console.log(this.initialLocation);
     });
   }
   handleSearch(event: any) {
     // Change parameter type to 'any' to accept event
-    console.log(event);
   }
   mapType = "satellite";
   locationsMarkers = [
@@ -35,15 +33,10 @@ export class ItineraryPreviewComponent implements OnInit {
     },
   ];
 
-  onMapLoaded(event: any) {
-    console.log("Map Loaded:", event);
-  }
+  onMapLoaded(event: any) {}
 
   toggleDrawingTool() {
-    console.log("Drawing tool toggled");
     // Add your drawing tool toggle logic here
   }
-  onMapActionEvent(param: any) {
-    console.log(param);
-  }
+  onMapActionEvent(param: any) {}
 }

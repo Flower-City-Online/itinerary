@@ -17,6 +17,5 @@ export class SerachClearHistoryComponent {
 
   closeModal() {
     this.modalService.toggleModal = !this.modalService.toggleModal;
-    console.log(this.toggleModal);
   }
 }

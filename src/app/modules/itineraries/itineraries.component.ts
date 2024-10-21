@@ -13,12 +13,10 @@ export class ItinerariesComponent {
     public modalService: ModalService
   ) {}
   backButtonClick() {
-    console.log("back button clicked");
     window.history.back();
   }
 
   searchButtonClick() {
-    console.log("search button clicked");
-    this.router.navigate(["/search/"]).then((r) => console.log(r));
+    this.router.navigate(["/search/"]).then((r) => {});
   }
 }

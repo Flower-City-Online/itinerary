@@ -6,10 +6,7 @@ import { GooglemapdemoComponent } from "../../components/googlemapdemo/googlemap
   styleUrl: "./non-visual-map-filter.component.css",
 })
 export class NonVisualMapFilterComponent {
-  handleSearch(event: any) {
-    // Change parameter type to 'any' to accept event
-    console.log(event);
-  }
+  handleSearch(event: any) {}
   mapType = "roadmap";
   locationsMarkers = [
     { lat: 37.7749, lng: -122.4194, label: "San Francisco" },
@@ -17,9 +14,7 @@ export class NonVisualMapFilterComponent {
   ];
   initialLocation = { lat: 36.7783, lng: -119.4179 };
 
-  onMapLoaded(event: any) {
-    console.log("Map Loaded:", event);
-  }
+  onMapLoaded(event: any) {}
   @ViewChild("mapDemo") mapDemo!: GooglemapdemoComponent;
 
   toggleDrawingTool() {

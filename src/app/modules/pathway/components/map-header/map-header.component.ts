@@ -1,24 +1,20 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { Location } from '@angular/common';
+import { Location } from "@angular/common";
+import { Component, EventEmitter, Input, Output } from "@angular/core";
 
 @Component({
-  selector: 'app-map-header',
-  templateUrl: './map-header.component.html',
-  styleUrl: './map-header.component.css'
+  selector: "app-map-header",
+  templateUrl: "./map-header.component.html",
+  styleUrl: "./map-header.component.css",
 })
 export class MapHeaderComponent {
-  @Input() title: string = 'Default Title';
-  @Input() backLink: string = '/';
-  @Input() customcss: string = 'py-1';
+  @Input() title: string = "Default Title";
+  @Input() backLink: string = "/";
+  @Input() customcss: string = "py-1";
   @Output() onSearchClick = new EventEmitter<boolean>();
 
   isSearchClicked: boolean = false;
 
   constructor(private location: Location) {}
-
-  ngOnInit(): void {
-    console.log('HeaderComponent initialized with title:', this.title);
-  }
 
   goBack() {
     if (this.backLink) {
@@ -26,5 +22,5 @@ export class MapHeaderComponent {
     } else {
       this.location.back();
     }
-}
+  }
 }

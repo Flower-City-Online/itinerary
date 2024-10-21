@@ -141,7 +141,5 @@ export class FooterComponent implements OnInit, AfterViewInit {
     },
   ];
 
-  backClick() {
-    console.log("back button");
-  }
+  backClick() {}
 }
