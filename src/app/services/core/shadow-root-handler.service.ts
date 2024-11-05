@@ -1,15 +1,15 @@
-import { Injectable } from "@angular/core";
+import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: "root",
+  providedIn: 'root',
 })
 export class ShadowRootHandlerService {
-  constructor() {}
+
 
   accessShadowRoot(
     targetNode: HTMLElement,
     componentName: string,
-    callback: () => void
+    callback: () => void,
   ) {
     // Query the custom element
     const element = targetNode.querySelector(componentName) as HTMLElement;
@@ -18,7 +18,7 @@ export class ShadowRootHandlerService {
       // Create a MutationObserver to monitor changes
       const observer = new MutationObserver((mutationsList) => {
         for (const mutation of mutationsList) {
-          if (mutation.type === "childList" || mutation.type === "attributes") {
+          if (mutation.type === 'childList' || mutation.type === 'attributes') {
             callback();
           }
         }
@@ -35,7 +35,6 @@ export class ShadowRootHandlerService {
       callback();
       // observer.disconnect();
     } else {
-      console.log(`${componentName} element not found`);
     }
   }
 }

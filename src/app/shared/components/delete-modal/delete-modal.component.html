@@ -1,7 +1,14 @@
 <div class="deleteModal">
-  <img ngSrc="assets/icons/delete.svg" height="46" width="46">
+  <img ngSrc="assets/icons/delete.svg" height="46" width="46" />
   <h1 class="p-4">Clear Search History</h1>
-  <p class="text-center">Are you sure you want to permanently clear search history?</p>
-  <app-modal-bottom-bar class="parentClassForModal" [okText]="'Clear'" [cancelText]="'Keep'"
-  (cancel)="this.cancelToggle()" (ok)="this.deleteItem()"></app-modal-bottom-bar>
+  <p class="text-center">
+    Are you sure you want to permanently clear search history?
+  </p>
+  <app-modal-bottom-bar
+    class="parentClassForModal"
+    [okText]="'Clear'"
+    [cancelText]="'Keep'"
+    (cancel)="cancelToggle()"
+    (ok)="deleteItem()"
+  ></app-modal-bottom-bar>
 </div>

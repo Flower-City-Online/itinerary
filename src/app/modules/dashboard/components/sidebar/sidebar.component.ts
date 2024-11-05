@@ -1,15 +1,15 @@
-import { Component, OnInit } from "@angular/core";
-import { Router } from "@angular/router";
-import { SideBarMenuItem } from "src/app/interface/dashboardSideBar";
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { ISideBarMenuItem } from 'src/app/interface/dashboardSideBar';
 
 @Component({
-  selector: "app-sidebar",
-  templateUrl: "./sidebar.component.html",
-  styleUrl: "./sidebar.component.css",
+  selector: 'app-sidebar',
+  templateUrl: './sidebar.component.html',
+  styleUrl: './sidebar.component.css',
 })
 export class SidebarComponent implements OnInit {
   isFilter: boolean = false;
-  filterClass = "filterSideBar";
+  filterClass = 'filterSideBar';
   constructor(private router: Router) {}
   ngOnInit(): void {
     this.sideBarItem.forEach((element: any) => {
@@ -18,36 +18,36 @@ export class SidebarComponent implements OnInit {
       }
     });
   }
-  sideBarItem: SideBarMenuItem[] = [
+  sideBarItem: ISideBarMenuItem[] = [
     {
       id: 1,
-      name: "Explore",
+      name: 'Explore',
       selected: true,
-      cssClass: "active",
-      url: "/dashboard/itineraries/explore",
+      cssClass: 'active',
+      url: '/dashboard/itineraries/explore',
     },
     {
       id: 2,
-      name: "Builder",
+      name: 'Builder',
       selected: false,
-      cssClass: "",
-      url: "/dashboard/itineraries/explore",
+      cssClass: '',
+      url: '/dashboard/itineraries/explore',
     },
     {
       id: 3,
-      name: "Favourite",
+      name: 'Favourite',
       selected: false,
-      cssClass: "",
-      url: "/dashboard/itineraries/explore",
+      cssClass: '',
+      url: '/dashboard/itineraries/explore',
     },
   ];
 
   selectItem(item: any) {
     this.sideBarItem.forEach((element: any) => {
       element.selected = false;
-      element.cssClass = "";
+      element.cssClass = '';
     });
     item.selected = true;
-    item.cssClass = "active";
+    item.cssClass = 'active';
   }
 }

@@ -7,7 +7,6 @@ import { LibMenuItem } from "nextsapien-component-lib";
   styleUrl: "./navbar.component.css",
 })
 export class NavbarComponent {
-  constructor() {}
   menuItems: LibMenuItem[] = [
     {
       title: "Logout",

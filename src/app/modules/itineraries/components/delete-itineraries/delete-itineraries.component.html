@@ -1,17 +1,17 @@
 <div class="deleteModal">
-    <img ngSrc="assets/icons/delete.svg" height="46" width="46" />
-    <h1 class="p-4">Delete Itinerary</h1>
-    <p class="text-center">
-        Are you sure you want to permanently delete this Itinerary?
-    </p>
-    <div class="checkBoxFeild">
-        <lib-dashed-checkbox class="checkBox"></lib-dashed-checkbox>
-        <span>I understand this item will be deleted forever</span>
-    </div>
-    <app-modal-bottom-bar
-        class="parentClassForModal"
-        [okText]="'Clear'"
-        [cancelText]="'Keep'"
-        (cancel)="this.closeModal()"
-    ></app-modal-bottom-bar>
+  <img ngSrc="assets/icons/delete.svg" height="46" width="46" />
+  <h1 class="p-4">Delete Itinerary</h1>
+  <p class="text-center">
+    Are you sure you want to permanently delete this Itinerary?
+  </p>
+  <div class="checkBoxFeild">
+    <lib-dashed-checkbox class="checkBox"></lib-dashed-checkbox>
+    <span>I understand this item will be deleted forever</span>
+  </div>
+  <app-modal-bottom-bar
+    class="parentClassForModal"
+    [okText]="'Clear'"
+    [cancelText]="'Keep'"
+    (cancel)="closeModal()"
+  ></app-modal-bottom-bar>
 </div>

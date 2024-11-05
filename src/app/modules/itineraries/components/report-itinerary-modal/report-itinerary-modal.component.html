@@ -3,19 +3,19 @@
   <div>
     <lib-form-field
       (select)="radioChecked()"
-      [formFieldControl]="this.formGroup.controls.radio"
+      [formFieldControl]="formGroup.controls.radio"
       [submitted]="false"
       [required]="true"
       [maxLength]="10"
       [type]="FormFieldType.radio"
-      [options]="this.options"
+      [options]="options"
       [radioDeselectable]="false"
     ></lib-form-field>
   </div>
 
   <lib-text-box
     class="textFeild"
-    *ngIf="this.selectedItem == 9"
+    *ngIf="selectedItem == 9"
     [label]="'Please brief your issue'"
   ></lib-text-box>
 
@@ -23,6 +23,6 @@
     class="parentClassForModal"
     [okText]="'Report'"
     [cancelText]="'Cancel'"
-    (cancel)="this.closeModal()"
+    (cancel)="closeModal()"
   ></app-modal-bottom-bar>
 </div>

@@ -1,4 +1,4 @@
-export interface SideBarMenuItem {
+export interface ISideBarMenuItem {
   id: number;
   name: string;
   selected: boolean;
