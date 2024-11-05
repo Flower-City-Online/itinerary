@@ -1,11 +1,9 @@
-import { Injectable } from "@angular/core";
+import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: "root",
+  providedIn: 'root',
 })
 export class LocationService {
-  constructor() {}
-
   getCurrentLocation(): Promise<{ lat: number; long: number }> {
     return new Promise((resolve, reject) => {
       if (navigator.geolocation) {
@@ -18,10 +16,10 @@ export class LocationService {
           },
           (error) => {
             reject(`Geolocation error: ${error.message}`);
-          }
+          },
         );
       } else {
-        reject("Geolocation is not supported by this browser.");
+        reject('Geolocation is not supported by this browser.');
       }
     });
   }

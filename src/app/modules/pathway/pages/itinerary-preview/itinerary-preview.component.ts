@@ -1,9 +1,9 @@
-import { Component, OnInit } from "@angular/core";
-import { LocationService } from "src/app/services/core/location.service";
+import { Component, OnInit } from '@angular/core';
+import { LocationService } from 'src/app/services/core/location.service';
 @Component({
-  selector: "app-itinerary-preview",
-  templateUrl: "./itinerary-preview.component.html",
-  styleUrl: "./itinerary-preview.component.css",
+  selector: 'app-itinerary-preview',
+  templateUrl: './itinerary-preview.component.html',
+  styleUrl: './itinerary-preview.component.css',
 })
 export class ItineraryPreviewComponent implements OnInit {
   constructor(public locationService: LocationService) {}
@@ -17,11 +17,11 @@ export class ItineraryPreviewComponent implements OnInit {
   handleSearch(event: any) {
     // Change parameter type to 'any' to accept event
   }
-  mapType = "satellite";
+  mapType = 'satellite';
   locationsMarkers = [
     {
       icon: {
-        url: "assets/1.png#custom_pin_maps",
+        url: 'assets/1.png#custom_pin_maps',
         size: new google.maps.Size(10, 10),
         scaledSize: new google.maps.Size(10, 10),
         anchor: null,

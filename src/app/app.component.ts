@@ -2,8 +2,8 @@ import {
   BreakpointObserver,
   Breakpoints,
   BreakpointState,
-} from "@angular/cdk/layout";
-import { Location } from "@angular/common";
+} from '@angular/cdk/layout';
+import { Location } from '@angular/common';
 import {
   Component,
   ElementRef,
@@ -11,15 +11,16 @@ import {
   OnDestroy,
   OnInit,
   Renderer2,
-} from "@angular/core";
-import { Router } from "@angular/router";
-import { Subscription } from "rxjs";
-import { BottomNavigationService } from "./services/core/bottom-navigation.service";
+} from '@angular/core';
+import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
+import { ItenariesRoutesEnum } from './enums/ItenariesRoutes.enum';
+import { BottomNavigationService } from './services/core/bottom-navigation.service';
 
 @Component({
-  selector: "app-root",
-  templateUrl: "./app.component.html",
-  styleUrls: ["./app.component.css"],
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements OnInit, OnDestroy {
   isSmallScreen = false;
@@ -30,7 +31,7 @@ export class AppComponent implements OnInit, OnDestroy {
     private renderer: Renderer2,
     public el: ElementRef,
     public location: Location,
-    public navService: BottomNavigationService
+    public navService: BottomNavigationService,
   ) {}
 
   ngOnInit(): void {
@@ -45,15 +46,15 @@ export class AppComponent implements OnInit, OnDestroy {
       .subscribe((state: BreakpointState) => {
         this.isSmallScreen = state.matches;
         if (this.isSmallScreen) {
-          this.renderer.removeClass(document.body, "customBody");
+          this.renderer.removeClass(document.body, 'customBody');
         } else {
-          this.router.navigate(["/dashboard"]);
-          this.renderer.addClass(document.body, "customBody");
+          this.router.navigate([ItenariesRoutesEnum.DASHBOARD]);
+          this.renderer.addClass(document.body, 'customBody');
         }
       });
   }
 
-  @HostListener("window:resize", ["$event"])
+  @HostListener('window:resize', ['$event'])
   onResize(event: Event): void {
     this.checkWindowWidth();
   }
@@ -61,8 +62,8 @@ export class AppComponent implements OnInit, OnDestroy {
   checkWindowWidth(): void {
     const width = window.innerWidth;
     if (width <= 960) {
-      if (this.location.path().includes("dashboard")) {
-        this.router.navigate(["/itineraries"]);
+      if (this.location.path().includes('dashboard')) {
+        this.router.navigate([ItenariesRoutesEnum.ITEENARY]);
       }
     }
   }

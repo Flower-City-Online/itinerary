@@ -1,4 +1,4 @@
 <div [routerLink]="routerLink" class="bottomNavItem flex flex-col items-center">
-  <img src="{{ iconPath }}" height="{{ height }}" width="{{ width }}" />
+  <img [src]="iconPath" [height]="height" [width]="width" />
   <span class="{{ cssClass }} spanText">{{ label }}</span>
 </div>

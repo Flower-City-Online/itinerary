@@ -1,13 +1,11 @@
 <div>
   <div class="clearHistoryMain" (click)="openModal()">
     <span>
-      <img ngSrc="assets/icons/delete_cross.svg" height="14" width="15">
+      <img ngSrc="assets/icons/delete_cross.svg" height="14" width="15" />
     </span>
     Clear History
   </div>
-  <lib-popup
-    [isOpen]="this.modalService.toggleModal"
-  >
+  <lib-popup [isOpen]="modalService.toggleModal">
     <app-delete-modal></app-delete-modal>
   </lib-popup>
   <app-section-seprater></app-section-seprater>
