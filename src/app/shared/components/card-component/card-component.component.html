@@ -10,17 +10,13 @@
         }} items-center sm:text-[10px] xs:text-[9px] flex flex-col gap-y-[0px]"
       >
         <img
-          src="{{
-            !isDraft
-              ? '/assets/images/upvote.svg'
-              : '/assets/icons/uparrow_white.svg'
-          }}"
+          src="{{ !isDraft ? ICONS?.upvote : ICONS?.upArrowWhite }}"
           alt=""
         />
         <span class="{{ !isDraft ? 'text-primary' : 'drahVoterHeader' }}">{{
           cardDataValidater(cardData.upVotes, "upVotes")
         }}</span>
-        <img src="/assets/images/downvote.svg" alt="" />
+        <img [src]="ICONS?.downvote" alt="" />
       </div>
       <div class="">
         <h4 class="title medium-14 p-0 m-0">

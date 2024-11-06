@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, Input, OnInit } from '@angular/core';
 import { LibMenuItem } from 'nextsapien-component-lib';
+import { ICONS } from 'src/app/constants/constants';
 import { ICardData } from 'src/app/interface/cardData';
 
 @Component({
@@ -12,7 +13,7 @@ export class CardComponent implements OnInit {
   @Input() libMenuItem!: LibMenuItem[];
   @Input() isDraft!: boolean;
   cardData: ICardData;
-
+  ICONS = ICONS;
   constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
