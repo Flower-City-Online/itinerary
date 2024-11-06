@@ -12,7 +12,7 @@ export class SidebarComponent implements OnInit {
   filterClass = 'filterSideBar';
   constructor(private router: Router) {}
   ngOnInit(): void {
-    this.sideBarItem.forEach((element: any) => {
+    this.sideBarItem.forEach((element: ISideBarMenuItem) => {
       if (element.selected) {
         this.router.navigate([element.url]);
       }
@@ -42,8 +42,8 @@ export class SidebarComponent implements OnInit {
     },
   ];
 
-  selectItem(item: any) {
-    this.sideBarItem.forEach((element: any) => {
+  selectItem(item: ISideBarMenuItem) {
+    this.sideBarItem.forEach((element: ISideBarMenuItem) => {
       element.selected = false;
       element.cssClass = '';
     });

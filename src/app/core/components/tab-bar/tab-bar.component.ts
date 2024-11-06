@@ -23,5 +23,5 @@ export class TabBarComponent {
       routerLink: '/itineraries/favorites',
     },
   ];
-  onActiveItemChange($event: any) {}
+  onActiveItemChange($event: string) {}
 }

@@ -14,7 +14,7 @@ export class ItineraryPreviewComponent implements OnInit {
       this.initialLocation.lng = location.long;
     });
   }
-  handleSearch(event: any) {
+  handleSearch(event: string) {
     // Change parameter type to 'any' to accept event
   }
   mapType = 'satellite';
@@ -33,10 +33,9 @@ export class ItineraryPreviewComponent implements OnInit {
     },
   ];
 
-  onMapLoaded(event: any) {}
+  onMapLoaded(event: boolean) {}
 
   toggleDrawingTool() {
     // Add your drawing tool toggle logic here
   }
-  onMapActionEvent(param: any) {}
 }

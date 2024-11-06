@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, Input } from '@angular/core';
 import { LibMenuItem } from 'nextsapien-component-lib';
+import { ICardData } from 'src/app/interface/cardData';
 @Component({
   selector: 'app-cutom-card',
   templateUrl: './cutom-card.component.html',
@@ -9,15 +10,17 @@ import { LibMenuItem } from 'nextsapien-component-lib';
 export class CutomCardComponent {
   @Input() libMenuItem!: LibMenuItem[];
   @Input() isDraft!: boolean;
-  cardData: any;
+  cardData: ICardData;
 
   constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
     if (!this.isDraft) {
-      this.http.get<any>('/assets/data.json').subscribe((data) => {
-        this.cardData = data;
-      });
+      this.http
+        .get<ICardData>('/assets/data.json')
+        .subscribe((data: ICardData) => {
+          this.cardData = data;
+        });
     } else {
       this.cardData = {
         upVotes: '',
@@ -37,7 +40,7 @@ export class CutomCardComponent {
     }
   }
 
-  nullCheck(data: any): boolean {
+  nullCheck(data: string | number | null | undefined): boolean {
     return (
       data.toString().length == 0 ||
       data == null ||
@@ -47,7 +50,10 @@ export class CutomCardComponent {
       data == '-'
     );
   }
-  cardDataValidater(data: any, type: string): string {
+  cardDataValidater(
+    data: string | number | null | undefined,
+    type: string,
+  ): string | number | null | undefined {
     if (type == 'imageSrc' && this.nullCheck(data)) {
       return 'assets/images/untitledImage.svg';
     } else if (type == 'upVotes' && this.nullCheck(data)) {

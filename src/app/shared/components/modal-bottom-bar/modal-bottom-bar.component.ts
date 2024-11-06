@@ -8,8 +8,8 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 export class ModalBottomBarComponent {
   @Input() okText!: string;
   @Input() cancelText!: string;
-  @Output() ok = new EventEmitter<any>();
-  @Output() cancel = new EventEmitter<any>();
+  @Output() ok = new EventEmitter<MouseEvent>();
+  @Output() cancel = new EventEmitter<MouseEvent>();
 
   onOk() {
     this.ok.emit();

@@ -13,7 +13,7 @@ export class IconButtonComponent implements OnInit {
   @Input() width: string = '13';
   @Input() disabled: boolean = false;
   @Input() type!: string;
-  @Output() clickFunction = new EventEmitter<any>();
+  @Output() clickFunction = new EventEmitter<MouseEvent>();
   ngOnInit(): void {
     throw new Error('Method not implemented.');
   }

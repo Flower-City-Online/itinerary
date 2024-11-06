@@ -1,13 +1,13 @@
-import { Component, EventEmitter, Output } from "@angular/core";
-import { ModalService } from "../../../services/core/modal/modal.service";
+import { Component, EventEmitter, Output } from '@angular/core';
+import { ModalService } from '../../../services/core/modal/modal.service';
 
 @Component({
-  selector: "app-delete-modal",
-  templateUrl: "./delete-modal.component.html",
-  styleUrl: "./delete-modal.component.css",
+  selector: 'app-delete-modal',
+  templateUrl: './delete-modal.component.html',
+  styleUrl: './delete-modal.component.css',
 })
 export class DeleteModalComponent {
-  @Output() delete = new EventEmitter<any>();
+  @Output() delete = new EventEmitter<MouseEvent>();
   constructor(public modalService: ModalService) {}
 
   deleteItem() {
