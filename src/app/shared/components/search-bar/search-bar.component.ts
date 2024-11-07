@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { ICONS } from 'src/app/constants/constants';
 
 @Component({
   selector: 'app-search-bar',
@@ -7,6 +8,7 @@ import { Component, Input } from '@angular/core';
 })
 export class SearchBarComponent {
   @Input() placeholder: string = 'Search';
+  ICONS = ICONS;
   handleSearchStringChange($event: string) {}
 
   clear() {}

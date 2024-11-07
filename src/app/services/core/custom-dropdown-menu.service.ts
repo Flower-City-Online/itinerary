@@ -1,61 +1,63 @@
-import { Injectable } from "@angular/core";
-import { Router } from "@angular/router";
-import { LibMenuItem } from "nextsapien-component-lib";
-import { ModalService } from "./modal/modal.service";
+import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
+import { LibMenuItem } from 'nextsapien-component-lib';
+import { ICONS } from 'src/app/constants/constants';
+import { ModalService } from './modal/modal.service';
 
 @Injectable({
-  providedIn: "root",
+  providedIn: 'root',
 })
 export class CustomDropdownMenuService {
-  cssClasses = ["custom-modal-class"];
+  cssClasses = ['custom-modal-class'];
+  ICONS = ICONS;
   // @ts-ignore
   itemList: LibMenuItem[] = [
     {
-      title: "Edit Itinerary",
-      iconUrl: "assets/icons/edit.svg",
+      title: 'Edit Itinerary',
+      iconUrl: ICONS.edit,
     },
     {
-      title: "Archive",
-      iconUrl: "assets/icons/archives_white.svg",
+      title: 'Archive',
+      iconUrl: ICONS.archiveWhite,
     },
     {
-      title: "Unpublish",
-      iconUrl: "",
+      title: 'Unpublish',
+      iconUrl: '',
     },
     {
-      title: "Assign to Client",
-      iconUrl: "assets/icons/headphone.svg",
+      title: 'Assign to Client',
+      iconUrl: ICONS.headphone,
     },
     {
-      title: "Add to Favorites",
-      iconUrl: "assets/icons/heart_white.svg",
+      title: 'Add to Favorites',
+      iconUrl: ICONS.heartWhite,
     },
     {
-      title: "Remove from Favorites",
-      iconUrl: "assets/icons/heart_fill_red.svg",
+      title: 'Remove from Favorites',
+      iconUrl: ICONS.heartFillRed,
     },
     {
-      title: "Share Itinerary",
-      iconUrl: "assets/icons/share.svg",
+      title: 'Share Itinerary',
+      iconUrl: ICONS.share,
     },
     {
-      title: "Branch the Itinerary",
-      iconUrl: "assets/icons/branch.svg",
+      title: 'Branch the Itinerary',
+      iconUrl: ICONS.branch,
     },
     {
-      title: "Report",
-      iconUrl: "assets/icons/report.svg",
+      title: 'Report',
+      iconUrl: ICONS.report,
       command: () => {
         this.openModal2();
       },
     },
     {
-      title: "Restore Itinerary",
-      iconUrl: "assets/icons/restore.svg",
+      title: 'Restore Itinerary',
+      iconUrl: ICONS.restore,
     },
     {
-      title: "Delete Forever",
-      iconUrl: "assets/icons/delete_cross.svg",
+      title: 'Delete Forever',
+      iconUrl: ICONS.deleteCross,
       command: () => {
         this.openModal();
       },
@@ -64,67 +66,67 @@ export class CustomDropdownMenuService {
 
   pageList = [
     {
-      pageName: "itineraries",
+      pageName: 'itineraries',
       itemList: [
         {
-          title: "Assign to Client",
+          title: 'Assign to Client',
         },
         {
-          title: "Add to Favorites",
+          title: 'Add to Favorites',
         },
         {
-          title: "Share Itinerary",
+          title: 'Share Itinerary',
         },
         {
-          title: "Branch the Itinerary",
+          title: 'Branch the Itinerary',
         },
         {
-          title: "Report",
+          title: 'Report',
         },
       ],
     },
     {
-      pageName: "builder",
+      pageName: 'builder',
       itemList: [
         {
-          title: "Edit Itinerary",
+          title: 'Edit Itinerary',
         },
         {
-          title: "Unpublish",
+          title: 'Unpublish',
         },
         {
-          title: "Archive",
+          title: 'Archive',
         },
         {
-          title: "Add to Favorites",
+          title: 'Add to Favorites',
         },
         {
-          title: "Share Itinerary",
+          title: 'Share Itinerary',
         },
       ],
     },
     {
-      pageName: "archives",
+      pageName: 'archives',
       itemList: [
         {
-          title: "Restore Itinerary",
+          title: 'Restore Itinerary',
         },
         {
-          title: "Delete Forever",
+          title: 'Delete Forever',
         },
       ],
     },
     {
-      pageName: "favourite",
+      pageName: 'favourite',
       itemList: [
         {
-          title: "Remove from Favorites",
+          title: 'Remove from Favorites',
         },
         {
-          title: "Share Itinerary",
+          title: 'Share Itinerary',
         },
         {
-          title: "Report",
+          title: 'Report',
         },
       ],
     },
@@ -132,7 +134,7 @@ export class CustomDropdownMenuService {
 
   constructor(
     public router: Router,
-    public modalService: ModalService
+    public modalService: ModalService,
   ) {}
 
   getMenuList(pageName: string): LibMenuItem[] {
@@ -144,7 +146,7 @@ export class CustomDropdownMenuService {
 
     // Filter the itemList to include only items whose titles are in page.itemList
     const filteredList = this.itemList.filter((item) =>
-      page.itemList.some((pageItem) => pageItem.title === item.title)
+      page.itemList.some((pageItem) => pageItem.title === item.title),
     );
 
     return filteredList;

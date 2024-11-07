@@ -4,14 +4,14 @@
   }} headerMainBar pt-5 pb-5 flex items-center justify-between"
 >
   <lib-icon-btn class="headerBackBtn" (click)="firstButton.emit()">
-    <img ngSrc="assets/icons/back.svg" height="12" width="13" />
+    <img [ngSrc]="ICONS?.back" height="12" width="13" />
   </lib-icon-btn>
   <h4>{{ heading }}</h4>
 
   <app-icon-button
     class="headerBtn"
     (clickFunction)="lastButton.emit()"
-    iconPath="assets/icons/search.svg"
+    [iconPath]="ICONS?.search"
     type="btn"
   ></app-icon-button>
 </div>

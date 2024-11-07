@@ -5,6 +5,7 @@ import {
   OnInit,
   ViewEncapsulation,
 } from '@angular/core';
+import { ICONS } from 'src/app/constants/constants';
 import { BottomNavigationService } from 'src/app/services/core/bottom-navigation.service';
 import { ModalService } from 'src/app/services/core/modal/modal.service';
 import { ShadowRootHandlerService } from 'src/app/services/core/shadow-root-handler.service';
@@ -87,8 +88,8 @@ export class FooterComponent implements OnInit, AfterViewInit {
     {
       id: 1,
       label: 'Home',
-      iconPath: 'assets/icons/home.svg',
-      clickedIconPath: 'assets/icons/home_red.svg',
+      iconPath: ICONS.home,
+      clickedIconPath: ICONS.homeRed,
       routerLink: '/itinaries',
       cssClass: '',
       height: '16',
@@ -97,8 +98,8 @@ export class FooterComponent implements OnInit, AfterViewInit {
     {
       id: 2,
       label: 'Requests',
-      iconPath: 'assets/icons/favorite.svg',
-      clickedIconPath: 'assets/icons/favorite_red.svg',
+      iconPath: ICONS.favorite,
+      clickedIconPath: ICONS.favorite,
       routerLink: '/requests',
       cssClass: '',
       height: '19',
@@ -107,8 +108,8 @@ export class FooterComponent implements OnInit, AfterViewInit {
     {
       id: 3,
       label: 'Info',
-      iconPath: 'assets/icons/chat.svg',
-      clickedIconPath: 'assets/icons/chat_red.svg',
+      iconPath: ICONS.chat,
+      clickedIconPath: ICONS.chatRed,
       routerLink: '/info',
       cssClass: '',
       height: '16',
@@ -117,8 +118,8 @@ export class FooterComponent implements OnInit, AfterViewInit {
     {
       id: 4,
       label: 'Itineraries',
-      iconPath: 'assets/icons/itineraries.svg',
-      clickedIconPath: 'assets/icons/itineraries_red.svg',
+      iconPath: ICONS.itineraries,
+      clickedIconPath: ICONS.itinerariesRed,
       routerLink: '/itineraries',
       cssClass: '',
       height: '16',
@@ -127,14 +128,12 @@ export class FooterComponent implements OnInit, AfterViewInit {
     {
       id: 5,
       label: 'Profile',
-      iconPath: 'assets/icons/user.svg',
-      clickedIconPath: 'assets/icons/user_red.svg',
+      iconPath: ICONS.user,
+      clickedIconPath: ICONS.userRed,
       routerLink: '/profile',
       cssClass: '',
       height: '16',
       width: '17',
     },
   ];
-
-
 }

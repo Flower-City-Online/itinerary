@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { ICONS } from 'src/app/constants/constants';
 import { INavigationChange } from 'src/app/interface/navigationChange';
 
 @Injectable({
@@ -6,40 +7,40 @@ import { INavigationChange } from 'src/app/interface/navigationChange';
 })
 export class BottomNavigationService {
   public isShowNavigation: boolean = false;
-
+  ICONS = ICONS;
   bottomNavList = [
     {
       id: 1,
       label: 'Home',
-      iconPath: 'assets/icons/home.svg',
+      iconPath: ICONS.home,
       routerLink: '/pathway',
       cssClass: '',
     },
     {
       id: 2,
       label: 'Requests',
-      iconPath: 'assets/icons/favorite.svg',
+      iconPath: ICONS.favorite,
       routerLink: '/requests',
       cssClass: '',
     },
     {
       id: 3,
       label: 'Info',
-      iconPath: 'assets/icons/chat.svg',
+      iconPath: ICONS.chat,
       routerLink: '/info',
       cssClass: '',
     },
     {
       id: 4,
       label: 'Itineraries',
-      iconPath: 'assets/icons/itineraries.svg',
+      iconPath: ICONS.itineraries,
       routerLink: '/itineraries',
       cssClass: '',
     },
     {
       id: 5,
       label: 'Profile',
-      iconPath: 'assets/icons/user.svg',
+      iconPath: ICONS.user,
       routerLink: '/profile',
       cssClass: '',
     },
@@ -48,8 +49,8 @@ export class BottomNavigationService {
     this.onNavigationChange(this.bottomNavList, {
       id: 4,
       label: 'Itineraries',
-      iconPath: 'assets/icons/itineraries.svg',
-      clickedIconPath: 'assets/icons/itineraries_red.svg',
+      iconPath: ICONS.itineraries,
+      clickedIconPath: ICONS.itinerariesRed,
       routerLink: '/itineraries',
       cssClass: '',
     });

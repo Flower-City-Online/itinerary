@@ -6,6 +6,7 @@ import {
   OnInit,
 } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { ICONS } from 'src/app/constants/constants';
 import { ShadowRootHandlerService } from 'src/app/services/core/shadow-root-handler.service';
 
 @Component({
@@ -15,7 +16,7 @@ import { ShadowRootHandlerService } from 'src/app/services/core/shadow-root-hand
 })
 export class FilterMenuComponent implements OnInit, AfterViewInit {
   @Input() cssClass!: string;
-
+  ICONS = ICONS;
   constructor(
     private shadowRootHandlerService: ShadowRootHandlerService,
     private el: ElementRef,

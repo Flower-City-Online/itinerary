@@ -57,7 +57,7 @@ export class CardComponent implements OnInit {
     type: string,
   ): string | number | null | undefined {
     if (type == 'imageSrc' && this.nullCheck(data)) {
-      return 'assets/images/untitledImage.svg';
+      return ICONS.untitled;
     } else if (type == 'upVotes' && this.nullCheck(data)) {
       return '00';
     } else if (type == 'title' && this.nullCheck(data)) {
@@ -75,7 +75,7 @@ export class CardComponent implements OnInit {
     } else if (type == 'shares' && this.nullCheck(data)) {
       return '0';
     } else if (type == 'userimageSrc' && this.nullCheck(data)) {
-      return 'assets/icons/questionMark.svg';
+      return ICONS.notSpecified;
     } else if (type == 'location' && this.nullCheck(data)) {
       return 'Not Specified';
     }

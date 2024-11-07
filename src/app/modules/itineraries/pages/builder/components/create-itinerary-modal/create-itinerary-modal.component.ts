@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { ICONS } from 'src/app/constants/constants';
 import { ModalService } from '../../../../../../services/core/modal/modal.service';
 
 @Component({
@@ -8,6 +9,7 @@ import { ModalService } from '../../../../../../services/core/modal/modal.servic
   encapsulation: ViewEncapsulation.Emulated,
 })
 export class CreateItineraryModalComponent implements OnInit {
+  ICONS = ICONS;
   constructor(public modalService: ModalService) {}
   ngOnInit(): void {
     this.modalService.bottomToggleModal = false;
@@ -18,7 +20,7 @@ export class CreateItineraryModalComponent implements OnInit {
       title: 'Create,Custom Itinerary',
       description:
         'Create itineraries imperatively, step by step using our personalization tools. ',
-      icon: 'assets/icons/create_location.svg',
+      icon: ICONS.createLocation,
       shortTitle: false,
     },
     {
@@ -26,7 +28,7 @@ export class CreateItineraryModalComponent implements OnInit {
       title: 'Create,Quick Itinerary',
       description:
         'Quick Itinerary tool helps you create itineraries by answering some simple questions',
-      icon: 'assets/icons/robot.svg',
+      icon: ICONS.robot,
       shortTitle: false,
     },
     {
@@ -37,7 +39,7 @@ export class CreateItineraryModalComponent implements OnInit {
         'by using your profile information and answering all the\n' +
         'logistic questions randomly from the Quick Itinerary \n' +
         'tool.',
-      icon: 'assets/icons/star_builder.svg',
+      icon: ICONS.starBuilder,
       shortTitle: true,
     },
   ];

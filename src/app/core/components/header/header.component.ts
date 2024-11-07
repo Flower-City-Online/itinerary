@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { ICONS } from 'src/app/constants/constants';
 
 @Component({
   selector: 'app-header',
@@ -10,4 +11,5 @@ export class HeaderComponent {
   @Output() firstButton = new EventEmitter<MouseEvent>();
   @Output() lastButton = new EventEmitter<MouseEvent>();
   @Input() cssClass!: string;
+  ICONS = ICONS;
 }

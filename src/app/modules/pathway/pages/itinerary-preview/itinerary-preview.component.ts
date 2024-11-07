@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ICONS } from 'src/app/constants/constants';
 import { LocationService } from 'src/app/services/core/location.service';
 @Component({
   selector: 'app-itinerary-preview',
@@ -8,6 +9,7 @@ import { LocationService } from 'src/app/services/core/location.service';
 export class ItineraryPreviewComponent implements OnInit {
   constructor(public locationService: LocationService) {}
   initialLocation = { lat: 24.8607, lng: 67.0011 }; // Centered on California
+  ICONS = ICONS;
   ngOnInit(): void {
     this.locationService.getCurrentLocation().then((location) => {
       this.initialLocation.lat = location.lat;

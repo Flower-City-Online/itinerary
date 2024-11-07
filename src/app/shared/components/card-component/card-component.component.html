@@ -25,7 +25,7 @@
         <h5
           class="text-secondary opacity-80 text-[10px] xs:text-[9px] flex gap-[6px] items-center"
         >
-          <img src="/assets/images/user.svg" alt="" />
+          <img [src]="ICONS?.user" alt="" />
           <span
             [class]="
               cardData.userName.length == 0 && cardData.timeAgo.length == 0
@@ -59,7 +59,7 @@
           isDraft ? 'bottomBarLoc' : ''
         }} w-[6.2rem] text-[8px] relative bottom-[1.1rem] text-secondary text-center bg-gray-50 px-1 py-[2px] rounded-xl flex items-center justify-center gap-2"
       >
-        <img src="/assets/images/location-white.svg" alt="" />
+        <img [src]="ICONS?.locationWhite" alt="" />
         <span class="truncate max-w-[60px]">{{
           cardDataValidater(cardData.location, "location")
         }}</span>
@@ -72,37 +72,37 @@
       >
         <ul class="flex flex-col gap-y-[6px] xs:text-[9px] sm:text-[12px]">
           <li class="locationItemMain flex items-center text-primary gap-1">
-            <img src="/assets/images/temp.svg" alt="" />
+            <img [src]="ICONS?.temp" alt="" />
             <span class="flex items-center text-primary">Palace</span>
           </li>
           <li class="locationItem flex items-center gap-1">
-            <img src="/assets/images/palace (2).svg" alt="" />
+            <img [src]="ICONS?.palace2" alt="" />
             <span class="truncate sm:max-w-10 xs:max-w-12">Template</span>
           </li>
           <li class="locationItem flex items-center gap-1">
-            <img src="/assets/images/palace (2).svg" alt="" />
+            <img [src]="ICONS?.palace2" alt="" />
             <span class="truncate sm:max-w-10 xs:max-w-11">Optional</span>
           </li>
           <li class="locationItem flex items-center gap-1">
-            <img src="/assets/images/palace (2).svg" alt="" />
+            <img [src]="ICONS?.palace2" alt="" />
             <span class="truncate sm:max-w-10 xs:max-w-11">Optional</span>
           </li>
         </ul>
         <ul class="flex flex-col gap-y-[6px] xs:text-[9px] sm:text-[12px]">
           <li class="locationItem flex items-center gap-1">
-            <img src="/assets/images/cofee.svg" alt="" />
+            <img [src]="ICONS?.coffee" alt="" />
             <span class="truncate sm:max-w-10 xs:max-w-11">Coffee shop</span>
           </li>
           <li class="locationItem flex items-center gap-1">
-            <img src="/assets/images/template.svg" alt="" />
+            <img [src]="ICONS?.template" alt="" />
             <span class="truncate sm:max-w-10 xs:max-w-11">Optional</span>
           </li>
           <li class="locationItem flex items-center gap-1">
-            <img src="/assets/images/template.svg" alt="" />
+            <img [src]="ICONS?.template" alt="" />
             <span class="truncate sm:max-w-10 xs:max-w-11">Optional</span>
           </li>
           <li class="locationItem flex items-center gap-1">
-            <img src="/assets/images/template.svg" alt="" />
+            <img [src]="ICONS?.template" alt="" />
             <span class="truncate sm:max-w-10 xs:max-w-11">Optional</span>
           </li>
         </ul>
@@ -118,19 +118,19 @@
       class="flex items-center justify-between sm:gap-x-7 xs:gap-x-5 sm:text-sm xs:text-[9px] text-secondary"
     >
       <div class="flex items-center gap-x-[6px]">
-        <img class="bottomIcons" src="/assets/images/eye.svg" alt="" />
+        <img class="bottomIcons" [src]="ICONS?.eye" alt="" />
         <span class="bottomTags">{{
           cardDataValidater(cardData.views, "views")
         }}</span>
       </div>
       <div class="flex items-center gap-x-[6px]">
-        <img class="bottomIcons" src="/assets/images/coment (2).svg" alt="" />
+        <img class="bottomIcons" [src]="ICONS?.comment2" alt="" />
         <span class="bottomTags">{{
           cardDataValidater(cardData.comments, "comments")
         }}</span>
       </div>
       <div class="flex items-center gap-x-[6px]">
-        <img class="bottomIcons" src="/assets/images/fork.svg" alt="" />
+        <img class="bottomIcons" [src]="ICONS?.fork" alt="" />
         <span class="bottomTags">{{
           cardDataValidater(cardData.shares, "shares")
         }}</span>

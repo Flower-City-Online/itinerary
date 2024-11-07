@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, Input } from '@angular/core';
 import { LibMenuItem } from 'nextsapien-component-lib';
+import { ICONS } from 'src/app/constants/constants';
 import { ICardData } from 'src/app/interface/cardData';
 @Component({
   selector: 'app-cutom-card',
@@ -11,7 +12,7 @@ export class CutomCardComponent {
   @Input() libMenuItem!: LibMenuItem[];
   @Input() isDraft!: boolean;
   cardData: ICardData;
-
+  ICONS = ICONS;
   constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
@@ -55,7 +56,7 @@ export class CutomCardComponent {
     type: string,
   ): string | number | null | undefined {
     if (type == 'imageSrc' && this.nullCheck(data)) {
-      return 'assets/images/untitledImage.svg';
+      return ICONS.untitled;
     } else if (type == 'upVotes' && this.nullCheck(data)) {
       return '00';
     } else if (type == 'title' && this.nullCheck(data)) {
@@ -73,7 +74,7 @@ export class CutomCardComponent {
     } else if (type == 'shares' && this.nullCheck(data)) {
       return '0';
     } else if (type == 'userimageSrc' && this.nullCheck(data)) {
-      return 'assets/icons/questionMark.svg';
+      return ICONS.notSpecified;
     } else if (type == 'location' && this.nullCheck(data)) {
       return 'Not Specified';
     }

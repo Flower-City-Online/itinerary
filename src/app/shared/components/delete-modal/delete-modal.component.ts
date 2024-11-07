@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
+import { ICONS } from 'src/app/constants/constants';
 import { ModalService } from '../../../services/core/modal/modal.service';
 
 @Component({
@@ -8,6 +9,7 @@ import { ModalService } from '../../../services/core/modal/modal.service';
 })
 export class DeleteModalComponent {
   @Output() delete = new EventEmitter<MouseEvent>();
+  ICONS = ICONS;
   constructor(public modalService: ModalService) {}
 
   deleteItem() {

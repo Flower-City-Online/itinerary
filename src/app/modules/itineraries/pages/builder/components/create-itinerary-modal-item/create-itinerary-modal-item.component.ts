@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ICONS } from 'src/app/constants/constants';
 import { ModalService } from 'src/app/services/core/modal/modal.service';
 
 @Component({
@@ -13,6 +14,7 @@ export class CreateItineraryModalItemComponent implements OnInit {
   @Input() description!: string;
   @Input() shortTitle!: boolean;
   titleList: string[] = [];
+  ICONS = ICONS;
   constructor(public modalService: ModalService) {}
 
   ngOnInit(): void {

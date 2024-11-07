@@ -1,13 +1,13 @@
 <p class="searchSubHeading">Quick actions...</p>
 <div class="mainBtn" [routerLink]="'/itineraries/builder/'">
   <span>
-    <img ngSrc="assets/icons/plus_2.svg" height="14" width="15" />
+    <img [ngSrc]="ICONS?.plus2" height="14" width="15" />
   </span>
   Create Itinerary
 </div>
 <div class="mainBtn" [routerLink]="'/itineraries/favorites/'">
   <span>
-    <img ngSrc="assets/icons/star.svg" height="16" width="17" />
+    <img [ngSrc]="ICONS?.star" height="16" width="17" />
   </span>
   Featured Itineraries
 </div>

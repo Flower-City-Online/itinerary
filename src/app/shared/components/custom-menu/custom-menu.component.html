@@ -1,5 +1,12 @@
 <div class="flex items-start">
-  <lib-menu-btn (select)="test1()" (click)="test2()"  (change)="test3()" class="libMenuCustomClass" [disableTextShadow]="true" [menuItems]="item">
-    <img src="/assets/images/horizontal.svg" alt="">
+  <lib-menu-btn
+    (select)="test1()"
+    (click)="test2()"
+    (change)="test3()"
+    class="libMenuCustomClass"
+    [disableTextShadow]="true"
+    [menuItems]="item"
+  >
+    <img [src]="ICONS?.horizontal" alt="" />
   </lib-menu-btn>
 </div>

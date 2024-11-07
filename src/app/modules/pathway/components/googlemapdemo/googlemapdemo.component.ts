@@ -8,13 +8,14 @@ import {
   Output,
   SimpleChanges,
   ViewChild,
-} from "@angular/core";
-import { GoogleMap } from "@angular/google-maps";
+} from '@angular/core';
+import { GoogleMap } from '@angular/google-maps';
+import { ICONS } from 'src/app/constants/constants';
 
 @Component({
-  selector: "app-googlemapdemo",
-  templateUrl: "./googlemapdemo.component.html",
-  styleUrls: ["./googlemapdemo.component.css"],
+  selector: 'app-googlemapdemo',
+  templateUrl: './googlemapdemo.component.html',
+  styleUrls: ['./googlemapdemo.component.css'],
 })
 export class GooglemapdemoComponent implements OnChanges {
   @Input() newDestination!: string;
@@ -22,93 +23,93 @@ export class GooglemapdemoComponent implements OnChanges {
 
   mapOptions: google.maps.MapOptions = {
     styles: [
-      { elementType: "geometry", stylers: [{ color: "#212121" }] },
-      { elementType: "labels.icon", stylers: [{ visibility: "off" }] },
-      { elementType: "labels.text.fill", stylers: [{ color: "#757575" }] },
-      { elementType: "labels.text.stroke", stylers: [{ color: "#212121" }] },
+      { elementType: 'geometry', stylers: [{ color: '#212121' }] },
+      { elementType: 'labels.icon', stylers: [{ visibility: 'off' }] },
+      { elementType: 'labels.text.fill', stylers: [{ color: '#757575' }] },
+      { elementType: 'labels.text.stroke', stylers: [{ color: '#212121' }] },
       {
-        featureType: "administrative",
-        elementType: "geometry",
-        stylers: [{ color: "#757575" }],
+        featureType: 'administrative',
+        elementType: 'geometry',
+        stylers: [{ color: '#757575' }],
       },
       {
-        featureType: "administrative.country",
-        elementType: "labels.text.fill",
-        stylers: [{ color: "#9e9e9e" }],
+        featureType: 'administrative.country',
+        elementType: 'labels.text.fill',
+        stylers: [{ color: '#9e9e9e' }],
       },
       {
-        featureType: "administrative.land_parcel",
-        stylers: [{ visibility: "off" }],
+        featureType: 'administrative.land_parcel',
+        stylers: [{ visibility: 'off' }],
       },
       {
-        featureType: "administrative.locality",
-        elementType: "labels.text.fill",
-        stylers: [{ color: "#bdbdbd" }],
+        featureType: 'administrative.locality',
+        elementType: 'labels.text.fill',
+        stylers: [{ color: '#bdbdbd' }],
       },
       {
-        featureType: "poi",
-        elementType: "labels.text.fill",
-        stylers: [{ color: "#757575" }],
+        featureType: 'poi',
+        elementType: 'labels.text.fill',
+        stylers: [{ color: '#757575' }],
       },
       {
-        featureType: "poi.park",
-        elementType: "geometry",
-        stylers: [{ color: "#181818" }],
+        featureType: 'poi.park',
+        elementType: 'geometry',
+        stylers: [{ color: '#181818' }],
       },
       {
-        featureType: "poi.park",
-        elementType: "labels.text.fill",
-        stylers: [{ color: "#616161" }],
+        featureType: 'poi.park',
+        elementType: 'labels.text.fill',
+        stylers: [{ color: '#616161' }],
       },
       {
-        featureType: "poi.park",
-        elementType: "labels.text.stroke",
-        stylers: [{ color: "#1b1b1b" }],
+        featureType: 'poi.park',
+        elementType: 'labels.text.stroke',
+        stylers: [{ color: '#1b1b1b' }],
       },
       {
-        featureType: "road",
-        elementType: "geometry.fill",
-        stylers: [{ color: "#2c2c2c" }],
+        featureType: 'road',
+        elementType: 'geometry.fill',
+        stylers: [{ color: '#2c2c2c' }],
       },
       {
-        featureType: "road",
-        elementType: "labels.text.fill",
-        stylers: [{ color: "#8a8a8a" }],
+        featureType: 'road',
+        elementType: 'labels.text.fill',
+        stylers: [{ color: '#8a8a8a' }],
       },
       {
-        featureType: "road.arterial",
-        elementType: "geometry",
-        stylers: [{ color: "#373737" }],
+        featureType: 'road.arterial',
+        elementType: 'geometry',
+        stylers: [{ color: '#373737' }],
       },
       {
-        featureType: "road.highway",
-        elementType: "geometry",
-        stylers: [{ color: "#3c3c3c" }],
+        featureType: 'road.highway',
+        elementType: 'geometry',
+        stylers: [{ color: '#3c3c3c' }],
       },
       {
-        featureType: "road.highway.controlled_access",
-        elementType: "geometry",
-        stylers: [{ color: "#4e4e4e" }],
+        featureType: 'road.highway.controlled_access',
+        elementType: 'geometry',
+        stylers: [{ color: '#4e4e4e' }],
       },
       {
-        featureType: "road.local",
-        elementType: "labels.text.fill",
-        stylers: [{ color: "#616161" }],
+        featureType: 'road.local',
+        elementType: 'labels.text.fill',
+        stylers: [{ color: '#616161' }],
       },
       {
-        featureType: "transit",
-        elementType: "labels.text.fill",
-        stylers: [{ color: "#757575" }],
+        featureType: 'transit',
+        elementType: 'labels.text.fill',
+        stylers: [{ color: '#757575' }],
       },
       {
-        featureType: "water",
-        elementType: "geometry",
-        stylers: [{ color: "#000000" }],
+        featureType: 'water',
+        elementType: 'geometry',
+        stylers: [{ color: '#000000' }],
       },
       {
-        featureType: "water",
-        elementType: "labels.text.fill",
-        stylers: [{ color: "#3d3d3d" }],
+        featureType: 'water',
+        elementType: 'labels.text.fill',
+        stylers: [{ color: '#3d3d3d' }],
       },
     ],
 
@@ -125,7 +126,7 @@ export class GooglemapdemoComponent implements OnChanges {
   directionsRenderer = new google.maps.DirectionsRenderer();
 
   currentLocation!: google.maps.LatLngLiteral;
-  destination: string = "";
+  destination: string = '';
   waypoints: string[] = [];
 
   @ViewChild(GoogleMap) googleMap!: GoogleMap;
@@ -138,8 +139,8 @@ export class GooglemapdemoComponent implements OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    if (changes["newDestination"] && changes["newDestination"].currentValue) {
-      this.addDestinationFromParent(changes["newDestination"].currentValue);
+    if (changes['newDestination'] && changes['newDestination'].currentValue) {
+      this.addDestinationFromParent(changes['newDestination'].currentValue);
     }
   }
 
@@ -166,7 +167,7 @@ export class GooglemapdemoComponent implements OnChanges {
         this.addCurrentLocationMarker(this.currentLocation);
       });
     } else {
-      window.alert("Geolocation is not supported by this browser.");
+      window.alert('Geolocation is not supported by this browser.');
     }
   }
 
@@ -174,10 +175,10 @@ export class GooglemapdemoComponent implements OnChanges {
     if (this.googleMap && this.googleMap.googleMap) {
       // Add a circle to represent the accuracy radius
       new google.maps.Circle({
-        strokeColor: "#4285F4",
+        strokeColor: '#4285F4',
         strokeOpacity: 0.8,
         strokeWeight: 2,
-        fillColor: "#4285F4",
+        fillColor: '#4285F4',
         fillOpacity: 0.35,
         map: this.googleMap.googleMap,
         center: position,
@@ -188,29 +189,29 @@ export class GooglemapdemoComponent implements OnChanges {
       new google.maps.Marker({
         position,
         map: this.googleMap.googleMap,
-        title: "Your Location",
+        title: 'Your Location',
         icon: {
           path: google.maps.SymbolPath.CIRCLE,
           scale: 6,
-          fillColor: "#4285F4",
+          fillColor: '#4285F4',
           fillOpacity: 1,
           strokeWeight: 1,
-          strokeColor: "white",
+          strokeColor: 'white',
         },
       });
     }
   }
 
   addDestination() {
-    if (this.destination.trim() !== "") {
+    if (this.destination.trim() !== '') {
       this.waypoints.push(this.destination);
-      this.destination = "";
+      this.destination = '';
       this.calculateAndDisplayRoute();
     }
   }
 
   addDestinationFromParent(destination: string) {
-    if (destination.trim() !== "") {
+    if (destination.trim() !== '') {
       this.waypoints.push(destination);
       this.destinationAdded.emit(destination);
       this.calculateAndDisplayRoute();
@@ -240,15 +241,15 @@ export class GooglemapdemoComponent implements OnChanges {
           this.directionsRenderer.setDirections(response);
           this.placeMarkers(response.routes[0].legs);
         } else {
-          window.alert("Directions request failed due to " + status);
+          window.alert('Directions request failed due to ' + status);
         }
-      }
+      },
     );
   }
 
   placeMarkers(legs: google.maps.DirectionsLeg[]) {
-    const startMarkerImage = "/assets/images/start-loc-marker.svg"; // Replace with your custom start marker image URL
-    const endMarkerImage = "/assets/images/end-loc-marker.svg"; // Replace with your custom end marker image URL
+    const startMarkerImage = ICONS.startMarkerImage; // Replace with your custom start marker image URL
+    const endMarkerImage = ICONS.endMarkerImage; // Replace with your custom end marker image URL
 
     // Clear existing markers if needed
     this.directionsRenderer.setOptions({ markerOptions: { visible: false } });
@@ -279,8 +280,8 @@ export class GooglemapdemoComponent implements OnChanges {
       polygonOptions: {
         editable: true,
         draggable: true,
-        fillColor: "#E17575", // Set your polygon fill color
-        strokeColor: "#E17575", // Set your polygon stroke color
+        fillColor: '#E17575', // Set your polygon fill color
+        strokeColor: '#E17575', // Set your polygon stroke color
       },
     });
 
@@ -288,7 +289,7 @@ export class GooglemapdemoComponent implements OnChanges {
 
     google.maps.event.addListener(
       this.drawingManager,
-      "overlaycomplete",
+      'overlaycomplete',
       (event: google.maps.drawing.OverlayCompleteEvent) => {
         if (event.type === google.maps.drawing.OverlayType.POLYGON) {
           const path = (event.overlay as google.maps.Polygon).getPath();
@@ -299,7 +300,7 @@ export class GooglemapdemoComponent implements OnChanges {
         }
         // Stop drawing mode after a polygon is created
         this.drawingManager.setDrawingMode(null);
-      }
+      },
     );
   }
 
