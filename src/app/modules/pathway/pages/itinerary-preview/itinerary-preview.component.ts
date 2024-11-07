@@ -11,7 +11,7 @@ export class ItineraryPreviewComponent implements OnInit {
   initialLocation = { lat: 24.8607, lng: 67.0011 }; // Centered on California
   ICONS = ICONS;
   ngOnInit(): void {
-    this.locationService.getCurrentLocation().then((location) => {
+    this.locationService.getCurrentLocation().subscribe((location) => {
       this.initialLocation.lat = location.lat;
       this.initialLocation.lng = location.long;
     });
