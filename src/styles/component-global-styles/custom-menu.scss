@@ -1,0 +1,42 @@
+.libMenuCustomClass .text {
+  padding: 0 !important;
+  font-size: 10px !important;
+}
+
+.mat-mdc-menu-item-text {
+  padding: 0 !important;
+  font-size: 14px !important;
+}
+
+.mat-mdc-menu-item-text img {
+  height: 15px !important;
+  width: 15px !important;
+  margin-top: 5px !important;
+  margin-right: 20px !important;
+}
+
+.mat-mdc-menu-item {
+  min-height: 35px !important;
+}
+
+.libMenuCustomClass .btn-text {
+  margin-bottom: 10px;
+}
+
+.libMenuCustomClass .mat-ripple {
+  background: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+.libMenuCustomClass .lib-button-component {
+  background: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+.libMenuCustomClass .lib-button-container {
+  background: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+}

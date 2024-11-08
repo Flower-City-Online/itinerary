@@ -1,5 +1,21 @@
 @use "@angular/material" as mat;
 
+@import "./styles/component-global-styles/search-bar.scss";
+@import "./styles/component-global-styles/bottom-navigation.scss";
+@import "./styles/component-global-styles/create-itinerary.scss";
+@import "./styles/component-global-styles/dashboard.scss";
+@import "./styles/component-global-styles/delete-itineraries.scss";
+@import "./styles/component-global-styles/filter-menu.scss";
+@import "./styles/component-global-styles/header.scss";
+@import "./styles/component-global-styles/navbar.scss";
+@import "./styles/component-global-styles/side-bar.scss";
+@import "./styles/component-global-styles/tab-bar.scss";
+@import "./styles/component-global-styles/custom-menu.scss";
+
+@import "./styles/media-queries.scss";
+@import "./styles/modal.scss";
+@import "./styles//colors";
+
 :root {
   --font-gilroy-regular: "Gilroy-Regular", serif;
   --font-gilroy-bold: "Gilroy-Bold", serif;
@@ -61,13 +77,17 @@ $ns-add-in-theme: mat.define-dark-theme(
 @import "../node_modules/nextsapien-component-lib/src/lib/shared-styles/styles.scss";
 
 body {
-  background: linear-gradient(191deg, #27242c 61.33%, #0c0b0e 101.43%);
+  background: linear-gradient(
+    191deg,
+    $background-color-1 61.33%,
+    $background-color-10 101.43%
+  );
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
 
 * {
-  color: white;
+  color: $text-color-3;
 }
 
 @tailwind base;
@@ -75,7 +95,11 @@ body {
 @tailwind utilities;
 
 .bg-color {
-  background: linear-gradient(100deg, #27242c, #0c0b0e);
+  background: linear-gradient(
+    100deg,
+    $background-color-1,
+    $background-color-10
+  );
   /* Add other CSS properties as needed */
 }
 
@@ -95,25 +119,21 @@ body {
 .button-shadow {
   box-shadow:
     -5.744px -5.744px 11.487px 0px rgba(16, 16, 16, 0) inset,
-    3.282px 1.641px 3.282px 0px #323232 inset,
-    2.462px 2.462px 4.923px 0px #272a2c inset,
+    3.282px 1.641px 3.282px 0px $box-shadow-1 inset,
+    2.462px 2.462px 4.923px 0px $box-shadow-2 inset,
     -2.462px -2.462px 4.923px 0px rgba(0, 0, 0, 0.32) inset,
-    4.923px 4.923px 9.846px 0px #151617,
-    -4.102px -4.102px 8.205px 0px #333,
+    4.923px 4.923px 9.846px 0px $box-shadow-3,
+    -4.102px -4.102px 8.205px 0px $box-shadow-4,
     9.026px 8.205px 22.153px 2.051px rgba(17, 16, 20, 0.65),
     -4.102px -4.102px 13.128px -2.462px rgba(203, 199, 209, 0.25);
-  background: #27242c;
-}
-
-.modal-tab-shadow {
-  box-shadow: 9.026px 8.205px 22.153px 2.051px rgba(17, 16, 20, 0.65);
+  background: $background-color-1;
 }
 
 .text-shadow {
   text-shadow:
-    0px 0px 3.282px #fff,
-    0px 0px 16.41px #fe3c72,
-    0px 0px 16.41px #fe3c72;
+    0px 0px 3.282px $text-color-3,
+    0px 0px 16.41px $scroll-color,
+    0px 0px 16.41px $scroll-color;
 }
 
 .searchbar-shadow {
@@ -136,7 +156,7 @@ body {
 
 input[type="checkbox"]:checked {
   color: white;
-  background-color: #fe3c72;
+  background-color: $scroll-color;
 }
 
 .background-gradient {
@@ -146,12 +166,12 @@ input[type="checkbox"]:checked {
       rgba(138, 138, 138, 0.13) 4.93%,
       rgba(100, 100, 100, 0) 14.33%
     ),
-    #27242c;
+    $background-color-1;
 }
 
 .foodbox {
   border-radius: 82.05px;
-  background: var(--Secondary, #f7f5dd);
+  background: var(--Secondary, $background-color-11);
   box-shadow:
     -1.641px -1.641px 10.667px 0px rgba(255, 255, 255, 0.5),
     3.282px 3.282px 6.564px 0px rgba(0, 0, 0, 0.89);
@@ -159,7 +179,11 @@ input[type="checkbox"]:checked {
 
 .card-menu-bg {
   border-radius: 6.564px !important;
-  background: linear-gradient(180deg, #403d46 0%, #3e3b44 100%) !important;
+  background: linear-gradient(
+    180deg,
+    $background-color-12 0%,
+    $background-color-13 100%
+  ) !important;
   box-shadow:
     0px 1.641px 3.282px 0px rgba(0, 0, 0, 0.25),
     0px 3.282px 3.282px 0px rgba(0, 0, 0, 0.25),
@@ -249,14 +273,14 @@ input[type="checkbox"]:checked {
 }
 
 :root {
-  --primary-color: #28252d;
-  --secondary-color: #fe3c72;
-  --primary-font-color: #ffffff;
+  --primary-color: $background-color-5;
+  --secondary-color: $scroll-color;
 }
 
 html,
 body {
   height: 100%;
+  height: 200vh;
 }
 body {
   margin: 0;
@@ -264,32 +288,24 @@ body {
   overflow: hidden;
 }
 
-.parentClassForModal {
-  width: 100%;
-  padding: 0px 20px;
-  margin-top: 15px;
-  font-family: "Calistoga";
-  border-radius: 10px;
-}
-
 .customHeadingSectionHeading {
   width: 100%;
   padding: 8px 4px;
 }
 
-::ng-deep .apply-ng-deep-styles {
+.apply-ng-deep-styles {
   // Example of applying styles to body
   body {
-    background: #676767 !important;
+    background: $background-color-7 !important;
   }
 }
 
 .discard {
-  color: #fff;
+  color: $text-color-3;
   text-shadow:
-    0px 0px 4.896px #fff,
-    0px 0px 24.479px #fe3c72,
-    0px 0px 24.479px #fe3c72;
+    0px 0px 4.896px $text-color-3,
+    0px 0px 24.479px $scroll-color,
+    0px 0px 24.479px $scroll-color;
   font-family: Calistoga;
   font-size: 11.487px;
   font-style: normal;
@@ -324,46 +340,11 @@ body {
   ) !important; /* Change this to your desired corner color */
 }
 
-@media (max-width: 380px) {
-  .minScreenMain {
-    padding: 0px !important;
-  }
-  .minScreen {
-    padding: 5px 10px !important;
-  }
-}
-
-::ng-deep .lib-bottom-modal .modal-wrapper {
-  background: transparent !important;
-  box-shadow: none !important;
-}
-
-#bottomModalContentRef {
-  background: transparent;
-  margin-top: 0px !important;
-}
-
-.lib-bottom-modal-loader {
-  display: none !important;
-}
-
 .fading-line {
   display: none;
 }
 
-.modal-handle {
-  display: none !important;
-}
-
-.lib-bottom-modal-header {
-  display: none !important;
-}
-
-.lib-bottom-modal-header.ng-star-inserted {
-  display: none;
-}
-
-:host ::ng-deep .button-native {
+:host .button-native {
   border-radius: var(--border-radius);
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
@@ -419,41 +400,4 @@ body {
   -moz-appearance: none;
   appearance: none;
   background: transparent !important;
-}
-
-::ng-deep .modal-wrapper.ion-overlay-wrapper {
-  background: transparent !important;
-}
-
-::ng-deep .modal-handle {
-  display: none !important;
-}
-
-::ng-deep ion-modal.lib-bottom-modal[_ngcontent-ng-c1153917535]::part(handle) {
-  opacity: 0 !important;
-  display: none !important;
-}
-
-@media (max-height: 720px) {
-  .h-screen {
-    padding-bottom: 60px;
-  }
-}
-
-@media (max-height: 720px) and (max-width: 380px) {
-  .h-screen {
-    padding-bottom: 60px !important;
-  }
-}
-
-@media (max-height: 720px) and (max-width: 380px) {
-  .h-screen {
-    padding-bottom: 60px !important;
-  }
-}
-
-@media (min-width: 320px) and (max-width: 379px) {
-  .h-screen {
-    padding-bottom: 100px !important;
-  }
 }

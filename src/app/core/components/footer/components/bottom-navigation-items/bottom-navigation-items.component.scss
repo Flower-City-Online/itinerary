@@ -1,0 +1,40 @@
+@use "src/styles/colors" as *;
+
+.bottomNavItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 30px;
+  max-width: 60px;
+}
+.bottomNavItem span {
+  color: $text-color-3;
+  opacity: 30%;
+  font-size: 11px;
+  line-height: 15px;
+}
+
+.bottomNavItem .spanText:nth-child(3) {
+  background: red !important;
+  margin-top: 3px !important;
+}
+
+.dashboardActive.spanText {
+  background-image: linear-gradient(
+    208.61deg,
+    $scroll-color -5.8%,
+    $background-color-6 192.44%
+  ) !important;
+
+  /* Clip the gradient to the text */
+  -webkit-background-clip: text !important;
+  background-clip: text !important; /* Standard property for non-webkit browsers */
+
+  /* Make text color transparent to reveal the gradient */
+  color: transparent !important;
+
+  /* For better cross-browser support */
+  display: inline !important;
+  opacity: 100% !important;
+}

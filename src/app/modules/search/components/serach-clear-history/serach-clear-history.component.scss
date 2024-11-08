@@ -1,0 +1,21 @@
+@use "src/styles/colors" as *;
+
+.searchSubHeading {
+  color: $text-color-4;
+}
+
+.clearHistoryMain {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 0px;
+  width: 100px;
+  margin-top: 10px;
+  font-weight: lighter;
+  position: relative;
+  font-size: 13px !important;
+}
+
+.clearHistoryMain span {
+  margin-bottom: 2px;
+}

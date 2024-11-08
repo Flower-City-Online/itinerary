@@ -1,3 +1,5 @@
+@use "src/styles/colors" as *;
+
 .page-wrapper {
   display: flex;
   flex-direction: column;
@@ -5,6 +7,6 @@
   padding: 24px;
 
   .page-title {
-    color: #fff;
+    color: $text-color-3;
   }
 }

@@ -1,0 +1,416 @@
+@use "src/styles/colors" as *;
+
+@media (max-width: 380px) {
+  .minScreenMain {
+    padding: 0px !important;
+  }
+  .minScreen {
+    padding: 5px 10px !important;
+  }
+}
+
+@media (max-height: 720px) {
+  .h-screen {
+    padding-bottom: 60px;
+  }
+}
+
+@media (max-height: 720px) and (max-width: 380px) {
+  .h-screen {
+    padding-bottom: 60px !important;
+  }
+}
+
+@media (max-height: 720px) and (max-width: 380px) {
+  .h-screen {
+    padding-bottom: 60px !important;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 379px) {
+  .h-screen {
+    padding-bottom: 100px !important;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .bottomNavigation {
+    padding: 8px 8px;
+  }
+}
+
+@media screen and (min-width: 500px) {
+  .customNavBottomModal {
+    background: none;
+    z-index: 20003;
+    pointer-events: auto;
+    box-shadow: none;
+    width: 500px !important;
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .bottomNavItem img {
+    height: 13px !important;
+    width: 13px !important;
+  }
+  .bottomNavItem span {
+    font-size: 10px;
+    line-height: 12px;
+  }
+}
+
+@media screen and (max-width: 390px) {
+  .headerBtn {
+    height: 27px !important;
+    width: 27px !important;
+  }
+  .headerBtn img {
+    height: 13px !important;
+    width: 13px !important;
+  }
+  .headerMainBar {
+    padding-inline: 10px !important;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .p-tabmenu-nav-content ul {
+    font-size: 12px !important;
+  }
+}
+
+@media screen and (max-width: 1492px) {
+  .subNav {
+    gap: 100px;
+  }
+}
+
+@media screen and (max-width: 1282px) {
+  .subNav {
+    gap: 80px;
+  }
+}
+
+@media screen and (max-width: 1152px) {
+  .subNav {
+    gap: 50px;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .deleteModal p {
+    font-size: 10px;
+    padding: 0px 11px;
+  }
+  .checkBox {
+    height: 13px !important;
+    width: 13px !important;
+    margin-top: -1px;
+  }
+
+  .checkBoxFeild {
+    margin-top: 20px !important;
+  }
+}
+
+@media (min-width: 960px) {
+  .btn-selectable {
+    margin: 7px !important;
+    margin-right: 7px !important;
+  }
+
+  .selectable-container {
+    padding: 0 14px !important;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .btn-selectable {
+    font-size: 10px !important;
+    margin-right: 7px !important;
+    position: relative;
+    box-shadow: -4.1px -4.1px 13.13px -2.46px $box-shadow-5;
+  }
+
+  .filterBtn {
+    height: 32px !important;
+    width: 32px !important;
+  }
+
+  .filterBtn img {
+    height: 14px !important;
+    width: 14px !important;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .btn-selectable {
+    margin: 2px !important;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 327px) {
+  .btn-selectable {
+    margin: 2px !important;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .reportItineraies {
+    width: 280px;
+    padding: 0px 10px;
+  }
+
+  .radioGroup {
+    font-size: 11px !important;
+  }
+}
+
+@media (max-width: 380px) {
+  .builderAddBtn {
+    width: 100% !important;
+    font-size: 14px !important;
+  }
+  .builderAddBtn img {
+    height: 13px;
+    width: 13px;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .content {
+    width: fit-content;
+  }
+  .contentText {
+    width: fit-content;
+  }
+  .contentText span {
+    font-size: 12px;
+  }
+  .content p {
+    font-size: 9px;
+    width: 100%;
+  }
+  .contentIconLast {
+    margin-left: 0px;
+  }
+}
+
+@media (max-width: 1500px) {
+  .gridColumns {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 1160px) {
+  .gridColumns {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+@media (max-width: 380px) {
+  .favouriteMainSection,
+  .favouriteSubSection {
+    margin-top: 10% !important;
+  }
+  .favouriteSubSection div img {
+    height: 120px;
+    width: 120px;
+  }
+  .favouriteMainSection h1 {
+    font-size: 20px;
+  }
+
+  .btnStyle {
+    padding-inline: 20px;
+  }
+}
+@media (max-height: 630px) {
+  .favouriteMainSection,
+  .favouriteSubSection {
+    margin-top: 5% !important;
+  }
+  .favouriteSubSection div img {
+    height: 120px;
+    width: 120px;
+  }
+  .favouriteMainSection h1 {
+    font-size: 20px;
+  }
+  .btnStyle {
+    padding-inline: 20px;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .mainBtn {
+    width: 140px;
+    font-size: 16px !important;
+  }
+  .mainBtn:last-child {
+    width: 168px;
+  }
+  .mainBtn span img {
+    height: 14px !important;
+    width: 15px !important;
+  }
+  .mainBtn span {
+    margin-top: 0px !important;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .searchHistoryText {
+    font-size: 12px;
+  }
+
+  .searchHistoryBar span img:first-child {
+    height: 11px;
+    width: 10px;
+  }
+  .searchHistoryBar span img:last-child {
+    height: 11px;
+    width: 10px;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .searchChips {
+    font-size: 12px !important;
+    padding-inline: 8px !important;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .searchChips {
+    font-size: 12px !important;
+    padding-inline: 8px !important;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .searchBottom {
+    padding-top: 0%;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .clearHistoryMain {
+    width: 95px;
+    font-size: 12px !important;
+  }
+  .clearHistoryMain span img {
+    height: 13px;
+    width: 14px;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .subScreen {
+    padding-inline: 15px;
+  }
+  .searchChips {
+    font-size: 10px !important;
+    padding-inline: 2px !important;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .title {
+    font-size: 13px !important;
+  }
+  .draftHeader {
+    font-size: 10px !important;
+    left: 20px;
+  }
+  .bottomIcons {
+    height: 12px;
+    width: 13px;
+  }
+  .userIconText {
+    font-size: 11px;
+  }
+  .bottomTags {
+    font-size: 10px;
+    font-family: Gilroy-Thin;
+  }
+  .draftDescription {
+    font-size: 10px;
+  }
+}
+
+@media screen and (max-width: 390px) {
+  h4 {
+    font-size: 12px !important;
+  }
+  .archiveCss h4 {
+    font-size: 10px !important;
+  }
+  .archiveCss img {
+    margin-top: 4px !important;
+  }
+  .iconButton p {
+    font-size: 12px !important;
+  }
+  .iconButton img {
+    height: 12px !important;
+    width: 12px !important;
+    margin-top: 1px;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .title {
+    font-size: 13px !important;
+  }
+  .draftHeader {
+    font-size: 10px !important;
+    left: 20px;
+  }
+  .bottomIcons {
+    height: 12px;
+    width: 13px;
+  }
+  .userIconText {
+    font-size: 11px;
+  }
+  .bottomTags {
+    font-size: 10px;
+    font-family: Gilroy-Thin;
+  }
+  .draftDescription {
+    font-size: 10px;
+  }
+}
+
+@media screen and (max-width: 390px) {
+  .searchField {
+    margin-top: 10px !important;
+  }
+  .container {
+    margin: 0px 5px;
+    position: relative;
+    padding: 0px;
+  }
+
+  .container__search-bar__input {
+    font-size: 12px !important;
+  }
+
+  .container__search-bar__input::placeholder {
+    font-size: 12px !important;
+    padding-bottom: 2px;
+  }
+
+  .container__search-bar__icon.container__search-bar__search-icon {
+    position: absolute;
+    right: 6%;
+    height: 12px !important;
+    width: 12px !important;
+  }
+}

@@ -1,0 +1,18 @@
+lib-base-btn {
+  background: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+
+  .mat-ripple,
+  .lib-button-component,
+  .lib-button-container,
+  button {
+    background: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
+  }
+}
+
+lib-menu-btn .normal-menu-btn button .text {
+  padding: 0 !important;
+}

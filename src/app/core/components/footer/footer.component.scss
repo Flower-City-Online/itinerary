@@ -1,0 +1,21 @@
+@use "src/styles/colors" as *;
+
+
+.bottomNavigation {
+  background: $background-color-5;
+  padding: 15px 10px;
+  z-index: 999;
+  box-shadow: var(
+    --lib-popup-modal-shadow,
+    5px 5px 95px 0px rgba(255, 255, 255, 0.32),
+    -3px -3px 16px 0px rgba(255, 255, 255, 0.1)
+  ) !important;
+}
+
+.bottomNavMain {
+  display: flex !important;
+  justify-content: space-evenly !important;
+  align-items: center !important;
+  height: 100% !important;
+  max-width: 100% !important;
+}

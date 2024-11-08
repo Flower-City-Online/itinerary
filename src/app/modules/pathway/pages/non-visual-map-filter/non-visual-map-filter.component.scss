@@ -1,0 +1,16 @@
+@use "src/styles/colors" as *;
+
+.filterClass {
+  font-family: Gilroy-Thin !important;
+  font-size: 12px !important;
+}
+
+.noVisualClass {
+  color: $text-color-3;
+  font-family: Calistoga;
+  font-size: 19.692px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 160%;
+  text-transform: capitalize;
+}

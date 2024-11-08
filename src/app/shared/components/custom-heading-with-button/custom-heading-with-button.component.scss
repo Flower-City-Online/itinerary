@@ -1,0 +1,23 @@
+@use "src/styles/colors" as *;
+
+p {
+  color: $scroll-color;
+  margin-left: 2px;
+}
+
+.heading {
+  font-size: 12px;
+}
+
+.archiveCss {
+  margin-top: 10px;
+}
+.archiveCss h4 {
+  font-size: 12px !important;
+  color: $text-color-4 !important;
+}
+
+.archiveCss p {
+  margin-top: 4px;
+  font-size: 10px !important;
+}

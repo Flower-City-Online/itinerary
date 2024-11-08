@@ -1,0 +1,22 @@
+@use "src/styles/colors" as *;
+
+.searchHistoryBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0px;
+}
+
+.searchHistoryBarSub {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.searchHistoryText {
+  margin-left: 10px;
+  margin-top: 2px;
+  font-weight: lighter;
+  color: $text-color-6;
+  font-size: 16px;
+}

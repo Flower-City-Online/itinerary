@@ -1,0 +1,42 @@
+@use "src/styles/colors" as *;
+
+.headerMainBar {
+  font-family: "Calistoga", cursive;
+}
+.headerMainBar h4 {
+  font-size: 1rem;
+}
+.headerBackBtn {
+  height: 26px;
+  width: 26px;
+}
+
+.headerBackBtn {
+  height: 32px !important;
+  width: 32px !important;
+}
+
+.headerBtn {
+  border-radius: 20px;
+  margin-bottom: 3px;
+  height: 34px;
+  width: 34px;
+  background: $background-color-1 !important;
+  box-shadow:
+    9.026px 8.205px 22.153px 2.051px rgba(17, 16, 20, 0.65),
+    -4.102px -4.102px 13.128px -2.462px rgba(203, 199, 209, 0.25) !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.headerBtn:last-child {
+  background: none !important;
+  box-shadow: none !important;
+}
+
+.headerBtn img {
+  margin-top: 1px;
+  margin-left: 2px;
+}
+
