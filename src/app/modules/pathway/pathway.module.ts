@@ -1,6 +1,6 @@
-import { CommonModule } from "@angular/common";
-import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from "@angular/core";
-import { FormsModule } from "@angular/forms";
+import { CommonModule } from '@angular/common';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import {
   GoogleMap,
   GoogleMapsModule,
@@ -20,18 +20,18 @@ import {
   MapRectangle,
   MapTrafficLayer,
   MapTransitLayer,
-} from "@angular/google-maps";
-import { MatIcon } from "@angular/material/icon";
-import { ButtonsModule, LibMapModule } from "nextsapien-component-lib";
-import { environment } from "src/environments/environment";
-import { SharedModule } from "../../shared/shared.module";
-import { GooglemapdemoComponent } from "./components/googlemapdemo/googlemapdemo.component";
-import { MapHeaderComponent } from "./components/map-header/map-header.component";
-import { DefaultDestinationComponent } from "./pages/default-destination/default-destination.component";
-import { ItineraryPreviewComponent } from "./pages/itinerary-preview/itinerary-preview.component";
-import { NonVisualMapFilterComponent } from "./pages/non-visual-map-filter/non-visual-map-filter.component";
-import { PathwayRoutingModule } from "./pathway-routing.module";
-import { PathwayComponent } from "./pathway.component";
+} from '@angular/google-maps';
+import { MatIcon } from '@angular/material/icon';
+import { ButtonsModule, LibMapModule } from 'nextsapien-component-lib';
+import { environment } from 'src/environments/environment';
+import { SharedModule } from '../../shared/shared.module';
+import { GooglemapComponent } from './components/googlemap/googlemap.component';
+import { MapHeaderComponent } from './components/map-header/map-header.component';
+import { DefaultDestinationComponent } from './pages/default-destination/default-destination.component';
+import { ItineraryPreviewComponent } from './pages/itinerary-preview/itinerary-preview.component';
+import { NonVisualMapFilterComponent } from './pages/non-visual-map-filter/non-visual-map-filter.component';
+import { PathwayRoutingModule } from './pathway-routing.module';
+import { PathwayComponent } from './pathway.component';
 
 const COMPONENTS = [
   GoogleMap,
@@ -59,7 +59,7 @@ const COMPONENTS = [
     ItineraryPreviewComponent,
     DefaultDestinationComponent,
     PathwayComponent,
-    GooglemapdemoComponent,
+    GooglemapComponent,
     MapHeaderComponent,
   ],
   imports: [

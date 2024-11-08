@@ -13,11 +13,11 @@ import { GoogleMap } from '@angular/google-maps';
 import { ICONS } from 'src/app/constants/constants';
 
 @Component({
-  selector: 'app-googlemapdemo',
-  templateUrl: './googlemapdemo.component.html',
-  styleUrls: ['./googlemapdemo.component.css'],
+  selector: 'app-googlemap',
+  templateUrl: './googlemap.component.html',
+  styleUrls: ['./googlemap.component.css'],
 })
-export class GooglemapdemoComponent implements OnChanges {
+export class GooglemapComponent implements OnChanges {
   @Input() newDestination!: string;
   @Output() destinationAdded = new EventEmitter<string>();
 

@@ -1,8 +1,8 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, Input, OnInit } from '@angular/core';
 import { LibMenuItem } from 'nextsapien-component-lib';
 import { ICONS } from 'src/app/constants/constants';
 import { ICardData } from 'src/app/interface/cardData';
+import { ApiService } from 'src/app/services/core/api.service';
 
 @Component({
   selector: 'app-card-component',
@@ -14,15 +14,13 @@ export class CardComponent implements OnInit {
   @Input() isDraft!: boolean;
   cardData: ICardData;
   ICONS = ICONS;
-  constructor(private http: HttpClient) {}
+  constructor(private apiService: ApiService) {}
 
   ngOnInit(): void {
     if (!this.isDraft) {
-      this.http
-        .get<ICardData>('/assets/data.json')
-        .subscribe((data: ICardData) => {
-          this.cardData = data;
-        });
+      this.apiService.get('/assets/data.json').subscribe((data: ICardData) => {
+        this.cardData = data;
+      });
     } else {
       this.cardData = {
         upVotes: '',

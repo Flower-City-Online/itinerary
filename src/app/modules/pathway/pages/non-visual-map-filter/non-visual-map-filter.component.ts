@@ -1,6 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { ICONS } from 'src/app/constants/constants';
-import { GooglemapdemoComponent } from '../../components/googlemapdemo/googlemapdemo.component';
+import { GooglemapComponent } from '../../components/googlemap/googlemap.component';
 @Component({
   selector: 'app-non-visual-map-filter',
   templateUrl: './non-visual-map-filter.component.html',
@@ -14,9 +14,9 @@ export class NonVisualMapFilterComponent {
   ];
   initialLocation = { lat: 36.7783, lng: -119.4179 };
   ICONS = ICONS;
-  @ViewChild('mapDemo') mapDemo!: GooglemapdemoComponent;
+  @ViewChild('map') map!: GooglemapComponent;
 
   toggleDrawingTool() {
-    this.mapDemo.startDrawingPolygon();
+    this.map.startDrawingPolygon();
   }
 }
