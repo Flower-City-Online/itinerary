@@ -10,7 +10,7 @@ import { ReportItineraryModalComponent } from '../../components/report-itinerary
 @Component({
   selector: 'app-builder',
   templateUrl: './builder.component.html',
-  styleUrl: './builder.component.css',
+  styleUrl: './builder.component.scss',
 })
 export class BuilderComponent implements OnInit {
   showModal = false;

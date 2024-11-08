@@ -6,7 +6,7 @@ import { ApiService } from 'src/app/services/core/api.service';
 @Component({
   selector: 'app-cutom-card',
   templateUrl: './cutom-card.component.html',
-  styleUrl: './cutom-card.component.css',
+  styleUrl: './cutom-card.component.scss',
 })
 export class CutomCardComponent {
   @Input() libMenuItem!: LibMenuItem[];
@@ -54,7 +54,7 @@ export class CutomCardComponent {
     type: string,
   ): string | number | null | undefined {
     if (type == 'imageSrc' && this.nullCheck(data)) {
-      return ICONS.untitled;
+      return 'assets/images/untitledImage.svg';
     } else if (type == 'upVotes' && this.nullCheck(data)) {
       return '00';
     } else if (type == 'title' && this.nullCheck(data)) {

@@ -5,7 +5,7 @@ import { ModalService } from 'src/app/services/core/modal/modal.service';
 @Component({
   selector: 'app-create-itinerary-modal-item',
   templateUrl: './create-itinerary-modal-item.component.html',
-  styleUrl: './create-itinerary-modal-item.component.css',
+  styleUrl: './create-itinerary-modal-item.component.scss',
 })
 export class CreateItineraryModalItemComponent implements OnInit {
   @Output() clickEvent = new EventEmitter<void>();

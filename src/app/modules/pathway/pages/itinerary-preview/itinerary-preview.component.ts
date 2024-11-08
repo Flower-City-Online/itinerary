@@ -4,7 +4,7 @@ import { LocationService } from 'src/app/services/core/location.service';
 @Component({
   selector: 'app-itinerary-preview',
   templateUrl: './itinerary-preview.component.html',
-  styleUrl: './itinerary-preview.component.css',
+  styleUrl: './itinerary-preview.component.scss',
 })
 export class ItineraryPreviewComponent implements OnInit {
   constructor(public locationService: LocationService) {}

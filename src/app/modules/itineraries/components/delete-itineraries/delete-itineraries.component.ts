@@ -5,7 +5,7 @@ import { ModalService } from '../../../../services/core/modal/modal.service';
 @Component({
   selector: 'app-delete-itineraries',
   templateUrl: './delete-itineraries.component.html',
-  styleUrl: './delete-itineraries.component.css',
+  styleUrl: './delete-itineraries.component.scss',
 })
 export class DeleteItinerariesComponent {
   ICONS = ICONS;

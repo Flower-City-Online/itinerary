@@ -7,7 +7,7 @@ import { ModalService } from '../../../../services/core/modal/modal.service';
 @Component({
   selector: 'app-main-archives',
   templateUrl: './main-archives.component.html',
-  styleUrl: './main-archives.component.css',
+  styleUrl: './main-archives.component.scss'
 })
 export class MainArchivesComponent implements OnInit {
   libMenuItem: LibMenuItem[] = [];

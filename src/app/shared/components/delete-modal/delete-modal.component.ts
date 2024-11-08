@@ -5,7 +5,7 @@ import { ModalService } from '../../../services/core/modal/modal.service';
 @Component({
   selector: 'app-delete-modal',
   templateUrl: './delete-modal.component.html',
-  styleUrl: './delete-modal.component.css',
+  styleUrl: './delete-modal.component.scss',
 })
 export class DeleteModalComponent {
   @Output() delete = new EventEmitter<MouseEvent>();

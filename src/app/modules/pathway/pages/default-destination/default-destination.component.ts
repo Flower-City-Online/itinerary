@@ -4,7 +4,7 @@ import { ICONS } from 'src/app/constants/constants';
 @Component({
   selector: 'app-default-destination',
   templateUrl: './default-destination.component.html',
-  styleUrl: './default-destination.component.css',
+  styleUrl: './default-destination.component.scss',
 })
 export class DefaultDestinationComponent {
   destination: string = '';

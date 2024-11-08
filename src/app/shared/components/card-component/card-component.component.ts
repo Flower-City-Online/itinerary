@@ -7,7 +7,7 @@ import { ApiService } from 'src/app/services/core/api.service';
 @Component({
   selector: 'app-card-component',
   templateUrl: './card-component.component.html',
-  styleUrl: './card-component.component.css',
+  styleUrl: './card-component.component.scss',
 })
 export class CardComponent implements OnInit {
   @Input() libMenuItem!: LibMenuItem[];

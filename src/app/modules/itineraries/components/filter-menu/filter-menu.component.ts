@@ -12,7 +12,7 @@ import { ShadowRootHandlerService } from 'src/app/services/core/shadow-root-hand
 @Component({
   selector: 'app-filter-menu',
   templateUrl: './filter-menu.component.html',
-  styleUrl: './filter-menu.component.css',
+  styleUrl: './filter-menu.component.scss',
 })
 export class FilterMenuComponent implements OnInit, AfterViewInit {
   @Input() cssClass!: string;

@@ -12,7 +12,7 @@ import { ModalService } from '../../../../../../services/core/modal/modal.servic
 @Component({
   selector: 'app-create-itinerary',
   templateUrl: './create-itinerary.component.html',
-  styleUrl: './create-itinerary.component.css',
+  styleUrl: './create-itinerary.component.scss',
 })
 export class CreateItineraryComponent implements OnInit, AfterViewInit {
   @ViewChild('testModal', { static: false })

@@ -5,7 +5,7 @@ import { ModalService } from "../../services/core/modal/modal.service";
 @Component({
   selector: "app-home",
   templateUrl: "./itineraries.component.html",
-  styleUrl: "./itineraries.component.css",
+  styleUrl: "./itineraries.component.scss",
 })
 export class ItinerariesComponent {
   constructor(

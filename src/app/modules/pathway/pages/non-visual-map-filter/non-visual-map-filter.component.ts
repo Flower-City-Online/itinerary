@@ -4,7 +4,7 @@ import { GooglemapComponent } from '../../components/googlemap/googlemap.compone
 @Component({
   selector: 'app-non-visual-map-filter',
   templateUrl: './non-visual-map-filter.component.html',
-  styleUrl: './non-visual-map-filter.component.css',
+  styleUrl: './non-visual-map-filter.component.scss',
 })
 export class NonVisualMapFilterComponent {
   mapType = 'roadmap';

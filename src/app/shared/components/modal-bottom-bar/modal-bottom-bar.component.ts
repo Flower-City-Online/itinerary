@@ -3,7 +3,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 @Component({
   selector: 'app-modal-bottom-bar',
   templateUrl: './modal-bottom-bar.component.html',
-  styleUrl: './modal-bottom-bar.component.css',
+  styleUrl: './modal-bottom-bar.component.scss',
 })
 export class ModalBottomBarComponent {
   @Input() okText!: string;

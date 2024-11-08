@@ -5,7 +5,7 @@ import { ModalService } from '../../../../services/core/modal/modal.service';
 @Component({
   selector: 'app-serach-clear-history',
   templateUrl: './serach-clear-history.component.html',
-  styleUrl: './serach-clear-history.component.css',
+  styleUrl: './serach-clear-history.component.scss',
 })
 export class SerachClearHistoryComponent {
   toggleModal = false;

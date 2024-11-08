@@ -13,7 +13,7 @@ import { ShadowRootHandlerService } from 'src/app/services/core/shadow-root-hand
 @Component({
   selector: 'app-footer',
   templateUrl: './footer.component.html',
-  styleUrls: ['./footer.component.css'],
+  styleUrls: ['./footer.component.scss'],
   encapsulation: ViewEncapsulation.Emulated,
 })
 export class FooterComponent implements OnInit, AfterViewInit {

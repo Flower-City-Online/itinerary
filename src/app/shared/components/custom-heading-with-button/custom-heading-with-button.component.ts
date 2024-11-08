@@ -3,7 +3,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 @Component({
   selector: 'app-custom-heading-with-button',
   templateUrl: './custom-heading-with-button.component.html',
-  styleUrl: './custom-heading-with-button.component.css',
+  styleUrl: './custom-heading-with-button.component.scss',
 })
 export class CustomHeadingWithButtonComponent {
   @Input() heading!: string;

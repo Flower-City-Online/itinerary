@@ -5,7 +5,7 @@ import { CustomDropdownMenuService } from "../../../../../../services/core/custo
 @Component({
   selector: "app-explore-list",
   templateUrl: "./explore-list.component.html",
-  styleUrl: "./explore-list.component.css",
+  styleUrl: "./explore-list.component.scss",
 })
 export class ExploreListComponent implements OnInit {
   libMenuItem: LibMenuItem[] = [];

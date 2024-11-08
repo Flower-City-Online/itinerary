@@ -5,7 +5,7 @@ import { ModalService } from '../../../../../../services/core/modal/modal.servic
 @Component({
   selector: 'app-create-itinerary-modal',
   templateUrl: './create-itinerary-modal.component.html',
-  styleUrl: './create-itinerary-modal.component.css',
+  styleUrl: './create-itinerary-modal.component.scss',
   encapsulation: ViewEncapsulation.Emulated,
 })
 export class CreateItineraryModalComponent implements OnInit {

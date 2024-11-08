@@ -6,7 +6,7 @@ import { ModalService } from '../../../../services/core/modal/modal.service';
 @Component({
   selector: 'app-report-itinerary-modal',
   templateUrl: './report-itinerary-modal.component.html',
-  styleUrl: './report-itinerary-modal.component.css',
+  styleUrl: './report-itinerary-modal.component.scss',
 })
 export class ReportItineraryModalComponent implements OnInit {
   selectedItem: number;

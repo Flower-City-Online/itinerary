@@ -5,7 +5,7 @@ import {DeleteItinerariesComponent} from "../itineraries/components/delete-itine
 @Component({
   selector: 'app-archives',
   templateUrl: './archives.component.html',
-  styleUrl: './archives.component.css'
+  styleUrl: './archives.component.scss'
 })
 export class ArchivesComponent {
   cssClass = ['deleteItineraries']

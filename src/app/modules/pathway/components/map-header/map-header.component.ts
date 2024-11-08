@@ -2,9 +2,9 @@ import { Location } from "@angular/common";
 import { Component, EventEmitter, Input, Output } from "@angular/core";
 
 @Component({
-  selector: "app-map-header",
-  templateUrl: "./map-header.component.html",
-  styleUrl: "./map-header.component.css",
+  selector: 'app-map-header',
+  templateUrl: './map-header.component.html',
+  styleUrl: './map-header.component.scss',
 })
 export class MapHeaderComponent {
   @Input() title: string = "Default Title";

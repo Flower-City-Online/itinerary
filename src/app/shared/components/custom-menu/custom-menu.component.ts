@@ -1,11 +1,12 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ViewEncapsulation } from '@angular/core';
 import { LibMenuItem } from 'nextsapien-component-lib';
 import { ICONS } from 'src/app/constants/constants';
 
 @Component({
   selector: 'app-custom-menu',
   templateUrl: './custom-menu.component.html',
-  styleUrl: './custom-menu.component.css',
+  styleUrl: './custom-menu.component.scss',
+  encapsulation: ViewEncapsulation.None,
 })
 export class CustomMenuComponent {
   @Input() item!: LibMenuItem[];
