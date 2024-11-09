@@ -1,7 +1,6 @@
 @use "src/styles/colors" as *;
 
-
-.bottomNavigation {
+.bottom-navigation {
   background: $background-color-5;
   padding: 15px 10px;
   z-index: 999;
@@ -12,7 +11,7 @@
   ) !important;
 }
 
-.bottomNavMain {
+.bottom-nav-main {
   display: flex !important;
   justify-content: space-evenly !important;
   align-items: center !important;

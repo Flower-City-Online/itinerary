@@ -10,12 +10,12 @@
 }
 
 @media screen and (max-width: 380px) {
-  .bottomNavigation {
+  .bottom-navigation {
     padding: 8px 8px;
   }
 }
 
-::ng-deep .customNavBottomModal {
+::ng-deep .custom-nav-bottom-modal {
   height: 60px;
   margin-top: auto;
   position: absolute !important;

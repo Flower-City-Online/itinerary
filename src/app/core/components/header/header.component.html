@@ -1,15 +1,15 @@
 <div
   class="{{
     cssClass
-  }} headerMainBar pt-5 pb-5 flex items-center justify-between"
+  }} header-main-bar pt-5 pb-5 flex items-center justify-between"
 >
-  <lib-icon-btn class="headerBackBtn" (click)="firstButton.emit()">
+  <lib-icon-btn class="header-back-btn" (click)="firstButton.emit()">
     <img [ngSrc]="ICONS?.back" height="12" width="13" />
   </lib-icon-btn>
   <h4>{{ heading }}</h4>
 
   <app-icon-button
-    class="headerBtn"
+    class="header-btn"
     (clickFunction)="lastButton.emit()"
     [iconPath]="ICONS?.search"
     type="btn"

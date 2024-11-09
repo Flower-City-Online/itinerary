@@ -1,28 +1,28 @@
-.sideBarHeadingBar .mat-ripple {
+.side-bar-heading-bar .mat-ripple {
   box-shadow: none !important;
 }
 
-.sideBarHeadingBar .headerBtn:last-child {
+.side-bar-heading-bar .header-btn:last-child {
   box-shadow: none !important;
   margin-right: 10px !important;
   margin-top: 5px !important;
 }
 
-.sideBarHeadingBar .lib-button-container {
+.side-bar-heading-bar .lib-button-container {
   box-shadow: none !important;
 }
 
-.filterSideBar {
+.filter-side-bar {
   display: flex !important;
   flex-direction: column-reverse !important;
 }
 
-.filterSideBar .selectable-container {
+.filter-side-bar .selectable-container {
   display: flex !important;
   flex-direction: column !important;
   align-items: center;
 }
 
-.filterSideBar .btn-selectable {
+.filter-side-bar .btn-selectable {
   height: 100% !important;
 }

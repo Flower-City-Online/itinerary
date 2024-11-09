@@ -1,14 +1,13 @@
 @use "src/styles/colors" as *;
 
-
-.filterMenu {
+.filter-menu {
   display: flex;
   align-items: center;
   justify-content: center;
   margin-top: 10px;
 }
 
-.filterBtn {
+.filter-btn {
   border-radius: 20px;
   margin-bottom: 3px;
   background: $background-color-1 !important;
@@ -20,11 +19,11 @@
   align-items: center;
 }
 
-.filterBtn {
+.filter-btn {
   height: 32px !important;
   width: 32px !important;
 }
 
-.filterBtn img {
+.filter-btn img {
   margin-left: 1.6px;
 }

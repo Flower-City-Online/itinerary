@@ -1,4 +1,4 @@
-.builderAddBtn lib-base-btn .mat-ripple .btn-text {
+.builder-add-btn lib-base-btn .mat-ripple .btn-text {
   display: flex !important;
   justify-content: center !important;
   align-items: center !important;
@@ -8,9 +8,9 @@
   text-shadow: var(--lib-secondary-button-text-shadow) !important;
 }
 
-.builderAddBtn .lib-button-container {
+.builder-add-btn .lib-button-container {
   display: none !important;
 }
-.builderAddBtn .mat-ripple {
+.builder-add-btn .mat-ripple {
   height: 60px !important;
 }

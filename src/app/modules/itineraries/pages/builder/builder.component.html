@@ -1,21 +1,21 @@
-<div class="mainSection builderMainSection">
-  <app-create-itinerary class="createItiniresCom"></app-create-itinerary>
+<div class="main-section builder-main-section">
+  <app-create-itinerary class="create-itinires-com"></app-create-itinerary>
   <app-custom-heading-with-button
-    class="customHeadingSectionHeading"
+    class="custom-heading-section-heading"
     [heading]="'My Creations'"
     [buttonText]="'Archives'"
     [buttonIcon]="ICONS?.archives"
     (buttonClick)="navigateToArchive()"
   >
   </app-custom-heading-with-button>
-  <div class="builderContent">
+  <div class="builder-content">
     <app-card-component
       [libMenuItem]="libMenuItem"
       [isDraft]="true"
     ></app-card-component>
     <br />
     <app-card-component
-      class="secondComp"
+      class="second-comp"
       [libMenuItem]="libMenuItem"
       [isDraft]="false"
     ></app-card-component>

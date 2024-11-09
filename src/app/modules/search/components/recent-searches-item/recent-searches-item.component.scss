@@ -1,19 +1,19 @@
 @use "src/styles/colors" as *;
 
-.searchHistoryBar {
+.search-history-bar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 8px 0px;
 }
 
-.searchHistoryBarSub {
+.search-history-bar-sub {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.searchHistoryText {
+.search-history-text {
   margin-left: 10px;
   margin-top: 2px;
   font-weight: lighter;

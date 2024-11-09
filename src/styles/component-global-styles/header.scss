@@ -1,19 +1,19 @@
 @use "src/styles/colors" as *;
 
-.headerBackBtn .lib-button-component .mat-ripple {
+.header-back-btn .lib-button-component .mat-ripple {
   background: $background-color-1 !important;
   border: none !important;
 }
 
-.headerBackBtn .lib-button-component .lib-button-container {
+.header-back-btn .lib-button-component .lib-button-container {
   display: none !important;
 }
 
-.headerBackBtn .lib-button-component {
+.header-back-btn .lib-button-component {
   border: none !important;
 }
 
-.headerBackBtn .mat-ripple {
+.header-back-btn .mat-ripple {
   border: none !important;
   background: $background-color-1;
   box-shadow:

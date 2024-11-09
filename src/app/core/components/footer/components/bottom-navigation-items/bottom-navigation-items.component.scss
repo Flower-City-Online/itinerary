@@ -1,6 +1,6 @@
 @use "src/styles/colors" as *;
 
-.bottomNavItem {
+.bottom-nav-item {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -8,19 +8,19 @@
   min-width: 30px;
   max-width: 60px;
 }
-.bottomNavItem span {
+.bottom-nav-item span {
   color: $text-color-3;
   opacity: 30%;
   font-size: 11px;
   line-height: 15px;
 }
 
-.bottomNavItem .spanText:nth-child(3) {
+.bottom-nav-item .spanText:nth-child(3) {
   background: red !important;
   margin-top: 3px !important;
 }
 
-.dashboardActive.spanText {
+.dashboard-active.span-text {
   background-image: linear-gradient(
     208.61deg,
     $scroll-color -5.8%,

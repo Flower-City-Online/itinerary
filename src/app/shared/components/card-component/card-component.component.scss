@@ -1,14 +1,14 @@
 @use "src/styles/colors" as *;
 
-.cardComponent {
+.card-component {
   background: $background-color-1;
 }
 
-.bottomTags {
+.bottom-tags {
   font-size: 12px;
 }
 
-.draftHeader {
+.draft-header {
   color: $text-color-4;
   font-weight: normal !important;
   font-size: 11px !important;
@@ -18,53 +18,53 @@
   left: 36px;
 }
 
-.draftDescription {
+.draft-description {
   color: $text-color-3;
 }
 
-.userIconText {
+.user-icon-text {
   color: $text-color-4;
   margin-top: 2px;
   font-size: 11px;
 }
 
-.bottomIcons {
+.bottom-icons {
   height: 15px;
   width: 16px;
 }
 
-.bottomIcons:last-child {
+.bottom-icons:last-child {
   height: 16px !important;
   width: 17px !important;
 }
 
-.draflOcationImage {
+.draf-location-image {
   height: 5rem;
   width: 9rem;
 }
 
-.bottomBarLoc {
+.bottom-bar-loc {
   background: $background-color-9 !important;
   width: 5rem !important;
   bottom: 1rem !important;
 }
 
-.locationItemMain {
+.location-item-main {
   font-size: 12px;
 }
 
-.locationItemMain span {
+.location-item-main span {
   margin-top: 2px;
   font-size: 12px;
 }
 
-.locationItem span {
+.location-item span {
   color: $text-color-7 !important;
   font-size: 12px;
   margin-top: 2px;
 }
 
-.drahVoterHeader {
+.drah-voter-header {
   font-family: Gilroy-Thin;
   margin-top: 5px !important;
 }

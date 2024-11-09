@@ -1,6 +1,6 @@
 @use "src/styles/colors" as *;
 
-.searchBottom {
+.search-bottom {
   color: $text-color-5;
   width: 100%;
   right: 0%;
@@ -9,7 +9,7 @@
   font-size: 12px;
 }
 
-.bottomBar {
+.bottom-bar {
   display: flex;
   justify-content: center;
   align-items: center;

@@ -1,4 +1,4 @@
-<div class="reportItineraies max-padd-container">
+<div class="report-itineraies max-padd-container">
   <h1 class="p-4">Report Itinerary</h1>
   <div>
     <lib-form-field
@@ -14,13 +14,13 @@
   </div>
 
   <lib-text-box
-    class="textFeild"
+    class="text-feild"
     *ngIf="selectedItem == 9"
     [label]="'Please brief your issue'"
   ></lib-text-box>
 
   <app-modal-bottom-bar
-    class="parentClassForModal"
+    class="parent-class-for-modal"
     [okText]="'Report'"
     [cancelText]="'Cancel'"
     (cancel)="closeModal()"

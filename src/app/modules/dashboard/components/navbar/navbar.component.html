@@ -1,17 +1,17 @@
-<nav class="navBar text-white fixed top-0 left-0 w-full z-50">
-  <div class="navMainBar">
+<nav class="nav-bar text-white fixed top-0 left-0 w-full z-50">
+  <div class="nav-main-bar">
     <div class="flex ml-2">
       <img [ngSrc]="ICONS?.logo" alt="logo" height="10" width="50" />
     </div>
-    <div class="subNav mx-auto">
+    <div class="sub-nav mx-auto">
       <app-bottom-navigation-items
         label="Home"
-        cssClass="dashboardActive"
+        cssClass="dashboard-active"
         [iconPath]="ICONS?.dashHomeActive"
       ></app-bottom-navigation-items>
       <div>
         <app-search-bar
-          class="navTopSearch"
+          class="nav-top-search"
           [placeholder]="'Search for anything'"
         ></app-search-bar>
       </div>
@@ -34,7 +34,7 @@
         [iconPath]="ICONS?.setting"
       ></app-bottom-navigation-items>
     </div>
-    <div class="profileIcon ml-auto mt-1">
+    <div class="profile-icon ml-auto mt-1">
       <lib-menu-btn
         menuDirection="rtl"
         [menuBtnImgUrl]="
@@ -43,7 +43,7 @@
         [hasNotification]="true"
         [menuBtnNotificationIconUrl]="ICONS?.notBlip"
         [menuItems]="menuItems"
-        class="dashboardMenu"
+        class="dashboard-menu"
       >
       </lib-menu-btn>
     </div>

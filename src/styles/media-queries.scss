@@ -1,10 +1,10 @@
 @use "src/styles/colors" as *;
 
 @media (max-width: 380px) {
-  .minScreenMain {
+  .min-screen-main {
     padding: 0px !important;
   }
-  .minScreen {
+  .min-screen {
     padding: 5px 10px !important;
   }
 }
@@ -34,13 +34,13 @@
 }
 
 @media screen and (max-width: 380px) {
-  .bottomNavigation {
+  .bottom-navigation {
     padding: 8px 8px;
   }
 }
 
 @media screen and (min-width: 500px) {
-  .customNavBottomModal {
+  .custom-nav-bottom-modal {
     background: none;
     z-index: 20003;
     pointer-events: auto;
@@ -54,26 +54,26 @@
 }
 
 @media screen and (max-width: 380px) {
-  .bottomNavItem img {
+  .bottom-navitem img {
     height: 13px !important;
     width: 13px !important;
   }
-  .bottomNavItem span {
+  .bottom-nav-item span {
     font-size: 10px;
     line-height: 12px;
   }
 }
 
 @media screen and (max-width: 390px) {
-  .headerBtn {
+  .header-btn {
     height: 27px !important;
     width: 27px !important;
   }
-  .headerBtn img {
+  .header-btn img {
     height: 13px !important;
     width: 13px !important;
   }
-  .headerMainBar {
+  .header-main-bar {
     padding-inline: 10px !important;
   }
 }
@@ -85,35 +85,35 @@
 }
 
 @media screen and (max-width: 1492px) {
-  .subNav {
+  .sub-nav {
     gap: 100px;
   }
 }
 
 @media screen and (max-width: 1282px) {
-  .subNav {
+  .sub-nav {
     gap: 80px;
   }
 }
 
 @media screen and (max-width: 1152px) {
-  .subNav {
+  .sub-nav {
     gap: 50px;
   }
 }
 
 @media screen and (max-width: 380px) {
-  .deleteModal p {
+  .delete-modal p {
     font-size: 10px;
     padding: 0px 11px;
   }
-  .checkBox {
+  .check-box {
     height: 13px !important;
     width: 13px !important;
     margin-top: -1px;
   }
 
-  .checkBoxFeild {
+  .check-box-feild {
     margin-top: 20px !important;
   }
 }
@@ -137,12 +137,12 @@
     box-shadow: -4.1px -4.1px 13.13px -2.46px $box-shadow-5;
   }
 
-  .filterBtn {
+  .filter-btn {
     height: 32px !important;
     width: 32px !important;
   }
 
-  .filterBtn img {
+  .filter-btn img {
     height: 14px !important;
     width: 14px !important;
   }
@@ -161,22 +161,22 @@
 }
 
 @media screen and (max-width: 380px) {
-  .reportItineraies {
+  .report-itineraies {
     width: 280px;
     padding: 0px 10px;
   }
 
-  .radioGroup {
+  .radio-group {
     font-size: 11px !important;
   }
 }
 
 @media (max-width: 380px) {
-  .builderAddBtn {
+  .builder-add-btn {
     width: 100% !important;
     font-size: 14px !important;
   }
-  .builderAddBtn img {
+  .builder-add-btn img {
     height: 13px;
     width: 13px;
   }
@@ -186,135 +186,135 @@
   .content {
     width: fit-content;
   }
-  .contentText {
+  .content-text {
     width: fit-content;
   }
-  .contentText span {
+  .content-text span {
     font-size: 12px;
   }
   .content p {
     font-size: 9px;
     width: 100%;
   }
-  .contentIconLast {
+  .content-icon-last {
     margin-left: 0px;
   }
 }
 
 @media (max-width: 1500px) {
-  .gridColumns {
+  .grid-columns {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (max-width: 1160px) {
-  .gridColumns {
+  .grid-columns {
     grid-template-columns: repeat(1, 1fr);
   }
 }
 
 @media (max-width: 380px) {
-  .favouriteMainSection,
+  .favourite-main-section,
   .favouriteSubSection {
     margin-top: 10% !important;
   }
-  .favouriteSubSection div img {
+  .favourite-sub-section div img {
     height: 120px;
     width: 120px;
   }
-  .favouriteMainSection h1 {
+  .favourite-main-section h1 {
     font-size: 20px;
   }
 
-  .btnStyle {
+  .btn-style {
     padding-inline: 20px;
   }
 }
 @media (max-height: 630px) {
-  .favouriteMainSection,
+  .favourite-main-section,
   .favouriteSubSection {
     margin-top: 5% !important;
   }
-  .favouriteSubSection div img {
+  .favourite-sub-section div img {
     height: 120px;
     width: 120px;
   }
-  .favouriteMainSection h1 {
+  .favourite-main-section h1 {
     font-size: 20px;
   }
-  .btnStyle {
+  .btn-style {
     padding-inline: 20px;
   }
 }
 
 @media screen and (max-width: 380px) {
-  .mainBtn {
+  .main-btn {
     width: 140px;
     font-size: 16px !important;
   }
-  .mainBtn:last-child {
+  .main-btn:last-child {
     width: 168px;
   }
-  .mainBtn span img {
+  .main-btn span img {
     height: 14px !important;
     width: 15px !important;
   }
-  .mainBtn span {
+  .main-btn span {
     margin-top: 0px !important;
   }
 }
 
 @media screen and (max-width: 380px) {
-  .searchHistoryText {
+  .search-history-text {
     font-size: 12px;
   }
 
-  .searchHistoryBar span img:first-child {
+  .search-history-bar span img:first-child {
     height: 11px;
     width: 10px;
   }
-  .searchHistoryBar span img:last-child {
+  .search-history-bar span img:last-child {
     height: 11px;
     width: 10px;
   }
 }
 
 @media screen and (max-width: 380px) {
-  .searchChips {
+  .search-chips {
     font-size: 12px !important;
     padding-inline: 8px !important;
   }
 }
 
 @media screen and (max-width: 380px) {
-  .searchChips {
+  .search-chips {
     font-size: 12px !important;
     padding-inline: 8px !important;
   }
 }
 
 @media screen and (max-width: 380px) {
-  .searchBottom {
+  .search-bottom {
     padding-top: 0%;
   }
 }
 
 @media screen and (max-width: 380px) {
-  .clearHistoryMain {
+  .clear-history-main {
     width: 95px;
     font-size: 12px !important;
   }
-  .clearHistoryMain span img {
+  .clear-history-main span img {
     height: 13px;
     width: 14px;
   }
 }
 
 @media screen and (max-width: 380px) {
-  .subScreen {
+  .sub-ccreen {
     padding-inline: 15px;
   }
-  .searchChips {
+  .search-chips {
     font-size: 10px !important;
     padding-inline: 2px !important;
   }
@@ -324,22 +324,22 @@
   .title {
     font-size: 13px !important;
   }
-  .draftHeader {
+  .draft-header {
     font-size: 10px !important;
     left: 20px;
   }
-  .bottomIcons {
+  .bottom-icons {
     height: 12px;
     width: 13px;
   }
-  .userIconText {
+  .user-icon-text {
     font-size: 11px;
   }
-  .bottomTags {
+  .bottom-tags {
     font-size: 10px;
     font-family: Gilroy-Thin;
   }
-  .draftDescription {
+  .draft-description {
     font-size: 10px;
   }
 }
@@ -348,16 +348,16 @@
   h4 {
     font-size: 12px !important;
   }
-  .archiveCss h4 {
+  .archive-css h4 {
     font-size: 10px !important;
   }
-  .archiveCss img {
+  .archive-css img {
     margin-top: 4px !important;
   }
-  .iconButton p {
+  .icon-button p {
     font-size: 12px !important;
   }
-  .iconButton img {
+  .icon-button img {
     height: 12px !important;
     width: 12px !important;
     margin-top: 1px;
@@ -368,28 +368,28 @@
   .title {
     font-size: 13px !important;
   }
-  .draftHeader {
+  .draft-header {
     font-size: 10px !important;
     left: 20px;
   }
-  .bottomIcons {
+  .bottom-icons {
     height: 12px;
     width: 13px;
   }
-  .userIconText {
+  .user-icon-text {
     font-size: 11px;
   }
-  .bottomTags {
+  .bottom-tags {
     font-size: 10px;
     font-family: Gilroy-Thin;
   }
-  .draftDescription {
+  .draft-description {
     font-size: 10px;
   }
 }
 
 @media screen and (max-width: 390px) {
-  .searchField {
+  .search-field {
     margin-top: 10px !important;
   }
   .container {

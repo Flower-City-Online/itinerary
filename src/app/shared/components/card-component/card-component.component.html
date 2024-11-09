@@ -1,6 +1,6 @@
 <div
   *ngIf="cardData"
-  class="cardComponent px-4 py-4 my-2 rounded-lg outset-downshadow"
+  class="card-component px-4 py-4 my-2 rounded-lg outset-downshadow"
 >
   <div class="flex items-start justify-between mb-2">
     <div class="flex gap-5 items-start">
@@ -13,7 +13,7 @@
           src="{{ !isDraft ? ICONS?.upvote : ICONS?.upArrowWhite }}"
           alt=""
         />
-        <span class="{{ !isDraft ? 'text-primary' : 'drahVoterHeader' }}">{{
+        <span class="{{ !isDraft ? 'text-primary' : 'drah-voter-header' }}">{{
           cardDataValidater(cardData.upVotes, "upVotes")
         }}</span>
         <img [src]="ICONS?.downvote" alt="" />
@@ -42,21 +42,21 @@
         </h5>
       </div>
     </div>
-    <div class="draftHeader" *ngIf="cardData.isDraft">Draft Saved</div>
+    <div class="draft-header" *ngIf="cardData.isDraft">Draft Saved</div>
     <app-custom-menu [item]="libMenuItem"></app-custom-menu>
   </div>
   <hr class="h-1 text-secondary opacity-25" />
   <div class="my-2 mb-1 flex items-start gap-x-5">
     <div class="1 mb-0 flex flex-col items-center justify-center">
       <img
-        class="{{ isDraft ? 'draflOcationImage' : '' }}"
+        class="{{ isDraft ? 'draf-location-image' : '' }}"
         [src]="cardDataValidater(cardData.imageSrc, 'imageSrc')"
         alt=""
         width="100"
       />
       <span
         class="{{
-          isDraft ? 'bottomBarLoc' : ''
+          isDraft ? 'bottom-bar-loc' : ''
         }} w-[6.2rem] text-[8px] relative bottom-[1.1rem] text-secondary text-center bg-gray-50 px-1 py-[2px] rounded-xl flex items-center justify-center gap-2"
       >
         <img [src]="ICONS?.locationWhite" alt="" />
@@ -71,43 +71,43 @@
         class="font-normal text-secondary flex items-center gap-x-4 text-sm"
       >
         <ul class="flex flex-col gap-y-[6px] xs:text-[9px] sm:text-[12px]">
-          <li class="locationItemMain flex items-center text-primary gap-1">
+          <li class="location-item-main flex items-center text-primary gap-1">
             <img [src]="ICONS?.temp" alt="" />
             <span class="flex items-center text-primary">Palace</span>
           </li>
-          <li class="locationItem flex items-center gap-1">
+          <li class="location-item flex items-center gap-1">
             <img [src]="ICONS?.palace2" alt="" />
             <span class="truncate sm:max-w-10 xs:max-w-12">Template</span>
           </li>
-          <li class="locationItem flex items-center gap-1">
+          <li class="location-item flex items-center gap-1">
             <img [src]="ICONS?.palace2" alt="" />
             <span class="truncate sm:max-w-10 xs:max-w-11">Optional</span>
           </li>
-          <li class="locationItem flex items-center gap-1">
+          <li class="location-item flex items-center gap-1">
             <img [src]="ICONS?.palace2" alt="" />
             <span class="truncate sm:max-w-10 xs:max-w-11">Optional</span>
           </li>
         </ul>
         <ul class="flex flex-col gap-y-[6px] xs:text-[9px] sm:text-[12px]">
-          <li class="locationItem flex items-center gap-1">
+          <li class="location-item flex items-center gap-1">
             <img [src]="ICONS?.coffee" alt="" />
             <span class="truncate sm:max-w-10 xs:max-w-11">Coffee shop</span>
           </li>
-          <li class="locationItem flex items-center gap-1">
+          <li class="location-item flex items-center gap-1">
             <img [src]="ICONS?.template" alt="" />
             <span class="truncate sm:max-w-10 xs:max-w-11">Optional</span>
           </li>
-          <li class="locationItem flex items-center gap-1">
+          <li class="location-item flex items-center gap-1">
             <img [src]="ICONS?.template" alt="" />
             <span class="truncate sm:max-w-10 xs:max-w-11">Optional</span>
           </li>
-          <li class="locationItem flex items-center gap-1">
+          <li class="location-item flex items-center gap-1">
             <img [src]="ICONS?.template" alt="" />
             <span class="truncate sm:max-w-10 xs:max-w-11">Optional</span>
           </li>
         </ul>
       </div>
-      <p *ngIf="cardData.isDraft" class="text-xs draftDescription">
+      <p *ngIf="cardData.isDraft" class="text-xs draft-description">
         You need to finish itinerary creation process to publish this itinerary.
       </p>
     </div>
@@ -118,20 +118,20 @@
       class="flex items-center justify-between sm:gap-x-7 xs:gap-x-5 sm:text-sm xs:text-[9px] text-secondary"
     >
       <div class="flex items-center gap-x-[6px]">
-        <img class="bottomIcons" [src]="ICONS?.eye" alt="" />
-        <span class="bottomTags">{{
+        <img class="bottom-icons" [src]="ICONS?.eye" alt="" />
+        <span class="bottom-tags">{{
           cardDataValidater(cardData.views, "views")
         }}</span>
       </div>
       <div class="flex items-center gap-x-[6px]">
-        <img class="bottomIcons" [src]="ICONS?.comment2" alt="" />
-        <span class="bottomTags">{{
+        <img class="bottom-icons" [src]="ICONS?.comment2" alt="" />
+        <span class="bottom-tags">{{
           cardDataValidater(cardData.comments, "comments")
         }}</span>
       </div>
       <div class="flex items-center gap-x-[6px]">
-        <img class="bottomIcons" [src]="ICONS?.fork" alt="" />
-        <span class="bottomTags">{{
+        <img class="bottom-icons" [src]="ICONS?.fork" alt="" />
+        <span class="bottom-tags">{{
           cardDataValidater(cardData.shares, "shares")
         }}</span>
       </div>
@@ -139,12 +139,12 @@
     <div class="flex items-center gap-x-2">
       <span class="text-xs userIconText"
         >{{ cardDataValidater(cardData.users, "users") }}
-        <span class="userIconText" *ngIf="parseInt(cardData.users) > 0"
+        <span class="user-icon-text" *ngIf="parseInt(cardData.users) > 0"
           >Users</span
         ></span
       >
       <img
-        class="{{ cardData.userimageSrc.length == 0 ? 'bottomIcons' : '' }}"
+        class="{{ cardData.userimageSrc.length == 0 ? 'bottom-icons' : '' }}"
         [src]="cardDataValidater(cardData.userimageSrc, 'userimageSrc')"
         alt=""
       />

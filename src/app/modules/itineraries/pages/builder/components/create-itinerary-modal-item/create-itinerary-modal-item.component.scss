@@ -1,6 +1,6 @@
 @use "src/styles/colors" as *;
 
-.mainContent {
+.main-content {
   background: $background-color-1;
   padding: 20px 0px 20px 0px;
   border-radius: 10px;
@@ -10,7 +10,7 @@
   position: relative;
 }
 
-.mainContentSub,
+.main-content-sub,
 .content {
   display: flex;
   justify-content: center;
@@ -20,7 +20,7 @@
   left: 10px;
 }
 
-.contentIconLast {
+.content-icon-last {
   margin-right: 5px;
 }
 

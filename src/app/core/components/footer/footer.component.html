@@ -1,10 +1,10 @@
 <div>
   <lib-bottom-modal
-    customClass="customNavBottomModal"
+    customClass="custom-nav-bottom-modal"
     [canDismiss]="false"
     [(isOpen)]="enableBack"
   >
-    <div class="bottomNavMain">
+    <div class="bottom-nav-main">
       <app-bottom-navigation-items
         (click)="
           this.bottomNavigationService.onNavigationChange(bottomNavList, item)
