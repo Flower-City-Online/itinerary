@@ -12,7 +12,7 @@ export class DeleteItinerariesComponent {
   ICONS = ICONS;
   constructor(public modalService: ModalService) {}
 
-  closeModal() {
+  closeModal(): void {
     this.modalService.toggleModal = !this.modalService.toggleModal;
   }
 }

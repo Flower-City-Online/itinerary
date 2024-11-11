@@ -1,4 +1,9 @@
-import { ChangeDetectionStrategy, Component, Input, ViewEncapsulation } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  Input,
+  ViewEncapsulation,
+} from '@angular/core';
 import { LibMenuItem } from 'nextsapien-component-lib';
 import { ICONS } from 'src/app/constants/constants';
 
@@ -13,7 +18,7 @@ export class CustomMenuComponent {
   @Input() item!: LibMenuItem[];
   ICONS = ICONS;
 
-  test1() {}
-  test2() {}
-  test3() {}
+  test1(): void {}
+  test2(): void {}
+  test3(): void {}
 }

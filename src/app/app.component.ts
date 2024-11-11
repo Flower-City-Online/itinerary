@@ -41,7 +41,7 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   //use to change application ui and behaviour based on screen size
-  handleScreenSizeChange() {
+  handleScreenSizeChange(): void {
     this.checkWindowWidth();
     this.breakpointSubscription = this.breakpointObserver
       .observe([Breakpoints.Small, Breakpoints.XSmall])

@@ -37,11 +37,9 @@ export class FilterMenuComponent implements OnInit, AfterViewInit {
     filter: new FormControl(this.options[0].value),
   });
 
-  changeSelection() {
-    // @ts-ignore
-  }
+  changeSelection(): void {}
 
-  initShadowrootHandler() {
+  initShadowrootHandler(): void {
     const targetNode = this.el.nativeElement; // Get the root element for querying
 
     // Apply styles to the nested shadow DOM elements

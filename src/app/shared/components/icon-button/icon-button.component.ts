@@ -1,4 +1,11 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output,
+} from '@angular/core';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -19,7 +26,7 @@ export class IconButtonComponent implements OnInit {
     throw new Error('Method not implemented.');
   }
 
-  clickFunc() {
+  clickFunc(): void {
     this.clickFunction.emit();
   }
 }

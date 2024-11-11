@@ -1,4 +1,9 @@
-import { ChangeDetectionStrategy, Component, OnInit, ViewEncapsulation } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  OnInit,
+  ViewEncapsulation,
+} from '@angular/core';
 import { ICONS } from 'src/app/constants/constants';
 import { ModalService } from '../../../../../../services/core/modal/modal.service';
 
@@ -45,7 +50,7 @@ export class CreateItineraryModalComponent implements OnInit {
     },
   ];
 
-  backButton() {
+  backButton(): void {
     this.modalService.bottomToggleModal = !this.modalService.bottomToggleModal;
   }
 }

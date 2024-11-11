@@ -12,5 +12,5 @@ export class SearchBarComponent {
   ICONS = ICONS;
   handleSearchStringChange($event: string) {}
 
-  clear() {}
+  clear(): void {}
 }

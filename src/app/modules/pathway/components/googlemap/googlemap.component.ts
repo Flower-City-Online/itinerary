@@ -132,21 +132,21 @@ export class GooglemapComponent implements OnChanges {
   waypoints: string[] = [];
 
   @ViewChild(GoogleMap) googleMap!: GoogleMap;
-  ngOnInit() {
+  ngOnInit(): void {
     this.getUserLocation();
   }
 
-  ngAfterViewInit() {
+  ngAfterViewInit(): void {
     this.initializeDirectionsRenderer();
   }
 
-  ngOnChanges(changes: SimpleChanges) {
+  ngOnChanges(changes: SimpleChanges): void {
     if (changes['newDestination'] && changes['newDestination'].currentValue) {
       this.addDestinationFromParent(changes['newDestination'].currentValue);
     }
   }
 
-  initializeDirectionsRenderer() {
+  initializeDirectionsRenderer(): void {
     if (this.googleMap && this.googleMap.googleMap) {
       this.directionsRenderer.setMap(this.googleMap.googleMap!);
     }

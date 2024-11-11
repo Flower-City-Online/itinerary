@@ -1,4 +1,9 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Output } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Output,
+} from '@angular/core';
 import { ICONS } from 'src/app/constants/constants';
 import { ModalService } from '../../../services/core/modal/modal.service';
 
@@ -13,11 +18,11 @@ export class DeleteModalComponent {
   ICONS = ICONS;
   constructor(public modalService: ModalService) {}
 
-  deleteItem() {
+  deleteItem(): void {
     this.delete.emit();
   }
 
-  cancelToggle() {
+  cancelToggle(): void {
     this.modalService.toggleModal = !this.modalService.toggleModal;
   }
 }

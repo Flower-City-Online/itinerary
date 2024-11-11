@@ -17,7 +17,7 @@ export class NonVisualMapFilterComponent {
   ICONS = ICONS;
   @ViewChild('map') map!: GooglemapComponent;
 
-  toggleDrawingTool() {
+  toggleDrawingTool(): void {
     this.map.startDrawingPolygon();
   }
 }

@@ -76,7 +76,7 @@ export class BottomNavigationService {
   onNavigationChange(
     data: IBottomNavigationList[],
     nav: IBottomNavigationList,
-  ) {
+  ): void {
     data.forEach((element: IBottomNavigationList) => {
       element.cssClass = '';
     });

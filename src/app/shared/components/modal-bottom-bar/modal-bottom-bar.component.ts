@@ -1,4 +1,10 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Input,
+  Output,
+} from '@angular/core';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -12,11 +18,11 @@ export class ModalBottomBarComponent {
   @Output() ok = new EventEmitter<MouseEvent>();
   @Output() cancel = new EventEmitter<MouseEvent>();
 
-  onOk() {
+  onOk(): void {
     this.ok.emit();
   }
 
-  onCancel() {
+  onCancel(): void {
     this.cancel.emit();
   }
 }

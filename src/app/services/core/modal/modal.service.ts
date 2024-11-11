@@ -15,14 +15,14 @@ export class ModalService {
   openModal(
     component: ComponentType<unknown> | TemplateRef<unknown>,
     cssClasses?: string[],
-  ) {
+  ): void {
     const config = {
       ...(cssClasses && { panelClass: cssClasses }), // Apply CSS classes if provided
     };
     this.dialogRef = this.dialog.open(component, config);
   }
 
-  closeModal() {
+  closeModal(): void {
     if (this.dialogRef) {
       this.dialogRef.close();
     }

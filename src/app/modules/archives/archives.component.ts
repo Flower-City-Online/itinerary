@@ -10,7 +10,7 @@ import { ModalService } from '../../services/core/modal/modal.service';
 export class ArchivesComponent {
   cssClass = ['deleteItineraries'];
   constructor(public modalService: ModalService) {}
-  backButton() {
+  backButton(): void {
     window.history.back();
   }
 }

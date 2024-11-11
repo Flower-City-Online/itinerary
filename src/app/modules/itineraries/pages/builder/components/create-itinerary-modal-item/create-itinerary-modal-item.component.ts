@@ -1,4 +1,11 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output,
+} from '@angular/core';
 import { ICONS } from 'src/app/constants/constants';
 import { ModalService } from 'src/app/services/core/modal/modal.service';
 
@@ -23,11 +30,11 @@ export class CreateItineraryModalItemComponent implements OnInit {
     this.modalService.bottomToggleModal = false;
   }
 
-  clickEventEmitter() {
+  clickEventEmitter(): void {
     this.clickEvent.emit();
   }
 
-  backButton() {
+  backButton(): void {
     this.modalService.bottomToggleModal = !this.modalService.bottomToggleModal;
   }
 }

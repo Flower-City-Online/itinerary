@@ -54,7 +54,7 @@ export class FooterComponent implements OnInit, AfterViewInit {
     this.bottomNavigationService.onNavigationChange(bottomNavList, item);
   }
 
-  initShadowrootHandler() {
+  initShadowrootHandler(): void {
     const targetNode = this.el.nativeElement;
     this.shadowrootHandler.accessShadowRoot(
       targetNode,
@@ -65,7 +65,7 @@ export class FooterComponent implements OnInit, AfterViewInit {
     );
   }
 
-  applyStylesToDialog() {
+  applyStylesToDialog(): void {
     const targetNode = this.el.nativeElement.querySelector(
       'lib-bottom-modal',
     ) as HTMLElement;

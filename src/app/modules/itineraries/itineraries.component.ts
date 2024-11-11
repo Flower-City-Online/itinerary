@@ -13,11 +13,11 @@ export class ItinerariesComponent {
     public router: Router,
     public modalService: ModalService,
   ) {}
-  backButtonClick() {
+  backButtonClick(): void {
     window.history.back();
   }
 
-  searchButtonClick() {
+  searchButtonClick(): void {
     this.router.navigate(['/search/']).then((r) => {});
   }
 }

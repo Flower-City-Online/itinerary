@@ -18,8 +18,7 @@ export class FavoritesComponent implements OnInit {
   }
   constructor(public customMenuList: CustomDropdownMenuService) {}
 
-  goFav() {
-    // @ts-ignore
+  goFav(): void {
     this.cardList.push(1);
   }
 }

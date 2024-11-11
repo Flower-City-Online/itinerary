@@ -27,15 +27,15 @@ export class BuilderComponent implements OnInit {
     public customMenuList: CustomDropdownMenuService,
   ) {}
 
-  navigateToArchive() {
+  navigateToArchive():void {
     this.router.navigate(['/archives/archives']);
   }
-  openModal() {
+  openModal(): void {
     // Add your custom CSS classes
     this.modalService.openModal(DeleteModalComponent, this.cssClasses);
   }
 
-  openModal2() {
+  openSecondModal(): void {
     this.modalService.openModal(ReportItineraryModalComponent, this.cssClasses);
   }
 }

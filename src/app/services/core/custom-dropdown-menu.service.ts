@@ -48,7 +48,7 @@ export class CustomDropdownMenuService {
       title: 'Report',
       iconUrl: ICONS.report,
       command: () => {
-        this.openModal2();
+        this.openSecondModal();
       },
     },
     {
@@ -152,10 +152,10 @@ export class CustomDropdownMenuService {
     return filteredList;
   }
 
-  openModal() {
+  openModal(): void {
     this.modalService.toggleModal = !this.modalService.toggleModal;
   }
-  openModal2() {
+  openSecondModal(): void {
     this.modalService.toggleModal = !this.modalService.toggleModal;
   }
 }

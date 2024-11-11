@@ -8,7 +8,7 @@ export class ShadowRootHandlerService {
     targetNode: HTMLElement,
     componentName: string,
     callback: () => void,
-  ) {
+  ): void {
     // Query the custom element
     const element = targetNode.querySelector(componentName) as HTMLElement;
 

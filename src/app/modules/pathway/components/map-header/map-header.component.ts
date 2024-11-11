@@ -1,5 +1,11 @@
 import { Location } from '@angular/common';
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Input,
+  Output,
+} from '@angular/core';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -17,7 +23,7 @@ export class MapHeaderComponent {
 
   constructor(private location: Location) {}
 
-  goBack() {
+  goBack(): void {
     if (this.backLink) {
       window.location.href = this.backLink;
     } else {

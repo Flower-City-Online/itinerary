@@ -32,7 +32,7 @@ export class CreateItineraryComponent implements OnInit, AfterViewInit {
     this.initShadowrootHandler();
   }
 
-  initShadowrootHandler() {
+  initShadowrootHandler(): void {
     const targetNode = this.el.nativeElement;
     this.shadowrootHandler.accessShadowRoot(
       targetNode,
@@ -43,7 +43,7 @@ export class CreateItineraryComponent implements OnInit, AfterViewInit {
     );
   }
 
-  applyStylesToDialog() {
+  applyStylesToDialog(): void {
     const targetNode = this.el.nativeElement.querySelector(
       'lib-bottom-modal',
     ) as HTMLElement;
@@ -81,7 +81,7 @@ export class CreateItineraryComponent implements OnInit, AfterViewInit {
     this.modalService.bottomToggleModal = false;
   }
 
-  openModal() {
+  openModal(): void {
     this.modalService.bottomToggleModal = !this.modalService.bottomToggleModal;
     // this.modalService.openModal(CreateItineraryModalComponent,this.cssClass);
   }

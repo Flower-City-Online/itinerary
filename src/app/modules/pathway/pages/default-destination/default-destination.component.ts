@@ -12,11 +12,11 @@ export class DefaultDestinationComponent {
   newDestination: string = '';
   ICONS = ICONS;
 
-  addDestination() {
+  addDestination(): void {
     this.newDestination = this.destination;
   }
 
-  onDestinationAdded(destination: string) {
+  onDestinationAdded(destination: string): void {
     this.destination = '';
   }
 }

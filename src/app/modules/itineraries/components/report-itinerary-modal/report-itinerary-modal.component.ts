@@ -34,7 +34,7 @@ export class ReportItineraryModalComponent implements OnInit {
     public modalService: ModalService,
   ) {}
 
-  radioChecked() {
+  radioChecked(): void {
     if (this.formGroup.controls.radio.value == 9) {
       this.selectedItem = 9;
     } else {
@@ -51,7 +51,7 @@ export class ReportItineraryModalComponent implements OnInit {
     });
   }
 
-  closeModal() {
+  closeModal(): void {
     this.modalService.toggleModal = !this.modalService.toggleModal;
   }
 
