@@ -6,10 +6,8 @@
   >
     <div class="bottom-nav-main">
       <app-bottom-navigation-items
-        (click)="
-          this.bottomNavigationService.onNavigationChange(bottomNavList, item)
-        "
-        *ngFor="let item of bottomNavList"
+        (click)="navigate(bottomNavigationService.bottomNavList, item)"
+        *ngFor="let item of bottomNavigationService.bottomNavList"
         [height]="item.height"
         [width]="item.width"
         [cssClass]="item.cssClass"

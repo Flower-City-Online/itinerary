@@ -5,7 +5,7 @@ import {
   OnInit,
   ViewEncapsulation,
 } from '@angular/core';
-import { ICONS } from 'src/app/constants/constants';
+import { IBottomNavigationList } from 'src/app/interface/bottomNavigationList';
 import { BottomNavigationService } from 'src/app/services/core/bottom-navigation.service';
 import { ModalService } from 'src/app/services/core/modal/modal.service';
 import { ShadowRootHandlerService } from 'src/app/services/core/shadow-root-handler.service';
@@ -27,10 +27,12 @@ export class FooterComponent implements OnInit, AfterViewInit {
   ) {}
 
   ngOnInit(): void {
-    const selectedElement = this.bottomNavList.find((nav) => nav.id === 4);
+    const selectedElement = this.bottomNavigationService.bottomNavList.find(
+      (nav) => nav.id === 4,
+    );
     if (selectedElement) {
       this.bottomNavigationService.onNavigationChange(
-        this.bottomNavList,
+        this.bottomNavigationService.bottomNavList,
         selectedElement,
       );
     }
@@ -41,6 +43,13 @@ export class FooterComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit(): void {
     this.initShadowrootHandler();
+  }
+
+  navigate(
+    bottomNavList: IBottomNavigationList[],
+    item: IBottomNavigationList,
+  ): void {
+    this.bottomNavigationService.onNavigationChange(bottomNavList, item);
   }
 
   initShadowrootHandler() {
@@ -83,57 +92,4 @@ export class FooterComponent implements OnInit, AfterViewInit {
     } else {
     }
   }
-
-  bottomNavList = [
-    {
-      id: 1,
-      label: 'Home',
-      iconPath: ICONS.home,
-      clickedIconPath: ICONS.homeRed,
-      routerLink: '/itinaries',
-      cssClass: '',
-      height: '16',
-      width: '17',
-    },
-    {
-      id: 2,
-      label: 'Requests',
-      iconPath: ICONS.favorite,
-      clickedIconPath: ICONS.favorite,
-      routerLink: '/requests',
-      cssClass: '',
-      height: '19',
-      width: '19',
-    },
-    {
-      id: 3,
-      label: 'Info',
-      iconPath: ICONS.chat,
-      clickedIconPath: ICONS.chatRed,
-      routerLink: '/info',
-      cssClass: '',
-      height: '16',
-      width: '17',
-    },
-    {
-      id: 4,
-      label: 'Itineraries',
-      iconPath: ICONS.itineraries,
-      clickedIconPath: ICONS.itinerariesRed,
-      routerLink: '/itineraries',
-      cssClass: '',
-      height: '16',
-      width: '17',
-    },
-    {
-      id: 5,
-      label: 'Profile',
-      iconPath: ICONS.user,
-      clickedIconPath: ICONS.userRed,
-      routerLink: '/profile',
-      cssClass: '',
-      height: '16',
-      width: '17',
-    },
-  ];
 }

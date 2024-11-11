@@ -21,9 +21,7 @@ export class FilterMenuComponent implements OnInit, AfterViewInit {
     private shadowRootHandlerService: ShadowRootHandlerService,
     private el: ElementRef,
   ) {}
-  ngOnInit(): void {
-    const element = document.getElementsByClassName('button-native');
-  }
+  ngOnInit(): void {}
   ngAfterViewInit(): void {
     this.initShadowrootHandler();
   }
