@@ -1,4 +1,10 @@
-import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  Input,
+  OnInit,
+} from '@angular/core';
 import { LibMenuItem } from 'nextsapien-component-lib';
 import { ICONS } from 'src/app/constants/constants';
 import { ICardData } from 'src/app/interface/cardData';
@@ -15,12 +21,16 @@ export class CardComponent implements OnInit {
   @Input() isDraft!: boolean;
   cardData: ICardData;
   ICONS = ICONS;
-  constructor(private apiService: ApiService) {}
+  constructor(
+    private apiService: ApiService,
+    private cdr: ChangeDetectorRef,
+  ) {}
 
   ngOnInit(): void {
     if (!this.isDraft) {
       this.apiService.get('/assets/data.json').subscribe((data: ICardData) => {
         this.cardData = data;
+        this.cdr.detectChanges();
       });
     } else {
       this.cardData = {
