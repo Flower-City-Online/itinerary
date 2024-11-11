@@ -8,10 +8,9 @@ describe('CustomMenuComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [CustomMenuComponent]
-    })
-    .compileComponents();
-    
+      declarations: [CustomMenuComponent],
+    }).compileComponents();
+
     fixture = TestBed.createComponent(CustomMenuComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

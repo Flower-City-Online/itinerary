@@ -1,5 +1,5 @@
-import { Location } from "@angular/common";
-import { Component, EventEmitter, Input, Output } from "@angular/core";
+import { Location } from '@angular/common';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-map-header',
@@ -7,9 +7,9 @@ import { Component, EventEmitter, Input, Output } from "@angular/core";
   styleUrl: './map-header.component.scss',
 })
 export class MapHeaderComponent {
-  @Input() title: string = "Default Title";
-  @Input() backLink: string = "/";
-  @Input() customcss: string = "py-1";
+  @Input() title: string = 'Default Title';
+  @Input() backLink: string = '/';
+  @Input() customcss: string = 'py-1';
   @Output() onSearchClick = new EventEmitter<boolean>();
 
   isSearchClicked: boolean = false;

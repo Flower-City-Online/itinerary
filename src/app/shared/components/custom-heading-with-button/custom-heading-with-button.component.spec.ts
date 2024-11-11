@@ -8,10 +8,9 @@ describe('CustomHeadingWithButtonComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [CustomHeadingWithButtonComponent]
-    })
-    .compileComponents();
-    
+      declarations: [CustomHeadingWithButtonComponent],
+    }).compileComponents();
+
     fixture = TestBed.createComponent(CustomHeadingWithButtonComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

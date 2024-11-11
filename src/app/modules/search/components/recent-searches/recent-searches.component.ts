@@ -5,6 +5,4 @@ import { Component } from '@angular/core';
   templateUrl: './recent-searches.component.html',
   styleUrl: './recent-searches.component.scss',
 })
-export class RecentSearchesComponent {
-
-}
+export class RecentSearchesComponent {}

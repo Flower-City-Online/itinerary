@@ -4,9 +4,9 @@ import { ICONS } from 'src/app/constants/constants';
 import { CustomDropdownMenuService } from '../../../../services/core/custom-dropdown-menu.service';
 
 @Component({
-  selector: "app-favorites",
-  templateUrl: "./favorites.component.html",
-  styleUrl: "./favorites.component.scss",
+  selector: 'app-favorites',
+  templateUrl: './favorites.component.html',
+  styleUrl: './favorites.component.scss',
 })
 export class FavoritesComponent implements OnInit {
   libMenuItem: LibMenuItem[] = [];

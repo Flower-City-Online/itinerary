@@ -8,10 +8,9 @@ describe('ModalBottomBarComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ModalBottomBarComponent]
-    })
-    .compileComponents();
-    
+      declarations: [ModalBottomBarComponent],
+    }).compileComponents();
+
     fixture = TestBed.createComponent(ModalBottomBarComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

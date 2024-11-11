@@ -8,10 +8,9 @@ describe('QuickActionsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [QuickActionsComponent]
-    })
-    .compileComponents();
-    
+      declarations: [QuickActionsComponent],
+    }).compileComponents();
+
     fixture = TestBed.createComponent(QuickActionsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

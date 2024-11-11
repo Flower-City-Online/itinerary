@@ -8,10 +8,9 @@ describe('SectionSepraterComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [SectionSepraterComponent]
-    })
-    .compileComponents();
-    
+      declarations: [SectionSepraterComponent],
+    }).compileComponents();
+
     fixture = TestBed.createComponent(SectionSepraterComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

@@ -8,10 +8,9 @@ describe('MainDashboardComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [MainDashboardComponent]
-    })
-    .compileComponents();
-    
+      declarations: [MainDashboardComponent],
+    }).compileComponents();
+
     fixture = TestBed.createComponent(MainDashboardComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

@@ -1,20 +1,16 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
 
+import { LibModalModule } from 'nextsapien-component-lib';
+import { CoreModule } from '../../core/core.module';
+import { SharedModule } from '../../shared/shared.module';
+import { ItinerariesModule } from '../itineraries/itineraries.module';
 import { ArchivesRoutingModule } from './archives-routing.module';
 import { ArchivesComponent } from './archives.component';
 import { MainArchivesComponent } from './pages/main-archives/main-archives.component';
-import {CoreModule} from "../../core/core.module";
-import {SharedModule} from "../../shared/shared.module";
-import { LibModalModule } from 'nextsapien-component-lib';
-import { ItinerariesModule } from '../itineraries/itineraries.module';
-
 
 @NgModule({
-  declarations: [
-    ArchivesComponent,
-    MainArchivesComponent
-  ],
+  declarations: [ArchivesComponent, MainArchivesComponent],
   imports: [
     CommonModule,
     ArchivesRoutingModule,
@@ -24,4 +20,4 @@ import { ItinerariesModule } from '../itineraries/itineraries.module';
     ItinerariesModule,
   ],
 })
-export class ArchivesModule { }
+export class ArchivesModule {}

@@ -1,38 +1,38 @@
-import { NgModule } from "@angular/core";
-import { RouterModule, Routes } from "@angular/router";
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  { path: "", redirectTo: "itineraries", pathMatch: "full" },
+  { path: '', redirectTo: 'itineraries', pathMatch: 'full' },
   {
-    path: "itineraries",
+    path: 'itineraries',
     loadChildren: () =>
-      import("./modules/itineraries/itineraries.module").then(
-        (x) => x.ItinerariesModule
+      import('./modules/itineraries/itineraries.module').then(
+        (x) => x.ItinerariesModule,
       ),
   },
   {
-    path: "search",
+    path: 'search',
     loadChildren: () =>
-      import("./modules/search/search.module").then((x) => x.SearchModule),
+      import('./modules/search/search.module').then((x) => x.SearchModule),
   },
   {
-    path: "archives",
+    path: 'archives',
     loadChildren: () =>
-      import("./modules/archives/archives.module").then(
-        (x) => x.ArchivesModule
+      import('./modules/archives/archives.module').then(
+        (x) => x.ArchivesModule,
       ),
   },
   {
-    path: "dashboard",
+    path: 'dashboard',
     loadChildren: () =>
-      import("./modules/dashboard/dashboard.module").then(
-        (x) => x.DashboardModule
+      import('./modules/dashboard/dashboard.module').then(
+        (x) => x.DashboardModule,
       ),
   },
   {
-    path: "pathway",
+    path: 'pathway',
     loadChildren: () =>
-      import("./modules/pathway/pathway.module").then((x) => x.PathwayModule),
+      import('./modules/pathway/pathway.module').then((x) => x.PathwayModule),
   },
 ];
 

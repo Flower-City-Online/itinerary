@@ -4,7 +4,7 @@ import { ICONS } from 'src/app/constants/constants';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrl: './header.component.scss'
+  styleUrl: './header.component.scss',
 })
 export class HeaderComponent {
   @Input() heading!: string;

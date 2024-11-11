@@ -5,6 +5,4 @@ import { Component } from '@angular/core';
   templateUrl: './pathway.component.html',
   styleUrl: './pathway.component.scss',
 })
-export class PathwayComponent {
-
-}
+export class PathwayComponent {}

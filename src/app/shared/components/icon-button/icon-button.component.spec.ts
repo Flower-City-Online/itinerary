@@ -8,10 +8,9 @@ describe('IconButtonComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [IconButtonComponent]
-    })
-    .compileComponents();
-    
+      declarations: [IconButtonComponent],
+    }).compileComponents();
+
     fixture = TestBed.createComponent(IconButtonComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

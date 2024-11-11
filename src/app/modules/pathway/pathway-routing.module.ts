@@ -11,12 +11,12 @@ const routes: Routes = [
     pathMatch: 'full',
   },
   {
-    path: "non-visual-map-filter",
-    component: NonVisualMapFilterComponent
+    path: 'non-visual-map-filter',
+    component: NonVisualMapFilterComponent,
   },
   {
-    path: "itinerary-preview",
-    component: ItineraryPreviewComponent
+    path: 'itinerary-preview',
+    component: ItineraryPreviewComponent,
   },
   {
     path: 'default-destination',

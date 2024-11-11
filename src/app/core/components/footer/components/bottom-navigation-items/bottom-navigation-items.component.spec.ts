@@ -8,10 +8,9 @@ describe('BottomNavigationItemsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [BottomNavigationItemsComponent]
-    })
-    .compileComponents();
-    
+      declarations: [BottomNavigationItemsComponent],
+    }).compileComponents();
+
     fixture = TestBed.createComponent(BottomNavigationItemsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

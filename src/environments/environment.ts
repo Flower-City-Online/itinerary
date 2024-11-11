@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  googleMapsKey: "AIzaSyDIXdQpCkQwLYuDvxK9Hbt4o9DFOop_YB8",
-  googleMapsURL: "https://maps.googleapis.com/maps/api/js",
+  googleMapsKey: 'AIzaSyDIXdQpCkQwLYuDvxK9Hbt4o9DFOop_YB8',
+  googleMapsURL: 'https://maps.googleapis.com/maps/api/js',
 };
 
 /*

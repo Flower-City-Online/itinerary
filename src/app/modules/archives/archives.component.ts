@@ -1,18 +1,15 @@
 import { Component } from '@angular/core';
-import {ModalService} from "../../services/core/modal/modal.service";
-import {DeleteItinerariesComponent} from "../itineraries/components/delete-itineraries/delete-itineraries.component";
+import { ModalService } from '../../services/core/modal/modal.service';
 
 @Component({
   selector: 'app-archives',
   templateUrl: './archives.component.html',
-  styleUrl: './archives.component.scss'
+  styleUrl: './archives.component.scss',
 })
 export class ArchivesComponent {
-  cssClass = ['deleteItineraries']
-  constructor(public modalService: ModalService) {
-
-  }
-  backButton(){
+  cssClass = ['deleteItineraries'];
+  constructor(public modalService: ModalService) {}
+  backButton() {
     window.history.back();
   }
 }

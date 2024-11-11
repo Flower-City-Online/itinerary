@@ -8,10 +8,9 @@ describe('MapHeaderComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [MapHeaderComponent]
-    })
-    .compileComponents();
-    
+      declarations: [MapHeaderComponent],
+    }).compileComponents();
+
     fixture = TestBed.createComponent(MapHeaderComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
