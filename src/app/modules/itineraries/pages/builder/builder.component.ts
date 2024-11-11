@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { LibMenuItem } from 'nextsapien-component-lib';
 import { ICONS } from 'src/app/constants/constants';
@@ -8,6 +8,7 @@ import { DeleteModalComponent } from '../../../../shared/components/delete-modal
 import { ReportItineraryModalComponent } from '../../components/report-itinerary-modal/report-itinerary-modal.component';
 
 @Component({
+  changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'app-builder',
   templateUrl: './builder.component.html',
   styleUrl: './builder.component.scss',

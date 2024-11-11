@@ -1,7 +1,8 @@
-import { Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { ICONS } from 'src/app/constants/constants';
 
 @Component({
+  changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'app-search-bar',
   templateUrl: './search-bar.component.html',
   styleUrl: './search-bar.component.scss',

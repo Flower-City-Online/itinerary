@@ -1,8 +1,9 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ICONS } from 'src/app/constants/constants';
 import { ModalService } from 'src/app/services/core/modal/modal.service';
 
 @Component({
+  changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'app-create-itinerary-modal-item',
   templateUrl: './create-itinerary-modal-item.component.html',
   styleUrl: './create-itinerary-modal-item.component.scss',

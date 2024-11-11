@@ -1,8 +1,9 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { ICONS } from 'src/app/constants/constants';
 import { ModalService } from '../../../../../../services/core/modal/modal.service';
 
 @Component({
+  changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'app-create-itinerary-modal',
   templateUrl: './create-itinerary-modal.component.html',
   styleUrl: './create-itinerary-modal.component.scss',

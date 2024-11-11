@@ -1,9 +1,10 @@
-import { Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { LibMenuItem } from 'nextsapien-component-lib';
 import { ICONS } from 'src/app/constants/constants';
 import { ICardData } from 'src/app/interface/cardData';
 import { ApiService } from 'src/app/services/core/api.service';
 @Component({
+  changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'app-cutom-card',
   templateUrl: './cutom-card.component.html',
   styleUrl: './cutom-card.component.scss',

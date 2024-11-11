@@ -1,7 +1,8 @@
-import { Component, ViewChild } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ViewChild } from '@angular/core';
 import { ICONS } from 'src/app/constants/constants';
 import { GooglemapComponent } from '../../components/googlemap/googlemap.component';
 @Component({
+  changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'app-non-visual-map-filter',
   templateUrl: './non-visual-map-filter.component.html',
   styleUrl: './non-visual-map-filter.component.scss',

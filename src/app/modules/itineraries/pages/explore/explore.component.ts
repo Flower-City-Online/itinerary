@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { LibMenuItem } from 'nextsapien-component-lib';
 import { CustomDropdownMenuService } from '../../../../services/core/custom-dropdown-menu.service';
 
 @Component({
+  changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'app-explore',
   templateUrl: './explore.component.html',
   styleUrl: './explore.component.scss',

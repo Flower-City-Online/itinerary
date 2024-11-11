@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
   selector: 'app-tab-bar',
   templateUrl: './tab-bar.component.html',
   styleUrl: './tab-bar.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TabBarComponent {
   tabMenuItems = [

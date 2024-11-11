@@ -1,6 +1,7 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
+  changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'app-modal-bottom-bar',
   templateUrl: './modal-bottom-bar.component.html',
   styleUrl: './modal-bottom-bar.component.scss',

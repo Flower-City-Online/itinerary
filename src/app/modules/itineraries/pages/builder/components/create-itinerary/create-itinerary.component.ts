@@ -1,5 +1,6 @@
 import {
   AfterViewInit,
+  ChangeDetectionStrategy,
   Component,
   ElementRef,
   OnInit,
@@ -10,6 +11,7 @@ import { ShadowRootHandlerService } from 'src/app/services/core/shadow-root-hand
 import { ModalService } from '../../../../../../services/core/modal/modal.service';
 
 @Component({
+  changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'app-create-itinerary',
   templateUrl: './create-itinerary.component.html',
   styleUrl: './create-itinerary.component.scss',

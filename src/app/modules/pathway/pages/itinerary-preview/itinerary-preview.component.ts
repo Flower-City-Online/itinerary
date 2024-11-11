@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { ICONS } from 'src/app/constants/constants';
 import { LocationService } from 'src/app/services/core/location.service';
 @Component({
+  changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'app-itinerary-preview',
   templateUrl: './itinerary-preview.component.html',
   styleUrl: './itinerary-preview.component.scss',

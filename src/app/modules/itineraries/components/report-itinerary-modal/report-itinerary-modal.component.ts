@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { FormFieldType } from 'nextsapien-component-lib';
 import { ModalService } from '../../../../services/core/modal/modal.service';
 
 @Component({
+  changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'app-report-itinerary-modal',
   templateUrl: './report-itinerary-modal.component.html',
   styleUrl: './report-itinerary-modal.component.scss',

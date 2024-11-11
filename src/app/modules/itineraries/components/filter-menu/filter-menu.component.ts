@@ -1,5 +1,6 @@
 import {
   AfterViewInit,
+  ChangeDetectionStrategy,
   Component,
   ElementRef,
   Input,
@@ -10,6 +11,7 @@ import { ICONS } from 'src/app/constants/constants';
 import { ShadowRootHandlerService } from 'src/app/services/core/shadow-root-handler.service';
 
 @Component({
+  changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'app-filter-menu',
   templateUrl: './filter-menu.component.html',
   styleUrl: './filter-menu.component.scss',

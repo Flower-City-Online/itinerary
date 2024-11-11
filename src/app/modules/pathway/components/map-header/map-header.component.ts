@@ -1,7 +1,8 @@
 import { Location } from '@angular/common';
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
+  changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'app-map-header',
   templateUrl: './map-header.component.html',
   styleUrl: './map-header.component.scss',

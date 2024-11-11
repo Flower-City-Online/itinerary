@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { LibMenuItem } from 'nextsapien-component-lib';
 import { ICONS } from 'src/app/constants/constants';
 import { CustomDropdownMenuService } from '../../../../services/core/custom-dropdown-menu.service';
 
 @Component({
+  changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'app-favorites',
   templateUrl: './favorites.component.html',
   styleUrl: './favorites.component.scss',

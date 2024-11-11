@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { ICONS } from 'src/app/constants/constants';
 import { ModalService } from '../../../../services/core/modal/modal.service';
 
 @Component({
+  changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'app-serach-clear-history',
   templateUrl: './serach-clear-history.component.html',
   styleUrl: './serach-clear-history.component.scss',

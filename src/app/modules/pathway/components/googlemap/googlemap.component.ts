@@ -1,6 +1,7 @@
 /// <reference types="google.maps" />
 
 import {
+  ChangeDetectionStrategy,
   Component,
   EventEmitter,
   Input,
@@ -13,6 +14,7 @@ import { GoogleMap } from '@angular/google-maps';
 import { ICONS } from 'src/app/constants/constants';
 
 @Component({
+  changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'app-googlemap',
   templateUrl: './googlemap.component.html',
   styleUrls: ['./googlemap.component.css'],

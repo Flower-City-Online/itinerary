@@ -1,10 +1,11 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
 import { LibMenuItem } from 'nextsapien-component-lib';
 import { ICONS } from 'src/app/constants/constants';
 import { ICardData } from 'src/app/interface/cardData';
 import { ApiService } from 'src/app/services/core/api.service';
 
 @Component({
+  changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'app-card-component',
   templateUrl: './card-component.component.html',
   styleUrl: './card-component.component.scss',

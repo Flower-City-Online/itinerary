@@ -1,8 +1,9 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Output } from '@angular/core';
 import { ICONS } from 'src/app/constants/constants';
 import { ModalService } from '../../../services/core/modal/modal.service';
 
 @Component({
+  changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'app-delete-modal',
   templateUrl: './delete-modal.component.html',
   styleUrl: './delete-modal.component.scss',

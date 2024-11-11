@@ -1,5 +1,6 @@
 import {
   AfterViewInit,
+  ChangeDetectionStrategy,
   Component,
   ElementRef,
   OnInit,
@@ -11,6 +12,7 @@ import { ModalService } from 'src/app/services/core/modal/modal.service';
 import { ShadowRootHandlerService } from 'src/app/services/core/shadow-root-handler.service';
 
 @Component({
+  changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'app-footer',
   templateUrl: './footer.component.html',
   styleUrls: ['./footer.component.scss'],

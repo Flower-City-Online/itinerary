@@ -5,6 +5,7 @@ import {
 } from '@angular/cdk/layout';
 import { Location } from '@angular/common';
 import {
+  ChangeDetectionStrategy,
   Component,
   ElementRef,
   HostListener,
@@ -18,6 +19,7 @@ import { ItenariesRoutesEnum } from './enums/ItenariesRoutes.enum';
 import { BottomNavigationService } from './services/core/bottom-navigation.service';
 
 @Component({
+  changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
