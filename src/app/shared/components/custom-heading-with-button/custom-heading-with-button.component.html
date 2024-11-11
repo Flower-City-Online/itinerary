@@ -1,4 +1,4 @@
-<div class="{{cssClass}} flex flex-row justify-between items-center">
+<div [class]="cssClass +' flex flex-row justify-between items-center'">
   <h4 class="heading">{{heading}}</h4>
   <div class="iconButton flex flex-row" (click)="buttonClick.emit()">
     <img [ngSrc]="buttonIcon" height="12" width="13">

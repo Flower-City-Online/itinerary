@@ -3,5 +3,5 @@
   class="bottom-nav-item flex flex-col items-center"
 >
   <img [src]="iconPath" [height]="height" [width]="width" />
-  <span class="{{ cssClass }} span-text">{{ label }}</span>
+  <span [class]="cssClass + ' span-text'">{{ label }}</span>
 </div>

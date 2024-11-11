@@ -3,8 +3,8 @@
   *ngIf="type == 'lib'"
   [class]="customClass.length > 0 ? customClass : 'back-btn'"
 >
-  <img ngSrc="{{ iconPath }}" height="{{ height }}" width="{{ width }}" />
+  <img [ngSrc]="iconPath" [height]="height" [width]="width" />
 </lib-icon-btn>
 <button *ngIf="type == 'btn'" (click)="clickFunc()" [disabled]="disabled">
-  <img ngSrc="{{ iconPath }}" height="{{ height }}" width="{{ width }}" />
+  <img [ngSrc]="iconPath" [height]="height" [width]="width" />
 </button>

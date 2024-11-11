@@ -8,18 +8,20 @@
         <div class="flex items-start justify-between mb-2">
           <div class="flex gap-5 items-start">
             <div
-              class="{{
-                !isDraft ? ' text-primary' : ''
-              }} items-center sm:text-[10px] xs:text-[9px] flex flex-col gap-y-[0px]"
+              [class]="
+                !isDraft
+                  ? ' text-primary'
+                  : '' +
+                    ' items-center sm:text-[10px] xs:text-[9px] flex flex-col gap-y-[0px]'
+              "
             >
               <img
-                src="{{ !isDraft ? ICONS?.upVote : ICONS?.upArrowWhite }}"
+                [src]="!isDraft ? ICONS?.upVote : ICONS?.upArrowWhite"
                 alt=""
               />
-              <span
-                class="{{ !isDraft ? 'text-primary' : 'drah-voter-header' }}"
-                >{{ cardDataValidater(cardData.upVotes, "upVotes") }}</span
-              >
+              <span [class]="!isDraft ? 'text-primary' : 'drah-voter-header'">{{
+                cardDataValidater(cardData.upVotes, "upVotes")
+              }}</span>
               <img [src]="ICONS?.downvote" alt="" />
             </div>
             <div class="">

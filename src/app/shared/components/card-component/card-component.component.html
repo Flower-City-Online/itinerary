@@ -5,15 +5,15 @@
   <div class="flex items-start justify-between mb-2">
     <div class="flex gap-5 items-start">
       <div
-        class="{{
-          !isDraft ? ' text-primary' : ''
-        }} items-center sm:text-[10px] xs:text-[9px] flex flex-col gap-y-[0px]"
+        [class]="
+          !isDraft
+            ? ' text-primary'
+            : '' +
+              ' items-center sm:text-[10px] xs:text-[9px] flex flex-col gap-y-[0px]'
+        "
       >
-        <img
-          src="{{ !isDraft ? ICONS?.upvote : ICONS?.upArrowWhite }}"
-          alt=""
-        />
-        <span class="{{ !isDraft ? 'text-primary' : 'drah-voter-header' }}">{{
+        <img [src]="!isDraft ? ICONS?.upvote : ICONS?.upArrowWhite" alt="" />
+        <span [class]="!isDraft ? 'text-primary' : 'drah-voter-header'">{{
           cardDataValidater(cardData.upVotes, "upVotes")
         }}</span>
         <img [src]="ICONS?.downvote" alt="" />
@@ -49,15 +49,18 @@
   <div class="my-2 mb-1 flex items-start gap-x-5">
     <div class="1 mb-0 flex flex-col items-center justify-center">
       <img
-        class="{{ isDraft ? 'draf-location-image' : '' }}"
+        [class]="isDraft ? 'draf-location-image' : ''"
         [src]="cardDataValidater(cardData.imageSrc, 'imageSrc')"
         alt=""
         width="100"
       />
       <span
-        class="{{
-          isDraft ? 'bottom-bar-loc' : ''
-        }} w-[6.2rem] text-[8px] relative bottom-[1.1rem] text-secondary text-center bg-gray-50 px-1 py-[2px] rounded-xl flex items-center justify-center gap-2"
+        [class]="
+          isDraft
+            ? 'bottom-bar-loc'
+            : '' +
+              ' w-[6.2rem] text-[8px] relative bottom-[1.1rem] text-secondary text-center bg-gray-50 px-1 py-[2px] rounded-xl flex items-center justify-center gap-2'
+        "
       >
         <img [src]="ICONS?.locationWhite" alt="" />
         <span class="truncate max-w-[60px]">{{
@@ -144,7 +147,7 @@
         ></span
       >
       <img
-        class="{{ cardData.userimageSrc.length == 0 ? 'bottom-icons' : '' }}"
+        [class]="cardData.userimageSrc.length == 0 ? 'bottom-icons' : ''"
         [src]="cardDataValidater(cardData.userimageSrc, 'userimageSrc')"
         alt=""
       />

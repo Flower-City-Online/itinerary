@@ -9,7 +9,7 @@
     <li *ngFor="let item of sideBarItem" (click)="selectItem(item)">
       <a
         [routerLink]="item.url"
-        class="{{ item.cssClass }} block p-3 text-center"
+        [class]="item.cssClass + ' block p-3 text-center'"
         >{{ item.name }}</a
       >
       <div *ngIf="item.id === 1 && item.selected">

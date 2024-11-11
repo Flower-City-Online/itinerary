@@ -10,14 +10,14 @@
           this.bottomNavigationService.onNavigationChange(bottomNavList, item)
         "
         *ngFor="let item of bottomNavList"
-        height="{{ item.height }}"
-        width="{{ item.width }}"
-        cssClass="{{ item.cssClass }}"
-        routerLink="{{ item.routerLink }}"
-        label="{{ item.label }}"
-        iconPath="{{
+        [height]="item.height"
+        [width]="item.width"
+        [cssClass]="item.cssClass"
+        [routerLink]="item.routerLink"
+        [label]="item.label"
+        [iconPath]="
           item.cssClass == 'active' ? item.clickedIconPath : item.iconPath
-        }}"
+        "
       />
     </div>
   </lib-bottom-modal>
