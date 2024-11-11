@@ -17,7 +17,6 @@ import { ICONS } from 'src/app/constants/constants';
   changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'app-googlemap',
   templateUrl: './googlemap.component.html',
-  styleUrls: ['./googlemap.component.css'],
 })
 export class GooglemapComponent implements OnChanges {
   @Input() newDestination!: string;

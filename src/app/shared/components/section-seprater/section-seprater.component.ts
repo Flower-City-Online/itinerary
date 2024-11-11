@@ -4,6 +4,6 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'app-section-seprater',
   templateUrl: './section-seprater.component.html',
-  styleUrl: './section-seprater.component.css',
+  styleUrl: './section-seprater.component.scss',
 })
 export class SectionSepraterComponent {}
