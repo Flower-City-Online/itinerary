@@ -1,4 +1,10 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Input,
+  Output,
+} from '@angular/core';
 import { ICONS } from 'src/app/constants/constants';
 
 @Component({
@@ -13,4 +19,12 @@ export class HeaderComponent {
   @Output() lastButton = new EventEmitter<MouseEvent>();
   @Input() cssClass!: string;
   ICONS = ICONS;
+
+  lastButtonClick(): void {
+    this.lastButton.emit;
+  }
+
+  firstButtonClick(): void {
+    this.firstButton.emit;
+  }
 }
