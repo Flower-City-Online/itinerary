@@ -8,6 +8,11 @@
   min-width: 30px;
   max-width: 60px;
 }
+
+.bottom-nav-image {
+  height: 16px;
+  width: 17px;
+}
 .bottom-nav-item span {
   color: $text-color-3;
   opacity: 30%;
@@ -15,9 +20,11 @@
   line-height: 15px;
 }
 
-.bottom-nav-item .spanText:nth-child(3) {
-  background: red !important;
-  margin-top: 3px !important;
+.bottom-nav-item {
+  .spanText:nth-child(3) {
+    background: red !important;
+    margin-top: 3px !important;
+  }
 }
 
 .dashboard-active.span-text {

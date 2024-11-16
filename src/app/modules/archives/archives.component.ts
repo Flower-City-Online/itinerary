@@ -8,7 +8,6 @@ import { ModalService } from '../../services/core/modal/modal.service';
   styleUrl: './archives.component.scss',
 })
 export class ArchivesComponent {
-  cssClass = ['deleteItineraries'];
   constructor(public modalService: ModalService) {}
   backButton(): void {
     window.history.back();
