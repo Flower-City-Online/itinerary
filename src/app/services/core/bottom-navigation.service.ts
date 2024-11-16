@@ -18,6 +18,7 @@ export class BottomNavigationService {
       cssClass: '',
       height: '16',
       width: '17',
+      selected: false,
     },
     {
       id: 2,
@@ -28,6 +29,7 @@ export class BottomNavigationService {
       cssClass: '',
       height: '19',
       width: '19',
+      selected: false,
     },
     {
       id: 3,
@@ -38,6 +40,7 @@ export class BottomNavigationService {
       cssClass: '',
       height: '16',
       width: '17',
+      selected: false,
     },
     {
       id: 4,
@@ -48,6 +51,7 @@ export class BottomNavigationService {
       cssClass: '',
       height: '16',
       width: '17',
+      selected: false,
     },
     {
       id: 5,
@@ -58,6 +62,7 @@ export class BottomNavigationService {
       cssClass: '',
       height: '16',
       width: '17',
+      selected: false,
     },
   ];
   constructor() {
@@ -70,6 +75,7 @@ export class BottomNavigationService {
       cssClass: '',
       height: '16',
       width: '17',
+      selected: true,
     });
   }
 

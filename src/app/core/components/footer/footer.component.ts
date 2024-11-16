@@ -30,7 +30,7 @@ export class FooterComponent implements OnInit, AfterViewInit {
 
   ngOnInit(): void {
     const selectedElement = this.bottomNavigationService.bottomNavList.find(
-      (nav) => nav.id === 4,
+      (nav) => nav.selected,
     );
     if (selectedElement) {
       this.bottomNavigationService.onNavigationChange(

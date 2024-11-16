@@ -7,4 +7,5 @@ export interface IBottomNavigationList {
   cssClass: string;
   height: string;
   width: string;
+  selected: boolean;
 }
