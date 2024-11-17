@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ItenariesRoutesEnum } from 'src/app/enums/ItenariesRoutes.enum';
 
 @Component({
   selector: 'app-tab-bar',
@@ -11,18 +12,18 @@ export class TabBarComponent {
     {
       label: 'Explore',
       icon: 'pi pi-fw pi-home',
-      routerLink: '/itineraries/explore',
+      routerLink: ItenariesRoutesEnum.ITINERARY_EXPLORE,
     },
     {
       label: 'Builder',
       icon: 'pi pi-fw pi-map-marker',
-      routerLink: '/itineraries/builder',
+      routerLink: ItenariesRoutesEnum.ITINERARY_BUILDER,
     },
     {
       label: 'Favorites',
       icon: 'pi pi-fw pi-user',
-      routerLink: '/itineraries/favorites',
+      routerLink: ItenariesRoutesEnum.ITINERARY_FAVOURITES,
     },
   ];
-  onActiveItemChange($event: string):void {}
+  onActiveItemChange($event: string): void {}
 }
