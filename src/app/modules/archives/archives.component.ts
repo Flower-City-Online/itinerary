@@ -9,6 +9,7 @@ import { ModalService } from '../../services/core/modal/modal.service';
 })
 export class ArchivesComponent {
   constructor(public modalService: ModalService) {}
+
   backButton(): void {
     window.history.back();
   }

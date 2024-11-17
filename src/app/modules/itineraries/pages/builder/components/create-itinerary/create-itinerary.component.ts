@@ -22,6 +22,7 @@ export class CreateItineraryComponent implements OnInit, AfterViewInit {
   enableBack: boolean = true;
   cssClass = ['create-itinerary-modal'];
   ICONS = ICONS;
+
   constructor(
     public modalService: ModalService,
     private el: ElementRef,

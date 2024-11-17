@@ -10,8 +10,10 @@ import { CustomDropdownMenuService } from '../../../../services/core/custom-drop
 })
 export class ExploreComponent implements OnInit {
   libMenuItem: LibMenuItem[] = [];
+
   ngOnInit(): void {
     this.libMenuItem = this.customMenuList.getMenuList('itineraries');
   }
+
   constructor(public customMenuList: CustomDropdownMenuService) {}
 }

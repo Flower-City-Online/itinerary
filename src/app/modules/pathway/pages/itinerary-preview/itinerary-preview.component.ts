@@ -8,9 +8,11 @@ import { LocationService } from 'src/app/services/core/location.service';
   styleUrl: './itinerary-preview.component.scss',
 })
 export class ItineraryPreviewComponent implements OnInit {
-  constructor(public locationService: LocationService) {}
   initialLocation = { lat: 24.8607, lng: 67.0011 }; // Centered on California
   ICONS = ICONS;
+
+  constructor(public locationService: LocationService) {}
+
   ngOnInit(): void {
     this.locationService.getCurrentLocation().subscribe((location) => {
       this.initialLocation.lat = location.lat;

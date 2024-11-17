@@ -23,6 +23,7 @@ export class CreateItineraryModalItemComponent implements OnInit {
   @Input() shortTitle!: boolean;
   titleList: string[] = [];
   ICONS = ICONS;
+
   constructor(public modalService: ModalService) {}
 
   ngOnInit(): void {

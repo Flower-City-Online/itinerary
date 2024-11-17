@@ -16,6 +16,7 @@ export class MainArchivesComponent implements OnInit {
   ngOnInit(): void {
     this.libMenuItem = this.customMenuList.getMenuList('archives');
   }
+
   constructor(
     public customMenuList: CustomDropdownMenuService,
     public modalService: ModalService,

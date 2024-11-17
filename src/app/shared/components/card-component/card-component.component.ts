@@ -21,6 +21,7 @@ export class CardComponent implements OnInit {
   @Input() isDraft!: boolean;
   cardData: ICardData;
   ICONS = ICONS;
+
   constructor(
     private apiService: ApiService,
     private cdr: ChangeDetectorRef,

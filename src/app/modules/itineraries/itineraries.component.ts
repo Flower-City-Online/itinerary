@@ -13,6 +13,7 @@ export class ItinerariesComponent {
     public router: Router,
     public modalService: ModalService,
   ) {}
+
   backButtonClick(): void {
     window.history.back();
   }

@@ -18,18 +18,21 @@ export class BuilderComponent implements OnInit {
   libMenuItem: LibMenuItem[] = [];
   cssClasses = ['custom-modal-class'];
   ICONS = ICONS;
+
   ngOnInit(): void {
     this.libMenuItem = this.customMenuList.getMenuList('builder');
   }
+
   constructor(
     public modalService: ModalService,
     public router: Router,
     public customMenuList: CustomDropdownMenuService,
   ) {}
 
-  navigateToArchive():void {
+  navigateToArchive(): void {
     this.router.navigate(['/archives/archives']);
   }
+
   openModal(): void {
     // Add your custom CSS classes
     this.modalService.openModal(DeleteModalComponent, this.cssClasses);

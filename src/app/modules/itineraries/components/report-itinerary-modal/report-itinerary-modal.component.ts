@@ -29,6 +29,7 @@ export class ReportItineraryModalComponent implements OnInit {
     { label: 'Dangerous', value: 8, selected: false },
     { label: 'Non of these are my issues', value: 9, selected: false },
   ];
+
   constructor(
     private fb: FormBuilder,
     public modalService: ModalService,

@@ -27,6 +27,7 @@ import { BottomNavigationService } from './services/core/bottom-navigation.servi
 export class AppComponent implements OnInit, OnDestroy {
   isSmallScreen = false;
   private breakpointSubscription!: Subscription;
+
   constructor(
     private breakpointObserver: BreakpointObserver,
     private router: Router,

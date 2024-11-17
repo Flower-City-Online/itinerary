@@ -13,9 +13,11 @@ export class FavoritesComponent implements OnInit {
   libMenuItem: LibMenuItem[] = [];
   cardList = [];
   ICONS = ICONS;
+
   ngOnInit(): void {
     this.libMenuItem = this.customMenuList.getMenuList('favourite');
   }
+
   constructor(public customMenuList: CustomDropdownMenuService) {}
 
   goFav(): void {

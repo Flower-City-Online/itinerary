@@ -11,7 +11,9 @@ import { ISideBarMenuItem } from 'src/app/interface/dashboardSideBar';
 export class SidebarComponent implements OnInit {
   isFilter: boolean = false;
   filterClass = 'filterSideBar';
+
   constructor(private router: Router) {}
+
   ngOnInit(): void {
     this.sideBarItem.forEach((element: ISideBarMenuItem) => {
       if (element.selected) {

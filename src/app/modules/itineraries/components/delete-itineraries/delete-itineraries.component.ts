@@ -10,6 +10,7 @@ import { ModalService } from '../../../../services/core/modal/modal.service';
 })
 export class DeleteItinerariesComponent {
   ICONS = ICONS;
+
   constructor(public modalService: ModalService) {}
 
   closeModal(): void {

@@ -14,6 +14,7 @@ export class CutomCardComponent {
   @Input() isDraft!: boolean;
   cardData: ICardData;
   ICONS = ICONS;
+
   constructor(private apiService: ApiService) {}
 
   ngOnInit(): void {

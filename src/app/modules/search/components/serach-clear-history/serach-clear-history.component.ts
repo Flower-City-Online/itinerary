@@ -12,7 +12,9 @@ export class SerachClearHistoryComponent {
   toggleModal = false;
   cssClasses = ['custom-modal-class'];
   ICONS = ICONS;
+
   constructor(public modalService: ModalService) {}
+
   openModal(): void {
     // Add your custom CSS classes
     this.modalService.toggleModal = !this.modalService.toggleModal;
