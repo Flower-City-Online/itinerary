@@ -1,4 +1,4 @@
-import { NgForOf, NgOptimizedImage } from '@angular/common';
+import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import {
@@ -26,11 +26,11 @@ import { TabBarComponent } from './components/tab-bar/tab-bar.component';
     BottomNavigationItemsComponent,
   ],
   imports: [
+    CommonModule,
+    NgOptimizedImage,
     LibTabMenuModule,
     ButtonsModule,
     SharedModule,
-    NgOptimizedImage,
-    NgForOf,
     RouterLink,
     LibModalModule,
   ],
