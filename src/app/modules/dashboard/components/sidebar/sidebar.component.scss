@@ -1,5 +1,6 @@
 @use "src/styles/colors" as *;
 
+$secondary-color: rgba(255, 255, 255, 0.7);
 $box-shadow: rgba(203, 199, 209, 0.25);
 $shadow-color-dark: rgba(17, 16, 20, 0.65);
 
@@ -26,7 +27,7 @@ $shadow-color-dark: rgba(17, 16, 20, 0.65);
 
 .active {
   color: $text-color-3 !important;
-  border-bottom: 2px solid var(--secondary-color);
+  border-bottom: 2px solid $secondary-color;
 }
 
 .active {
