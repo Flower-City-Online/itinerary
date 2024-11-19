@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 import { LibMenuItem } from 'nextsapien-component-lib';
 import { ICONS } from 'src/app/constants/constants';
 
@@ -6,35 +7,43 @@ import { ICONS } from 'src/app/constants/constants';
   changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
-  styleUrl: './navbar.component.scss',
+  styleUrls: ['./navbar.component.scss'],
 })
 export class NavbarComponent {
   ICONS = ICONS;
-  menuItems: LibMenuItem[] = [
-    {
-      title: 'Logout',
-      titlePrefix: '',
-      iconUrl: ICONS.logout,
-    },
-    {
-      title: 'Info',
-      titlePrefix: '',
-      iconUrl: ICONS.info,
-    },
-    {
-      title: 'Feedback',
-      titlePrefix: '',
-      iconUrl: ICONS.feedback,
-    },
-    {
-      title: ' Search',
-      titleSuffix: 'AI',
-      iconUrl: ICONS.dashboardSearch,
-    },
-    {
-      title: 'Notifications',
-      titlePrefix: '',
-      iconUrl: ICONS.notifications,
-    },
-  ];
+  menuItems: LibMenuItem[] = [];
+
+  constructor(private translate: TranslateService) {
+    this.initializeMenuItems();
+  }
+
+  private initializeMenuItems() {
+    this.menuItems = [
+      {
+        title: this.translate.instant('NAVBAR.LOGOUT'),
+        titlePrefix: '',
+        iconUrl: ICONS.logout,
+      },
+      {
+        title: this.translate.instant('NAVBAR.INFO'),
+        titlePrefix: '',
+        iconUrl: ICONS.info,
+      },
+      {
+        title: this.translate.instant('NAVBAR.FEEDBACK'),
+        titlePrefix: '',
+        iconUrl: ICONS.feedback,
+      },
+      {
+        title: this.translate.instant('NAVBAR.SEARCH_2'),
+        titleSuffix: 'AI',
+        iconUrl: ICONS.dashboardSearch,
+      },
+      {
+        title: this.translate.instant('NAVBAR.NOTIFICATIONS'),
+        titlePrefix: '',
+        iconUrl: ICONS.notifications,
+      },
+    ];
+  }
 }

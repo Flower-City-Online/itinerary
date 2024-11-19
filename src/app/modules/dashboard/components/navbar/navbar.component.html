@@ -1,36 +1,36 @@
 <nav class="nav-bar text-white fixed top-0 left-0 w-full z-50">
   <div class="nav-main-bar">
     <div class="flex ml-2">
-      <img [ngSrc]="ICONS?.logo" alt="logo" height="10" width="50" />
+      <img class="navbar-logo" [ngSrc]="ICONS?.logo" alt="logo" />
     </div>
     <div class="sub-nav mx-auto">
       <app-bottom-navigation-items
-        label="Home"
+        [label]="'MENU.HOME' | translate"
         cssClass="dashboard-active"
         [iconPath]="ICONS?.dashHomeActive"
       ></app-bottom-navigation-items>
       <div>
         <app-search-bar
           class="nav-top-search"
-          [placeholder]="'Search for anything'"
+          [placeholder]="'NAVBAR.SEARCH' | translate"
         ></app-search-bar>
       </div>
       <app-bottom-navigation-items
         height="22"
         width="23"
-        label="Constituents"
+        [label]="'MENU.CONSTITUENTS' | translate"
         [iconPath]="ICONS?.users"
       ></app-bottom-navigation-items>
       <app-bottom-navigation-items
-        label="Itinerary"
+        [label]="'MENU.ITINERARY' | translate"
         [iconPath]="ICONS?.itineraries"
       ></app-bottom-navigation-items>
       <app-bottom-navigation-items
-        label="Stats"
+        [label]="'MENU.STATS' | translate"
         [iconPath]="ICONS?.stats"
       ></app-bottom-navigation-items>
       <app-bottom-navigation-items
-        label="Settings"
+        [label]="'MENU.SETTINGS' | translate"
         [iconPath]="ICONS?.setting"
       ></app-bottom-navigation-items>
     </div>

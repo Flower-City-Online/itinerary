@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 
+import { TranslateModule } from '@ngx-translate/core';
 import { LibModalModule } from 'nextsapien-component-lib';
 import { CoreModule } from '../../core/core.module';
 import { SharedModule } from '../../shared/shared.module';
@@ -18,6 +19,7 @@ import { MainArchivesComponent } from './pages/main-archives/main-archives.compo
     SharedModule,
     LibModalModule,
     ItinerariesModule,
+    TranslateModule,
   ],
 })
 export class ArchivesModule {}

@@ -2,6 +2,7 @@ import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { NgModule } from '@angular/core';
 
 import {
+  ButtonsModule,
   LibModalModule,
   SectionSeparatorComponent,
 } from 'nextsapien-component-lib';
@@ -31,6 +32,7 @@ import { SearchComponent } from './search.component';
     SerachClearHistoryComponent,
   ],
   imports: [
+    ButtonsModule,
     CommonModule,
     SearchRoutingModule,
     SharedModule,

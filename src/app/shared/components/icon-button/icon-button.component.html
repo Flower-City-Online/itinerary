@@ -5,6 +5,10 @@
 >
   <img [ngSrc]="iconPath" [height]="height" [width]="width" />
 </lib-icon-btn>
-<button *ngIf="type == 'btn'" (click)="clickFunc()" [disabled]="disabled">
+<lib-primary-btn
+  *ngIf="type == 'btn'"
+  (click)="clickFunc()"
+  [disabled]="disabled"
+>
   <img [ngSrc]="iconPath" [height]="height" [width]="width" />
-</button>
+</lib-primary-btn>

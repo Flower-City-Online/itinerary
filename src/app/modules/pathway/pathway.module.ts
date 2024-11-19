@@ -22,6 +22,7 @@ import {
   MapTransitLayer,
 } from '@angular/google-maps';
 import { MatIcon } from '@angular/material/icon';
+import { TranslateModule } from '@ngx-translate/core';
 import { ButtonsModule, LibMapModule } from 'nextsapien-component-lib';
 import { environment } from 'src/environments/environment';
 import { SharedModule } from '../../shared/shared.module';
@@ -63,6 +64,7 @@ const COMPONENTS = [
     MapHeaderComponent,
   ],
   imports: [
+    TranslateModule,
     CommonModule,
     PathwayRoutingModule,
     SharedModule,

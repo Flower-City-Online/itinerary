@@ -1,52 +1,62 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 import { ISideBarMenuItem } from 'src/app/interface/dashboardSideBar';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
-  styleUrl: './sidebar.component.scss',
+  styleUrls: ['./sidebar.component.scss'],
 })
 export class SidebarComponent implements OnInit {
   isFilter: boolean = false;
-  filterClass = 'filterSideBar';
+  filterClass = 'filter-side-bar';
 
-  constructor(private router: Router) {}
+  sideBarItem: ISideBarMenuItem[] = [];
+
+  constructor(
+    private router: Router,
+    private translate: TranslateService,
+  ) {}
 
   ngOnInit(): void {
+    this.initializeSidebarItems();
     this.sideBarItem.forEach((element: ISideBarMenuItem) => {
       if (element.selected) {
         this.router.navigate([element.url]);
       }
     });
   }
-  sideBarItem: ISideBarMenuItem[] = [
-    {
-      id: 1,
-      name: 'Explore',
-      selected: true,
-      cssClass: 'active',
-      url: '/dashboard/itineraries/explore',
-    },
-    {
-      id: 2,
-      name: 'Builder',
-      selected: false,
-      cssClass: '',
-      url: '/dashboard/itineraries/explore',
-    },
-    {
-      id: 3,
-      name: 'Favourite',
-      selected: false,
-      cssClass: '',
-      url: '/dashboard/itineraries/explore',
-    },
-  ];
+
+  private initializeSidebarItems(): void {
+    this.sideBarItem = [
+      {
+        id: 1,
+        name: this.translate.instant('SIDEBAR.EXPLORE'),
+        selected: true,
+        cssClass: 'active',
+        url: '/dashboard/itineraries/explore',
+      },
+      {
+        id: 2,
+        name: this.translate.instant('SIDEBAR.BUILDER'),
+        selected: false,
+        cssClass: '',
+        url: '/dashboard/itineraries/explore',
+      },
+      {
+        id: 3,
+        name: this.translate.instant('SIDEBAR.FAVOURITE'),
+        selected: false,
+        cssClass: '',
+        url: '/dashboard/itineraries/explore',
+      },
+    ];
+  }
 
   selectItem(item: ISideBarMenuItem): void {
-    this.sideBarItem.some((element: ISideBarMenuItem) => {
+    this.sideBarItem.forEach((element: ISideBarMenuItem) => {
       element.selected = false;
       element.cssClass = '';
     });

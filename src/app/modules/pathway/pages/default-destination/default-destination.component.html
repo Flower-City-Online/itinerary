@@ -1,6 +1,6 @@
 <div class="max-padd-container pt-10 pb-4">
   <app-map-header
-    [title]="'Create Itinerary'"
+    [title]="'MAP_HEADER.CREATE_ITINERARY' | translate"
     [backLink]="'/'"
   ></app-map-header>
 </div>
@@ -27,10 +27,10 @@
                 </div>
                 <div class="text ml-10">
                   <h2 class="sm:text-sm xs:text-xs flex items-center gap-x-1">
-                    Shan-ul-haq haqee road
+                    {{ "ITINERARY.STARTING_LOCATION" | translate }}
                   </h2>
                   <p class="xs:text-[10px] sm:text-xs text-secondary">
-                    Starting Location
+                    {{ "ITINERARY.STARTING_DESCRIPTION" | translate }}
                   </p>
                 </div>
               </div>
@@ -39,26 +39,32 @@
               </div>
             </div>
             <div class="mt-2">
-              <h1 class="text-lg font-Calistoga">Destination</h1>
+              <h1 class="text-lg font-Calistoga">
+                {{ "ITINERARY.DESTINATION_TITLE" | translate }}
+              </h1>
               <p class="py-2 text-white opacity-70 text-[10px]">
-                Select final destination for itinenary route.
+                {{ "ITINERARY.DESTINATION_DESCRIPTION" | translate }}
               </p>
             </div>
             <div class="flex gap-x-4 w-[20rem]">
-              <input
+              <lib-input-field
                 type="text"
-                placeholder="Where to?"
+                [placeholder]="'ITINERARY.WHERE_TO' | translate"
                 class="!w-60 !py-1 text-white text-opacity-70"
                 [(ngModel)]="destination"
               />
-              <button class="text-[32px]" (click)="addDestination()">+</button>
+              <lib-primary-btn class="text-[32px]" (click)="addDestination()"
+                >+</lib-primary-btn
+              >
             </div>
           </div>
         </div>
       </div>
 
       <div class="background-gradient py-5 px-16">
-        <lib-primary-btn class="">Continue</lib-primary-btn>
+        <lib-primary-btn>{{
+          "IMAGE_CROPPER.CONTINUE" | translate
+        }}</lib-primary-btn>
       </div>
     </section>
   </div>

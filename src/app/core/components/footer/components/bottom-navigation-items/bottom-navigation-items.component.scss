@@ -13,11 +13,14 @@
   height: 16px;
   width: 17px;
 }
-.bottom-nav-item span {
-  color: $text-color-3;
-  opacity: 30%;
-  font-size: 11px;
-  line-height: 15px;
+
+.bottom-nav-item {
+  span {
+    color: $text-color-3;
+    opacity: 0.3;
+    font-size: 11px;
+    line-height: 15px;
+  }
 }
 
 .bottom-nav-item {

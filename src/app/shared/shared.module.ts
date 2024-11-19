@@ -2,6 +2,7 @@ import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
+import { TranslateModule } from '@ngx-translate/core';
 import {
   ButtonsModule,
   CircleProgressModule,
@@ -57,6 +58,7 @@ import { SectionSepraterComponent } from './components/section-seprater/section-
     CutomCardComponent,
   ],
   imports: [
+    TranslateModule,
     CommonModule,
     SearchBarModule,
     ButtonsModule,

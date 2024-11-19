@@ -440,7 +440,11 @@
       "HOME": "Maison",
       "CONTACT_US": "Nous contacter",
       "LIST": "Lister",
-      "CART": "Chariot"
+      "CART": "Chariot",
+      "CONSTITUENTS": "Constituants",
+      "ITINERARY": "Itinéraire",
+      "STATS": "Statistiques",
+      "SETTINGS": "Paramètres"
     }
   },
   "COMMON": {
@@ -618,5 +622,32 @@
   "DASHBOARD": {
     "SEE_MORE": "voir plus",
     "SEE_LESS": "voir moins"
+  },
+  "MAIN_ARCHIVES": {
+    "NOTE_ARCHIVED": "Remarque : Les éléments archivés dureront 12 jours",
+    "CLEAR_ALL": "Tout effacer"
+  },
+  "NAVBAR": {
+    "SEARCH": "Recherchez tout",
+    "LOGOUT": "Déconnexion",
+    "INFO": "Informations",
+    "FEEDBACK": "Retour d'information",
+    "SEARCH_2": "Rechercher",
+    "NOTIFICATIONS": "Notifications"
+  },
+  "SIDEBAR": {
+    "EXPLORE": "Explorer",
+    "BUILDER": "Constructeur",
+    "FAVOURITE": "Favoris"
+  },
+  "MAP_HEADER": {
+    "CREATE_ITINERARY": "Créer un itinéraire"
+  },
+  "ITINERARY": {
+    "STARTING_LOCATION": "Route Shan-ul-haq haqee",
+    "STARTING_DESCRIPTION": "Lieu de départ",
+    "DESTINATION_TITLE": "Destination",
+    "DESTINATION_DESCRIPTION": "Sélectionnez la destination finale pour l'itinéraire.",
+    "WHERE_TO": "Où aller?"
   }
 }

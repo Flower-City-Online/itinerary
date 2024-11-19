@@ -1,4 +1,5 @@
 {
+  "AD": "ADv",
   "SNACKBAR": {
     "LOGIN_SUCCESS": "Login Successful",
     "LOGOUT_SUCCESS": "Logout Successful",
@@ -444,7 +445,11 @@
       "HOME": "Home",
       "CONTACT_US": "Contact Us",
       "LIST": "List",
-      "CART": "Cart"
+      "CART": "Cart",
+      "CONSTITUENTS": "Constituents",
+      "ITINERARY": "Itinerary",
+      "STATS": "Stats",
+      "SETTINGS": "Settings"
     }
   },
   "COMMON": {
@@ -643,5 +648,32 @@
   "DASHBOARD": {
     "SEE_MORE": "see more",
     "SEE_LESS": "see less"
+  },
+  "MAIN_ARCHIVES": {
+    "NOTE_ARCHIVED": "Note: Archived items will last for 12 days",
+    "CLEAR_ALL": "Clear All"
+  },
+  "NAVBAR": {
+    "SERACH": "Search for anything",
+    "LOGOUT": "Logout",
+    "INFO": "Info",
+    "FEEDBACK": "Feedback",
+    "SEARCH_2": "Search",
+    "NOTIFICATIONS": "Notifications"
+  },
+  "SIDEBAR": {
+    "EXPLORE": "Explore",
+    "BUILDER": "Builder",
+    "FAVOURITE": "Favourite"
+  },
+  "MAP_HEADER": {
+    "CREATE_ITINERARY": "Create Itinerary"
+  },
+  "ITINERARY": {
+    "STARTING_LOCATION": "Shan-ul-haq haqee road",
+    "STARTING_DESCRIPTION": "Starting Location",
+    "DESTINATION_TITLE": "Destination",
+    "DESTINATION_DESCRIPTION": "Select final destination for itinerary route.",
+    "WHERE_TO": "Where to?"
   }
 }

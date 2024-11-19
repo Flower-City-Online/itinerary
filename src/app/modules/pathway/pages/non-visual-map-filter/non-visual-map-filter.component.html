@@ -18,19 +18,19 @@
         <div
           class="bg-grey rounded-full searchbar-shadow flex items-center justify-between"
         >
-          <button class="rounded-full p-2 px-4 focus:bg-primary">
+          <lib-primary-btn class="rounded-full p-2 px-4 focus:bg-primary">
             <img [src]="ICONS?.location" alt="" />
-          </button>
+          </lib-primary-btn>
 
-          <button
+          <lib-primary-btn
             class="rounded-full p-2 px-4 focus:bg-primary"
             (click)="toggleDrawingTool()"
           >
             <img [src]="ICONS?.write" alt="" />
-          </button>
-          <button class="rounded-full p-2 px-4 focus:bg-primary">
+          </lib-primary-btn>
+          <lib-primary-btn class="rounded-full p-2 px-4 focus:bg-primary">
             <img [src]="ICONS?.warn" alt="" />
-          </button>
+          </lib-primary-btn>
         </div>
       </div>
       <div class="filter-class text-xs py-2 mt-2">No visual filters</div>
