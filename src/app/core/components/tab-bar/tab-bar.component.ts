@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { MenuItem } from 'primeng/api';
 import { ItenariesRoutesEnum } from 'src/app/enums/ItenariesRoutes.enum';
-
 @Component({
   selector: 'app-tab-bar',
   templateUrl: './tab-bar.component.html',
@@ -25,5 +25,5 @@ export class TabBarComponent {
       routerLink: ItenariesRoutesEnum.ITINERARY_FAVOURITES,
     },
   ];
-  onActiveItemChange($event: string): void {}
+  onActiveItemChange(event: MenuItem): void {}
 }

@@ -18,7 +18,7 @@ import { ModalService } from '../../../../../../services/core/modal/modal.servic
 })
 export class CreateItineraryComponent implements OnInit, AfterViewInit {
   @ViewChild('testModal', { static: false })
-  testModal: CreateItineraryComponent;
+  testModal: CreateItineraryComponent | undefined;
   enableBack: boolean = true;
   cssClass = ['create-itinerary-modal'];
   ICONS = ICONS;

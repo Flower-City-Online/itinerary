@@ -151,7 +151,7 @@ export class GooglemapComponent implements OnChanges {
     }
   }
 
-  onMapInitialized(map: google.maps.Map) {
+  onMapInitialized(map: any) {
     this.map = map;
     this.initializeDrawingManager();
   }

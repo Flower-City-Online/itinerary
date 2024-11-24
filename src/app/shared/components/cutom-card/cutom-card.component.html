@@ -16,13 +16,13 @@
               "
             >
               <img
-                [src]="!isDraft ? ICONS?.upVote : ICONS?.upArrowWhite"
+                [src]="!isDraft ? ICONS.upvote : ICONS.upArrowWhite"
                 alt=""
               />
               <span [class]="!isDraft ? 'text-primary' : 'drah-voter-header'">{{
                 cardDataValidater(cardData.upVotes, "upVotes")
               }}</span>
-              <img [src]="ICONS?.downvote" alt="" />
+              <img [src]="ICONS.downvote" alt="" />
             </div>
             <div class="">
               <h4 class="title medium-14 p-0 m-0">
@@ -31,7 +31,7 @@
               <h5
                 class="text-secondary opacity-80 text-[10px] xs:text-[9px] flex gap-[6px] items-center"
               >
-                <img [src]="ICONS?.user" alt="" />
+                <img [src]="ICONS.user" alt="" />
                 <span
                   [class]="
                     cardData.userName.length == 0 &&

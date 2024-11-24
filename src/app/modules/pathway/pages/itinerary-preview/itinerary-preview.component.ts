@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { MapMarkerModel } from 'nextsapien-component-lib';
 import { ICONS } from 'src/app/constants/constants';
 import { LocationService } from 'src/app/services/core/location.service';
 @Component({
@@ -22,8 +23,8 @@ export class ItineraryPreviewComponent implements OnInit {
   handleSearch(event: string): void {
     // Change parameter type to 'any' to accept event
   }
-  mapType = 'satellite';
-  locationsMarkers = [
+  mapType: google.maps.MapTypeId = google.maps.MapTypeId.ROADMAP;
+  locationsMarkers: MapMarkerModel[] = [
     {
       icon: {
         url: 'assets/1.png#custom_pin_maps',
@@ -31,14 +32,14 @@ export class ItineraryPreviewComponent implements OnInit {
         scaledSize: new google.maps.Size(10, 10),
         anchor: null,
       },
-      id: 1,
+      id: '1',
       omitMarkerCircle: false,
       position: this.initialLocation,
       radius: 100000,
     },
   ];
 
-  onMapLoaded(event: boolean): void {}
+  onMapLoaded(event: Event): void {}
 
   toggleDrawingTool(): void {
     // Add your drawing tool toggle logic here

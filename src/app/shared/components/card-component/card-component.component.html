@@ -12,11 +12,11 @@
               ' items-center sm:text-[10px] xs:text-[9px] flex flex-col gap-y-[0px]'
         "
       >
-        <img [src]="!isDraft ? ICONS?.upvote : ICONS?.upArrowWhite" alt="" />
+        <img [src]="!isDraft ? ICONS.upvote : ICONS.upArrowWhite" alt="" />
         <span [class]="!isDraft ? 'text-primary' : 'drah-voter-header'">{{
           cardDataValidater(cardData.upVotes, "upVotes")
         }}</span>
-        <img [src]="ICONS?.downvote" alt="" />
+        <img [src]="ICONS.downvote" alt="" />
       </div>
       <div class="">
         <h4 class="title medium-14 p-0 m-0">
@@ -25,7 +25,7 @@
         <h5
           class="text-secondary opacity-80 text-[10px] xs:text-[9px] flex gap-[6px] items-center"
         >
-          <img [src]="ICONS?.user" alt="" />
+          <img [src]="ICONS.user" alt="" />
           <span
             [class]="
               cardData.userName.length == 0 && cardData.timeAgo.length == 0
@@ -62,7 +62,7 @@
               ' w-[6.2rem] text-[8px] relative bottom-[1.1rem] text-secondary text-center bg-gray-50 px-1 py-[2px] rounded-xl flex items-center justify-center gap-2'
         "
       >
-        <img [src]="ICONS?.locationWhite" alt="" />
+        <img [src]="ICONS.locationWhite" alt="" />
         <span class="truncate max-w-[60px]">{{
           cardDataValidater(cardData.location, "location")
         }}</span>
@@ -75,37 +75,37 @@
       >
         <ul class="flex flex-col gap-y-[6px] xs:text-[9px] sm:text-[12px]">
           <li class="location-item-main flex items-center text-primary gap-1">
-            <img [src]="ICONS?.temp" alt="" />
+            <img [src]="ICONS.temp" alt="" />
             <span class="flex items-center text-primary">Palace</span>
           </li>
           <li class="location-item flex items-center gap-1">
-            <img [src]="ICONS?.palace2" alt="" />
+            <img [src]="ICONS.palace2" alt="" />
             <span class="truncate sm:max-w-10 xs:max-w-12">Template</span>
           </li>
           <li class="location-item flex items-center gap-1">
-            <img [src]="ICONS?.palace2" alt="" />
+            <img [src]="ICONS.palace2" alt="" />
             <span class="truncate sm:max-w-10 xs:max-w-11">Optional</span>
           </li>
           <li class="location-item flex items-center gap-1">
-            <img [src]="ICONS?.palace2" alt="" />
+            <img [src]="ICONS.palace2" alt="" />
             <span class="truncate sm:max-w-10 xs:max-w-11">Optional</span>
           </li>
         </ul>
         <ul class="flex flex-col gap-y-[6px] xs:text-[9px] sm:text-[12px]">
           <li class="location-item flex items-center gap-1">
-            <img [src]="ICONS?.coffee" alt="" />
+            <img [src]="ICONS.coffee" alt="" />
             <span class="truncate sm:max-w-10 xs:max-w-11">Coffee shop</span>
           </li>
           <li class="location-item flex items-center gap-1">
-            <img [src]="ICONS?.template" alt="" />
+            <img [src]="ICONS.template" alt="" />
             <span class="truncate sm:max-w-10 xs:max-w-11">Optional</span>
           </li>
           <li class="location-item flex items-center gap-1">
-            <img [src]="ICONS?.template" alt="" />
+            <img [src]="ICONS.template" alt="" />
             <span class="truncate sm:max-w-10 xs:max-w-11">Optional</span>
           </li>
           <li class="location-item flex items-center gap-1">
-            <img [src]="ICONS?.template" alt="" />
+            <img [src]="ICONS.template" alt="" />
             <span class="truncate sm:max-w-10 xs:max-w-11">Optional</span>
           </li>
         </ul>
@@ -121,19 +121,19 @@
       class="flex items-center justify-between sm:gap-x-7 xs:gap-x-5 sm:text-sm xs:text-[9px] text-secondary"
     >
       <div class="flex items-center gap-x-[6px]">
-        <img class="bottom-icons" [src]="ICONS?.eye" alt="" />
+        <img class="bottom-icons" [src]="ICONS.eye" alt="" />
         <span class="bottom-tags">{{
           cardDataValidater(cardData.views, "views")
         }}</span>
       </div>
       <div class="flex items-center gap-x-[6px]">
-        <img class="bottom-icons" [src]="ICONS?.comment2" alt="" />
+        <img class="bottom-icons" [src]="ICONS.comment2" alt="" />
         <span class="bottom-tags">{{
           cardDataValidater(cardData.comments, "comments")
         }}</span>
       </div>
       <div class="flex items-center gap-x-[6px]">
-        <img class="bottom-icons" [src]="ICONS?.fork" alt="" />
+        <img class="bottom-icons" [src]="ICONS.fork" alt="" />
         <span class="bottom-tags">{{
           cardDataValidater(cardData.shares, "shares")
         }}</span>
@@ -142,7 +142,7 @@
     <div class="flex items-center gap-x-2">
       <span class="text-xs userIconText"
         >{{ cardDataValidater(cardData.users, "users") }}
-        <span class="user-icon-text" *ngIf="parseInt(cardData.users) > 0"
+        <span class="user-icon-text" *ngIf="cardData.users > 0"
           >Users</span
         ></span
       >

@@ -11,7 +11,7 @@ import { CustomDropdownMenuService } from '../../../../services/core/custom-drop
 })
 export class FavoritesComponent implements OnInit {
   libMenuItem: LibMenuItem[] = [];
-  cardList = [];
+  cardList:number[] = [];
   ICONS = ICONS;
 
   ngOnInit(): void {

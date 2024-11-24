@@ -19,7 +19,7 @@ import { ApiService } from 'src/app/services/core/api.service';
 export class CardComponent implements OnInit {
   @Input() libMenuItem!: LibMenuItem[];
   @Input() isDraft!: boolean;
-  cardData: ICardData;
+  cardData: ICardData | undefined;
   ICONS = ICONS;
 
   constructor(
@@ -29,8 +29,8 @@ export class CardComponent implements OnInit {
 
   ngOnInit(): void {
     if (!this.isDraft) {
-      this.apiService.get('/assets/data.json').subscribe((data: ICardData) => {
-        this.cardData = data;
+      this.apiService.get('/assets/data.json').subscribe((data) => {
+        this.cardData = data as ICardData;
         this.cdr.detectChanges();
       });
     } else {
@@ -54,7 +54,7 @@ export class CardComponent implements OnInit {
 
   nullCheck(data: string | number | null | undefined): boolean {
     return (
-      data.toString().length == 0 ||
+      data?.toString().length == 0 ||
       data == null ||
       data == undefined ||
       data == '0' ||

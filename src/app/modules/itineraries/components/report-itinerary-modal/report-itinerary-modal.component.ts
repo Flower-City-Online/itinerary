@@ -10,7 +10,7 @@ import { ModalService } from '../../../../services/core/modal/modal.service';
   styleUrl: './report-itinerary-modal.component.scss',
 })
 export class ReportItineraryModalComponent implements OnInit {
-  selectedItem: number;
+  selectedItem: number | undefined;
   formGroup = new FormGroup({
     radio: new FormControl(0),
   });

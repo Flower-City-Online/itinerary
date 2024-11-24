@@ -3,10 +3,10 @@
     cssClass="archive-css"
     [heading]="'MAIN_ARCHIVES.NOTE_ARCHIVED' | translate"
     [buttonText]="'MAIN_ARCHIVES.CLEAR_ALL' | translate"
-    [buttonIcon]="ICONS?.deleteSec"
+    [buttonIcon]="ICONS.deleteSec"
   ></app-custom-heading-with-button>
   <div class="mt-7 flex flex-col gap-2">
-    <app-card-component isDraft="true"></app-card-component>
+    <app-card-component [isDraft]="true"></app-card-component>
     <app-card-component [libMenuItem]="libMenuItem"></app-card-component>
   </div>
   <lib-popup [isOpen]="modalService.toggleModal">

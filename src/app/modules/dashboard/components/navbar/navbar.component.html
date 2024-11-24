@@ -1,13 +1,13 @@
 <nav class="nav-bar text-white fixed top-0 left-0 w-full z-50">
   <div class="nav-main-bar">
     <div class="flex ml-2">
-      <img class="navbar-logo" [ngSrc]="ICONS?.logo" alt="logo" />
+      <img class="navbar-logo" [ngSrc]="ICONS.logo" alt="logo" />
     </div>
     <div class="sub-nav mx-auto">
       <app-bottom-navigation-items
         [label]="'MENU.HOME' | translate"
         cssClass="dashboard-active"
-        [iconPath]="ICONS?.dashHomeActive"
+        [iconPath]="ICONS.dashHomeActive"
       ></app-bottom-navigation-items>
       <div>
         <app-search-bar
@@ -19,19 +19,19 @@
         height="22"
         width="23"
         [label]="'MENU.CONSTITUENTS' | translate"
-        [iconPath]="ICONS?.users"
+        [iconPath]="ICONS.users"
       ></app-bottom-navigation-items>
       <app-bottom-navigation-items
         [label]="'MENU.ITINERARY' | translate"
-        [iconPath]="ICONS?.itineraries"
+        [iconPath]="ICONS.itineraries"
       ></app-bottom-navigation-items>
       <app-bottom-navigation-items
         [label]="'MENU.STATS' | translate"
-        [iconPath]="ICONS?.stats"
+        [iconPath]="ICONS.stats"
       ></app-bottom-navigation-items>
       <app-bottom-navigation-items
         [label]="'MENU.SETTINGS' | translate"
-        [iconPath]="ICONS?.setting"
+        [iconPath]="ICONS.setting"
       ></app-bottom-navigation-items>
     </div>
     <div class="profile-icon ml-auto mt-1">
@@ -41,7 +41,7 @@
           'https://semantic-ui.com/images/avatar2/large/matthew.png'
         "
         [hasNotification]="true"
-        [menuBtnNotificationIconUrl]="ICONS?.notBlip"
+        [menuBtnNotificationIconUrl]="ICONS.notBlip"
         [menuItems]="menuItems"
         class="dashboard-menu"
       >

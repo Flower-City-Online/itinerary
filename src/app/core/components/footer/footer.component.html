@@ -8,8 +8,6 @@
       <app-bottom-navigation-items
         (click)="navigate(bottomNavigationService.bottomNavList, item)"
         *ngFor="let item of bottomNavigationService.bottomNavList"
-        [height]="item.height"
-        [width]="item.width"
         [cssClass]="item.cssClass"
         [routerLink]="item.routerLink"
         [label]="item.label"
