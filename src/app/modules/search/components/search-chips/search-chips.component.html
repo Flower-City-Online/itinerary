@@ -1,23 +1,23 @@
 <div class="suggestion mt-6">
-  <p class="search-sub-heading">Searching...</p>
+  <p class="search-sub-heading">{{ "SEARCHING" | translate }}</p>
   <div>
     <div class="search-chip flex gap-2">
       <lib-primary-btn
-        class="search-chips flex items-center justify-between bg-[#413F47] text-[13px] mt-4 px-3 py-1 rounded-full text-[#BBBABC]"
+        class="search-chips flex items-center justify-between mt-4 px-3 py-1 rounded-full"
       >
-        Itineraries&nbsp;
+        {{ "SIDEBAR.ITINERARIES" | translate }}&nbsp;
         <img [ngSrc]="ICONS.close" height="9" width="10" />
       </lib-primary-btn>
       <lib-primary-btn
-        class="search-chips flex items-center justify-between bg-[#413F47] text-[13px] mt-4 px-3 py-1 rounded-full text-[#BBBABC]"
+        class="search-chips flex items-center justify-between mt-4 px-3 py-1 rounded-full"
       >
-        Matches&nbsp;
+        {{ "MATCHES" | translate }}&nbsp;
         <img [ngSrc]="ICONS.close" height="9" width="10" />
       </lib-primary-btn>
       <lib-primary-btn
-        class="search-chips flex items-center justify-between bg-[#413F47] text-[13px] mt-4 px-3 py-1 rounded-full text-[#BBBABC]"
+        class="search-chips flex items-center justify-between mt-4 px-3 py-1 rounded-full"
       >
-        My Creation&nbsp;
+        {{ "MY_CREATION" | translate }}&nbsp;
         <img [ngSrc]="ICONS.close" height="9" width="10" />
       </lib-primary-btn>
     </div>

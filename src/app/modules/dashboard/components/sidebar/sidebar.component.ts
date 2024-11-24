@@ -56,7 +56,7 @@ export class SidebarComponent implements OnInit {
   }
 
   selectItem(item: ISideBarMenuItem): void {
-    this.sideBarItem.forEach((element: ISideBarMenuItem) => {
+    this.sideBarItem.some((element: ISideBarMenuItem) => {
       element.selected = false;
       element.cssClass = '';
     });

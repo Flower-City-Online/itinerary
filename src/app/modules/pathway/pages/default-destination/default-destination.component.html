@@ -15,9 +15,7 @@
 <div class="">
   <div class="absolute bottom-0 py-3">
     <section class="fixed bottom-0 w-full">
-      <div
-        class="tracking-widest px-5 py-2 rounded-t-3xl drawer-shadow bg-[#28252D]"
-      >
+      <div class="tracking-widest px-5 py-2 rounded-t-3xl drawer-shadow">
         <div class="">
           <div class="bottomModal mt-5 mb-3 flex flex-col gap-y-2">
             <div class="flex items-center justify-between w-full gap-x-4">
@@ -29,7 +27,7 @@
                   <h2 class="sm:text-sm xs:text-xs flex items-center gap-x-1">
                     {{ "ITINERARY.STARTING_LOCATION" | translate }}
                   </h2>
-                  <p class="xs:text-[10px] sm:text-xs text-secondary">
+                  <p class="sm:text-xs text-secondary">
                     {{ "ITINERARY.STARTING_DESCRIPTION" | translate }}
                   </p>
                 </div>
@@ -46,22 +44,20 @@
                 {{ "ITINERARY.DESTINATION_DESCRIPTION" | translate }}
               </p>
             </div>
-            <div class="flex gap-x-4 w-[20rem]">
+            <div class="flex gap-x-4">
               <lib-input-field
                 type="text"
                 [placeholder]="'ITINERARY.WHERE_TO' | translate"
                 class="!w-60 !py-1 text-white text-opacity-70"
                 [(ngModel)]="destination"
               />
-              <lib-primary-btn class="text-[32px]" (click)="addDestination()"
-                >+</lib-primary-btn
-              >
+              <lib-icon-btn (click)="addDestination()">+</lib-icon-btn>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="background-gradient py-5 px-16">
+      <div class="background-gradient">
         <lib-primary-btn>{{
           "IMAGE_CROPPER.CONTINUE" | translate
         }}</lib-primary-btn>

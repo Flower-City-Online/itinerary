@@ -1,6 +1,7 @@
 import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { NgModule } from '@angular/core';
 
+import { TranslateModule } from '@ngx-translate/core';
 import {
   ButtonsModule,
   LibModalModule,
@@ -32,6 +33,7 @@ import { SearchComponent } from './search.component';
     SerachClearHistoryComponent,
   ],
   imports: [
+    TranslateModule,
     ButtonsModule,
     CommonModule,
     SearchRoutingModule,

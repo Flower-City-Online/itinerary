@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ICONS } from 'src/app/constants/constants';
+import { ItenariesRoutesEnum } from 'src/app/enums/ItenariesRoutes.enum';
 import { IBottomNavigationList } from 'src/app/interface/bottomNavigationList';
 
 @Injectable({
@@ -14,7 +15,7 @@ export class BottomNavigationService {
       label: 'Home',
       iconPath: ICONS.home,
       clickedIconPath: ICONS.homeRed,
-      routerLink: '/itinaries',
+      routerLink: ItenariesRoutesEnum.ITINERARY,
       cssClass: '',
       height: '16',
       width: '17',
@@ -25,7 +26,7 @@ export class BottomNavigationService {
       label: 'Requests',
       iconPath: ICONS.favorite,
       clickedIconPath: ICONS.favorite,
-      routerLink: '/requests',
+      routerLink: ItenariesRoutesEnum.REQUESTS,
       cssClass: '',
       height: '19',
       width: '19',
@@ -36,7 +37,7 @@ export class BottomNavigationService {
       label: 'Info',
       iconPath: ICONS.chat,
       clickedIconPath: ICONS.chatRed,
-      routerLink: '/info',
+      routerLink: ItenariesRoutesEnum.INFO,
       cssClass: '',
       height: '16',
       width: '17',
@@ -47,7 +48,7 @@ export class BottomNavigationService {
       label: 'Itineraries',
       iconPath: ICONS.itineraries,
       clickedIconPath: ICONS.itinerariesRed,
-      routerLink: '/itineraries',
+      routerLink: ItenariesRoutesEnum.ITINERARY,
       cssClass: '',
       height: '16',
       width: '17',
@@ -58,7 +59,7 @@ export class BottomNavigationService {
       label: 'Profile',
       iconPath: ICONS.user,
       clickedIconPath: ICONS.userRed,
-      routerLink: '/profile',
+      routerLink: ItenariesRoutesEnum.PROFILE,
       cssClass: '',
       height: '16',
       width: '17',
@@ -71,7 +72,7 @@ export class BottomNavigationService {
       label: 'Itineraries',
       iconPath: ICONS.itineraries,
       clickedIconPath: ICONS.itinerariesRed,
-      routerLink: '/itineraries',
+      routerLink: ItenariesRoutesEnum.ITINERARY,
       cssClass: '',
       height: '16',
       width: '17',

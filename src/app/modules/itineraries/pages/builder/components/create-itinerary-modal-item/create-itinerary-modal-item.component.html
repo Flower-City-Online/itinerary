@@ -7,14 +7,14 @@
       <div class="content-text">
         <span class="font-bold">
           <div *ngIf="shortTitle">
-            <span class="headingSubPart">{{ titleList[0] }}</span>
+            <span class="heading-sub-part">{{ titleList[0] | translate }}</span>
           </div>
           <div *ngIf="!shortTitle">
-            {{ titleList[0] }}
-            <span class="headingSubPart">{{ titleList[1] }}</span>
+            {{ titleList[0] | translate }}
+            <span class="heading-sub-part">{{ titleList[1] | translate }}</span>
           </div>
         </span>
-        <p>{{ description }}</p>
+        <p>{{ description | translate }}</p>
       </div>
     </div>
     <span class="content-icon-last">

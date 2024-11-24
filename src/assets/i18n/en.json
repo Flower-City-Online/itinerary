@@ -1,5 +1,20 @@
 {
-  "AD": "ADv",
+  "RECENT_SEARCHES": "Recent Searches...",
+  "SEARCHING": "Searching...",
+  "MATCHES": "Matches",
+  "MY_CREATION": "My Creation",
+  "EDIT_ITINERARY": "Edit Itinerary",
+  "ARCHIVE": "Archive",
+  "UNPUBLISH": "Unpublish",
+  "ASSIGN_TO_CLIENT": "Assign to Client",
+  "ADD_TO_FAVORITES": "Add to Favorites",
+  "REMOVE_FROM_FAVORITES": "Remove from Favorites",
+  "SHARE_ITINERARY": "Share Itinerary",
+  "BRANCH_THE_ITINERARY": "Branch the Itinerary",
+  "REPORT": "Report",
+  "RESTORE_ITINERARY": "Restore Itinerary",
+  "DELETE_FOREVER": "Delete Forever",
+  "FINISH_ITINERARY_CREATION": "You need to finish itinerary creation process to publish this itinerary.",
   "SNACKBAR": {
     "REPORT_ITINERARY": "Report Itinerary",
     "DELETE_ITINERARY": "Delete Itinerary",
@@ -679,6 +694,20 @@
     "STARTING_DESCRIPTION": "Starting Location",
     "DESTINATION_TITLE": "Destination",
     "DESTINATION_DESCRIPTION": "Select final destination for itinerary route.",
-    "WHERE_TO": "Where to?"
+    "WHERE_TO": "Where to?",
+    "CREATE_CUSTOM_ITINERARY": "Create Custom Itinerary",
+    "CREATE_CUSTOM_ITINERARY_DESCRIPTION": "Create itineraries imperatively, step by step using our personalization tools.",
+    "CREATE_QUICK_ITINERARY": "Create Quick Itinerary",
+    "CREATE_QUICK_ITINERARY_DESCRIPTION": "Quick Itinerary tool helps you create itineraries by answering some simple questions.",
+    "FEELING_LUCKY": "Feeling Lucky",
+    "FEELING_LUCKY_DESCRIPTION": "Instantly summons a personal itinerary from the abyss, by using your profile information and answering all the logistic questions randomly from the Quick Itinerary tool.",
+    "BACK": "Back",
+    "PREVIEW": "Preview"
+  },
+  "FAVORITES": {
+    "NO_ITINERARIES_YET": "No Itineraries yet",
+    "NO_ITINERARIES_FAVORITE": "You have no Itineraries in favorite yet.",
+    "EXPLORE_ITINERARIES": "Explore Itineraries",
+    "CREATE_NOW": "Create Now"
   }
 }

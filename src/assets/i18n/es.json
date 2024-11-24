@@ -1,4 +1,20 @@
 {
+  "RECENT_SEARCHES": "Búsquedas recientes...",
+  "SEARCHING": "Buscando...",
+  "MATCHES": "Partidos",
+  "MY_CREATION": "Mi Creación",
+  "EDIT_ITINERARY": "Editar itinerario",
+  "ARCHIVE": "Archivar",
+  "UNPUBLISH": "Despublicar",
+  "ASSIGN_TO_CLIENT": "Asignar al cliente",
+  "ADD_TO_FAVORITES": "Agregar a favoritos",
+  "REMOVE_FROM_FAVORITES": "Eliminar de favoritos",
+  "SHARE_ITINERARY": "Compartir itinerario",
+  "BRANCH_THE_ITINERARY": "Ramificar el itinerario",
+  "REPORT": "Informe",
+  "RESTORE_ITINERARY": "Restaurar itinerario",
+  "DELETE_FOREVER": "Eliminar para siempre",
+  "FINISH_ITINERARY_CREATION": "Debe finalizar el proceso de creación del itinerario para publicar este itinerario.",
   "SNACKBAR": {
     "REPORT_ITINERARY": "Reportar itinerario",
     "DELETE_ITINERARY": "Eliminar itinerario",
@@ -656,6 +672,20 @@
     "STARTING_DESCRIPTION": "Ubicación inicial",
     "DESTINATION_TITLE": "Destino",
     "DESTINATION_DESCRIPTION": "Selecciona el destino final para la ruta del itinerario.",
-    "WHERE_TO": "¿Adónde?"
+    "WHERE_TO": "¿Adónde?",
+    "CREATE_CUSTOM_ITINERARY": "Crear un itinerario personalizado",
+    "CREATE_CUSTOM_ITINERARY_DESCRIPTION": "Cree itinerarios de manera imperativa, paso a paso utilizando nuestras herramientas de personalización.",
+    "CREATE_QUICK_ITINERARY": "Crear un itinerario rápido",
+    "CREATE_QUICK_ITINERARY_DESCRIPTION": "La herramienta de itinerario rápido le ayuda a crear itinerarios respondiendo algunas preguntas simples.",
+    "FEELING_LUCKY": "¿Te sientes con suerte?",
+    "FEELING_LUCKY_DESCRIPTION": "Invoca instantáneamente un itinerario personalizado desde el abismo, utilizando tu información de perfil y respondiendo todas las preguntas logísticas al azar con la herramienta de itinerario rápido.",
+    "BACK": "Atrás",
+    "PREVIEW": "Vista previa"
+  },
+  "FAVORITES": {
+    "NO_ITINERARIES_YET": "No hay itinerarios aún",
+    "NO_ITINERARIES_FAVORITE": "Aún no tienes itinerarios favoritos.",
+    "EXPLORE_ITINERARIES": "Explorar itinerarios",
+    "CREATE_NOW": "Crear ahora"
   }
 }

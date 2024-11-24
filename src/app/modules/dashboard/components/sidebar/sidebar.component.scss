@@ -12,17 +12,21 @@ $shadow-color-dark: rgba(17, 16, 20, 0.65);
     drop-shadow(6.978px 6.344px 17.128px $shadow-color-dark) !important;
 }
 
-.side-nav ul li {
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  padding: 10px 70px;
-}
+.side-nav {
+  ul {
+    li {
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      padding: 10px 70px;
 
-.side-nav ul li a {
-  font-family: "Calistoga";
-  opacity: 50%;
+      a {
+        font-family: "Calistoga";
+        opacity: 50%;
+      }
+    }
+  }
 }
 
 .active {

@@ -1,4 +1,20 @@
 {
+  "RECENT_SEARCHES": "Recherches récentes...",
+  "SEARCHING": "Recherche en cours...",
+  "MATCHES": "Correspondances",
+  "MY_CREATION": "Ma Création",
+  "EDIT_ITINERARY": "Modifier l'itinéraire",
+  "ARCHIVE": "Archiver",
+  "UNPUBLISH": "Dépublier",
+  "ASSIGN_TO_CLIENT": "Attribuer au client",
+  "ADD_TO_FAVORITES": "Ajouter aux favoris",
+  "REMOVE_FROM_FAVORITES": "Retirer des favoris",
+  "SHARE_ITINERARY": "Partager l'itinéraire",
+  "BRANCH_THE_ITINERARY": "Brancher l'itinéraire",
+  "REPORT": "Rapport",
+  "RESTORE_ITINERARY": "Restaurer l'itinéraire",
+  "DELETE_FOREVER": "Supprimer définitivement",
+  "FINISH_ITINERARY_CREATION": "Vous devez terminer le processus de création de l'itinéraire pour publier cet itinéraire.",
   "SNACKBAR": {
     "REPORT_ITINERARY": "Signaler un itinéraire",
     "DELETE_ITINERARY": "Supprimer l'itinéraire",
@@ -653,6 +669,20 @@
     "STARTING_DESCRIPTION": "Lieu de départ",
     "DESTINATION_TITLE": "Destination",
     "DESTINATION_DESCRIPTION": "Sélectionnez la destination finale pour l'itinéraire.",
-    "WHERE_TO": "Où aller?"
+    "WHERE_TO": "Où aller?",
+    "CREATE_CUSTOM_ITINERARY": "Créer un itinéraire personnalisé",
+    "CREATE_CUSTOM_ITINERARY_DESCRIPTION": "Créez des itinéraires de manière impérative, étape par étape, en utilisant nos outils de personnalisation.",
+    "CREATE_QUICK_ITINERARY": "Créer un itinéraire rapide",
+    "CREATE_QUICK_ITINERARY_DESCRIPTION": "L'outil d'itinéraire rapide vous aide à créer des itinéraires en répondant à quelques questions simples.",
+    "FEELING_LUCKY": "Vous vous sentez chanceux",
+    "FEELING_LUCKY_DESCRIPTION": "Invoque instantanément un itinéraire personnalisé depuis l'abîme en utilisant vos informations de profil et en répondant à toutes les questions logistiques aléatoirement à partir de l'outil d'itinéraire rapide.",
+    "BACK": "Retour",
+    "PREVIEW": "Aperçu"
+  },
+  "FAVORITES": {
+    "NO_ITINERARIES_YET": "Pas encore d'itinéraires",
+    "NO_ITINERARIES_FAVORITE": "Vous n'avez pas encore d'itinéraires favoris.",
+    "EXPLORE_ITINERARIES": "Explorer les itinéraires",
+    "CREATE_NOW": "Créer maintenant"
   }
 }

@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { ItenariesRoutesEnum } from 'src/app/enums/ItenariesRoutes.enum';
 import { ModalService } from '../../services/core/modal/modal.service';
 
 @Component({
@@ -19,6 +20,6 @@ export class ItinerariesComponent {
   }
 
   searchButtonClick(): void {
-    this.router.navigate(['/search/']).then((r) => {});
+    this.router.navigate([ItenariesRoutesEnum.SEARCH]).then((r) => {});
   }
 }

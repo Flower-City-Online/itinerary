@@ -3,15 +3,15 @@
     <div>
       <img [ngSrc]="ICONS.map" height="120" width="120" />
     </div>
-    <h1 class="mt-4">No Itineraries yet</h1>
-    <p class="mt-3">You have no Itineraries in favorite yet.</p>
+    <h3 class="mt-4">{{ "FAVORITES.NO_ITINERARIES_YET" | translate }}</h3>
+    <p class="mt-3">{{ "FAVORITES.NO_ITINERARIES_FAVORITE" | translate }}</p>
 
-    <lib-primary-btn class="btn-style mt-7"
-      >Explore Itineraries</lib-primary-btn
-    >
-    <lib-primary-btn (click)="goFav()" class="btn-style mt-3"
-      >Create Now</lib-primary-btn
-    >
+    <lib-primary-btn class="btn-style mt-7">{{
+      "FAVORITES.EXPLORE_ITINERARIES" | translate
+    }}</lib-primary-btn>
+    <lib-primary-btn (click)="goFav()" class="btn-style mt-3">{{
+      "FAVORITES.CREATE_NOW" | translate
+    }}</lib-primary-btn>
   </div>
 </div>
 

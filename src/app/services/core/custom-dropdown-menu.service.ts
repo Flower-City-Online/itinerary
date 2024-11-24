@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 import { LibMenuItem } from 'nextsapien-component-lib';
 import { ICONS } from 'src/app/constants/constants';
 import { ModalService } from './modal/modal.service';
@@ -10,53 +11,52 @@ import { ModalService } from './modal/modal.service';
 export class CustomDropdownMenuService {
   cssClasses = ['custom-modal-class'];
   ICONS = ICONS;
-  // @ts-ignore
   itemList: LibMenuItem[] = [
     {
-      title: 'Edit Itinerary',
+      title: 'EDIT_ITINERARY',
       iconUrl: ICONS.edit,
     },
     {
-      title: 'Archive',
+      title: 'ARCHIVE',
       iconUrl: ICONS.archiveWhite,
     },
     {
-      title: 'Unpublish',
+      title: 'UNPUBLISH',
       iconUrl: '',
     },
     {
-      title: 'Assign to Client',
+      title: 'ASSIGN_TO_CLIENT',
       iconUrl: ICONS.headphone,
     },
     {
-      title: 'Add to Favorites',
+      title: 'ADD_TO_FAVORITES',
       iconUrl: ICONS.heartWhite,
     },
     {
-      title: 'Remove from Favorites',
+      title: 'REMOVE_FROM_FAVORITES',
       iconUrl: ICONS.heartFillRed,
     },
     {
-      title: 'Share Itinerary',
+      title: 'SHARE_ITINERARY',
       iconUrl: ICONS.share,
     },
     {
-      title: 'Branch the Itinerary',
+      title: 'BRANCH_THE_ITINERARY',
       iconUrl: ICONS.branch,
     },
     {
-      title: 'Report',
+      title: 'REPORT',
       iconUrl: ICONS.report,
       command: () => {
-        this.openSecondModal();
+        this.openReportModal();
       },
     },
     {
-      title: 'Restore Itinerary',
+      title: 'RESTORE_ITINERARY',
       iconUrl: ICONS.restore,
     },
     {
-      title: 'Delete Forever',
+      title: 'DELETE_FOREVER',
       iconUrl: ICONS.deleteCross,
       command: () => {
         this.openModal();
@@ -69,19 +69,19 @@ export class CustomDropdownMenuService {
       pageName: 'itineraries',
       itemList: [
         {
-          title: 'Assign to Client',
+          title: 'ASSIGN_TO_CLIENT',
         },
         {
-          title: 'Add to Favorites',
+          title: 'ADD_TO_FAVORITES',
         },
         {
-          title: 'Share Itinerary',
+          title: 'SHARE_ITINERARY',
         },
         {
-          title: 'Branch the Itinerary',
+          title: 'BRANCH_THE_ITINERARY',
         },
         {
-          title: 'Report',
+          title: 'REPORT',
         },
       ],
     },
@@ -89,19 +89,19 @@ export class CustomDropdownMenuService {
       pageName: 'builder',
       itemList: [
         {
-          title: 'Edit Itinerary',
+          title: 'EDIT_ITINERARY',
         },
         {
-          title: 'Unpublish',
+          title: 'UNPUBLISH',
         },
         {
-          title: 'Archive',
+          title: 'ARCHIVE',
         },
         {
-          title: 'Add to Favorites',
+          title: 'ADD_TO_FAVORITES',
         },
         {
-          title: 'Share Itinerary',
+          title: 'SHARE_ITINERARY',
         },
       ],
     },
@@ -109,10 +109,10 @@ export class CustomDropdownMenuService {
       pageName: 'archives',
       itemList: [
         {
-          title: 'Restore Itinerary',
+          title: 'RESTORE_ITINERARY',
         },
         {
-          title: 'Delete Forever',
+          title: 'DELETE_FOREVER',
         },
       ],
     },
@@ -120,13 +120,13 @@ export class CustomDropdownMenuService {
       pageName: 'favourite',
       itemList: [
         {
-          title: 'Remove from Favorites',
+          title: 'REMOVE_FROM_FAVORITES',
         },
         {
-          title: 'Share Itinerary',
+          title: 'SHARE_ITINERARY',
         },
         {
-          title: 'Report',
+          title: 'REPORT',
         },
       ],
     },
@@ -135,6 +135,7 @@ export class CustomDropdownMenuService {
   constructor(
     public router: Router,
     public modalService: ModalService,
+    public translateService: TranslateService,
   ) {}
 
   getMenuList(pageName: string): LibMenuItem[] {
@@ -149,13 +150,21 @@ export class CustomDropdownMenuService {
       page.itemList.some((pageItem) => pageItem.title === item.title),
     );
 
+    filteredList.forEach((item) => {
+      item.title = item.title
+        ? this.translateService.instant(item.title)
+        : item.title;
+    });
+    page.itemList.forEach((item) => {
+      item.title = this.translateService.instant(item.title);
+    });
     return filteredList;
   }
 
   openModal(): void {
     this.modalService.toggleModal = !this.modalService.toggleModal;
   }
-  openSecondModal(): void {
+  openReportModal(): void {
     this.modalService.toggleModal = !this.modalService.toggleModal;
   }
 }

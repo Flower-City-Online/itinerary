@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { PathwayRoutesEnum } from 'src/app/enums/PathwayRoutes.enum';
 import { DefaultDestinationComponent } from './pages/default-destination/default-destination.component';
 import { ItineraryPreviewComponent } from './pages/itinerary-preview/itinerary-preview.component';
 import { NonVisualMapFilterComponent } from './pages/non-visual-map-filter/non-visual-map-filter.component';
@@ -7,19 +8,19 @@ import { NonVisualMapFilterComponent } from './pages/non-visual-map-filter/non-v
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'itinerary-preview',
+    redirectTo: PathwayRoutesEnum.ItineraryPreview,
     pathMatch: 'full',
   },
   {
-    path: 'non-visual-map-filter',
+    path: PathwayRoutesEnum.NonVisualMapFilter,
     component: NonVisualMapFilterComponent,
   },
   {
-    path: 'itinerary-preview',
+    path: PathwayRoutesEnum.ItineraryPreview,
     component: ItineraryPreviewComponent,
   },
   {
-    path: 'default-destination',
+    path: PathwayRoutesEnum.DefaultDestination,
     component: DefaultDestinationComponent,
   },
 ];

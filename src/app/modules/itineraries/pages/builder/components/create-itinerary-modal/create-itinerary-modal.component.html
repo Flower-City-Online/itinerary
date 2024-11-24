@@ -6,7 +6,7 @@
     [description]="item.description"
     [shortTitle]="item.shortTitle"
     (clickEvent)="modalClick(item.id)"
-    class="test"
+    class="craete-itinerary-modal"
   >
   </app-create-itinerary-modal-item>
 </div>
@@ -16,6 +16,6 @@
     class="btn-back mt-5"
     [hoverOutline]="true"
     (click)="backButton()"
-    >Back</lib-primary-btn
+    >{{ "ITINERARY.BACK" | translate }}</lib-primary-btn
   >
 </div>
