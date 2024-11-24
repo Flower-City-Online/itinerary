@@ -66,7 +66,7 @@ export class AppComponent implements OnInit, OnDestroy {
     const width = window.innerWidth;
     if (width <= 960) {
       if (this.location.path().includes('dashboard')) {
-        this.router.navigate([ItenariesRoutesEnum.ITEENARY]);
+        this.router.navigate([ItenariesRoutesEnum.ITINERARY]);
       }
     }
   }

@@ -20,7 +20,7 @@ export class HeaderComponent {
   @Input() cssClass!: string;
   ICONS = ICONS;
 
-  lastButtonClick(): void {
+  handleBackBtnClicked(): void {
     this.lastButton.emit;
   }
 

@@ -1,6 +1,7 @@
 import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { TranslateModule } from '@ngx-translate/core';
 import {
   ButtonsModule,
   LibModalModule,
@@ -33,6 +34,7 @@ import { TabBarComponent } from './components/tab-bar/tab-bar.component';
     SharedModule,
     RouterLink,
     LibModalModule,
+    TranslateModule,
   ],
 })
 export class CoreModule {}

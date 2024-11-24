@@ -1,5 +1,7 @@
 {
   "SNACKBAR": {
+    "REPORT_ITINERARY": "Signaler un itinéraire",
+    "DELETE_ITINERARY": "Supprimer l'itinéraire",
     "LOGIN_SUCCESS": "Connexion réussie",
     "LOGOUT_SUCCESS": "Déconnexion réussie",
     "SIGNUP_SUCCESS": "Inscription réussie! Veuillez vérifier votre e-mail pour l'activation",
@@ -245,6 +247,7 @@
       "UNDO": "Annuler",
       "DELETE": "Supprimer",
       "PERMANENT_DELETION": "Êtes-vous sûr de vouloir supprimer définitivement cet enregistrement?",
+      "DELETE_ITEM_WARNING": "I understand this item will be deleted forever",
       "SOFT_DELETION": "Voulez-vous vraiment supprimer cet enregistrement?",
       "SAVE_POSITIONS": "Enregistrer les positions",
       "PREV": "Précédent",
@@ -625,7 +628,8 @@
   },
   "MAIN_ARCHIVES": {
     "NOTE_ARCHIVED": "Remarque : Les éléments archivés dureront 12 jours",
-    "CLEAR_ALL": "Tout effacer"
+    "CLEAR_ALL": "Tout effacer",
+    "ARCHIVES": "Archives"
   },
   "NAVBAR": {
     "SEARCH": "Recherchez tout",
@@ -638,7 +642,8 @@
   "SIDEBAR": {
     "EXPLORE": "Explorer",
     "BUILDER": "Constructeur",
-    "FAVOURITE": "Favoris"
+    "FAVOURITE": "Favoris",
+    "ITINERARIES": "Itinéraires"
   },
   "MAP_HEADER": {
     "CREATE_ITINERARY": "Créer un itinéraire"

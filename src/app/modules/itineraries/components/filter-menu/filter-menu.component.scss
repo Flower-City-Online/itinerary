@@ -1,5 +1,9 @@
 @use "src/styles/colors" as *;
 
+$box-shadow-primary: 9.026px 8.205px 22.153px 2.051px rgba(17, 16, 20, 0.65);
+$box-shadow-secondary: -4.102px -4.102px 13.128px -2.462px
+  rgba(203, 199, 209, 0.25);
+
 .filter-menu {
   display: flex;
   align-items: center;
@@ -11,9 +15,7 @@
   border-radius: 20px;
   margin-bottom: 3px;
   background: $background-color-1 !important;
-  box-shadow:
-    9.026px 8.205px 22.153px 2.051px rgba(17, 16, 20, 0.65),
-    -4.102px -4.102px 13.128px -2.462px rgba(203, 199, 209, 0.25) !important;
+  box-shadow: $box-shadow-primary, $box-shadow-secondary !important;
   display: flex;
   justify-content: center;
   align-items: center;

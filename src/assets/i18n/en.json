@@ -1,6 +1,8 @@
 {
   "AD": "ADv",
   "SNACKBAR": {
+    "REPORT_ITINERARY": "Report Itinerary",
+    "DELETE_ITINERARY": "Delete Itinerary",
     "LOGIN_SUCCESS": "Login Successful",
     "LOGOUT_SUCCESS": "Logout Successful",
     "SIGNUP_SUCCESS": "Sign Up Successful! Please check your email for activation",
@@ -246,6 +248,7 @@
       "UNDO": "Undo",
       "DELETE": "Delete",
       "PERMANENT_DELETION": "Are you sure you want to Permanent delete this record?",
+      "DELETE_ITEM_WARNING": "I understand this item will be deleted forever",
       "SOFT_DELETION": "Are you sure you want to Soft delete this record?",
       "SAVE_POSITIONS": "Save Positions",
       "PREV": "Previous",
@@ -651,7 +654,8 @@
   },
   "MAIN_ARCHIVES": {
     "NOTE_ARCHIVED": "Note: Archived items will last for 12 days",
-    "CLEAR_ALL": "Clear All"
+    "CLEAR_ALL": "Clear All",
+    "ARCHIVES": "Archives"
   },
   "NAVBAR": {
     "SERACH": "Search for anything",
@@ -664,7 +668,8 @@
   "SIDEBAR": {
     "EXPLORE": "Explore",
     "BUILDER": "Builder",
-    "FAVOURITE": "Favourite"
+    "FAVOURITE": "Favourite",
+    "ITINERARIES": "Itineraries"
   },
   "MAP_HEADER": {
     "CREATE_ITINERARY": "Create Itinerary"

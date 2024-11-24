@@ -23,7 +23,7 @@ export class IconButtonComponent implements OnInit {
   @Input() type!: string;
   @Output() clickFunction = new EventEmitter<MouseEvent>();
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
+    console.log('Method not implemented.');
   }
 
   clickFunc(): void {

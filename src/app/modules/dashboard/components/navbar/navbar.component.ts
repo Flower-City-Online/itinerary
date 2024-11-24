@@ -12,7 +12,13 @@ import { ICONS } from 'src/app/constants/constants';
 export class NavbarComponent {
   ICONS = ICONS;
   menuItems: LibMenuItem[] = [];
-
+  navigationItems = [
+    { label: 'MENU.HOME', iconPath: this.ICONS.dashHomeActive },
+    { label: 'MENU.CONSTITUENTS', iconPath: this.ICONS.users },
+    { label: 'MENU.ITINERARY', iconPath: this.ICONS.itineraries },
+    { label: 'MENU.STATS', iconPath: this.ICONS.stats },
+    { label: 'MENU.SETTINGS', iconPath: this.ICONS.setting },
+  ];
   constructor(private translate: TranslateService) {
     this.initializeMenuItems();
   }

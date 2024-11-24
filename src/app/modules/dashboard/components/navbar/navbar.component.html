@@ -4,35 +4,18 @@
       <img class="navbar-logo" [ngSrc]="ICONS.logo" alt="logo" />
     </div>
     <div class="sub-nav mx-auto">
-      <app-bottom-navigation-items
-        [label]="'MENU.HOME' | translate"
-        cssClass="dashboard-active"
-        [iconPath]="ICONS.dashHomeActive"
-      ></app-bottom-navigation-items>
+      <div *ngFor="let item of navigationItems">
+        <app-bottom-navigation-items
+          [label]="item.label | translate"
+          [iconPath]="item.iconPath"
+        ></app-bottom-navigation-items>
+      </div>
       <div>
         <app-search-bar
           class="nav-top-search"
           [placeholder]="'NAVBAR.SEARCH' | translate"
         ></app-search-bar>
       </div>
-      <app-bottom-navigation-items
-        height="22"
-        width="23"
-        [label]="'MENU.CONSTITUENTS' | translate"
-        [iconPath]="ICONS.users"
-      ></app-bottom-navigation-items>
-      <app-bottom-navigation-items
-        [label]="'MENU.ITINERARY' | translate"
-        [iconPath]="ICONS.itineraries"
-      ></app-bottom-navigation-items>
-      <app-bottom-navigation-items
-        [label]="'MENU.STATS' | translate"
-        [iconPath]="ICONS.stats"
-      ></app-bottom-navigation-items>
-      <app-bottom-navigation-items
-        [label]="'MENU.SETTINGS' | translate"
-        [iconPath]="ICONS.setting"
-      ></app-bottom-navigation-items>
     </div>
     <div class="profile-icon ml-auto mt-1">
       <lib-menu-btn

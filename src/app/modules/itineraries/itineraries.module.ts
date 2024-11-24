@@ -2,6 +2,7 @@ import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { NgModule } from '@angular/core';
 
 import { ReactiveFormsModule } from '@angular/forms';
+import { TranslateModule } from '@ngx-translate/core';
 import {
   ButtonsModule,
   DashedCheckboxModule,
@@ -52,6 +53,7 @@ import { FavoritesComponent } from './pages/favorites/favorites.component';
     FormFieldModule,
     TextBoxComponent,
     DashedCheckboxModule,
+    TranslateModule,
   ],
 })
 export class ItinerariesModule {}

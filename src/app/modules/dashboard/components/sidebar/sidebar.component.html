@@ -2,7 +2,7 @@
   <div class="px-2">
     <app-header
       cssClass="side-bar-heading-bar"
-      [heading]="'Itineraries'"
+      [heading]="'SIDEBAR.ITINERARIES' | translate"
     ></app-header>
   </div>
   <ul class="space-y-2">
@@ -10,7 +10,7 @@
       <a
         [routerLink]="item.url"
         [class]="item.cssClass + ' block p-3 text-center'"
-        >{{ item.name }}</a
+        >{{ item.name | translate }}</a
       >
       <div *ngIf="item.id === 1 && item.selected">
         <app-filter-menu [cssClass]="filterClass"></app-filter-menu>

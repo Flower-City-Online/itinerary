@@ -1,9 +1,8 @@
 <div class="report-itineraies max-padd-container">
-  <h1 class="p-4">Report Itinerary</h1>
+  <h1 class="p-4">{{ "SNACKBAR.REPORT_ITINERARY" | translate }}</h1>
   <div>
     <lib-form-field
-      (select)="radioChecked()"
-      [formFieldControl]="formGroup.controls.radio"
+      [formFieldControl]="radio"
       [submitted]="false"
       [required]="true"
       [maxLength]="10"

@@ -1,12 +1,12 @@
 <div class="delete-modal">
   <img [ngSrc]="ICONS.delete" height="46" width="46" />
-  <h1 class="p-4">Delete Itinerary</h1>
+  <h3 class="p-4">{{ "SNACKBAR.DELETE_ITINERARY" | translate }}</h3>
   <p class="text-center">
-    Are you sure you want to permanently delete this Itinerary?
+    {{ "AG_GRID.PERMANENT_DELETION" | translate }}
   </p>
-  <div class="check-box-feild">
+  <div class="check-box-field">
     <lib-dashed-checkbox class="check-box"></lib-dashed-checkbox>
-    <span>I understand this item will be deleted forever</span>
+    <span>{{ "AG_GRID.DELETE_ITEM_WARNING" | translate }}</span>
   </div>
   <app-modal-bottom-bar
     class="parent-class-for-modal"

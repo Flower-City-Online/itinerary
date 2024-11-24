@@ -33,21 +33,21 @@ export class SidebarComponent implements OnInit {
     this.sideBarItem = [
       {
         id: 1,
-        name: this.translate.instant('SIDEBAR.EXPLORE'),
+        name: 'SIDEBAR.EXPLORE',
         selected: true,
         cssClass: 'active',
         url: '/dashboard/itineraries/explore',
       },
       {
         id: 2,
-        name: this.translate.instant('SIDEBAR.BUILDER'),
+        name: 'SIDEBAR.BUILDER',
         selected: false,
         cssClass: '',
         url: '/dashboard/itineraries/explore',
       },
       {
         id: 3,
-        name: this.translate.instant('SIDEBAR.FAVOURITE'),
+        name: 'SIDEBAR.FAVOURITE',
         selected: false,
         cssClass: '',
         url: '/dashboard/itineraries/explore',

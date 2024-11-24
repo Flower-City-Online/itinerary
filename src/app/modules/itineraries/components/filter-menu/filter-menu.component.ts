@@ -1,6 +1,8 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl } from '@angular/forms';
 import { ICONS } from 'src/app/constants/constants';
+import { IFilterMenuOptions } from 'src/app/interface/filterMenuOptions';
+import { ApiService } from 'src/app/services/core/api.service';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -11,16 +13,19 @@ import { ICONS } from 'src/app/constants/constants';
 export class FilterMenuComponent {
   @Input() cssClass!: string;
   ICONS = ICONS;
+  options: IFilterMenuOptions[] = [];
 
-  options = [
-    { label: 'Featured', value: '1' },
-    { label: 'Hot', value: '2' },
-    { label: 'Best', value: '3' },
-    { label: 'New', value: '4' },
-  ];
-  formGroup = new FormGroup({
-    filter: new FormControl(this.options[0].value),
-  });
+  constructor(public apiService: ApiService) {}
+
+  ngOnInit(): void {
+    this.apiService
+      .get('/assets/filterMenuOptionsData.json')
+      .subscribe((data) => {
+        this.options = data as IFilterMenuOptions[];
+      });
+  }
+
+  filterControl = new FormControl(this.options[0].value);
 
   changeSelection(): void {}
 }

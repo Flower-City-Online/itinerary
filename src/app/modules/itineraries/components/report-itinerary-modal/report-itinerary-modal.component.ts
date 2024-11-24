@@ -1,55 +1,65 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  OnDestroy,
+  OnInit,
+} from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { FormFieldType } from 'nextsapien-component-lib';
+import { Subscription } from 'rxjs';
+import { IReportOptions } from 'src/app/interface/reportOptions';
+import { ApiService } from 'src/app/services/core/api.service';
 import { ModalService } from '../../../../services/core/modal/modal.service';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'app-report-itinerary-modal',
   templateUrl: './report-itinerary-modal.component.html',
-  styleUrl: './report-itinerary-modal.component.scss',
+  styleUrls: ['./report-itinerary-modal.component.scss'],
 })
-export class ReportItineraryModalComponent implements OnInit {
+export class ReportItineraryModalComponent implements OnInit, OnDestroy {
   selectedItem: number | undefined;
-  formGroup = new FormGroup({
-    radio: new FormControl(0),
-  });
-  options = [
-    { label: 'Spam & Unwanted Content', value: 1, selected: false },
-    {
-      label: 'Pornography or sexually explicit content',
-      value: 2,
-      selected: false,
-    },
-    { label: 'Child abuse', value: 3, selected: false },
-    { label: 'Promotes terrorism', value: 4, selected: false },
-    { label: 'Harassment or bullying', value: 5, selected: false },
-    { label: 'Suicide or self injury', value: 6, selected: false },
-    { label: 'Misinformation', value: 7, selected: false },
-    { label: 'Dangerous', value: 8, selected: false },
-    { label: 'Non of these are my issues', value: 9, selected: false },
-  ];
+  radio: FormControl = new FormControl(0);
+  options: IReportOptions[] = [];
+  private valueChangesSubscription: Subscription | undefined;
+  private optionsSubscription: Subscription | undefined;
 
   constructor(
-    private fb: FormBuilder,
     public modalService: ModalService,
+    public apiService: ApiService,
   ) {}
 
   radioChecked(): void {
-    if (this.formGroup.controls.radio.value == 9) {
+    if (this.radio.value === 9) {
       this.selectedItem = 9;
     } else {
       this.selectedItem = 0;
     }
   }
+
   ngOnInit(): void {
-    this.formGroup.controls.radio.valueChanges.subscribe((e) => {
-      if (e == 9) {
-        this.selectedItem = 9;
-      } else {
-        this.selectedItem = 0;
-      }
+    this.apiService.get('/assets/reportsOptionsData.json').subscribe((data) => {
+      this.options = data as IReportOptions[];
     });
+
+    this.valueChangesSubscription = this.radio.valueChanges.subscribe(
+      (e: IReportOptions) => {
+        if (e.value == 9) {
+          this.selectedItem = 9;
+        } else {
+          this.selectedItem = 0;
+        }
+      },
+    );
+  }
+
+  ngOnDestroy(): void {
+    if (this.valueChangesSubscription) {
+      this.valueChangesSubscription.unsubscribe();
+    }
+    if (this.optionsSubscription) {
+      this.optionsSubscription.unsubscribe();
+    }
   }
 
   closeModal(): void {

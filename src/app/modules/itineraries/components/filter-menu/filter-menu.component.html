@@ -3,8 +3,7 @@
     class="test"
     (click)="changeSelection()"
     (selectionchange)="changeSelection()"
-    [formGroup]="formGroup"
-    [formControl]="formGroup.controls.filter"
+    [formControl]="filterControl"
     [options]="options"
     [singleSelectionOnly]="true"
   >
