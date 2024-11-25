@@ -14,13 +14,28 @@ import { ApiService } from 'src/app/services/core/api.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'app-card-component',
   templateUrl: './card-component.component.html',
-  styleUrl: './card-component.component.scss',
+  styleUrls: ['./card-component.component.scss'], // Fixed typo: 'styleUrls'
 })
 export class CardComponent implements OnInit {
   @Input() libMenuItem!: LibMenuItem[];
   @Input() isDraft!: boolean;
   cardData: ICardData | undefined;
+  processedCardData: ICardData | undefined;
   ICONS = ICONS;
+  cardDataForLocations = {
+    locationColumn1: [
+      { icon: ICONS.temp, name: 'Palace' },
+      { icon: ICONS.palace2, name: 'Template' },
+      { icon: ICONS.palace2, name: 'Optional' },
+      { icon: ICONS.palace2, name: 'Optional' },
+    ],
+    locationColumn2: [
+      { icon: ICONS.coffee, name: 'Coffee shop' },
+      { icon: ICONS.template, name: 'Optional' },
+      { icon: ICONS.template, name: 'Optional' },
+      { icon: ICONS.template, name: 'Optional' },
+    ],
+  };
 
   constructor(
     private apiService: ApiService,
@@ -31,6 +46,7 @@ export class CardComponent implements OnInit {
     if (!this.isDraft) {
       this.apiService.get('/assets/data.json').subscribe((data) => {
         this.cardData = data as ICardData;
+        this.processedCardData = this.processCardData(this.cardData);
         this.cdr.detectChanges();
       });
     } else {
@@ -49,10 +65,11 @@ export class CardComponent implements OnInit {
         userimageSrc: '',
         isDraft: true,
       };
+      this.processedCardData = this.processCardData(this.cardData);
     }
   }
 
-  nullCheck(data: string | number | null | undefined): boolean {
+  private nullCheck(data: string | number | null | undefined): boolean {
     return (
       data?.toString().length == 0 ||
       data == null ||
@@ -62,35 +79,23 @@ export class CardComponent implements OnInit {
       data == '-'
     );
   }
-  cardDataValidater(
-    data: string | number | null | undefined,
-    type: string,
-  ): string | number | null | undefined {
-    if (type == 'imageSrc' && this.nullCheck(data)) {
-      return ICONS.untitled;
-    } else if (type == 'upVotes' && this.nullCheck(data)) {
-      return '00';
-    } else if (type == 'title' && this.nullCheck(data)) {
-      return 'Untitled Itinerary';
-    } else if (type == 'userName' && this.nullCheck(data)) {
-      return 'You';
-    } else if (type == 'timeAgo' && this.nullCheck(data)) {
-      return '';
-    } else if (type == 'users' && this.nullCheck(data)) {
-      return 'No Users Yet';
-    } else if (type == 'views' && this.nullCheck(data)) {
-      return '0';
-    } else if (type == 'comments' && this.nullCheck(data)) {
-      return '0';
-    } else if (type == 'shares' && this.nullCheck(data)) {
-      return '0';
-    } else if (type == 'userimageSrc' && this.nullCheck(data)) {
-      return ICONS.notSpecified;
-    } else if (type == 'location' && this.nullCheck(data)) {
-      return 'Not Specified';
-    }
-    return data;
-  }
 
-  protected readonly parseInt = parseInt;
+  private processCardData(data: ICardData): ICardData {
+    return {
+      ...data,
+      upVotes: this.nullCheck(data.upVotes) ? '00' : data.upVotes,
+      title: this.nullCheck(data.title) ? 'Untitled Itinerary' : data.title,
+      userName: this.nullCheck(data.userName) ? 'You' : data.userName,
+      timeAgo: this.nullCheck(data.timeAgo) ? '' : data.timeAgo,
+      users: this.nullCheck(data.users) ? 0 : data.users,
+      views: this.nullCheck(data.views) ? 0 : data.views,
+      comments: this.nullCheck(data.comments) ? 0 : data.comments,
+      shares: this.nullCheck(data.shares) ? 0 : data.shares,
+      imageSrc: this.nullCheck(data.imageSrc) ? ICONS.untitled : data.imageSrc,
+      userimageSrc: this.nullCheck(data.userimageSrc)
+        ? ICONS.notSpecified
+        : data.userimageSrc,
+      location: this.nullCheck(data.location) ? 'Not Specified' : data.location,
+    };
+  }
 }
