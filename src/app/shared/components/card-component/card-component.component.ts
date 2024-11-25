@@ -98,4 +98,8 @@ export class CardComponent implements OnInit {
       location: this.nullCheck(data.location) ? 'Not Specified' : data.location,
     };
   }
+
+  handleMenueItemSelect(): void {}
+  handleMenuItemChange(): void {}
+  handleMenuClick(): void {}
 }

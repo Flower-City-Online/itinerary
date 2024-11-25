@@ -25,7 +25,6 @@ import {
 } from 'nextsapien-component-lib';
 import { CardComponent } from './components/card-component/card-component.component';
 import { CustomHeadingWithButtonComponent } from './components/custom-heading-with-button/custom-heading-with-button.component';
-import { CustomMenuComponent } from './components/custom-menu/custom-menu.component';
 import { CutomCardComponent } from './components/cutom-card/cutom-card.component';
 import { DeleteModalComponent } from './components/delete-modal/delete-modal.component';
 import { IconButtonComponent } from './components/icon-button/icon-button.component';
@@ -42,7 +41,6 @@ import { SectionSepraterComponent } from './components/section-seprater/section-
     ModalBottomBarComponent,
     SectionSepraterComponent,
     CustomHeadingWithButtonComponent,
-    CustomMenuComponent,
     CutomCardComponent,
   ],
   exports: [
