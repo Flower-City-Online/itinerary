@@ -1,6 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { ICONS } from 'src/app/constants/constants';
-import { ModalService } from '../../../../services/core/modal/modal.service';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -13,14 +12,12 @@ export class SerachClearHistoryComponent {
   cssClasses = ['custom-modal-class'];
   ICONS = ICONS;
 
-  constructor(public modalService: ModalService) {}
-
   openModal(): void {
     // Add your custom CSS classes
-    this.modalService.toggleModal = !this.modalService.toggleModal;
+    this.toggleModal = true;
   }
 
   closeModal(): void {
-    this.modalService.toggleModal = !this.modalService.toggleModal;
+    this.toggleModal = false;
   }
 }

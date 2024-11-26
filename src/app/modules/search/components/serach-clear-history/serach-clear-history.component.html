@@ -5,8 +5,13 @@
     </span>
     Clear History
   </div>
-  <lib-popup [isOpen]="modalService.toggleModal">
-    <app-delete-modal></app-delete-modal>
+  <lib-popup
+    [isOpen]="toggleModal"
+    [confirmButton]="'POPUP.CONFIRM'"
+    [cancelButton]="'POPUP.CANCEL'"
+    [title]="'Clear Search History'"
+    [message]="'Are you sure you want to permanently clear search history?'"
+  >
   </lib-popup>
   <app-section-seprater></app-section-seprater>
 </div>

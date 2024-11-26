@@ -4,7 +4,6 @@ import { LibMenuItem } from 'nextsapien-component-lib';
 import { ICONS } from 'src/app/constants/constants';
 import { CustomDropdownMenuService } from '../../../../services/core/custom-dropdown-menu.service';
 import { ModalService } from '../../../../services/core/modal/modal.service';
-import { DeleteModalComponent } from '../../../../shared/components/delete-modal/delete-modal.component';
 import { ReportItineraryModalComponent } from '../../components/report-itinerary-modal/report-itinerary-modal.component';
 
 @Component({
@@ -31,11 +30,6 @@ export class BuilderComponent implements OnInit {
 
   navigateToArchive(): void {
     this.router.navigate(['/archives/archives']);
-  }
-
-  openModal(): void {
-    // Add your custom CSS classes
-    this.modalService.openModal(DeleteModalComponent, this.cssClasses);
   }
 
   openSecondModal(): void {
