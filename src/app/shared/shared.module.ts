@@ -26,19 +26,16 @@ import {
 import { CardComponent } from './components/card-component/card-component.component';
 import { CustomHeadingWithButtonComponent } from './components/custom-heading-with-button/custom-heading-with-button.component';
 import { CutomCardComponent } from './components/cutom-card/cutom-card.component';
-import { SearchBarComponent } from './components/search-bar/search-bar.component';
 import { SectionSepraterComponent } from './components/section-seprater/section-seprater.component';
 
 @NgModule({
   declarations: [
-    SearchBarComponent,
     CardComponent,
     SectionSepraterComponent,
     CustomHeadingWithButtonComponent,
     CutomCardComponent,
   ],
   exports: [
-    SearchBarComponent,
     CardComponent,
     SectionSepraterComponent,
     CustomHeadingWithButtonComponent,

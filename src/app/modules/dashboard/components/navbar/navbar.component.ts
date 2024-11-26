@@ -52,4 +52,8 @@ export class NavbarComponent {
       },
     ];
   }
+
+  handleSearchStringChange($event: string) {}
+
+  clear(): void {}
 }

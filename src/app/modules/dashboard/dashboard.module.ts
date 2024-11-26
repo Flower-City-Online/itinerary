@@ -2,7 +2,7 @@ import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { NgModule } from '@angular/core';
 
 import { TranslateModule } from '@ngx-translate/core';
-import { ButtonsModule } from 'nextsapien-component-lib';
+import { ButtonsModule, SearchBarModule } from 'nextsapien-component-lib';
 import { CoreModule } from '../../core/core.module';
 import { SharedModule } from '../../shared/shared.module';
 import { ItinerariesModule } from '../itineraries/itineraries.module';
@@ -28,6 +28,7 @@ import { MainDashboardComponent } from './pages/main-dashboard/main-dashboard.co
     ItinerariesModule,
     ButtonsModule,
     TranslateModule,
+    SearchBarModule,
   ],
 })
 export class DashboardModule {}

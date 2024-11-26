@@ -5,6 +5,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import {
   ButtonsModule,
   LibModalModule,
+  SearchBarModule,
   SectionSeparatorComponent,
 } from 'nextsapien-component-lib';
 import { CoreModule } from 'src/app/core/core.module';
@@ -33,6 +34,7 @@ import { SearchComponent } from './search.component';
     SerachClearHistoryComponent,
   ],
   imports: [
+    SearchBarModule,
     TranslateModule,
     ButtonsModule,
     CommonModule,

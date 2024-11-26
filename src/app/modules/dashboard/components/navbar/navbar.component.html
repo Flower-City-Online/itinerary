@@ -11,10 +11,14 @@
         ></app-bottom-navigation-items>
       </div>
       <div>
-        <app-search-bar
-          class="nav-top-search"
-          [placeholder]="'NAVBAR.SEARCH' | translate"
-        ></app-search-bar>
+        <lib-search-bar
+          class="search-field"
+          [placeholderText]="'NAVBAR.SEARCH' | translate"
+          (searchStringChange)="handleSearchStringChange($event)"
+          (cleared)="clear()"
+          [searchIcon]="ICONS.dashboardSearch"
+        >
+        </lib-search-bar>
       </div>
     </div>
     <div class="profile-icon ml-auto mt-1">

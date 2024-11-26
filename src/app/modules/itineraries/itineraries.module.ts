@@ -8,6 +8,7 @@ import {
   DashedCheckboxModule,
   FormFieldModule,
   LibModalModule,
+  SearchBarModule,
   SelectableModule,
   TextBoxComponent,
 } from 'nextsapien-component-lib';
@@ -54,6 +55,7 @@ import { FavoritesComponent } from './pages/favorites/favorites.component';
     TextBoxComponent,
     DashedCheckboxModule,
     TranslateModule,
+    SearchBarModule,
   ],
 })
 export class ItinerariesModule {}
