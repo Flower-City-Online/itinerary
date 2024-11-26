@@ -14,4 +14,8 @@
     [cancelText]="'Keep'"
     (cancel)="closeModal()"
   ></app-modal-bottom-bar>
+  <div class="modal-bottom-bar">
+    <lib-primary-btn (click)="closeModal()">Keep</lib-primary-btn>
+    <lib-primary-btn (click)="onOk()">Clear</lib-primary-btn>
+  </div>
 </div>

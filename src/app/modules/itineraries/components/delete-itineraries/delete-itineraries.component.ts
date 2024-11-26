@@ -16,4 +16,6 @@ export class DeleteItinerariesComponent {
   closeModal(): void {
     this.modalService.toggleModal = !this.modalService.toggleModal;
   }
+
+  onOk(): void {}
 }

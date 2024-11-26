@@ -26,7 +26,6 @@ import {
 import { CardComponent } from './components/card-component/card-component.component';
 import { CustomHeadingWithButtonComponent } from './components/custom-heading-with-button/custom-heading-with-button.component';
 import { CutomCardComponent } from './components/cutom-card/cutom-card.component';
-import { ModalBottomBarComponent } from './components/modal-bottom-bar/modal-bottom-bar.component';
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
 import { SectionSepraterComponent } from './components/section-seprater/section-seprater.component';
 
@@ -34,7 +33,6 @@ import { SectionSepraterComponent } from './components/section-seprater/section-
   declarations: [
     SearchBarComponent,
     CardComponent,
-    ModalBottomBarComponent,
     SectionSepraterComponent,
     CustomHeadingWithButtonComponent,
     CutomCardComponent,
@@ -42,7 +40,6 @@ import { SectionSepraterComponent } from './components/section-seprater/section-
   exports: [
     SearchBarComponent,
     CardComponent,
-    ModalBottomBarComponent,
     SectionSepraterComponent,
     CustomHeadingWithButtonComponent,
     CutomCardComponent,

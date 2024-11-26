@@ -17,11 +17,8 @@
     *ngIf="selectedItem == 9"
     [label]="'Please brief your issue'"
   ></lib-text-box>
-
-  <app-modal-bottom-bar
-    class="parent-class-for-modal"
-    [okText]="'Report'"
-    [cancelText]="'Cancel'"
-    (cancel)="closeModal()"
-  ></app-modal-bottom-bar>
+  <div class="modal-bottom-bar">
+    <lib-primary-btn (click)="closeModal()">Cancel</lib-primary-btn>
+    <lib-primary-btn (click)="onOk()">Report</lib-primary-btn>
+  </div>
 </div>

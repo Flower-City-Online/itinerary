@@ -66,5 +66,7 @@ export class ReportItineraryModalComponent implements OnInit, OnDestroy {
     this.modalService.toggleModal = !this.modalService.toggleModal;
   }
 
+  onOk(): void {}
+
   protected readonly FormFieldType = FormFieldType;
 }
