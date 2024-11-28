@@ -1,7 +1,8 @@
 @use "src/styles/colors" as *;
+@use "src/styles/fonts" as *;
 
 .filter-class {
-  font-family: Gilroy-Thin !important;
+  font-family: $filter-font !important;
   font-size: 12px !important;
 }
 

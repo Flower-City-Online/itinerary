@@ -1,6 +1,5 @@
 @use "src/styles/colors" as *;
-
-$header-font: "Calistoga", cursive;
+@use "src/styles/fonts" as *;
 
 .header-main-bar {
   font-family: $header-font;
