@@ -10,6 +10,7 @@ import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { IReportOptions } from 'src/app/interface/reportOptions';
 import { ApiService } from 'src/app/services/core/api.service';
+import { ConstantsService } from 'src/app/services/core/constants.service';
 import { ModalService } from '../../../../services/core/modal/modal.service';
 
 @Component({
@@ -25,13 +26,14 @@ export class ReportItineraryModalComponent implements OnInit, OnDestroy {
   private destroy$ = new Subject<void>();
 
   constructor(
+    public constantService: ConstantsService,
     public modalService: ModalService,
     public apiService: ApiService,
   ) {}
 
   radioChecked(): void {
-    if (this.radio.value === 9) {
-      this.selectedItem = 9;
+    if (this.radio.value === this.constantService.SPECIAL_VALUE) {
+      this.selectedItem = this.constantService.SPECIAL_VALUE;
     } else {
       this.selectedItem = 0;
     }
@@ -39,24 +41,23 @@ export class ReportItineraryModalComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.apiService
-      .get('/assets/reportsOptionsData.json')
+      .get<IReportOptions[]>('/assets/reportsOptionsData.json')
       .pipe(takeUntil(this.destroy$))
-      .subscribe((data) => {
-        this.options = data as IReportOptions[];
+      .subscribe((data: IReportOptions[]) => {
+        this.options = data;
       });
+
     this.radio.valueChanges
       .pipe(takeUntil(this.destroy$))
-      .subscribe((e: IReportOptions) => {
-        if (e.value == 9) {
-          this.selectedItem = 9;
-        } else {
-          this.selectedItem = 0;
-        }
+      .subscribe((e: number | null) => {
+        this.selectedItem =
+          e === this.constantService.SPECIAL_VALUE
+            ? this.constantService.SPECIAL_VALUE
+            : 0;
       });
   }
 
   ngOnDestroy(): void {
-    // Complete the Subject to unsubscribe from all observables
     this.destroy$.next();
     this.destroy$.complete();
   }
