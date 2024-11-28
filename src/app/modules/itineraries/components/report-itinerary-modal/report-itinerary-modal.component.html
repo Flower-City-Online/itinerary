@@ -18,7 +18,12 @@
     [label]="'Please brief your issue'"
   ></lib-text-box>
   <div class="modal-bottom-bar">
-    <lib-primary-btn (click)="closeModal()">Cancel</lib-primary-btn>
-    <lib-primary-btn (click)="onOk()">Report</lib-primary-btn>
+    <lib-primary-btn (click)="closeModal()">{{
+      "ADMIN.ORDER_STATUS.CANCEL" | translate
+    }}</lib-primary-btn>
+    <lib-primary-btn (click)="onOk()">{{
+      "REPORT" | translate
+    }}</lib-primary-btn>
   </div>
 </div>
+  

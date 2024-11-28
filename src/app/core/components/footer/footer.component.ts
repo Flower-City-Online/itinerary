@@ -1,6 +1,7 @@
 import {
   AfterViewInit,
   ChangeDetectionStrategy,
+  ChangeDetectorRef,
   Component,
   ElementRef,
   OnInit,
@@ -24,6 +25,7 @@ export class FooterComponent implements OnInit, AfterViewInit {
     private el: ElementRef,
     private shadowrootHandler: ShadowRootHandlerService,
     public bottomNavigationService: BottomNavigationService,
+    public cdr: ChangeDetectorRef,
   ) {}
 
   ngOnInit(): void {
@@ -36,9 +38,8 @@ export class FooterComponent implements OnInit, AfterViewInit {
         selectedElement,
       );
     }
-    setTimeout(() => {
-      this.enableBack = true;
-    }, 0);
+    this.enableBack = true;
+    this.cdr.detectChanges();
   }
 
   ngAfterViewInit(): void {

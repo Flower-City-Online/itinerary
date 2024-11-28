@@ -22,7 +22,7 @@ export class SidebarComponent implements OnInit {
 
   ngOnInit(): void {
     this.initializeSidebarItems();
-    this.sideBarItem.forEach((element: ISideBarMenuItem) => {
+    this.sideBarItem.some((element: ISideBarMenuItem) => {
       if (element.selected) {
         this.router.navigate([element.url]);
       }
