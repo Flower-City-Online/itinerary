@@ -2,9 +2,8 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { LibMenuItem } from 'nextsapien-component-lib';
 import { ICONS } from 'src/app/constants/constants';
+import { ItenariesRoutesEnum } from 'src/app/enums/ItenariesRoutes.enum';
 import { CustomDropdownMenuService } from '../../../../services/core/custom-dropdown-menu.service';
-import { ModalService } from '../../../../services/core/modal/modal.service';
-import { ReportItineraryModalComponent } from '../../components/report-itinerary-modal/report-itinerary-modal.component';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -23,16 +22,11 @@ export class BuilderComponent implements OnInit {
   }
 
   constructor(
-    public modalService: ModalService,
     public router: Router,
     public customMenuList: CustomDropdownMenuService,
   ) {}
 
   navigateToArchive(): void {
-    this.router.navigate(['/archives/archives']);
-  }
-
-  openSecondModal(): void {
-    this.modalService.openModal(ReportItineraryModalComponent, this.cssClasses);
+    this.router.navigate([ItenariesRoutesEnum.ARCHIVES]);
   }
 }

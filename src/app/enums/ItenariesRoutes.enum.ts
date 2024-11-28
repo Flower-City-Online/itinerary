@@ -8,4 +8,5 @@ export enum ItenariesRoutesEnum {
   REQUESTS = '/requests',
   INFO = '/info',
   PROFILE = '/profile',
+  ARCHIVES = '/archives/archives',
 }

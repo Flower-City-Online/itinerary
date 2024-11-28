@@ -8,7 +8,6 @@ import {
 } from '@angular/core';
 import { IBottomNavigationList } from 'src/app/interface/bottomNavigationList';
 import { BottomNavigationService } from 'src/app/services/core/bottom-navigation.service';
-import { ModalService } from 'src/app/services/core/modal/modal.service';
 import { ShadowRootHandlerService } from 'src/app/services/core/shadow-root-handler.service';
 
 @Component({
@@ -22,7 +21,6 @@ export class FooterComponent implements OnInit, AfterViewInit {
   public enableBack: boolean = false;
 
   constructor(
-    public modalService: ModalService,
     private el: ElementRef,
     private shadowrootHandler: ShadowRootHandlerService,
     public bottomNavigationService: BottomNavigationService,
