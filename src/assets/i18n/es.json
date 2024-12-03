@@ -263,7 +263,7 @@
       "RESEND_INVITE": "Reenviar invitación",
       "ACTIVATION_lINK_COPIED": "Enlace de activación copiado"
     },
-    "AG_GRID": {
+    "GRID": {
       "DELETION_CONFIRMATION": "Confirmación de eliminación",
       "CANCEL": "Cancelar",
       "UNDO": "Deshacer",

@@ -261,7 +261,7 @@
       "RESEND_INVITE": "Renvoyer l'invitation",
       "ACTIVATION_lINK_COPIED": "Lien d'activation copié"
     },
-    "AG_GRID": {
+    "GRID": {
       "DELETION_CONFIRMATION": "Confirmation de suppression",
       "CANCEL": "Annuler",
       "UNDO": "Annuler",
