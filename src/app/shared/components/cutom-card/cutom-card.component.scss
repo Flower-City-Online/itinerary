@@ -1,6 +1,7 @@
 @use "src/styles/colors" as *;
 
 .card-component {
+  --width: auto;
   background: $background-color-1;
 }
 

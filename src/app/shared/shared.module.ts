@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
 import { TranslateModule } from '@ngx-translate/core';
 import {
+  BaseCardModule,
   ButtonsModule,
   CircleProgressModule,
   ContentViewCardModule,
@@ -39,6 +40,7 @@ import { CutomCardComponent } from './components/cutom-card/cutom-card.component
     CutomCardComponent,
   ],
   imports: [
+    BaseCardModule,
     TranslateModule,
     CommonModule,
     SearchBarModule,
