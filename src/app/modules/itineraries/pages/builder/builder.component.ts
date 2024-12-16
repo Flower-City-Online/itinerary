@@ -1,38 +1,32 @@
-import {Component, OnInit} from '@angular/core';
-import {ModalService} from "../../../../services/core/modal/modal.service";
-import {DeleteModalComponent} from "../../../../shared/components/delete-modal/delete-modal.component";
-import {ReportItineraryModalComponent} from "../../components/report-itinerary-modal/report-itinerary-modal.component";
-import {Router} from "@angular/router";
-import {LibMenuItem} from "nextsapien-component-lib";
-import {CustomDropdownMenuService} from "../../../../services/core/custom-dropdown-menu.service";
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { LibMenuItem } from 'nextsapien-component-lib';
+import { ICONS } from 'src/app/constants/constants';
+import { ItenariesRoutesEnum } from 'src/app/enums/ItenariesRoutes.enum';
+import { CustomDropdownMenuService } from '../../../../services/core/custom-dropdown-menu.service';
 
 @Component({
+  changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'app-builder',
   templateUrl: './builder.component.html',
-  styleUrl: './builder.component.css'
+  styleUrl: './builder.component.scss',
 })
-export class BuilderComponent implements OnInit{
-
+export class BuilderComponent implements OnInit {
   showModal = false;
   libMenuItem: LibMenuItem[] = [];
   cssClasses = ['custom-modal-class'];
+  ICONS = ICONS;
 
   ngOnInit(): void {
-    // this.openModal2()
-    this.libMenuItem=this.customMenuList.getMenuList('builder')
-  }
-  constructor(public modalService: ModalService,public router: Router,public customMenuList:CustomDropdownMenuService) {
+    this.libMenuItem = this.customMenuList.getMenuList('builder');
   }
 
-  navigateToArchive() {
-    this.router.navigate(['/archives/archives']);
-  }
-  openModal() {
-   // Add your custom CSS classes
-    this.modalService.openModal(DeleteModalComponent,this.cssClasses)
-  }
+  constructor(
+    public router: Router,
+    public customMenuList: CustomDropdownMenuService,
+  ) {}
 
-  openModal2() {
-    this.modalService.openModal(ReportItineraryModalComponent,this.cssClasses)
+  navigateToArchive(): void {
+    this.router.navigate([ItenariesRoutesEnum.ARCHIVES]);
   }
 }

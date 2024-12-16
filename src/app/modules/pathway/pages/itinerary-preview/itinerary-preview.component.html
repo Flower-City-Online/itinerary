@@ -1,100 +1,70 @@
 <div class="pt-10 max-padd-container">
-    <app-map-header [title]="'Create Itinerary'" [backLink]="'/'" [customcss]="''"></app-map-header>
+  <app-map-header
+    [title]="'Create Itinerary'"
+    [backLink]="'/'"
+    [customcss]="''"
+  ></app-map-header>
 </div>
 <div class="mt-6">
-    <app-googlemapdemo></app-googlemapdemo>
+  <lib-map
+    [mapType]="mapType"
+    [markers]="locationsMarkers"
+    [enableDrag]="true"
+    [initialLocation]="initialLocation"
+    (mapLoaded)="onMapLoaded($event)"
+  ></lib-map>
 </div>
 
-
-
-<div class="mainItiniPreview absolute bottom-0 py-3">
-    <section class="fixed bottom-0 w-full">
-        <div class="tracking-widest px-5 py-6 rounded-t-3xl bg-[#28252D]">
-            <div class="trackingBottomCom">
-                <div class="flex items-center justify-center gap-x-2">
-                  <div class="flex items-center  gap-x-1     xs:text-[10px] text-xs">
-                    <img src="/assets/icons/location-white-icon.svg" alt="location" />
-                    <span class="">
-                        4 Places
-                    </span>
-                  </div>
-                  <div class="h-4 border w-0 border-secondary"></div>
-                  <div class="flex items-center justify-center gap-x-2 text-[10px] ">
-                   <img src="/assets/icons/clock-icon.svg" alt="">
-                   <span class="">
-                       45 minutes
-                    </span>
-                    <span class="text-secondary font-thin">(6.6 Km)</span>
-                  </div>
-                </div>
-                <div class="border border-dashed opacity-55 rotate-90 w-[7.5rem] absolute -left-6 top-36"></div>
-                <div class="font-Gilroy mt-5 mb-3 flex flex-col gap-y-5">
-                  <div class="flex items-center justify-between w-full gap-x-4">
-                    <div class="flex items-center justify-start gap-x-4">
-                      <div class="z-50 icon w-8 h-8 outset-shadow flex items-center justify-center rounded-full">
-                        <img src="/assets/icons/restu-icon.svg" alt="" />
-                      </div>
-                      <div class="text">
-                        <h2 class="sm:text-sm xs:text-xs flex items-center gap-x-1">
-                          Ginyaki
-                          <img src="/assets/icons/start-location.svg" alt="">
-                        </h2>
-                        <p class="xs:text-[10px] sm:text-xs text-secondary">Chinese Restaurant</p>
-                      </div>
-                    </div>
-                    <div class="flex items-center gap-x-3">
-                      <!-- <div class="hamburger text-secondary">
-                        <i class="icon-hamburger"></i>
-                      </div>
-                      <div class="delete text-primary">
-                        <i class="icon-delete"></i>
-                      </div> -->
-                      <img src="/assets/icons/groupbinbar.svg" alt="" class="cursor-pointer">
-                    </div>
-                  </div>
-                  <div class="flex items-center justify-between w-full gap-x-4">
-                    <div class="flex items-center justify-start gap-x-4">
-                      <div class="z-50 icon w-8 h-8 outset-shadow flex items-center justify-center rounded-full">
-                        <img src="/assets/icons/restu-icon.svg" alt="" />
-                      </div>
-                      <div class="text">
-                        <h2 class="sm:text-sm xs:text-xs flex items-center gap-x-1">
-                            Kabul tikka
-
-                        </h2>
-                        <p class="xs:text-[10px] sm:text-xs text-secondary">Afghan Cuisine</p>
-                      </div>
-                    </div>
-                    <div class="flex items-center gap-x-3">
-
-                      <img src="/assets/icons/groupbinbar.svg" alt="" class="cursor-pointer">
-                    </div>
-                  </div>
-                  <div class="flex items-center justify-between w-full gap-x-4">
-                    <div class="flex items-center justify-start gap-x-4">
-                      <div class="z-50 icon w-8 h-8 outset-shadow flex items-center justify-center rounded-full">
-                        <img src="/assets/icons/restu-icon.svg" alt="" />
-                      </div>
-                      <div class="text">
-                        <h2 class="sm:text-sm xs:text-xs flex items-center gap-x-1">
-                          Quetta TNT
-                          <img src="/assets/icons/en-location.svg" alt="">
-                        </h2>
-                        <p class="xs:text-[10px] sm:text-xs text-secondary">Tea Cofee</p>
-                      </div>
-                    </div>
-                    <div class="flex items-center gap-x-3">
-
-                      <img src="/assets/icons/groupbinbar.svg" alt="" class="cursor-pointer">
-                    </div>
-                  </div>
-
-                </div>
+<div class="main-itini-preview absolute bottom-0 py-3">
+  <section class="fixed bottom-0 w-full">
+    <div class="tracking-widest px-5 py-6 rounded-t-3xl">
+      <div class="tracking-bottom-com">
+        <div class="flex items-center justify-center gap-x-2">
+          <div class="flex items-center gap-x-1 text-xs">
+            <img [src]="ICONS.locationWhite" alt="location" />
+            <span>{{ places.length }} Places</span>
+          </div>
+          <div class="h-4 border w-0 border-secondary"></div>
+          <div class="flex items-center justify-center gap-x-2">
+            <img [src]="ICONS.clock" alt="" />
+            <span>45 minutes</span>
+            <span class="text-secondary font-thin">(6.6 Km)</span>
+          </div>
+        </div>
+        <div
+          class="border border-dashed opacity-55 rotate-90 absolute -left-6 top-36"
+        ></div>
+        <div class="font-Gilroy mt-5 mb-3 flex flex-col gap-y-5">
+          <div
+            *ngFor="let place of places"
+            class="flex items-center justify-between w-full gap-x-4"
+          >
+            <div class="flex items-center justify-start gap-x-4">
+              <div
+                class="z-50 icon w-8 h-8 outset-shadow flex items-center justify-center rounded-full"
+              >
+                <img [src]="ICONS[place.icon]" alt="" />
               </div>
+              <div class="text">
+                <h2 class="f-sm f-xs flex items-center gap-x-1">
+                  {{ place.name | translate }}
+                  <img [src]="ICONS[place.startLocation]" alt="" />
+                </h2>
+                <p class="f-xs text-secondary">
+                  {{ place.description | translate }}
+                </p>
+              </div>
+            </div>
+            <div class="flex items-center gap-x-3">
+              <img [src]="ICONS.groupBinBar" alt="" class="cursor-pointer" />
+            </div>
+          </div>
         </div>
+      </div>
+    </div>
 
-        <div class="background-gradient py-5 px-16">
-            <lib-primary-btn class="">Preview</lib-primary-btn>
-        </div>
-      </section>
+    <div class="background-gradient py-5 px-16">
+      <lib-primary-btn class="">{{ "PREVIEW" | translate }}</lib-primary-btn>
+    </div>
+  </section>
 </div>

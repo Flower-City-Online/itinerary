@@ -8,10 +8,9 @@ describe('ItineraryPreviewComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ItineraryPreviewComponent]
-    })
-    .compileComponents();
-    
+      declarations: [ItineraryPreviewComponent],
+    }).compileComponents();
+
     fixture = TestBed.createComponent(ItineraryPreviewComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

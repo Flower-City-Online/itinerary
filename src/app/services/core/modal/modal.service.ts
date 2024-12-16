@@ -1,24 +1,11 @@
 import { Injectable } from '@angular/core';
-import {MatDialog, MatDialogRef} from "@angular/material/dialog";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ModalService {
-  dialogRef!: MatDialogRef<any>;
+  public toggleModal = false;
+  public bottomToggleModal = false;
 
-  constructor(private dialog: MatDialog) {}
-
-  openModal(component: any, cssClasses?: string[]) {
-    const config = {
-      ...(cssClasses && { panelClass: cssClasses }), // Apply CSS classes if provided
-    };
-    this.dialogRef = this.dialog.open(component, config);
-  }
-
-  closeModal() {
-    if (this.dialogRef) {
-      this.dialogRef.close();
-    }
-  }
+  constructor() {}
 }

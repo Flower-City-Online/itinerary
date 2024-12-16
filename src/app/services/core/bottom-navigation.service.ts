@@ -1,62 +1,93 @@
 import { Injectable } from '@angular/core';
+import { ICONS } from 'src/app/constants/constants';
+import { ItenariesRoutesEnum } from 'src/app/enums/ItenariesRoutes.enum';
+import { IBottomNavigationList } from 'src/app/interface/bottomNavigationList';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class BottomNavigationService {
+  public isShowNavigation: boolean = false;
+  ICONS = ICONS;
   bottomNavList = [
     {
-      id:1,
+      id: 1,
       label: 'Home',
-      iconPath: 'assets/icons/home.svg',
-      routerLink: '/pathway',
-      cssClass:''
+      iconPath: ICONS.home,
+      clickedIconPath: ICONS.homeRed,
+      routerLink: ItenariesRoutesEnum.ITINERARY,
+      cssClass: '',
+      height: '16',
+      width: '17',
+      selected: false,
     },
     {
-      id:2,
+      id: 2,
       label: 'Requests',
-      iconPath: 'assets/icons/favorite.svg',
-      routerLink: '/requests',
-      cssClass:''
+      iconPath: ICONS.favorite,
+      clickedIconPath: ICONS.favorite,
+      routerLink: ItenariesRoutesEnum.REQUESTS,
+      cssClass: '',
+      height: '19',
+      width: '19',
+      selected: false,
     },
     {
-      id:3,
+      id: 3,
       label: 'Info',
-      iconPath: 'assets/icons/chat.svg',
-      routerLink: '/info',
-      cssClass:''
+      iconPath: ICONS.chat,
+      clickedIconPath: ICONS.chatRed,
+      routerLink: ItenariesRoutesEnum.INFO,
+      cssClass: '',
+      height: '16',
+      width: '17',
+      selected: false,
     },
     {
-      id:4,
+      id: 4,
       label: 'Itineraries',
-      iconPath: 'assets/icons/itineraries.svg',
-      routerLink: '/itineraries',
-      cssClass:''
+      iconPath: ICONS.itineraries,
+      clickedIconPath: ICONS.itinerariesRed,
+      routerLink: ItenariesRoutesEnum.ITINERARY,
+      cssClass: '',
+      height: '16',
+      width: '17',
+      selected: false,
     },
     {
-      id:5,
+      id: 5,
       label: 'Profile',
-      iconPath: 'assets/icons/user.svg',
-      routerLink: '/profile',
-      cssClass:''
-    }
-  ]
+      iconPath: ICONS.user,
+      clickedIconPath: ICONS.userRed,
+      routerLink: ItenariesRoutesEnum.PROFILE,
+      cssClass: '',
+      height: '16',
+      width: '17',
+      selected: false,
+    },
+  ];
   constructor() {
-    this.onNavigationChange(this.bottomNavList,{
-      id:4,
+    this.onNavigationChange(this.bottomNavList, {
+      id: 4,
       label: 'Itineraries',
-      iconPath: 'assets/icons/itineraries.svg',
-      clickedIconPath: 'assets/icons/itineraries_red.svg',
-      routerLink: '/itineraries',
-      cssClass:''
+      iconPath: ICONS.itineraries,
+      clickedIconPath: ICONS.itinerariesRed,
+      routerLink: ItenariesRoutesEnum.ITINERARY,
+      cssClass: '',
+      height: '16',
+      width: '17',
+      selected: true,
     });
   }
 
-  onNavigationChange(data:any[],nav: any) {
-    data.forEach((element:any) => {
+  onNavigationChange(
+    data: IBottomNavigationList[],
+    nav: IBottomNavigationList,
+  ): void {
+    data.forEach((element: IBottomNavigationList) => {
       element.cssClass = '';
     });
-    nav.cssClass = 'active'
+    nav.cssClass = 'active';
     // nav.iconPath = nav.clickedIconPath
   }
 }

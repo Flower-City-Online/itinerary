@@ -8,10 +8,9 @@ describe('NonVisualMapFilterComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [NonVisualMapFilterComponent]
-    })
-    .compileComponents();
-    
+      declarations: [NonVisualMapFilterComponent],
+    }).compileComponents();
+
     fixture = TestBed.createComponent(NonVisualMapFilterComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

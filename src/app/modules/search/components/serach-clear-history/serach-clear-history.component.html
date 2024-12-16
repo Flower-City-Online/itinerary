@@ -1,9 +1,17 @@
 <div>
-  <div class="clearHistoryMain" (click)="openModal()">
+  <div class="clear-history-main" (click)="openModal()">
     <span>
-      <img ngSrc="assets/icons/delete_cross.svg" height="14" width="15">
+      <img [ngSrc]="ICONS.deleteCross" height="14" width="15" />
     </span>
     Clear History
   </div>
-  <app-section-seprater></app-section-seprater>
+  <lib-popup
+    [isOpen]="toggleModal"
+    [confirmButton]="'POPUP.CONFIRM'"
+    [cancelButton]="'POPUP.CANCEL'"
+    [title]="'Clear Search History'"
+    [message]="'Are you sure you want to permanently clear search history?'"
+  >
+  </lib-popup>
+  <lib-section-separator></lib-section-separator>
 </div>

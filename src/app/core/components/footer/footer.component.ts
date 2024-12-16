@@ -1,71 +1,96 @@
-import {Component, OnInit} from '@angular/core';
-import {BottomNavigationService} from "../../../services/core/bottom-navigation.service";
+import {
+  AfterViewInit,
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  ElementRef,
+  OnInit,
+  ViewEncapsulation,
+} from '@angular/core';
+import { IBottomNavigationList } from 'src/app/interface/bottomNavigationList';
+import { BottomNavigationService } from 'src/app/services/core/bottom-navigation.service';
+import { ShadowRootHandlerService } from 'src/app/services/core/shadow-root-handler.service';
 
 @Component({
+  changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'app-footer',
   templateUrl: './footer.component.html',
-  styleUrl: './footer.component.css'
+  styleUrls: ['./footer.component.scss'],
+  encapsulation: ViewEncapsulation.Emulated,
 })
-export class FooterComponent implements OnInit{
-  ngOnInit(): void {
-    const selectedElement = this.bottomNavList.find(nav => nav.id === 4);
-    if (selectedElement) {
-      this.bottomNavigationService.onNavigationChange(this.bottomNavList, selectedElement);
-    }
-  }
-  constructor(public bottomNavigationService:BottomNavigationService) {
+export class FooterComponent implements OnInit, AfterViewInit {
+  public enableBack: boolean = false;
 
-  }
-  bottomNavList = [
-    {
-      id:1,
-      label: 'Home',
-      iconPath: 'assets/icons/home.svg',
-      clickedIconPath: 'assets/icons/home_red.svg',
-      routerLink: '/itinaries',
-      cssClass:'',
-      height: "16",
-      width: "17"
-    },
-    {
-      id:2,
-      label: 'Requests',
-      iconPath: 'assets/icons/favorite.svg',
-      clickedIconPath: 'assets/icons/favorite_red.svg',
-      routerLink: '/requests',
-      cssClass:'',
-      height: "19",
-      width: "19"
-    },
-    {
-      id:3,
-      label: 'Info',
-      iconPath: 'assets/icons/chat.svg',
-      clickedIconPath: 'assets/icons/chat_red.svg',
-      routerLink: '/info',
-      cssClass:'',
-      height: "16",
-      width: "17"
-    },
-    {
-      id:4,
-      label: 'Itineraries',
-      iconPath: 'assets/icons/itineraries.svg',
-      clickedIconPath: 'assets/icons/itineraries_red.svg',
-      routerLink: '/itineraries',
-      cssClass:'',
-      height: "16",
-      width: "17"
-    },
-    {
-      id:5,
-      label: 'Profile',
-      iconPath: 'assets/icons/user.svg',
-      clickedIconPath: 'assets/icons/user_red.svg',
-      routerLink: '/profile',
-      cssClass:'',
-      height: "16",
-      width: "17"
+  constructor(
+    private el: ElementRef,
+    private shadowrootHandler: ShadowRootHandlerService,
+    public bottomNavigationService: BottomNavigationService,
+    public cdr: ChangeDetectorRef,
+  ) {}
+
+  ngOnInit(): void {
+    const selectedElement = this.bottomNavigationService.bottomNavList.find(
+      (nav) => nav.selected,
+    );
+    if (selectedElement) {
+      this.bottomNavigationService.onNavigationChange(
+        this.bottomNavigationService.bottomNavList,
+        selectedElement,
+      );
     }
-  ]
+    this.enableBack = true;
+    this.cdr.detectChanges();
+  }
+
+  ngAfterViewInit(): void {
+    this.initShadowrootHandler();
+  }
+
+  navigate(
+    bottomNavList: IBottomNavigationList[],
+    item: IBottomNavigationList,
+  ): void {
+    this.bottomNavigationService.onNavigationChange(bottomNavList, item);
+  }
+
+  initShadowrootHandler(): void {
+    const targetNode = this.el.nativeElement;
+    this.shadowrootHandler.accessShadowRoot(
+      targetNode,
+      'lib-bottom-modal',
+      () => {
+        this.applyStylesToDialog();
+      },
+    );
+  }
+
+  applyStylesToDialog(): void {
+    const targetNode = this.el.nativeElement.querySelector(
+      'lib-bottom-modal',
+    ) as HTMLElement;
+
+    if (targetNode) {
+      const classNameElements =
+        targetNode.getElementsByClassName('lib-bottom-modal');
+
+      if (classNameElements.length > 0) {
+        const dialogDiv = classNameElements[0].shadowRoot?.querySelector(
+          'div[role="dialog"]',
+        ) as HTMLElement;
+
+        if (dialogDiv) {
+          const modalHandle = dialogDiv.getElementsByClassName(
+            'modal-handle',
+          )[0] as HTMLElement;
+          if (modalHandle) {
+            modalHandle.style.display = 'none';
+          } else {
+          }
+        } else {
+        }
+      } else {
+      }
+    } else {
+    }
+  }
 }

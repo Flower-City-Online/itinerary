@@ -1,47 +1,72 @@
-import {Component, OnInit} from '@angular/core';
-import {ModalService} from "../../../../services/core/modal/modal.service";
-import {FormFieldType} from "nextsapien-component-lib";
-import {FormBuilder, FormControl, FormGroup} from "@angular/forms";
+import {
+  ChangeDetectionStrategy,
+  Component,
+  OnDestroy,
+  OnInit,
+} from '@angular/core';
+import { FormControl } from '@angular/forms';
+import { FormFieldType } from 'nextsapien-component-lib';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
+import { IReportOptions } from 'src/app/interface/reportOptions';
+import { ApiService } from 'src/app/services/core/api.service';
+import { ConstantsService } from 'src/app/services/core/constants.service';
+import { ModalService } from '../../../../services/core/modal/modal.service';
 
 @Component({
+  changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'app-report-itinerary-modal',
   templateUrl: './report-itinerary-modal.component.html',
-  styleUrl: './report-itinerary-modal.component.css'
+  styleUrls: ['./report-itinerary-modal.component.scss'],
 })
-export class ReportItineraryModalComponent implements OnInit {
-  selectedItem: any;
-  form: FormGroup = new FormGroup({
-    rd: new FormControl(),
-  });
-  options = [
-    { label: 'Spam & Unwanted Content', value: 1,selected:false },
-    { label: 'Pornography or sexually explicit content', value: 2 , selected:false},
-    { label: 'Child abuse', value: 3 , selected:false},
-    { label: 'Promotes terrorism', value: 4 , selected:false},
-    { label: 'Harassment or bullying', value: 5 , selected:false},
-    { label: 'Suicide or self injury', value: 6 , selected:false},
-    { label: 'Misinformation', value: 7 , selected:false},
-    { label: 'Dangerous', value: 8 , selected:false},
-    { label: 'Non of these are my issues', value: 9 , selected:false},
-  ];
-  constructor(private fb: FormBuilder,public modalService: ModalService) {
+export class ReportItineraryModalComponent implements OnInit, OnDestroy {
+  selectedItem: number | undefined;
+  radio: FormControl = new FormControl(0);
+  options: IReportOptions[] = [];
+  private destroy$ = new Subject<void>();
+
+  constructor(
+    public constantService: ConstantsService,
+    public modalService: ModalService,
+    public apiService: ApiService,
+  ) {}
+
+  radioChecked(): void {
+    if (this.radio.value === this.constantService.SPECIAL_VALUE) {
+      this.selectedItem = this.constantService.SPECIAL_VALUE;
+    } else {
+      this.selectedItem = 0;
+    }
   }
-  radioChecked(id:number, i:number){
-    this.options.forEach(item=>{
-      if(item.value !== id){
-        item.selected = false;
-      }else{
-        item.selected = true;
-      }
-    })
-    this.selectedItem = id
-    console.log(this.selectedItem)
-  }
+
   ngOnInit(): void {
+    this.apiService
+      .get<IReportOptions[]>('/assets/reportsOptionsData.json')
+      .pipe(takeUntil(this.destroy$))
+      .subscribe((data: IReportOptions[]) => {
+        this.options = data;
+      });
 
+    this.radio.valueChanges
+      .pipe(takeUntil(this.destroy$))
+      .subscribe((e: number | null) => {
+        this.selectedItem =
+          e === this.constantService.SPECIAL_VALUE
+            ? this.constantService.SPECIAL_VALUE
+            : 0;
+      });
   }
 
-  test(){
-
+  ngOnDestroy(): void {
+    this.destroy$.next();
+    this.destroy$.complete();
   }
+
+  closeModal(): void {
+    this.modalService.toggleModal = !this.modalService.toggleModal;
+  }
+
+  onOk(): void {}
+
+  protected readonly FormFieldType = FormFieldType;
 }

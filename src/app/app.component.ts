@@ -1,38 +1,60 @@
-import {Component, ElementRef, HostListener, OnDestroy, OnInit, Renderer2} from '@angular/core';
-import {Subscription} from "rxjs";
-import {BreakpointObserver, Breakpoints, BreakpointState} from "@angular/cdk/layout";
-import {Router} from "@angular/router";
+import {
+  BreakpointObserver,
+  Breakpoints,
+  BreakpointState,
+} from '@angular/cdk/layout';
 import { Location } from '@angular/common';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  ElementRef,
+  HostListener,
+  OnDestroy,
+  OnInit,
+  Renderer2,
+} from '@angular/core';
+import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
+import { ItenariesRoutesEnum } from './enums/ItenariesRoutes.enum';
+import { BottomNavigationService } from './services/core/bottom-navigation.service';
 
 @Component({
+  changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit, OnDestroy {
   isSmallScreen = false;
   private breakpointSubscription!: Subscription;
 
-  constructor(private breakpointObserver: BreakpointObserver,private router:Router,private renderer: Renderer2, private elementRef: ElementRef,public location: Location) {
-  }
+  constructor(
+    private breakpointObserver: BreakpointObserver,
+    private router: Router,
+    private renderer: Renderer2,
+    public el: ElementRef,
+    public location: Location,
+    public navService: BottomNavigationService,
+  ) {}
 
   ngOnInit(): void {
-    this.checkWindowWidth()
-    this.breakpointSubscription = this.breakpointObserver.observe([
-      Breakpoints.Small,
-      Breakpoints.XSmall
-    ]).subscribe((state: BreakpointState) => {
-      this.isSmallScreen = state.matches;
-      if (this.isSmallScreen) {
-        // this.router.navigate(['/itineraries'])
-        this.renderer.removeClass(document.body, 'cus tomBody');
-        console.log('Small screen detected');
-      } else {
-        this.router.navigate(['/dashboard'])
-        this.renderer.addClass(document.body, 'customBody');
-        console.log('Large screen detected');
-      }
-    });
+    this.handleScreenSizeChange();
+  }
+
+  //use to change application ui and behaviour based on screen size
+  handleScreenSizeChange(): void {
+    this.checkWindowWidth();
+    this.breakpointSubscription = this.breakpointObserver
+      .observe([Breakpoints.Small, Breakpoints.XSmall])
+      .subscribe((state: BreakpointState) => {
+        this.isSmallScreen = state.matches;
+        if (this.isSmallScreen) {
+          this.renderer.removeClass(document.body, 'customBody');
+        } else {
+          this.router.navigate([ItenariesRoutesEnum.DASHBOARD]);
+          this.renderer.addClass(document.body, 'customBody');
+        }
+      });
   }
 
   @HostListener('window:resize', ['$event'])
@@ -43,12 +65,12 @@ export class AppComponent implements OnInit, OnDestroy {
   checkWindowWidth(): void {
     const width = window.innerWidth;
     if (width <= 960) {
-      console.log(this.location.path())
-      if(this.location.path().includes('dashboard')){
-        this.router.navigate(['/itineraries']);
+      if (this.location.path().includes('dashboard')) {
+        this.router.navigate([ItenariesRoutesEnum.ITINERARY]);
       }
     }
   }
+
   ngOnDestroy(): void {
     this.breakpointSubscription.unsubscribe();
   }

@@ -8,10 +8,9 @@ describe('DeleteItinerariesComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [DeleteItinerariesComponent]
-    })
-    .compileComponents();
-    
+      declarations: [DeleteItinerariesComponent],
+    }).compileComponents();
+
     fixture = TestBed.createComponent(DeleteItinerariesComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

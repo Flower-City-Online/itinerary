@@ -1,12 +1,31 @@
+@use "@angular/material" as mat;
 
-// Custom Theming for Angular Material
+@import "./styles/component-global-styles/search-bar.scss";
+@import "./styles/component-global-styles/bottom-navigation.scss";
+@import "./styles/component-global-styles/create-itinerary.scss";
+@import "./styles/component-global-styles/dashboard.scss";
+@import "./styles/component-global-styles/delete-itineraries.scss";
+@import "./styles/component-global-styles/filter-menu.scss";
+@import "./styles/component-global-styles/header.scss";
+@import "./styles/component-global-styles/navbar.scss";
+@import "./styles/component-global-styles/side-bar.scss";
+@import "./styles/component-global-styles/tab-bar.scss";
+@import "./styles/component-global-styles/custom-menu.scss";
 
+@import "./styles/media-queries.scss";
+@import "./styles/modal.scss";
+@import "./styles//colors";
 
-
-@use '@angular/material' as mat;
+:root {
+  --font-gilroy-regular: "Gilroy-Regular", serif;
+  --font-gilroy-bold: "Gilroy-Bold", serif;
+  --font-gilroy-medium: "Gilroy-Medium", serif;
+  --font-gilroy-semibold: "Gilroy-SemiBold", serif;
+  --font-gilroy-thin: "Gilroy-Thin", serif;
+}
 
 $custom-typography: mat.define-typography-config(
-  $font-family: 'Gilroy-Regular, serif',
+  $font-family: "Gilroy-Regular, serif",
 );
 
 @include mat.core();
@@ -30,124 +49,152 @@ $ns-add-in-theme: mat.define-dark-theme(
 @include mat.all-component-themes($ns-add-in-theme);
 
 @font-face {
-  font-family: 'Gilroy-Regular';
-  src: url('assets/fonts/gilroy/Gilroy-Regular_0.ttf');
+  font-family: "Gilroy-Regular";
+  src: url("assets/fonts/gilroy/Gilroy-Regular_0.ttf");
 }
 
 @font-face {
-  font-family: 'Gilroy-Bold';
-  src: url('assets/fonts/gilroy/Gilroy-Bold_0.ttf');
+  font-family: "Gilroy-Bold";
+  src: url("assets/fonts/gilroy/Gilroy-Bold_0.ttf");
 }
 
 @font-face {
-  font-family: 'Gilroy-Medium';
-  src: url('assets/fonts/gilroy/Gilroy-Medium_0.ttf');
+  font-family: "Gilroy-Medium";
+  src: url("assets/fonts/gilroy/Gilroy-Medium_0.ttf");
 }
 
 @font-face {
-  font-family: 'Gilroy-SemiBold';
-  src: url('assets/fonts/gilroy/Gilroy-SemiBold_0.ttf');
+  font-family: "Gilroy-SemiBold";
+  src: url("assets/fonts/gilroy/Gilroy-SemiBold_0.ttf");
 }
 
 @font-face {
-  font-family: 'Gilroy-Thin';
-  src: url('assets/fonts/gilroy/Gilroy-Thin_0.ttf');
+  font-family: "Gilroy-Thin";
+  src: url("assets/fonts/gilroy/Gilroy-Thin_0.ttf");
 }
 
 // Import Next Sapien Component Library Styles
-@import '../node_modules/nextsapien-component-lib/src/lib/shared-styles/styles.scss';
+@import "../node_modules/nextsapien-component-lib/src/lib/shared-styles/styles.scss";
 
-
-body{
-  background: linear-gradient(191deg, #27242C 61.33%, #0C0B0E 101.43%);
+body {
+  background: linear-gradient(
+    191deg,
+    $background-color-1 61.33%,
+    $background-color-10 101.43%
+  );
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
 
-*{
-  color: white
+* {
+  color: $text-color-3;
 }
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-
 .bg-color {
-  background: linear-gradient(100deg, #27242C, #0C0B0E);
+  background: linear-gradient(
+    100deg,
+    $background-color-1,
+    $background-color-10
+  );
   /* Add other CSS properties as needed */
-
 }
 
 .shadow-inset {
-box-shadow: inset -3px -3px 10px rgba(255, 255, 255, 0.3);
+  box-shadow: inset -3px -3px 10px rgba(255, 255, 255, 0.3);
 }
-
 
 .outset-shadow {
   box-shadow: -4.1px -4.1px 13.13px -2.46px rgba(203, 199, 209, 0.25);
 }
 .outset-downshadow {
-box-shadow: -4.1px -4.1px 13.13px -2.46px rgba(203, 199, 209, 0.25), 4px 4px 13.13px -1.46px rgba(0, 0, 0, 0.804);
-
+  box-shadow:
+    -4.1px -4.1px 13.13px -2.46px rgba(203, 199, 209, 0.25),
+    4px 4px 13.13px -1.46px rgba(0, 0, 0, 0.804);
 }
-
 
 .button-shadow {
-box-shadow: -5.744px -5.744px 11.487px 0px rgba(16, 16, 16, 0.00) inset, 3.282px 1.641px 3.282px 0px #323232 inset, 2.462px 2.462px 4.923px 0px #272A2C inset, -2.462px -2.462px 4.923px 0px rgba(0, 0, 0, 0.32) inset, 4.923px 4.923px 9.846px 0px #151617, -4.102px -4.102px 8.205px 0px #333, 9.026px 8.205px 22.153px 2.051px rgba(17, 16, 20, 0.65), -4.102px -4.102px 13.128px -2.462px rgba(203, 199, 209, 0.25);
-background: #27242C;
+  box-shadow:
+    -5.744px -5.744px 11.487px 0px rgba(16, 16, 16, 0) inset,
+    3.282px 1.641px 3.282px 0px $box-shadow-1 inset,
+    2.462px 2.462px 4.923px 0px $box-shadow-2 inset,
+    -2.462px -2.462px 4.923px 0px rgba(0, 0, 0, 0.32) inset,
+    4.923px 4.923px 9.846px 0px $box-shadow-3,
+    -4.102px -4.102px 8.205px 0px $box-shadow-4,
+    9.026px 8.205px 22.153px 2.051px rgba(17, 16, 20, 0.65),
+    -4.102px -4.102px 13.128px -2.462px rgba(203, 199, 209, 0.25);
+  background: $background-color-1;
 }
-
-.modal-tab-shadow{
-box-shadow: 9.026px 8.205px 22.153px 2.051px rgba(17, 16, 20, 0.65);
-
-
+.btn-selectable.selected[_ngcontent-ng-c3164006478]::part(native) {
+  background: none !important;
 }
-
 .text-shadow {
-text-shadow: 0px 0px 3.282px #FFF, 0px 0px 16.41px #FE3C72, 0px 0px 16.41px #FE3C72;
+  text-shadow:
+    0px 0px 3.282px $text-color-3,
+    0px 0px 16.41px $scroll-color,
+    0px 0px 16.41px $scroll-color;
 }
-
 
 .searchbar-shadow {
-box-shadow: 13.949px 18.051px 16.41px 2.051px rgba(17, 16, 20, 0.70) inset, -1.641px -1.641px 6.564px 0px rgba(203, 199, 209, 0.50) inset;
+  box-shadow:
+    13.949px 18.051px 16.41px 2.051px rgba(17, 16, 20, 0.7) inset,
+    -1.641px -1.641px 6.564px 0px rgba(203, 199, 209, 0.5) inset;
 }
 
 .searchbar-shadow:checked {
-box-shadow: transparent !important ;
+  box-shadow: transparent !important ;
 }
 .searchbar-shadow:focus {
-box-shadow: transparent !important ;
+  box-shadow: transparent !important ;
 }
 .inset-shadow {
-box-shadow: 13.949px 18.051px 16.41px 2.051px rgba(17, 16, 20, 0.70) inset, -1.641px -1.641px 6.564px 0px rgba(0, 0, 0, 0.5) inset;
+  box-shadow:
+    13.949px 18.051px 16.41px 2.051px rgba(17, 16, 20, 0.7) inset,
+    -1.641px -1.641px 6.564px 0px rgba(0, 0, 0, 0.5) inset;
 }
 
 input[type="checkbox"]:checked {
-color: white;
-background-color: #FE3C72;
+  color: white;
+  background-color: $scroll-color;
 }
 
 .background-gradient {
-background: linear-gradient(180deg, rgba(156, 156, 156, 0.20) 3.76%, rgba(138, 138, 138, 0.13) 4.93%, rgba(100, 100, 100, 0.00) 14.33%), #27242C;
+  background: linear-gradient(
+      180deg,
+      rgba(156, 156, 156, 0.2) 3.76%,
+      rgba(138, 138, 138, 0.13) 4.93%,
+      rgba(100, 100, 100, 0) 14.33%
+    ),
+    $background-color-1;
 }
 
 .foodbox {
-border-radius: 82.05px;
-background: var(--Secondary, #F7F5DD);
-box-shadow: -1.641px -1.641px 10.667px 0px rgba(255, 255, 255, 0.50), 3.282px 3.282px 6.564px 0px rgba(0, 0, 0, 0.89);
+  border-radius: 82.05px;
+  background: var(--Secondary, $background-color-11);
+  box-shadow:
+    -1.641px -1.641px 10.667px 0px rgba(255, 255, 255, 0.5),
+    3.282px 3.282px 6.564px 0px rgba(0, 0, 0, 0.89);
 }
 
 .card-menu-bg {
-border-radius: 6.564px !important;
-background: linear-gradient(180deg, #403D46 0%, #3E3B44 100%) !important;
-box-shadow: 0px 1.641px 3.282px 0px rgba(0, 0, 0, 0.25), 0px 3.282px 3.282px 0px rgba(0, 0, 0, 0.25), 1.641px -1.641px 2.462px 0px rgba(0, 0, 0, 0.40) inset, 0px -1.641px 6.564px 0px rgba(255, 255, 255, 0.20) inset !important;
+  border-radius: 6.564px !important;
+  background: linear-gradient(
+    180deg,
+    $background-color-12 0%,
+    $background-color-13 100%
+  ) !important;
+  box-shadow:
+    0px 1.641px 3.282px 0px rgba(0, 0, 0, 0.25),
+    0px 3.282px 3.282px 0px rgba(0, 0, 0, 0.25),
+    1.641px -1.641px 2.462px 0px rgba(0, 0, 0, 0.4) inset,
+    0px -1.641px 6.564px 0px rgba(255, 255, 255, 0.2) inset !important;
 }
 
-
 @layer base {
-
-  .active-link{
+  .active-link {
     @apply px-3 py-2 rounded-full bg-primary text-white;
   }
 
@@ -169,28 +216,27 @@ box-shadow: 0px 1.641px 3.282px 0px rgba(0, 0, 0, 0.25), 0px 3.282px 3.282px 0px
 }
 
 @layer utilities {
-
-  .btn-white  {
-    @apply  medium-15 bg-white px-7 py-3 text-tertiary
+  .btn-white {
+    @apply medium-15 bg-white px-7 py-3 text-tertiary;
   }
 
-  .btn-light  {
-    @apply  medium-15 bg-primary  px-7 py-3 text-tertiary
+  .btn-light {
+    @apply medium-15 bg-primary  px-7 py-3 text-tertiary;
   }
 
   /* .btn-dark {
     @apply  ring-1 ring-tertiary medium-15 bg-color px-7 py-[10px] text-white transition-all hover:bg-tertiary/90
   } */
   .btn-dark {
-    @apply  ring-1 ring-tertiary medium-12  px-[14px] py-[7px] text-white transition-all rounded-full outset-shadow hover:bg-primary
+    @apply ring-1 ring-tertiary medium-12  px-[14px] py-[7px] text-white transition-all rounded-full outset-shadow hover:bg-primary;
   }
 
   .btn-dark-outline {
-    @apply  ring-1 ring-tertiary medium-15 bg-transparent px-7 py-[10px] text-tertiary transition-all hover:bg-tertiary hover:text-white
+    @apply ring-1 ring-tertiary medium-15 bg-transparent px-7 py-[10px] text-tertiary transition-all hover:bg-tertiary hover:text-white;
   }
 
-  .btn-secondary  {
-    @apply  ring-1 ring-secondary medium-15 bg-secondary px-7 py-[10px] text-white transition-all hover:bg-tertiary hover:ring-tertiary
+  .btn-secondary {
+    @apply ring-1 ring-secondary medium-15 bg-secondary px-7 py-[10px] text-white transition-all hover:bg-tertiary hover:ring-tertiary;
   }
 
   .max-container {
@@ -226,46 +272,42 @@ box-shadow: 0px 1.641px 3.282px 0px rgba(0, 0, 0, 0.25), 0px 3.282px 3.282px 0px
   .flexEnd {
     @apply flex items-center justify-end;
   }
-
-
 }
 
-:root{
-  --primary-color: #28252D;
-  --secondary-color: #FE3C72;
-  --primary-font-color: #FFFFFF;
+:root {
+  --primary-color: $background-color-5;
+  --secondary-color: $scroll-color;
 }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Gilroy-Regular; }
-
-
-.parentClassForModal{
-  width: 100%;
-  padding: 0px 20px;
-  margin-top: 15px;
-  font-family: 'Calistoga';
-  border-radius: 10px;
+html,
+body {
+  height: 100%;
+  height: 200vh;
+}
+body {
+  margin: 0;
+  font-family: Gilroy-Regular;
+  overflow: hidden;
 }
 
-
-.customHeadingSectionHeading{
+.custom-heading-section-heading {
   width: 100%;
   padding: 8px 4px;
-  margin-top: 15px;
 }
 
-::ng-deep .apply-ng-deep-styles {
+.apply-ng-deep-styles {
   // Example of applying styles to body
   body {
-    background: #676767 !important;
+    background: $background-color-7 !important;
   }
 }
 
-
 .discard {
-  color: #FFF;
-  text-shadow: 0px 0px 4.896px #FFF, 0px 0px 24.479px #FE3C72, 0px 0px 24.479px #FE3C72;
+  color: $text-color-3;
+  text-shadow:
+    0px 0px 4.896px $text-color-3,
+    0px 0px 24.479px $scroll-color,
+    0px 0px 24.479px $scroll-color;
   font-family: Calistoga;
   font-size: 11.487px;
   font-style: normal;
@@ -274,30 +316,90 @@ body { margin: 0; font-family: Gilroy-Regular; }
 }
 
 .drawer-shadow {
-  box-shadow: -2.462px -2.462px 13.128px 0px rgba(255, 255, 255, 0.10), 4.102px 4.102px 77.948px 0px rgba(255, 255, 255, 0.32);
+  box-shadow:
+    -2.462px -2.462px 13.128px 0px rgba(255, 255, 255, 0.1),
+    4.102px 4.102px 77.948px 0px rgba(255, 255, 255, 0.32);
 }
 
-
 ::-webkit-scrollbar-track {
-  background-color: var(--secondary-color) !important; /* Change this to your desired track color */
+  background-color: var(
+    --secondary-color
+  ) !important; /* Change this to your desired track color */
 }
 
 /* Customize scrollbar thumb */
 ::-webkit-scrollbar-thumb {
-  background-color: var(--secondary-color) !important; /* Change this to your desired thumb color */
+  background-color: var(
+    --secondary-color
+  ) !important; /* Change this to your desired thumb color */
   border-radius: 5px; /* Optional: Rounded corners on scrollbar thumb */
 }
 
 /* Customize scrollbar corners */
 ::-webkit-scrollbar-corner {
-  background-color: var(--secondary-color) !important; /* Change this to your desired corner color */
+  background-color: var(
+    --secondary-color
+  ) !important; /* Change this to your desired corner color */
 }
 
-@media (max-width: 380px){
-  .minScreenMain{
-    padding: 0px !important;
-  }
-  .minScreen{
-    padding: 5px 10px !important;
-  }
+.fading-line {
+  display: none;
+}
+
+:host .button-native {
+  border-radius: var(--border-radius);
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  margin-left: 0;
+  margin-right: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+  -webkit-padding-start: var(--padding-start);
+  padding-inline-start: var(--padding-start);
+  -webkit-padding-end: var(--padding-end);
+  padding-inline-end: var(--padding-end);
+  padding-top: var(--padding-top);
+  padding-bottom: var(--padding-bottom);
+  font-family: inherit;
+  font-size: inherit;
+  font-style: inherit;
+  font-weight: inherit;
+  letter-spacing: inherit;
+  text-decoration: inherit;
+  text-indent: inherit;
+  text-overflow: inherit;
+  text-transform: inherit;
+  text-align: inherit;
+  white-space: inherit;
+  color: inherit;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  -ms-flex-align: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  min-height: inherit;
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+  border-width: var(--border-width);
+  border-style: var(--border-style);
+  border-color: var(--border-color);
+  outline: none;
+  background: var(--background);
+  line-height: 1;
+  -webkit-box-shadow: var(--box-shadow);
+  box-shadow: var(--box-shadow);
+  contain: layout style;
+  cursor: pointer;
+  opacity: var(--opacity);
+  overflow: var(--overflow);
+  z-index: 0;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  background: transparent;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: transparent !important;
 }

@@ -8,10 +8,9 @@ describe('RecentSearchesItemComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [RecentSearchesItemComponent]
-    })
-    .compileComponents();
-    
+      declarations: [RecentSearchesItemComponent],
+    }).compileComponents();
+
     fixture = TestBed.createComponent(RecentSearchesItemComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

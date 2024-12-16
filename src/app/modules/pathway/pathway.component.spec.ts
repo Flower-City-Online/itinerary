@@ -8,10 +8,9 @@ describe('PathwayComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [PathwayComponent]
-    })
-    .compileComponents();
-    
+      declarations: [PathwayComponent],
+    }).compileComponents();
+
     fixture = TestBed.createComponent(PathwayComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

@@ -1,26 +1,40 @@
-import {Component, Input} from '@angular/core';
-import {FormControl, FormGroup} from "@angular/forms";
-import {filter} from "rxjs";
+import {
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  Input,
+  OnInit,
+} from '@angular/core';
+import { FormControl } from '@angular/forms';
+import { ICONS } from 'src/app/constants/constants';
+import { IFilterMenuOptions } from 'src/app/interface/filterMenuOptions';
+import { ApiService } from 'src/app/services/core/api.service';
 
 @Component({
+  changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'app-filter-menu',
   templateUrl: './filter-menu.component.html',
-  styleUrl: './filter-menu.component.css'
+  styleUrl: './filter-menu.component.scss',
 })
-export class FilterMenuComponent {
+export class FilterMenuComponent implements OnInit {
   @Input() cssClass!: string;
-  options = [
-    { label: 'Featured', value: '1' },
-    { label: 'Hot', value: '2' },
-    { label: 'Best', value: '3' },
-    { label: 'New', value: '4' }
-  ];
-  formGroup = new FormGroup({
-    filter: new FormControl(this.options[0].value)
-  })
+  ICONS = ICONS;
+  options: IFilterMenuOptions[] = [];
+  filterControl = new FormControl();
+  constructor(
+    public apiService: ApiService,
+    private cdr: ChangeDetectorRef,
+  ) {}
 
-  changeSelection() {
-    // @ts-ignore
-    console.log(this.formGroup.get('filter').value)
+  ngOnInit(): void {
+    this.apiService
+      .get('/assets/filterMenuOptionsData.json')
+      .subscribe((data) => {
+        this.options = data as IFilterMenuOptions[];
+        this.cdr.detectChanges();
+        this.filterControl.setValue(this.options[0].value);
+      });
   }
+
+  changeSelection(): void {}
 }

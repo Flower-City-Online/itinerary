@@ -1,23 +1,23 @@
+import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { NgModule } from '@angular/core';
-import {CommonModule, NgOptimizedImage} from '@angular/common';
 
-import { DashboardRoutingModule } from './dashboard-routing.module';
-import { MainDashboardComponent } from './pages/main-dashboard/main-dashboard.component';
-import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { TranslateModule } from '@ngx-translate/core';
+import { ButtonsModule, SearchBarModule } from 'nextsapien-component-lib';
+import { CoreModule } from '../../core/core.module';
+import { SharedModule } from '../../shared/shared.module';
+import { ItinerariesModule } from '../itineraries/itineraries.module';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { DashboardRoutingModule } from './dashboard-routing.module';
 import { DashboardComponent } from './dashboard.component';
-import {SharedModule} from "../../shared/shared.module";
-import {CoreModule} from "../../core/core.module";
-import {ItinerariesModule} from "../itineraries/itineraries.module";
-import {ButtonsModule} from "nextsapien-component-lib";
-
+import { MainDashboardComponent } from './pages/main-dashboard/main-dashboard.component';
 
 @NgModule({
   declarations: [
     MainDashboardComponent,
     SidebarComponent,
     NavbarComponent,
-    DashboardComponent
+    DashboardComponent,
   ],
   imports: [
     CommonModule,
@@ -26,7 +26,9 @@ import {ButtonsModule} from "nextsapien-component-lib";
     NgOptimizedImage,
     CoreModule,
     ItinerariesModule,
-    ButtonsModule
-  ]
+    ButtonsModule,
+    TranslateModule,
+    SearchBarModule,
+  ],
 })
-export class DashboardModule { }
+export class DashboardModule {}

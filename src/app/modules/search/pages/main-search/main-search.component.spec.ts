@@ -8,10 +8,9 @@ describe('MainSearchComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [MainSearchComponent]
-    })
-    .compileComponents();
-    
+      declarations: [MainSearchComponent],
+    }).compileComponents();
+
     fixture = TestBed.createComponent(MainSearchComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

@@ -1,31 +1,63 @@
-import { Component } from '@angular/core';
-
+import {
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  OnInit,
+} from '@angular/core';
+import { MapMarkerModel } from 'nextsapien-component-lib';
+import { ICONS } from 'src/app/constants/constants';
+import { IItinerariesData } from 'src/app/interface/ItinerariesData';
+import { ApiService } from 'src/app/services/core/api.service';
+import { LocationService } from 'src/app/services/core/location.service';
 @Component({
+  changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'app-itinerary-preview',
   templateUrl: './itinerary-preview.component.html',
-  styleUrl: './itinerary-preview.component.css'
+  styleUrl: './itinerary-preview.component.scss',
 })
-export class ItineraryPreviewComponent {
+export class ItineraryPreviewComponent implements OnInit {
+  initialLocation = { lat: 24.8607, lng: 67.0011 }; // Centered on California
+  ICONS: { [key: string]: string } = ICONS;
+  places: IItinerariesData[] = [];
 
-  handleSearch(event: any) {  // Change parameter type to 'any' to accept event
-    console.log(event);
+  constructor(
+    public locationService: LocationService,
+    public apiService: ApiService,
+    public cdr: ChangeDetectorRef,
+  ) {}
+
+  ngOnInit(): void {
+    this.apiService.get('/assets/data.json').subscribe((data) => {
+      this.places = data as IItinerariesData[];
+      this.cdr.detectChanges();
+    });
+    this.locationService.getCurrentLocation().subscribe((location) => {
+      this.initialLocation.lat = location.lat;
+      this.initialLocation.lng = location.long;
+    });
   }
-  mapType = 'roadmap';
-  locationsMarkers = [
-    { lat: 37.7749, lng: -122.4194, label: 'San Francisco' },
-    { lat: 34.0522, lng: -118.2437, label: 'Los Angeles' }
+  handleSearch(event: string): void {
+    // Change parameter type to 'any' to accept event
+  }
+  mapType: google.maps.MapTypeId = google.maps.MapTypeId.ROADMAP;
+  locationsMarkers: MapMarkerModel[] = [
+    {
+      icon: {
+        url: 'assets/1.png#custom_pin_maps',
+        size: new google.maps.Size(10, 10),
+        scaledSize: new google.maps.Size(10, 10),
+        anchor: null,
+      },
+      id: '1',
+      omitMarkerCircle: false,
+      position: this.initialLocation,
+      radius: 100000,
+    },
   ];
-  initialLocation = { lat: 36.7783, lng: -119.4179 }; // Centered on California
 
-  onMapLoaded(event: any) {
-    console.log('Map Loaded:', event);
-  }
+  onMapLoaded(event: Event): void {}
 
-  // faLocationDot = faLocationDot;
-
-  toggleDrawingTool() {
-    console.log('Drawing tool toggled');
+  toggleDrawingTool(): void {
     // Add your drawing tool toggle logic here
   }
-  
 }

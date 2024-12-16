@@ -1,10 +1,9 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
+  changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'app-recent-searches',
   templateUrl: './recent-searches.component.html',
-  styleUrl: './recent-searches.component.css'
+  styleUrl: './recent-searches.component.scss',
 })
-export class RecentSearchesComponent {
-
-}
+export class RecentSearchesComponent {}

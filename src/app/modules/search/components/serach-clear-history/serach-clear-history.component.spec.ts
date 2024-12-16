@@ -8,10 +8,9 @@ describe('SerachClearHistoryComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [SerachClearHistoryComponent]
-    })
-    .compileComponents();
-    
+      declarations: [SerachClearHistoryComponent],
+    }).compileComponents();
+
     fixture = TestBed.createComponent(SerachClearHistoryComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

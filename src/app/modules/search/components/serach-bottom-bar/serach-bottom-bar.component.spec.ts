@@ -8,10 +8,9 @@ describe('SerachBottomBarComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [SerachBottomBarComponent]
-    })
-    .compileComponents();
-    
+      declarations: [SerachBottomBarComponent],
+    }).compileComponents();
+
     fixture = TestBed.createComponent(SerachBottomBarComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

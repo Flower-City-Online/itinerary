@@ -1,12 +1,11 @@
-<div class="gridColumns sm:mt-3 md:mt-10 grid grid-cols-1 md:grid-cols-3 sm:gap-y-5 md:gap-y-20 gap-x-28">
-  <app-card-component [libMenuItem]="libMenuItem" [isDraft]="false"></app-card-component>
-  <app-card-component [libMenuItem]="libMenuItem" [isDraft]="false"></app-card-component>
-  <app-card-component [libMenuItem]="libMenuItem" [isDraft]="false"></app-card-component>
-  <app-card-component [libMenuItem]="libMenuItem" [isDraft]="false"></app-card-component>
-  <app-card-component [libMenuItem]="libMenuItem" [isDraft]="false"></app-card-component>
-  <app-card-component [libMenuItem]="libMenuItem" [isDraft]="false"></app-card-component>
-  <app-card-component [libMenuItem]="libMenuItem" [isDraft]="false"></app-card-component>
-  <app-card-component [libMenuItem]="libMenuItem" [isDraft]="false"></app-card-component>
-  <app-card-component [libMenuItem]="libMenuItem" [isDraft]="false"></app-card-component>
-<!--  <app-card-component [libMenuItem]="libMenuItem" [isDraft]="false"></app-card-component>-->
+<div
+  class="grid-columns sm:mt-3 md:mt-10 grid grid-cols-1 md:grid-cols-3 sm:gap-y-5 md:gap-y-10 gap-x-10"
+>
+  <ng-container *ngFor="let item of libMenuItems; let i = index">
+    <app-card-component
+      [libMenuItem]="libMenuItem"
+      [isDraft]="false"
+    ></app-card-component>
+  </ng-container>
+  <app-cutom-card></app-cutom-card>
 </div>

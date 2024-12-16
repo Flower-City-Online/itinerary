@@ -1,20 +1,23 @@
-<div class="mainSection builderMainSection">
-  <app-create-itinerary class="createItiniresCom"></app-create-itinerary>
-  <app-custom-heading-with-button class="customHeadingSectionHeading"
-                                  [heading]="'My Creations'"
-                                  [buttonText]="'Archives'"
-                                  [buttonIcon]="'assets/icons/archives.svg'"
-                                  (buttonClick)="navigateToArchive()">
+<div class="main-section builder-main-section">
+  <app-create-itinerary class="create-itinires-com"></app-create-itinerary>
+  <app-custom-heading-with-button
+    class="custom-heading-section-heading"
+    [heading]="'My Creations'"
+    [buttonText]="'Archives'"
+    [buttonIcon]="ICONS.archives"
+    (buttonClick)="navigateToArchive()"
+  >
   </app-custom-heading-with-button>
-  <div class="builderContent">
-    <app-card-component [libMenuItem]="libMenuItem" [isDraft]="true"></app-card-component>
-    <br>
-    <app-card-component class="secondComp" [libMenuItem]="libMenuItem" [isDraft]="false"></app-card-component>
+  <div class="builder-content">
+    <app-card-component
+      [libMenuItem]="libMenuItem"
+      [isDraft]="true"
+    ></app-card-component>
+    <br />
+    <app-card-component
+      class="second-comp"
+      [libMenuItem]="libMenuItem"
+      [isDraft]="false"
+    ></app-card-component>
   </div>
-<!--  <button (click)="openModal2()">Report Itinerary</button>-->
 </div>
-
-<!--<button (click)="openModal()">delete modal</button>-->
-
-
-<!--<app-report-itinerary-modal></app-report-itinerary-modal>-->

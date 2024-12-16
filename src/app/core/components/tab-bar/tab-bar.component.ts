@@ -1,17 +1,29 @@
-import { Component } from '@angular/core';
-
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { MenuItem } from 'primeng/api';
+import { ItenariesRoutesEnum } from 'src/app/enums/ItenariesRoutes.enum';
 @Component({
   selector: 'app-tab-bar',
   templateUrl: './tab-bar.component.html',
-  styleUrl: './tab-bar.component.css'
+  styleUrl: './tab-bar.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TabBarComponent {
   tabMenuItems = [
-    { label: 'Explore', icon: 'pi pi-fw pi-home', routerLink: '/itineraries/explore' },
-    { label: 'Builder', icon: 'pi pi-fw pi-map-marker', routerLink: '/itineraries/builder' },
-    { label: 'Favorites', icon: 'pi pi-fw pi-user', routerLink: '/itineraries/favorites' }
+    {
+      label: 'Explore',
+      icon: 'pi pi-fw pi-home',
+      routerLink: ItenariesRoutesEnum.ITINERARY_EXPLORE,
+    },
+    {
+      label: 'Builder',
+      icon: 'pi pi-fw pi-map-marker',
+      routerLink: ItenariesRoutesEnum.ITINERARY_BUILDER,
+    },
+    {
+      label: 'Favorites',
+      icon: 'pi pi-fw pi-user',
+      routerLink: ItenariesRoutesEnum.ITINERARY_FAVOURITES,
+    },
   ];
-  onActiveItemChange($event:any) {
-    console.log($event)
-  }
+  onActiveItemChange(event: MenuItem): void {}
 }

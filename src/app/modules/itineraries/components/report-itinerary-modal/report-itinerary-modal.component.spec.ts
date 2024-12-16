@@ -8,10 +8,9 @@ describe('ReportItineraryModalComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ReportItineraryModalComponent]
-    })
-    .compileComponents();
-    
+      declarations: [ReportItineraryModalComponent],
+    }).compileComponents();
+
     fixture = TestBed.createComponent(ReportItineraryModalComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

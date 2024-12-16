@@ -1,23 +1,26 @@
-import {Component, OnInit} from '@angular/core';
-import {LibMenuItem} from "nextsapien-component-lib";
-import {CustomDropdownMenuService} from "../../../../services/core/custom-dropdown-menu.service";
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { LibMenuItem } from 'nextsapien-component-lib';
+import { ICONS } from 'src/app/constants/constants';
+import { CustomDropdownMenuService } from '../../../../services/core/custom-dropdown-menu.service';
 
 @Component({
+  changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'app-favorites',
   templateUrl: './favorites.component.html',
-  styleUrl: './favorites.component.css'
+  styleUrl: './favorites.component.scss',
 })
-export class FavoritesComponent implements OnInit{
+export class FavoritesComponent implements OnInit {
   libMenuItem: LibMenuItem[] = [];
-  cardList = []
+  cardList:number[] = [];
+  ICONS = ICONS;
+
   ngOnInit(): void {
-    this.libMenuItem=this.customMenuList.getMenuList('favourite')
-  }
-  constructor(public customMenuList:CustomDropdownMenuService) {
+    this.libMenuItem = this.customMenuList.getMenuList('favourite');
   }
 
-  goFav(){
-    // @ts-ignore
-    this.cardList.push(1)
+  constructor(public customMenuList: CustomDropdownMenuService) {}
+
+  goFav(): void {
+    this.cardList.push(1);
   }
 }

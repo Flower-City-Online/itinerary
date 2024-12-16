@@ -1,18 +1,38 @@
-import {CUSTOM_ELEMENTS_SCHEMA, NgModule} from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NonVisualMapFilterComponent } from './pages/non-visual-map-filter/non-visual-map-filter.component';
-import { BottomModalComponent, ButtonsModule, LibModalModule } from 'nextsapien-component-lib';
-import { ItineraryPreviewComponent } from './pages/itinerary-preview/itinerary-preview.component';
-import { DefaultDestinationComponent } from './pages/default-destination/default-destination.component';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import {SharedModule} from "../../shared/shared.module";
-import {PathwayRoutingModule} from "./pathway-routing.module";
+import {
+  GoogleMap,
+  GoogleMapsModule,
+  MapAdvancedMarker,
+  MapBaseLayer,
+  MapBicyclingLayer,
+  MapCircle,
+  MapDirectionsRenderer,
+  MapGroundOverlay,
+  MapHeatmapLayer,
+  MapInfoWindow,
+  MapKmlLayer,
+  MapMarker,
+  MapMarkerClusterer,
+  MapPolygon,
+  MapPolyline,
+  MapRectangle,
+  MapTrafficLayer,
+  MapTransitLayer,
+} from '@angular/google-maps';
+import { MatIcon } from '@angular/material/icon';
+import { TranslateModule } from '@ngx-translate/core';
+import { ButtonsModule, LibMapModule } from 'nextsapien-component-lib';
+import { environment } from 'src/environments/environment';
+import { SharedModule } from '../../shared/shared.module';
+import { GooglemapComponent } from './components/googlemap/googlemap.component';
+import { MapHeaderComponent } from './components/map-header/map-header.component';
+import { DefaultDestinationComponent } from './pages/default-destination/default-destination.component';
+import { ItineraryPreviewComponent } from './pages/itinerary-preview/itinerary-preview.component';
+import { NonVisualMapFilterComponent } from './pages/non-visual-map-filter/non-visual-map-filter.component';
+import { PathwayRoutingModule } from './pathway-routing.module';
 import { PathwayComponent } from './pathway.component';
-import {GooglemapdemoComponent} from "./components/googlemapdemo/googlemapdemo.component";
-import {MapHeaderComponent} from "./components/map-header/map-header.component";
-import { GoogleMap, MapBaseLayer, MapBicyclingLayer, MapCircle, MapDirectionsRenderer, MapGroundOverlay, MapHeatmapLayer, MapInfoWindow, MapKmlLayer, MapMarker, MapAdvancedMarker, MapMarkerClusterer, MapPolygon, MapPolyline, MapRectangle, MapTrafficLayer, MapTransitLayer, GoogleMapsModule } from '@angular/google-maps';
-import {MatIcon} from "@angular/material/icon";
-// import { BottomModalComponent, LibMapsComponent } from 'nextsapien-component-lib';
 
 const COMPONENTS = [
   GoogleMap,
@@ -34,17 +54,17 @@ const COMPONENTS = [
   MapTransitLayer,
 ];
 
-
 @NgModule({
   declarations: [
     NonVisualMapFilterComponent,
     ItineraryPreviewComponent,
     DefaultDestinationComponent,
     PathwayComponent,
-    GooglemapdemoComponent,
-    MapHeaderComponent
+    GooglemapComponent,
+    MapHeaderComponent,
   ],
   imports: [
+    TranslateModule,
     CommonModule,
     PathwayRoutingModule,
     SharedModule,
@@ -52,9 +72,11 @@ const COMPONENTS = [
     FormsModule,
     GoogleMapsModule,
     MatIcon,
+    LibMapModule.forRoot({
+      googleMapsKey: environment.googleMapsKey,
+      googleMapsURL: environment.googleMapsURL,
+    }),
   ],
-  schemas:[
-    CUSTOM_ELEMENTS_SCHEMA
-  ]
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export class PathwayModule { }
+export class PathwayModule {}

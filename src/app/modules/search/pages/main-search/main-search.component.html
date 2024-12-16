@@ -1,6 +1,13 @@
-<div class="pt-5">
-  <div class="subScreen">
-    <app-search-bar [placeholder]="'Search Itineraries'"></app-search-bar>
+<div class="main-search-screen pt-5">
+  <div class="sub-screen">
+    <lib-search-bar
+      class="search-field"
+      [placeholderText]="'SEARCH_ITINERARIES' | translate"
+      (searchStringChange)="handleSearchStringChange($event)"
+      (cleared)="clear()"
+      [searchIcon]="ICONS.dashboardSearch"
+    >
+    </lib-search-bar>
     <app-search-chips></app-search-chips>
     <div class="">
       <app-recent-searches></app-recent-searches>

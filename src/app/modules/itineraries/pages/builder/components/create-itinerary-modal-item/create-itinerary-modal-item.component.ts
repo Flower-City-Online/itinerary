@@ -1,27 +1,41 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output,
+} from '@angular/core';
+import { ICONS } from 'src/app/constants/constants';
+import { ModalService } from 'src/app/services/core/modal/modal.service';
 
 @Component({
+  changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'app-create-itinerary-modal-item',
   templateUrl: './create-itinerary-modal-item.component.html',
-  styleUrl: './create-itinerary-modal-item.component.css'
+  styleUrl: './create-itinerary-modal-item.component.scss',
 })
-export class CreateItineraryModalItemComponent implements OnInit{
-  @Output() clickEvent = new EventEmitter<any>();
+export class CreateItineraryModalItemComponent implements OnInit {
+  @Output() clickEvent = new EventEmitter<void>();
   @Input() icon!: string;
   @Input() title!: string;
   @Input() description!: string;
   @Input() shortTitle!: boolean;
-  titleList:string[] = [];
-  constructor() {
-  }
+  titleList: string[] = [];
+  ICONS = ICONS;
+
+  constructor(public modalService: ModalService) {}
 
   ngOnInit(): void {
     this.titleList = !this.shortTitle ? this.title.split(',') : [this.title];
-    console.log(this.titleList)
-    console.log(this.shortTitle)
+    this.modalService.bottomToggleModal = false;
   }
 
-  clickEventEmitter(){
+  clickEventEmitter(): void {
     this.clickEvent.emit();
+  }
+
+  backButton(): void {
+    this.modalService.bottomToggleModal = !this.modalService.bottomToggleModal;
   }
 }

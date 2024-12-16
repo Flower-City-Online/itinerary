@@ -1,4 +1,7 @@
-<div [routerLink]="routerLink" class="bottomNavItem flex flex-col items-center">
-  <img [ngSrc]="iconPath" height="{{height}}" width="{{width}}"/>
-  <span class="{{cssClass}} spanText">{{label}}</span>
+<div
+  [routerLink]="routerLink"
+  class="bottom-nav-item flex flex-col items-center"
+>
+  <img [src]="iconPath" class="bottom-nav-image" />
+  <span [class]="cssClass + ' span-text'">{{ label }}</span>
 </div>

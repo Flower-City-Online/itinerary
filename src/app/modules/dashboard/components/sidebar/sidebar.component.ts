@@ -1,53 +1,66 @@
-  import {Component, OnInit} from '@angular/core';
-  import {Router} from "@angular/router";
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
+import { ISideBarMenuItem } from 'src/app/interface/dashboardSideBar';
 
-  @Component({
-    selector: 'app-sidebar',
-    templateUrl: './sidebar.component.html',
-    styleUrl: './sidebar.component.css'
-  })
-  export class SidebarComponent implements OnInit{
-    isFilter:boolean = false;
-    filterClass = "filterSideBar"
-    constructor(private router:Router) {
-    }
-    ngOnInit(): void {
-      this.sideBarItem.forEach((element:any) => {
-        if(element.selected){
-          this.router.navigate([element.url]);
-        }
-      })
-    }
-    sideBarItem:any[] = [
+@Component({
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  selector: 'app-sidebar',
+  templateUrl: './sidebar.component.html',
+  styleUrls: ['./sidebar.component.scss'],
+})
+export class SidebarComponent implements OnInit {
+  isFilter: boolean = false;
+  filterClass = 'filter-side-bar';
+
+  sideBarItem: ISideBarMenuItem[] = [];
+
+  constructor(
+    private router: Router,
+    private translate: TranslateService,
+  ) {}
+
+  ngOnInit(): void {
+    this.initializeSidebarItems();
+    this.sideBarItem.some((element: ISideBarMenuItem) => {
+      if (element.selected) {
+        this.router.navigate([element.url]);
+      }
+    });
+  }
+
+  private initializeSidebarItems(): void {
+    this.sideBarItem = [
       {
-        id:1,
-        name: 'Explore',
+        id: 1,
+        name: 'SIDEBAR.EXPLORE',
         selected: true,
         cssClass: 'active',
-        url: '/dashboard/itineraries/explore'
+        url: '/dashboard/itineraries/explore',
       },
       {
-        id:2,
-        name: 'Builder',
+        id: 2,
+        name: 'SIDEBAR.BUILDER',
         selected: false,
         cssClass: '',
-        url: '/dashboard/itineraries/builder'
+        url: '/dashboard/itineraries/explore',
       },
       {
-        id:3,
-        name: 'Favourite',
+        id: 3,
+        name: 'SIDEBAR.FAVOURITE',
         selected: false,
         cssClass: '',
-        url: '/dashboard/itineraries/favourite'
-      }
-    ]
-
-    selectItem(item:any){
-      this.sideBarItem.forEach((element:any) => {
-        element.selected = false;
-        element.cssClass = '';
-      });
-      item.selected = true;
-      item.cssClass = 'active';
-    }
+        url: '/dashboard/itineraries/explore',
+      },
+    ];
   }
+
+  selectItem(item: ISideBarMenuItem): void {
+    this.sideBarItem.some((element: ISideBarMenuItem) => {
+      element.selected = false;
+      element.cssClass = '';
+    });
+    item.selected = true;
+    item.cssClass = 'active';
+  }
+}

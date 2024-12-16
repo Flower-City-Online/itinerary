@@ -1,18 +1,15 @@
-import { Component } from '@angular/core';
-import {ModalService} from "../../services/core/modal/modal.service";
-import {DeleteItinerariesComponent} from "../itineraries/components/delete-itineraries/delete-itineraries.component";
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
+  changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'app-archives',
   templateUrl: './archives.component.html',
-  styleUrl: './archives.component.css'
+  styleUrl: './archives.component.scss',
 })
 export class ArchivesComponent {
-  cssClass = ['deleteItineraries']
-  constructor(public modalService: ModalService) {
+  constructor() {}
 
-  }
-  backButton(){
+  backButton(): void {
     window.history.back();
   }
 }

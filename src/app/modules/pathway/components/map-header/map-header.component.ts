@@ -1,10 +1,17 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Location } from '@angular/common';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Input,
+  Output,
+} from '@angular/core';
 
 @Component({
+  changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'app-map-header',
   templateUrl: './map-header.component.html',
-  styleUrl: './map-header.component.css'
+  styleUrl: './map-header.component.scss',
 })
 export class MapHeaderComponent {
   @Input() title: string = 'Default Title';
@@ -16,15 +23,11 @@ export class MapHeaderComponent {
 
   constructor(private location: Location) {}
 
-  ngOnInit(): void {
-    console.log('HeaderComponent initialized with title:', this.title);
-  }
-
-  goBack() {
+  goBack(): void {
     if (this.backLink) {
       window.location.href = this.backLink;
     } else {
       this.location.back();
     }
-}
+  }
 }

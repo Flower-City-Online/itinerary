@@ -1,19 +1,88 @@
-import { Component } from '@angular/core';
-import {ModalService} from "../../../../../../services/core/modal/modal.service";
-import {CreateItineraryModalComponent} from "../create-itinerary-modal/create-itinerary-modal.component";
+import {
+  AfterViewInit,
+  ChangeDetectionStrategy,
+  Component,
+  ElementRef,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
+import { ICONS } from 'src/app/constants/constants';
+import { ShadowRootHandlerService } from 'src/app/services/core/shadow-root-handler.service';
+import { ModalService } from '../../../../../../services/core/modal/modal.service';
 
 @Component({
+  changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'app-create-itinerary',
   templateUrl: './create-itinerary.component.html',
-  styleUrl: './create-itinerary.component.css'
+  styleUrl: './create-itinerary.component.scss',
 })
-export class CreateItineraryComponent {
+export class CreateItineraryComponent implements OnInit, AfterViewInit {
+  @ViewChild('testModal', { static: false })
+  testModal: CreateItineraryComponent | undefined;
+  enableBack: boolean = true;
   cssClass = ['create-itinerary-modal'];
-  constructor(public modalService: ModalService) {
+  ICONS = ICONS;
 
+  constructor(
+    public modalService: ModalService,
+    private el: ElementRef,
+    private shadowrootHandler: ShadowRootHandlerService,
+  ) {}
+
+  ngAfterViewInit(): void {
+    this.initShadowrootHandler();
   }
 
-  openModal(){
-    this.modalService.openModal(CreateItineraryModalComponent,this.cssClass);
+  initShadowrootHandler(): void {
+    const targetNode = this.el.nativeElement;
+    this.shadowrootHandler.accessShadowRoot(
+      targetNode,
+      'lib-bottom-modal',
+      () => {
+        this.applyStylesToDialog();
+      },
+    );
+  }
+
+  applyStylesToDialog(): void {
+    const targetNode = this.el.nativeElement.querySelector(
+      'lib-bottom-modal',
+    ) as HTMLElement;
+
+    if (targetNode) {
+      const classNameElements =
+        targetNode.getElementsByClassName('lib-bottom-modal');
+
+      if (classNameElements.length > 0) {
+        const dialogDiv = classNameElements[0].shadowRoot?.querySelector(
+          'div[role="dialog"]',
+        ) as HTMLElement;
+
+        if (dialogDiv) {
+          const modalHandle = dialogDiv.getElementsByClassName(
+            'modal-handle',
+          )[0] as HTMLElement;
+          if (modalHandle) {
+            modalHandle.style.display = 'none';
+          } else {
+          }
+          // Apply the desired styles
+          dialogDiv.style.backgroundColor = 'transparent'; // Example modification
+          dialogDiv.style.boxShadow = 'none';
+          //remove the dialog uppar bar
+        } else {
+        }
+      } else {
+      }
+    } else {
+    }
+  }
+
+  ngOnInit(): void {
+    this.modalService.bottomToggleModal = false;
+  }
+
+  openModal(): void {
+    this.modalService.bottomToggleModal = !this.modalService.bottomToggleModal;
   }
 }

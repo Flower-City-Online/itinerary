@@ -1,5 +1,14 @@
-<div>
-  <app-search-bar></app-search-bar>
+<div class="z-auto">
+  <lib-search-bar
+    class="search-field"
+    (searchStringChange)="handleSearchStringChange($event)"
+    (cleared)="clear()"
+    [searchIcon]="ICONS.dashboardSearch"
+    [placeholderText]="'NG_GRID.searchOoo' | translate"
+  >
+  </lib-search-bar>
   <app-filter-menu></app-filter-menu>
-  <app-explore-list></app-explore-list>
+  <div class="pb-10">
+    <app-explore-list></app-explore-list>
+  </div>
 </div>

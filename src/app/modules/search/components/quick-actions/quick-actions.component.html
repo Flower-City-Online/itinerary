@@ -1,13 +1,14 @@
-<p class="searchSubHeading">Quick actions...</p>
-<div class="mainBtn">
-    <span>
-      <img ngSrc="assets/icons/plus_2.svg" height="14" width="15">
-    </span>
+<p class="search-sub-heading">Quick actions...</p>
+<div class="main-btn" [routerLink]="ItineraryRoutes.ITINERARY_BUILDER">
+  <span>
+    <img [ngSrc]="ICONS.plus2" height="14" width="15" />
+  </span>
   Create Itinerary
 </div>
-<div class="mainBtn">
-    <span>
-      <img ngSrc="assets/icons/star.svg" height="16" width="17">
-    </span>
-  Featured Itineraries
-</div>
+<lib-hover-btn
+  [iconUrl]="ICONS.star"
+  class="main-btn"
+  [routerLink]="ItineraryRoutes.ITINERARY_FAVOURITES"
+>
+  {{ "FEATURED_ITINERARIES" | translate }}
+</lib-hover-btn>

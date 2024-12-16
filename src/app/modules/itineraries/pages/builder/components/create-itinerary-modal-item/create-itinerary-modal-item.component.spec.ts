@@ -8,10 +8,9 @@ describe('CreateItineraryModalItemComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [CreateItineraryModalItemComponent]
-    })
-    .compileComponents();
-    
+      declarations: [CreateItineraryModalItemComponent],
+    }).compileComponents();
+
     fixture = TestBed.createComponent(CreateItineraryModalItemComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

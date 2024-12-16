@@ -1,37 +1,59 @@
-import { Component } from '@angular/core';
-import {LibMenuItem} from "nextsapien-component-lib";
-import {BottomNavigationService} from "../../../../services/core/bottom-navigation.service";
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
+import { LibMenuItem } from 'nextsapien-component-lib';
+import { ICONS } from 'src/app/constants/constants';
 
 @Component({
+  changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
-  styleUrl: './navbar.component.css'
+  styleUrls: ['./navbar.component.scss'],
 })
 export class NavbarComponent {
-  constructor() {
+  ICONS = ICONS;
+  menuItems: LibMenuItem[] = [];
+  navigationItems = [
+    { label: 'MENU.HOME', iconPath: this.ICONS.dashHomeActive },
+    { label: 'MENU.CONSTITUENTS', iconPath: this.ICONS.users },
+    { label: 'MENU.ITINERARY', iconPath: this.ICONS.itineraries },
+    { label: 'MENU.STATS', iconPath: this.ICONS.stats },
+    { label: 'MENU.SETTINGS', iconPath: this.ICONS.setting },
+  ];
+  constructor(private translate: TranslateService) {
+    this.initializeMenuItems();
   }
-  menuItems:LibMenuItem[] = [
-    {
-      title:'Logout',
-      titlePrefix:'',
-      iconUrl:'assets/icons/logout.svg',
-    },
-    {
-      title:'Info',
-      titlePrefix:'',
-      iconUrl:'assets/icons/info.svg',
-    },{
-      title:'Feedback',
-      titlePrefix:'',
-      iconUrl:'assets/icons/feedback.svg',
-    },{
-      title:' Search',
-      titleSuffix:'AI',
-      iconUrl:'assets/icons/dashboard_search.svg',
-    },{
-      title:'Notifications',
-      titlePrefix:'',
-      iconUrl:'assets/icons/notifications.svg',
-    }
-  ]
+
+  private initializeMenuItems() {
+    this.menuItems = [
+      {
+        title: this.translate.instant('NAVBAR.LOGOUT'),
+        titlePrefix: '',
+        iconUrl: ICONS.logout,
+      },
+      {
+        title: this.translate.instant('NAVBAR.INFO'),
+        titlePrefix: '',
+        iconUrl: ICONS.info,
+      },
+      {
+        title: this.translate.instant('NAVBAR.FEEDBACK'),
+        titlePrefix: '',
+        iconUrl: ICONS.feedback,
+      },
+      {
+        title: this.translate.instant('NAVBAR.SEARCH_2'),
+        titleSuffix: 'AI',
+        iconUrl: ICONS.dashboardSearch,
+      },
+      {
+        title: this.translate.instant('NAVBAR.NOTIFICATIONS'),
+        titlePrefix: '',
+        iconUrl: ICONS.notifications,
+      },
+    ];
+  }
+
+  handleSearchStringChange($event: string) {}
+
+  clear(): void {}
 }
