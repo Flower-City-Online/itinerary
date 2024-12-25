@@ -1,11 +1,17 @@
-<div class="{{cssClass}} headerMainBar pt-5 pb-5 px-5 flex items-center justify-between">
-      <button class="headerBtn" (click)="onBack()">
-        <img ngSrc="assets/icons/back.svg" height="15" width="16">
-      </button>
-      <h4>Create itinerary</h4>
-      <button class="headerBtn" (click)="clear()">
-        <div class="discard cursor-pointer flex items-center justify-center text-[11px] mr-3" >
-            Discard?
-          </div>
-      </button>
+<div
+  class="{{
+    cssClass
+  }} headerMainBar pt-5 pb-5 px-5 flex items-center justify-between"
+>
+  <button class="headerBtn" (click)="onBack()">
+    <img ngSrc="assets/icons/back.svg" height="15" width="16" />
+  </button>
+  <h4>Create itinerary</h4>
+  <button class="headerBtn" (click)="clear()">
+    <div
+      class="discard cursor-pointer flex items-center justify-center text-[11px] mr-3"
+    >
+      Discard?
     </div>
+  </button>
+</div>
