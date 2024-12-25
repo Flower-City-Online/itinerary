@@ -4,9 +4,13 @@ import { ExploreListComponent } from '../itineraries/pages/explore/components/ex
 import { DashboardComponent } from './dashboard.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
-  { path: 'dashboard', component: DashboardComponent },
-  { path: 'itineraries/explore', component: ExploreListComponent },
+  {
+    path: '',
+    component: DashboardComponent,
+    children: [
+      { path: 'itineraries/explore', component: ExploreListComponent },
+    ],
+  },
 ];
 
 @NgModule({

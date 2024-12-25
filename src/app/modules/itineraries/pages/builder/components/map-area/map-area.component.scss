@@ -1,0 +1,78 @@
+.map-area-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  background-color: #1a1a1a;
+  color: white;
+}
+
+/* Top Navigation Bar */
+.top-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: #2e2e2e;
+  color: #fff;
+}
+
+.top-nav h1 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.discard-btn {
+  background: none;
+  border: none;
+  color: #ff6666;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+/* Map Container */
+.map-container {
+  flex: 1;
+  width: 100%;
+  position: relative;
+}
+
+/* Bottom Controls */
+.bottom-controls {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0.5rem;
+  background-color: #2e2e2e;
+}
+
+.bottom-controls button {
+  padding: 0.7rem 1.2rem;
+  font-size: 0.9rem;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  color: #fff;
+}
+
+.draw-btn {
+  background-color: #4caf50; /* Green color for draw */
+}
+
+.clear-btn {
+  background-color: #ff6666; /* Red color for clear */
+}
+
+.continue-btn {
+  background-color: #4a90e2; /* Blue color for continue */
+}
+
+.continue-btn:disabled {
+  background-color: #6c6c6c;
+  cursor: not-allowed;
+}
+.instructions {
+  padding: 16px;
+  text-align: center;
+  background-color: #f8f8f8;
+}

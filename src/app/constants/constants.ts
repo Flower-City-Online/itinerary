@@ -1,5 +1,5 @@
 export const ICONS = {
-  plus: 'assets/icon/plus.svg',
+  plus: 'assets/icons/plus.svg',
   sliders: 'assets/icon/common/sliders.svg',
   calendarFilter: 'assets/icon/calendar/calendar-filter.svg',
   speaker: 'assets/icon/common/speaker.svg',

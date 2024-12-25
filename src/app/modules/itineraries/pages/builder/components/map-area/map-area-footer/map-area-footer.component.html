@@ -1,0 +1,125 @@
+<div class="absolute bottom-0 py-3">
+  <section class="fixed bottom-0 w-full left-0">
+    <div
+      class="tracking-widest px-5 py-6 rounded-t-xl drawer-shadow bg-[#28252D]"
+    >
+      <div class="flex justify-between items-center">
+        <h4 class="bottom-title" *ngIf="!isSelectMode">Draw</h4>
+        <ng-container *ngIf="!isSelectMode">
+          <div
+            class="bg-grey rounded-full searchbar-shadow flex items-center justify-between"
+          >
+            <button class="rounded-full p-2 px-4">
+              <img src="/assets/icons/locationicon.svg" alt="" />
+            </button>
+
+            <button class="rounded-full p-2 px-4 bg-primary">
+              <img src="/assets/icons/write.svg" alt="" />
+            </button>
+            <button class="rounded-full p-2 px-4">
+              <img src="/assets/icons/warn.svg" alt="" />
+            </button>
+          </div>
+        </ng-container>
+      </div>
+      <div
+        class="flex items-center justify-center text-[9px] gap-2"
+        *ngIf="isSelectMode"
+      >
+        <img src="/assets/icons/locationicon.svg" alt="Location" />
+        <span *ngIf="selectedPlaces.length < 2"
+          >Select at least 2 places |</span
+        >
+        <span *ngIf="selectedPlaces.length >= 2"
+          >{{ selectedPlaces.length }} places selected |</span
+        >
+        <img src="/assets/icons/clock-icon.svg" alt="Time" />
+        <span>{{ estimatedTime }} ({{ distance }})</span>
+      </div>
+      <div class="filterClass text-xs py-2 mt-2">
+        {{
+          isSelectMode
+            ? "Select places from your drawn zone to include in your itinerary route."
+            : "Draw a zone on the map with your finger that you want to include in your itinerary."
+        }}
+      </div>
+      <div class="flex gap-2 py-5" *ngIf="isSelectMode">
+        <div class="h-[150px] overflow-y-auto">
+          <div class="font-Gilroy mt-5 mb-3 flex flex-col gap-y-5">
+            <div
+              *ngFor="let place of selectedPlaces; let i = index"
+              class="flex items-center justify-between w-full gap-x-4"
+            >
+              <div class="flex items-center gap-x-4">
+                <div
+                  class="icon w-8 h-8 outset-shadow flex items-center justify-center rounded-full"
+                >
+                  <img src="/assets/icons/restu-icon.svg" alt="Place Icon" />
+                </div>
+                <div class="text">
+                  <h2 class="sm:text-sm xs:text-xs flex items-center gap-x-1">
+                    {{ place.name }}
+                    <img
+                      *ngIf="i === 0"
+                      src="/assets/icons/start-location.svg"
+                      alt="Start Location"
+                    />
+                    <img
+                      *ngIf="i === selectedPlaces.length - 1"
+                      src="/assets/icons/en-location.svg"
+                      alt="End Location"
+                    />
+                  </h2>
+                  <p class="xs:text-[10px] sm:text-xs text-secondary">
+                    {{ place.types?.[0] || "Place" }}
+                  </p>
+                </div>
+              </div>
+              <div class="flex items-center gap-x-3">
+                <div class="hamburger text-secondary cursor-pointer">
+                  <i class="icon-hamburger"></i>
+                </div>
+                <div
+                  class="delete text-primary cursor-pointer"
+                  (click)="onDeletePlace(i)"
+                >
+                  <img
+                    src="/assets/icons/delete_sec.svg"
+                    alt="Delete Icon"
+                    class="cursor-pointer"
+                    (click)="onDeletePlace(i)"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="background-gradient flex gap-2 py-5 px-16"
+      *ngIf="!isSelectMode"
+    >
+      <lib-secondary-btn
+        (click)="mapAreaService.triggerClearAction()"
+        class="w-full"
+        >Clear</lib-secondary-btn
+      >
+      <lib-primary-btn
+        [disabled]="!isContinueEnabled"
+        (click)="onContinue()"
+        class="w-full"
+        >Continue</lib-primary-btn
+      >
+    </div>
+    <div
+      class="background-gradient flex gap-2 py-5 px-16"
+      *ngIf="isSelectMode && selectedPlaces.length >= 2"
+    >
+      <lib-primary-btn (click)="onContinue()" class="w-full"
+        >Preview</lib-primary-btn
+      >
+    </div>
+  </section>
+</div>

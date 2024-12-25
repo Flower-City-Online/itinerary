@@ -1,0 +1,65 @@
+.headerMainBar {
+  font-family: "Calistoga", cursive;
+}
+.headerMainBar h4 {
+  font-size: 1rem;
+}
+.headerBackBtn {
+  height: 26px;
+  width: 26px;
+}
+
+::ng-deep .headerBtn .lib-button-component {
+  border: none !important;
+}
+
+::ng-deep .headerBtn .lib-button-container {
+  border: none !important;
+  box-shadow:
+    -5.744px -5.744px 11.487px 0px rgba(16, 16, 16, 0) inset,
+    3.282px 1.641px 3.282px 0px #323232 inset,
+    2.462px 2.462px 4.923px 0px #272a2c inset,
+    -2.462px -2.462px 4.923px 0px rgba(0, 0, 0, 0.32) inset,
+    4.923px 4.923px 9.846px 0px #151617,
+    -4.102px -4.102px 8.205px 0px #333,
+    9.026px 8.205px 22.153px 2.051px rgba(17, 16, 20, 0.65),
+    -4.102px -4.102px 13.128px -2.462px rgba(203, 199, 209, 0.25) !important;
+}
+
+.headerBtn {
+  border-radius: 20px;
+  margin-bottom: 3px;
+  height: 34px;
+  width: 34px;
+  background: #27242c;
+  box-shadow:
+    9.026px 8.205px 22.153px 2.051px rgba(17, 16, 20, 0.65),
+    -4.102px -4.102px 13.128px -2.462px rgba(203, 199, 209, 0.25) !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.headerBtn:last-child {
+  background: none !important;
+  box-shadow: none !important;
+}
+
+.headerBtn img {
+  margin-top: 1px;
+  margin-left: 2px;
+}
+
+@media screen and (max-width: 390px) {
+  .headerBtn {
+    height: 27px !important;
+    width: 27px !important;
+  }
+  .headerBtn img {
+    height: 13px !important;
+    width: 13px !important;
+  }
+  .headerMainBar {
+    padding-inline: 10px !important;
+  }
+}

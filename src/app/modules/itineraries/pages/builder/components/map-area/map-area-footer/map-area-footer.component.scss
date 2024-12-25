@@ -1,0 +1,51 @@
+.map-area-footer {
+    display: flex;
+    justify-content: space-around;
+    padding: 16px;
+    background-color: #f0f0f0;
+  }
+
+  .bottom-title{
+    font-family: 'Calistoga', cursive;
+    font-weight: 400;
+    font-size: large;
+  }
+
+  .footer-places-list {
+    overflow-y: auto; /* Allow vertical scrolling */
+    max-height: 150px; /* Adjust height as needed */
+    padding: 10px; /* Add padding */
+    background-color: #28252D; /* Match your footer background */
+}
+
+.places-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.place-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 0; /* Spacing between items */
+}
+
+.place-icon {
+    width: 20px; /* Adjust icon size */
+    height: 20px;
+}
+
+.place-name {
+    flex-grow: 1; /* Allow name to take up available space */
+    margin: 0 10px; /* Margin around name */
+}
+
+.action-icon {
+    width: 20px; /* Adjust action icon size */
+    height: 20px;
+    cursor: pointer; /* Indicate clickable icons */
+}
+
+.vertical-dash {
+    margin: 0 5px; /* Spacing around the dash */
+}
