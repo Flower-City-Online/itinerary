@@ -4,7 +4,9 @@
     class="iconButton flex flex-row"
     (click)="buttonClick.emit()"
   >
-    <img [ngSrc]="buttonIcon" height="12" width="13" />
-    <p>{{ buttonText }}</p>
+    <div class="flex gap-1 items-center">
+      <img [ngSrc]="buttonIcon" height="12" width="13" />
+      <p>{{ buttonText }}</p>
+    </div>
   </lib-primary-btn>
 </div>
