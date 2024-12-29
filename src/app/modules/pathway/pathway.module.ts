@@ -23,14 +23,20 @@ import {
 } from '@angular/google-maps';
 import { MatIcon } from '@angular/material/icon';
 import { TranslateModule } from '@ngx-translate/core';
-import { ButtonsModule, LibMapModule } from 'nextsapien-component-lib';
+import {
+  ButtonsModule,
+  InputFieldModule,
+  LibMapModule,
+} from 'nextsapien-component-lib';
 import { environment } from 'src/environments/environment';
 import { SharedModule } from '../../shared/shared.module';
+import { ItinerariesModule } from '../itineraries/itineraries.module';
 import { GooglemapComponent } from './components/googlemap/googlemap.component';
 import { MapHeaderComponent } from './components/map-header/map-header.component';
 import { DefaultDestinationComponent } from './pages/default-destination/default-destination.component';
 import { ItineraryPreviewComponent } from './pages/itinerary-preview/itinerary-preview.component';
 import { NonVisualMapFilterComponent } from './pages/non-visual-map-filter/non-visual-map-filter.component';
+import { SearchLocationComponent } from './pages/search-location/search-location.component';
 import { PathwayRoutingModule } from './pathway-routing.module';
 import { PathwayComponent } from './pathway.component';
 
@@ -62,6 +68,7 @@ const COMPONENTS = [
     PathwayComponent,
     GooglemapComponent,
     MapHeaderComponent,
+    SearchLocationComponent,
   ],
   imports: [
     TranslateModule,
@@ -72,6 +79,9 @@ const COMPONENTS = [
     FormsModule,
     GoogleMapsModule,
     MatIcon,
+    InputFieldModule,
+    ButtonsModule,
+    ItinerariesModule,
     LibMapModule.forRoot({
       googleMapsKey: environment.googleMapsKey,
       googleMapsURL: environment.googleMapsURL,

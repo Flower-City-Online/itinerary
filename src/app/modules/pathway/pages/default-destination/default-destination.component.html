@@ -1,67 +1,129 @@
-<div class="max-padd-container pt-10 pb-4">
-  <app-map-header
-    [title]="'MAP_HEADER.CREATE_ITINERARY' | translate"
-    [backLink]="'/'"
-  ></app-map-header>
+<div *ngIf="!showSearchLocation">
+  <div class="max-padd-container pt-10 pb-4">
+    <app-map-header
+      [title]="'MAP_HEADER.CREATE_ITINERARY' | translate"
+      [backLink]="'/'"
+    ></app-map-header>
+  </div>
+
+  <div class="">
+    <app-googlemap
+      [newDestination]="newDestination"
+      [startLocation]="startLocation"
+      (destinationAdded)="onDestinationAdded($event)"
+      (routeRendered)="onRouteRendered($event)"
+    ></app-googlemap>
+  </div>
+
+  <app-map-area-footer
+    *ngIf="startLocation === ''"
+    [itineraryCreationType]="itineraryCreationType"
+    (itineraryCreationTypeChangeEvent)="
+      handleItineraryCreationTypeChange($event)
+    "
+    (continueClickedEvent)="handleContinueClick()"
+  ></app-map-area-footer>
 </div>
 
-<div class="">
-  <app-googlemap
-    [newDestination]="newDestination"
-    (destinationAdded)="onDestinationAdded($event)"
-  ></app-googlemap>
-</div>
-
-<div class="">
+<div *ngIf="startLocation !== '' && !showSearchLocation" class="">
   <div class="absolute bottom-0 py-3">
     <section class="fixed bottom-0 w-full">
-      <div class="tracking-widest px-5 py-2 rounded-t-3xl drawer-shadow">
+      <div
+        class="tracking-widest px-5 py-2 rounded-t-3xl drawer-shadow bg-[#28252D]"
+      >
         <div class="">
+          <div class="flex justify-center">
+            <p>{{ noOfPlaces }} places |</p>
+            <p>{{ duration?.text }} ({{ distance?.text }})</p>
+          </div>
           <div class="bottomModal mt-5 mb-3 flex flex-col gap-y-2">
             <div class="flex items-center justify-between w-full gap-x-4">
               <div class="flex items-center justify-start gap-x-4">
-                <div class="absolute left-0 top-3">
-                  <img [src]="ICONS.destination" alt="" class="w-20" />
+                <div class="">
+                  <img [src]="ICONS.destination" alt="" />
                 </div>
                 <div class="text ml-10">
                   <h2 class="sm:text-sm xs:text-xs flex items-center gap-x-1">
-                    {{ "ITINERARY.STARTING_LOCATION" | translate }}
+                    {{ startLocation }}
                   </h2>
-                  <p class="sm:text-xs text-secondary">
-                    {{ "ITINERARY.STARTING_DESCRIPTION" | translate }}
+                  <p class="xs:text-[10px] sm:text-xs text-secondary">
+                    Starting Location
                   </p>
                 </div>
               </div>
-              <div class="flex items-center gap-x-3">
-                <img [src]="ICONS.pen" alt="" class="cursor-pointer" />
+              <div
+                (click)="handleEditLocationClick('start')"
+                class="flex items-center gap-x-3"
+              >
+                <img
+                  src="/assets/icons/penicon.svg"
+                  alt=""
+                  class="cursor-pointer"
+                />
               </div>
             </div>
-            <div class="mt-2">
-              <h1 class="text-lg font-Calistoga">
-                {{ "ITINERARY.DESTINATION_TITLE" | translate }}
-              </h1>
-              <p class="py-2 text-white opacity-70 text-[10px]">
-                {{ "ITINERARY.DESTINATION_DESCRIPTION" | translate }}
-              </p>
+            <div
+              *ngIf="newDestination"
+              class="flex items-center justify-between w-full gap-x-4"
+            >
+              <div class="flex items-center justify-start gap-x-4">
+                <div class="">
+                  <img [src]="ICONS.start" alt="" />
+                </div>
+                <div class="text ml-10">
+                  <h2 class="sm:text-sm xs:text-xs flex items-center gap-x-1">
+                    {{ newDestination }}
+                  </h2>
+                  <p class="xs:text-[10px] sm:text-xs text-secondary">
+                    Destination
+                  </p>
+                </div>
+              </div>
+              <div
+                (click)="handleEditLocationClick('destination')"
+                class="flex items-center gap-x-3"
+              >
+                <img
+                  src="/assets/icons/penicon.svg"
+                  alt=""
+                  class="cursor-pointer"
+                />
+              </div>
             </div>
-            <div class="flex gap-x-4">
-              <lib-input-field
-                type="text"
-                [placeholder]="'ITINERARY.WHERE_TO' | translate"
-                class="!w-60 !py-1 text-white text-opacity-70"
-                [(ngModel)]="destination"
-              />
-              <lib-icon-btn (click)="addDestination()">+</lib-icon-btn>
+            <div *ngIf="!newDestination || !startLocation">
+              <div class="mt-2">
+                <h1 class="text-lg font-Calistoga">Destination</h1>
+                <p class="py-2 text-white opacity-70 text-[10px]">
+                  Select final destination for itinenary route.
+                </p>
+              </div>
+              <div class="flex gap-x-4 w-[20rem]">
+                <lib-input-field
+                  type="text"
+                  placeholder="Where to?"
+                  class="!w-60 !py-1 text-white text-opacity-70"
+                  [enableGoogleAddress]="true"
+                  [(ngModel)]="destination"
+                ></lib-input-field>
+                <!-- <lib-icon-btn class="text-[32px]" (click)="addDestination()"
+                >+</lib-icon-btn
+              > -->
+              </div>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="background-gradient">
-        <lib-primary-btn>{{
-          "IMAGE_CROPPER.CONTINUE" | translate
-        }}</lib-primary-btn>
+      <div class="background-gradient py-5 px-16">
+        <lib-primary-btn (click)="handleContinueClick()" class=""
+          >Continue</lib-primary-btn
+        >
       </div>
     </section>
   </div>
 </div>
+<app-search-location
+  [searchLocationType]="searchLocationType"
+  (searchedLocationEvent)="handleSearchedLocation($event)"
+  *ngIf="showSearchLocation"
+></app-search-location>

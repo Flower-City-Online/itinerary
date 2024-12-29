@@ -1,7 +1,8 @@
-import { HttpClient } from '@angular/common/http';
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
-import { GoogleMap, MapGeocoder } from '@angular/google-maps';
+import { GoogleMap } from '@angular/google-maps';
+import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { ITINERARY_CREATION_TYPES } from 'src/app/constants/constants';
 import { MapAreaService } from '../../../../../../services/core/map-area.service';
 
 @Component({
@@ -16,6 +17,7 @@ export class MapAreaComponent implements OnInit, AfterViewInit {
   isSelectMode = false;
   selectedPlaces: google.maps.places.PlaceResult[] = [];
   polylines: google.maps.Polyline[] = [];
+  itineraryCreationType: string = ITINERARY_CREATION_TYPES.draw;
 
   mapOptions: google.maps.MapOptions = {
     center: { lat: 37.7749, lng: -122.4194 },
@@ -118,12 +120,19 @@ export class MapAreaComponent implements OnInit, AfterViewInit {
   selectedPolygon: google.maps.Polygon | null = null;
 
   constructor(
-    private geocoder: MapGeocoder,
-    private http: HttpClient,
     private mapAreaService: MapAreaService,
+    private router: Router,
   ) {}
   polygonDrawn = false;
   private directionsService = new google.maps.DirectionsService();
+
+  handleItineraryCreationTypeChange(value: string): void {
+    this.itineraryCreationType = value;
+    // if (value === ITINERARY_CREATION_TYPES.pathway) {
+    //   this.router.navigate(['/pathway']);
+    // }
+  }
+
   ngOnInit(): void {
     this.subscriptions.push(
       this.mapAreaService.drawMode$.subscribe((isDrawMode) => {

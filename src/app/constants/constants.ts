@@ -1,4 +1,4 @@
-export const ICONS = {
+const ICONS = {
   plus: 'assets/icons/plus.svg',
   sliders: 'assets/icon/common/sliders.svg',
   calendarFilter: 'assets/icon/calendar/calendar-filter.svg',
@@ -43,6 +43,7 @@ export const ICONS = {
   startMarkerImage: '/assets/images/start-loc-marker.svg',
   endMarkerImage: '/assets/images/end-loc-marker.svg',
   destination: '/assets/icons/destination-icon.svg',
+  start: '/assets/icons/start-icon.svg',
   pen: '/assets/icons/penicon.svg',
   locationWhite: '/assets/icons/location-white-icon.svg',
   clock: '/assets/icons/clock-icon.svg',
@@ -79,3 +80,11 @@ export const ICONS = {
   notSpecified: 'assets/icons/questionMark.svg',
   horizontal: '/assets/images/horizontal.svg',
 };
+
+const ITINERARY_CREATION_TYPES = {
+  pathway: 'pathway',
+  draw: 'draw',
+  visualFilters: 'visualFilters',
+};
+
+export { ICONS, ITINERARY_CREATION_TYPES };

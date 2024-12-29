@@ -1,4 +1,13 @@
-import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import {
+  ChangeDetectorRef,
+  Component,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output,
+} from '@angular/core';
+import { Router } from '@angular/router';
+import { ITINERARY_CREATION_TYPES } from 'src/app/constants/constants';
 import { MapAreaService } from '../../../../../../../services/core/map-area.service';
 
 @Component({
@@ -7,6 +16,10 @@ import { MapAreaService } from '../../../../../../../services/core/map-area.serv
   styleUrls: ['./map-area-footer.component.scss'],
 })
 export class MapAreaFooterComponent implements OnInit {
+  @Input() itineraryCreationType!: string;
+  @Output() itineraryCreationTypeChangeEvent = new EventEmitter<string>();
+  @Output() continueClickedEvent = new EventEmitter<void>();
+  ITINERARY_CREATION_TYPES = ITINERARY_CREATION_TYPES;
   isContinueEnabled: boolean = false;
   isSelectMode = false;
   selectedPlaces: google.maps.places.PlaceResult[] = [];
@@ -16,6 +29,7 @@ export class MapAreaFooterComponent implements OnInit {
   constructor(
     public mapAreaService: MapAreaService,
     private cdr: ChangeDetectorRef,
+    private router: Router,
   ) {}
 
   ngOnInit(): void {
@@ -40,6 +54,14 @@ export class MapAreaFooterComponent implements OnInit {
       this.cdr.detectChanges();
     });
   }
+
+  emitItineraryCreationTypeChange(value: string) {
+    this.itineraryCreationTypeChangeEvent.emit(value);
+    if (value === ITINERARY_CREATION_TYPES.pathway) {
+      this.router.navigate(['/pathway']);
+    }
+  }
+
   onContinue(): void {
     if (!this.isSelectMode) {
       this.mapAreaService.enableSelectMode();
@@ -50,6 +72,10 @@ export class MapAreaFooterComponent implements OnInit {
 
   onDeletePlace(index: number) {
     this.mapAreaService.removePlace(index);
+  }
+
+  handleContinueClick(): void {
+    this.continueClickedEvent.emit();
   }
 
   onCancel() {}

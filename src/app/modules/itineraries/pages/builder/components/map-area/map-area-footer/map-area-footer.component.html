@@ -9,22 +9,58 @@
           <div
             class="bg-grey rounded-full searchbar-shadow flex items-center justify-between"
           >
-            <button class="rounded-full p-2 px-4">
+            <button
+              [ngClass]="{
+                'bg-primary':
+                  itineraryCreationType === ITINERARY_CREATION_TYPES.pathway,
+              }"
+              class="rounded-full p-2 px-4"
+              (click)="
+                emitItineraryCreationTypeChange(
+                  ITINERARY_CREATION_TYPES.pathway
+                )
+              "
+            >
               <img src="/assets/icons/locationicon.svg" alt="" />
             </button>
 
-            <button class="rounded-full p-2 px-4 bg-primary">
+            <button
+              [ngClass]="{
+                'bg-primary':
+                  itineraryCreationType === ITINERARY_CREATION_TYPES.draw,
+              }"
+              class="rounded-full p-2 px-4"
+              (click)="
+                emitItineraryCreationTypeChange(ITINERARY_CREATION_TYPES.draw)
+              "
+            >
               <img src="/assets/icons/write.svg" alt="" />
             </button>
-            <button class="rounded-full p-2 px-4">
+            <button
+              [ngClass]="{
+                'bg-primary':
+                  itineraryCreationType ===
+                  ITINERARY_CREATION_TYPES.visualFilters,
+              }"
+              class="rounded-full p-2 px-4"
+              (click)="
+                emitItineraryCreationTypeChange(
+                  ITINERARY_CREATION_TYPES.visualFilters
+                )
+              "
+            >
               <img src="/assets/icons/warn.svg" alt="" />
             </button>
           </div>
         </ng-container>
       </div>
+
       <div
         class="flex items-center justify-center text-[9px] gap-2"
-        *ngIf="isSelectMode"
+        *ngIf="
+          isSelectMode &&
+          itineraryCreationType === ITINERARY_CREATION_TYPES.draw
+        "
       >
         <img src="/assets/icons/locationicon.svg" alt="Location" />
         <span *ngIf="selectedPlaces.length < 2"
@@ -36,14 +72,23 @@
         <img src="/assets/icons/clock-icon.svg" alt="Time" />
         <span>{{ estimatedTime }} ({{ distance }})</span>
       </div>
-      <div class="filterClass text-xs py-2 mt-2">
+      <div
+        class="filterClass text-xs py-2 mt-2"
+        *ngIf="itineraryCreationType === ITINERARY_CREATION_TYPES.draw"
+      >
         {{
           isSelectMode
             ? "Select places from your drawn zone to include in your itinerary route."
             : "Draw a zone on the map with your finger that you want to include in your itinerary."
         }}
       </div>
-      <div class="flex gap-2 py-5" *ngIf="isSelectMode">
+      <div
+        class="flex gap-2 py-5"
+        *ngIf="
+          isSelectMode &&
+          itineraryCreationType === ITINERARY_CREATION_TYPES.draw
+        "
+      >
         <div class="h-[150px] overflow-y-auto">
           <div class="font-Gilroy mt-5 mb-3 flex flex-col gap-y-5">
             <div
@@ -99,7 +144,9 @@
 
     <div
       class="background-gradient flex gap-2 py-5 px-16"
-      *ngIf="!isSelectMode"
+      *ngIf="
+        !isSelectMode && itineraryCreationType === ITINERARY_CREATION_TYPES.draw
+      "
     >
       <lib-secondary-btn
         (click)="mapAreaService.triggerClearAction()"
@@ -115,10 +162,30 @@
     </div>
     <div
       class="background-gradient flex gap-2 py-5 px-16"
-      *ngIf="isSelectMode && selectedPlaces.length >= 2"
+      *ngIf="
+        isSelectMode &&
+        selectedPlaces.length >= 2 &&
+        itineraryCreationType === ITINERARY_CREATION_TYPES.draw
+      "
     >
       <lib-primary-btn (click)="onContinue()" class="w-full"
         >Preview</lib-primary-btn
+      >
+    </div>
+
+    <div
+      class="bg-[#28252D] px-5 py-5"
+      *ngIf="itineraryCreationType === ITINERARY_CREATION_TYPES.pathway"
+    >
+      <p class="pb-1">Select starting location for itinerary route.</p>
+      <lib-input-field type="text" placeholder="From where?"></lib-input-field>
+    </div>
+    <div
+      class="background-gradient flex gap-2 py-5 px-16"
+      *ngIf="itineraryCreationType === ITINERARY_CREATION_TYPES.pathway"
+    >
+      <lib-primary-btn (click)="handleContinueClick()" class="w-full"
+        >Continue</lib-primary-btn
       >
     </div>
   </section>

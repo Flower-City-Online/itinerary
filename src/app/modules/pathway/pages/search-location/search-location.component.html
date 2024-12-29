@@ -1,0 +1,27 @@
+<section [ngClass]="customcss">
+  <div class="flex justify-between md:gap-x-6 p-1">
+    <lib-icon-btn
+      (click)="goBack()"
+      class="bg-color mr-2 flex items-center justify-center rounded-full w-7 h-7 outset-shadow flexCenter"
+    >
+      <img src="assets/icons/back.svg" />
+    </lib-icon-btn>
+    <div class="font-Calistoga tracking-wide">Location Search</div>
+    <div></div>
+  </div>
+  <div class="px-3">
+    <lib-input-field
+      class="p-5"
+      [label]="searchLocationType === 'start' ? 'From where?' : 'Where to?'"
+      [enableGoogleAddress]="true"
+      [(ngModel)]="searchedLocation"
+    ></lib-input-field>
+  </div>
+  <div
+    class="background-gradient flex gap-2 py-5 px-16 absolute w-full bottom-0"
+  >
+    <lib-primary-btn (click)="handleDoneClick()" class="w-full"
+      >Done</lib-primary-btn
+    >
+  </div>
+</section>

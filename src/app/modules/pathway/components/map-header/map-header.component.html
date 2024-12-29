@@ -1,10 +1,10 @@
 <section [ngClass]="customcss">
-  <div class="flex-between md:gap-x-6">
+  <div class="flex justify-between md:gap-x-6">
     <lib-icon-btn
       (click)="goBack()"
       class="bg-color mr-2 flex items-center justify-center rounded-full w-7 h-7 outset-shadow flexCenter"
     >
-      arrow_back
+      <img src="assets/icons/back.svg" />
     </lib-icon-btn>
     <div class="font-Calistoga tracking-wide">{{ title }}</div>
     <div

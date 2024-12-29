@@ -9,4 +9,7 @@
     ></google-map>
   </div>
 </div>
-<app-map-area-footer></app-map-area-footer>
+<app-map-area-footer
+  [itineraryCreationType]="itineraryCreationType"
+  (itineraryCreationTypeChangeEvent)="handleItineraryCreationTypeChange($event)"
+></app-map-area-footer>

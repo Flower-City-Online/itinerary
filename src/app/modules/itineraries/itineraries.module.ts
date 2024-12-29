@@ -8,6 +8,7 @@ import {
   ButtonsModule,
   DashedCheckboxModule,
   FormFieldModule,
+  InputFieldModule,
   LibMapModule,
   LibModalModule,
   SearchBarModule,
@@ -48,7 +49,11 @@ import { FavoritesComponent } from './pages/favorites/favorites.component';
     ExploreListComponent,
     DeleteItinerariesComponent,
   ],
-  exports: [FilterMenuComponent, DeleteItinerariesComponent],
+  exports: [
+    FilterMenuComponent,
+    DeleteItinerariesComponent,
+    MapAreaFooterComponent,
+  ],
   imports: [
     CommonModule,
     ItinerariesRoutingModule,
@@ -65,6 +70,7 @@ import { FavoritesComponent } from './pages/favorites/favorites.component';
     TranslateModule,
     SearchBarModule,
     GoogleMapsModule,
+    InputFieldModule,
     LibMapModule.forRoot({
       googleMapsKey: 'AIzaSyDIXdQpCkQwLYuDvxK9Hbt4o9DFOop_YB8',
       googleMapsURL:
