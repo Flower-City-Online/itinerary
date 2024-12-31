@@ -1,5 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
+import { ICONS } from 'src/app/constants/constants';
+import { ItenariesRoutesEnum } from 'src/app/enums/ItenariesRoutes.enum';
 import { MapAreaService } from '../../../../../../../services/core/map-area.service';
 
 @Component({
@@ -8,17 +10,20 @@ import { MapAreaService } from '../../../../../../../services/core/map-area.serv
   styleUrls: ['./map-area-header.component.scss'],
 })
 export class MapAreaHeaderComponent {
+  ICONS = ICONS;
   @Input() cssClass!: string;
+
   constructor(
     private router: Router,
     public mapAreaService: MapAreaService,
   ) {}
 
-  onBack() {
-    this.router.navigate(['/itineraries/builder']);
+  onBack(): void {
+    this.router.navigate([ItenariesRoutesEnum.ITINERARY_BUILDER]);
     this.mapAreaService.triggerClearAction();
   }
-  clear() {
+
+  clear(): void {
     this.mapAreaService.triggerClearAction();
   }
 }

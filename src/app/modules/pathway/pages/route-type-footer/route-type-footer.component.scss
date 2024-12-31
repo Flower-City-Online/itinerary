@@ -1,0 +1,25 @@
+$chip-box-shadow-dark: 4.1px 4.1px 8.2px 0px #00000052 inset;
+$chip-box-shadow-light: -2.46px -2.46px 3.28px 0px #ffffff1a inset;
+$chip-bg-selected: linear-gradient(94.44deg, #fe3c72 1.26%, #e15561 100%);
+
+.chip {
+  display: inline-block;
+  padding: 8px 16px;
+  font-size: 10px;
+  font-weight: 500;
+  color: white;
+  background: #282531;
+  border-radius: 16px;
+  margin: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  box-shadow: $chip-box-shadow-dark, $chip-box-shadow-light;
+  &.selected {
+    background: $chip-bg-selected;
+  }
+}
+
+.done-button {
+  font-size: 11px;
+  font-weight: 800;
+}

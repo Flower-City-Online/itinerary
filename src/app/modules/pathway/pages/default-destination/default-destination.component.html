@@ -1,4 +1,4 @@
-<div *ngIf="!showSearchLocation">
+<div *ngIf="navigationSteps !== 2">
   <div class="max-padd-container pt-10 pb-4">
     <app-map-header
       [title]="'MAP_HEADER.CREATE_ITINERARY' | translate"
@@ -10,6 +10,7 @@
     <app-googlemap
       [newDestination]="newDestination"
       [startLocation]="startLocation"
+      [radius]="radius"
       (destinationAdded)="onDestinationAdded($event)"
       (routeRendered)="onRouteRendered($event)"
     ></app-googlemap>
@@ -25,18 +26,18 @@
   ></app-map-area-footer>
 </div>
 
-<div *ngIf="startLocation !== '' && !showSearchLocation" class="">
+<div *ngIf="navigationSteps === 3" class="">
   <div class="absolute bottom-0 py-3">
     <section class="fixed bottom-0 w-full">
       <div
         class="tracking-widest px-5 py-2 rounded-t-3xl drawer-shadow bg-[#28252D]"
       >
         <div class="">
-          <div class="flex justify-center">
+          <div *ngIf="newDestination" class="flex justify-center">
             <p>{{ noOfPlaces }} places |</p>
             <p>{{ duration?.text }} ({{ distance?.text }})</p>
           </div>
-          <div class="bottomModal mt-5 mb-3 flex flex-col gap-y-2">
+          <div class="bottom-modal mt-5 mb-3 flex flex-col gap-y-2">
             <div class="flex items-center justify-between w-full gap-x-4">
               <div class="flex items-center justify-start gap-x-4">
                 <div class="">
@@ -55,11 +56,7 @@
                 (click)="handleEditLocationClick('start')"
                 class="flex items-center gap-x-3"
               >
-                <img
-                  src="/assets/icons/penicon.svg"
-                  alt=""
-                  class="cursor-pointer"
-                />
+                <img [src]="ICONS.pen" alt="" class="cursor-pointer" />
               </div>
             </div>
             <div
@@ -83,31 +80,25 @@
                 (click)="handleEditLocationClick('destination')"
                 class="flex items-center gap-x-3"
               >
-                <img
-                  src="/assets/icons/penicon.svg"
-                  alt=""
-                  class="cursor-pointer"
-                />
+                <img [src]="ICONS.pen" alt="" class="cursor-pointer" />
               </div>
             </div>
-            <div *ngIf="!newDestination || !startLocation">
+            <div *ngIf="!newDestination">
               <div class="mt-2">
                 <h1 class="text-lg font-Calistoga">Destination</h1>
                 <p class="py-2 text-white opacity-70 text-[10px]">
                   Select final destination for itinenary route.
                 </p>
               </div>
-              <div class="flex gap-x-4 w-[20rem]">
+              <div class="w-full gap-x-4 w-[20rem]">
                 <lib-input-field
                   type="text"
                   placeholder="Where to?"
-                  class="!w-60 !py-1 text-white text-opacity-70"
+                  class="w-full !py-1 text-white text-opacity-70"
                   [enableGoogleAddress]="true"
+                  (click)="handleContinueClick()"
                   [(ngModel)]="destination"
                 ></lib-input-field>
-                <!-- <lib-icon-btn class="text-[32px]" (click)="addDestination()"
-                >+</lib-icon-btn
-              > -->
               </div>
             </div>
           </div>
@@ -125,5 +116,14 @@
 <app-search-location
   [searchLocationType]="searchLocationType"
   (searchedLocationEvent)="handleSearchedLocation($event)"
-  *ngIf="showSearchLocation"
+  *ngIf="navigationSteps === 2"
 ></app-search-location>
+<app-route-type-footer
+  (routeTypeSelected)="handleRouteTypeSelected()"
+  *ngIf="navigationSteps === 4"
+></app-route-type-footer>
+<app-route-radius-footer
+  *ngIf="navigationSteps === 5"
+  (radiusSelected)="handeRouteRadiusSelected($event)"
+></app-route-radius-footer>
+<app-places-footer *ngIf="navigationSteps === 6"></app-places-footer>

@@ -49,6 +49,7 @@ const ICONS = {
   clock: '/assets/icons/clock-icon.svg',
   startLocation: '/assets/icons/start-location.svg',
   restu: '/assets/icons/restu-icon.svg',
+  restu2: '/assets/icons/rest-icon2.svg',
   groupBinBar: '/assets/icons/groupbinbar.svg',
   enLocation: '/assets/icons/en-location.svg',
   location: '/assets/icons/locationicon.svg',

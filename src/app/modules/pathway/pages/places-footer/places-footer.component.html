@@ -1,0 +1,58 @@
+<div class="absolute bottom-0 py-3">
+  <section class="fixed bottom-0 w-full">
+    <div
+      class="tracking-widest px-5 py-2 rounded-t-3xl drawer-shadow bg-[#28252D]"
+    >
+      <div class="text-center">
+        <p class="mb-3">
+          Click the event pins to add/remove them in the itinerary. Hold the
+          event pin to see Event Details. Click map area to exit from Event
+          Details.
+        </p>
+        <p class="places-heading">Places</p>
+      </div>
+      <div class="my-1">
+        <div
+          class="chip"
+          *ngFor="let place of places; let i = index"
+          [class.selected]="selectedPlace === i"
+          (click)="handlePlaceSelection(i)"
+        >
+          {{ place }}
+        </div>
+      </div>
+      <hr class="h-1 text-secondary opacity-25" />
+      <div>
+        <p class="text-lg font-bold text-white mb-2">Select Automatically</p>
+        <div class="flex items-center justify-between">
+          <p>
+            We will select places which are best for you for your itinerary.
+          </p>
+          <lib-toggle
+            id="toggle-button-elem"
+            [(toggleState)]="toggleState"
+            (toggleStateChange)="onToggleChange($event)"
+          ></lib-toggle>
+        </div>
+      </div>
+      <div class="flex justify-between items-center cursor-pointer mt-3">
+        <p class="text-white">Number of places</p>
+        <p>{{ noOfPlaces.value }}</p>
+      </div>
+      <lib-range-selector
+        [formControl]="noOfPlaces"
+        [dualKnobs]="false"
+        [pinValue]="true"
+        [reverseBarColor]="false"
+        [minValue]="0"
+        [maxValue]="20"
+        [stepValue]="1"
+      ></lib-range-selector>
+    </div>
+    <div class="background-gradient py-5 px-16">
+      <lib-primary-btn (click)="handleContinueClick()" class=""
+        >Continue</lib-primary-btn
+      >
+    </div>
+  </section>
+</div>

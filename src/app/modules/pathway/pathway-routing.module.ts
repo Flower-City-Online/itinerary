@@ -12,14 +12,6 @@ const routes: Routes = [
     path: 'location-search',
     component: SearchLocationComponent,
   },
-  // {
-  //   path: PathwayRoutesEnum.ItineraryPreview,
-  //   component: ItineraryPreviewComponent,
-  // },
-  // {
-  //   path: PathwayRoutesEnum.DefaultDestination,
-  //   component: DefaultDestinationComponent,
-  // },
 ];
 
 @NgModule({

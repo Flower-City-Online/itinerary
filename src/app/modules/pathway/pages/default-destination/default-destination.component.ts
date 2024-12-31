@@ -18,6 +18,9 @@ export class DefaultDestinationComponent {
   duration: google.maps.Duration | undefined;
   distance: google.maps.Distance | undefined;
   noOfPlaces: number = 0;
+  showRouteTypeModal: boolean = false;
+  navigationSteps: number = 1;
+  radius: number | null = 1;
 
   addDestination(): void {
     this.newDestination = this.destination;
@@ -44,7 +47,8 @@ export class DefaultDestinationComponent {
   handleContinueClick(): void {
     if (this.startLocation === '') this.searchLocationType = 'start';
     else this.searchLocationType = 'destination';
-    this.showSearchLocation = true;
+    if (this.startLocation && this.newDestination) this.navigationSteps = 4;
+    else this.navigationSteps = 2;
   }
 
   handleEditLocationClick(value: string): void {
@@ -55,6 +59,15 @@ export class DefaultDestinationComponent {
   handleSearchedLocation(value: string): void {
     if (this.searchLocationType === 'start') this.startLocation = value;
     else this.newDestination = value;
-    this.showSearchLocation = false;
+    this.navigationSteps = 3;
+  }
+
+  handleRouteTypeSelected(): void {
+    this.navigationSteps = 5;
+  }
+
+  handeRouteRadiusSelected(radius: number | null): void {
+    this.radius = radius;
+    this.navigationSteps = 6;
   }
 }

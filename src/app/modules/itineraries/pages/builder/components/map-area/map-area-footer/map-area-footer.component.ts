@@ -7,7 +7,8 @@ import {
   Output,
 } from '@angular/core';
 import { Router } from '@angular/router';
-import { ITINERARY_CREATION_TYPES } from 'src/app/constants/constants';
+import { ICONS, ITINERARY_CREATION_TYPES } from 'src/app/constants/constants';
+import { PathwayRoutesEnum } from 'src/app/enums/PathwayRoutes.enum';
 import { MapAreaService } from '../../../../../../../services/core/map-area.service';
 
 @Component({
@@ -25,6 +26,7 @@ export class MapAreaFooterComponent implements OnInit {
   selectedPlaces: google.maps.places.PlaceResult[] = [];
   distance: string = '0.0 km';
   estimatedTime: string = '0 minutes';
+  ICONS = ICONS;
 
   constructor(
     public mapAreaService: MapAreaService,
@@ -55,10 +57,10 @@ export class MapAreaFooterComponent implements OnInit {
     });
   }
 
-  emitItineraryCreationTypeChange(value: string) {
+  emitItineraryCreationTypeChange(value: string): void {
     this.itineraryCreationTypeChangeEvent.emit(value);
     if (value === ITINERARY_CREATION_TYPES.pathway) {
-      this.router.navigate(['/pathway']);
+      this.router.navigate([PathwayRoutesEnum.Pathway]);
     }
   }
 
@@ -70,7 +72,7 @@ export class MapAreaFooterComponent implements OnInit {
     }
   }
 
-  onDeletePlace(index: number) {
+  onDeletePlace(index: number): void {
     this.mapAreaService.removePlace(index);
   }
 
@@ -78,5 +80,5 @@ export class MapAreaFooterComponent implements OnInit {
     this.continueClickedEvent.emit();
   }
 
-  onCancel() {}
+  onCancel(): void {}
 }

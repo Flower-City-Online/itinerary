@@ -6,6 +6,7 @@ import {
   Input,
   Output,
 } from '@angular/core';
+import { ICONS } from 'src/app/constants/constants';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -18,7 +19,7 @@ export class MapHeaderComponent {
   @Input() backLink: string = '/';
   @Input() customcss: string = 'py-1';
   @Output() onSearchClick = new EventEmitter<boolean>();
-
+  ICONS = ICONS;
   isSearchClicked: boolean = false;
 
   constructor(private location: Location) {}

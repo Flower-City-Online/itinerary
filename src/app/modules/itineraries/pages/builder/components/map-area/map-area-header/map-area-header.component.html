@@ -1,13 +1,16 @@
 <div
   class="{{
     cssClass
-  }} headerMainBar pt-5 pb-5 px-5 flex items-center justify-between"
+  }} header-main-bar pt-5 pb-5 px-5 flex items-center justify-between"
 >
-  <button class="headerBtn" (click)="onBack()">
-    <img ngSrc="assets/icons/back.svg" height="15" width="16" />
-  </button>
+  <lib-icon-btn
+    (click)="onBack()"
+    class="bg-color mr-2 flex items-center justify-center rounded-full w-7 h-7 outset-shadow flexCenter"
+  >
+    <img [src]="ICONS.back" />
+  </lib-icon-btn>
   <h4>Create itinerary</h4>
-  <button class="headerBtn" (click)="clear()">
+  <button class="header-btn" (click)="clear()">
     <div
       class="discard cursor-pointer flex items-center justify-center text-[11px] mr-3"
     >

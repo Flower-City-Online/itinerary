@@ -1,0 +1,29 @@
+<div class="absolute bottom-0 py-3">
+  <section class="fixed bottom-0 w-full">
+    <div
+      class="tracking-widest px-5 py-2 rounded-t-3xl drawer-shadow bg-[#28252D]"
+    >
+      <div
+        (click)="handleContinueClick()"
+        class="flex justify-between items-center cursor-pointer"
+      >
+        <p></p>
+        <p>Route Types</p>
+        <p class="text-[#FE3C72] done-button">Done</p>
+      </div>
+      <div class="flex justify-between items-center cursor-pointer">
+        <p>Radius</p>
+        <p>{{ radiusControl.value }} KM</p>
+      </div>
+      <lib-range-selector
+        [formControl]="radiusControl"
+        [dualKnobs]="false"
+        [pinValue]="true"
+        [reverseBarColor]="false"
+        [minValue]="1"
+        [maxValue]="20"
+        [stepValue]="1"
+      ></lib-range-selector>
+    </div>
+  </section>
+</div>

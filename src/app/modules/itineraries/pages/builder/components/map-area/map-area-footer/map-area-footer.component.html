@@ -21,7 +21,7 @@
                 )
               "
             >
-              <img src="/assets/icons/locationicon.svg" alt="" />
+              <img [src]="ICONS.location" alt="" />
             </button>
 
             <button
@@ -34,7 +34,7 @@
                 emitItineraryCreationTypeChange(ITINERARY_CREATION_TYPES.draw)
               "
             >
-              <img src="/assets/icons/write.svg" alt="" />
+              <img [src]="ICONS.write" alt="" />
             </button>
             <button
               [ngClass]="{
@@ -49,7 +49,7 @@
                 )
               "
             >
-              <img src="/assets/icons/warn.svg" alt="" />
+              <img [src]="ICONS.warn" alt="" />
             </button>
           </div>
         </ng-container>
@@ -62,14 +62,14 @@
           itineraryCreationType === ITINERARY_CREATION_TYPES.draw
         "
       >
-        <img src="/assets/icons/locationicon.svg" alt="Location" />
+        <img [src]="ICONS.location" alt="Location" />
         <span *ngIf="selectedPlaces.length < 2"
           >Select at least 2 places |</span
         >
         <span *ngIf="selectedPlaces.length >= 2"
           >{{ selectedPlaces.length }} places selected |</span
         >
-        <img src="/assets/icons/clock-icon.svg" alt="Time" />
+        <img [src]="ICONS.clock" alt="Time" />
         <span>{{ estimatedTime }} ({{ distance }})</span>
       </div>
       <div
@@ -99,19 +99,19 @@
                 <div
                   class="icon w-8 h-8 outset-shadow flex items-center justify-center rounded-full"
                 >
-                  <img src="/assets/icons/restu-icon.svg" alt="Place Icon" />
+                  <img [src]="ICONS.restu" alt="Place Icon" />
                 </div>
                 <div class="text">
                   <h2 class="sm:text-sm xs:text-xs flex items-center gap-x-1">
                     {{ place.name }}
                     <img
                       *ngIf="i === 0"
-                      src="/assets/icons/start-location.svg"
+                      [src]="ICONS.startMarkerImage"
                       alt="Start Location"
                     />
                     <img
                       *ngIf="i === selectedPlaces.length - 1"
-                      src="/assets/icons/en-location.svg"
+                      [src]="ICONS.endMarkerImage"
                       alt="End Location"
                     />
                   </h2>
@@ -129,7 +129,7 @@
                   (click)="onDeletePlace(i)"
                 >
                   <img
-                    src="/assets/icons/delete_sec.svg"
+                    [src]="ICONS.deleteSec"
                     alt="Delete Icon"
                     class="cursor-pointer"
                     (click)="onDeletePlace(i)"
@@ -178,7 +178,11 @@
       *ngIf="itineraryCreationType === ITINERARY_CREATION_TYPES.pathway"
     >
       <p class="pb-1">Select starting location for itinerary route.</p>
-      <lib-input-field type="text" placeholder="From where?"></lib-input-field>
+      <lib-input-field
+        (click)="handleContinueClick()"
+        type="text"
+        placeholder="From where?"
+      ></lib-input-field>
     </div>
     <div
       class="background-gradient flex gap-2 py-5 px-16"

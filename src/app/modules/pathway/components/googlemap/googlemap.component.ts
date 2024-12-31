@@ -21,6 +21,7 @@ import { ICONS } from 'src/app/constants/constants';
 export class GooglemapComponent implements OnChanges {
   @Input() newDestination!: string;
   @Input() startLocation!: string;
+  @Input() radius: number | null = 1;
   @Output() destinationAdded = new EventEmitter<string>();
   @Output() routeRendered = new EventEmitter<{
     distance: google.maps.Distance | undefined;
@@ -124,6 +125,8 @@ export class GooglemapComponent implements OnChanges {
     disableDefaultUI: true, // Disable default UI
     zoomControl: true, // Enable zoom control
   };
+
+  currentPolygon: google.maps.Polygon | null = null;
   center: google.maps.LatLngLiteral = { lat: 24, lng: 12 };
   zoom = 5;
   drawingManager!: google.maps.drawing.DrawingManager;
@@ -138,6 +141,7 @@ export class GooglemapComponent implements OnChanges {
   waypoints: string[] = [];
 
   @ViewChild(GoogleMap) googleMap!: GoogleMap;
+
   ngOnInit(): void {
     this.getUserLocation();
   }
@@ -154,6 +158,10 @@ export class GooglemapComponent implements OnChanges {
     if (changes['startLocation'] && changes['startLocation'].currentValue) {
       this.startLocation = changes['startLocation'].currentValue;
     }
+    if (changes['radius'] && changes['radius'].currentValue) {
+      this.radius = changes['radius'].currentValue;
+      this.calculateAndDisplayRoute();
+    }
   }
 
   initializeDirectionsRenderer(): void {
@@ -163,12 +171,12 @@ export class GooglemapComponent implements OnChanges {
     }
   }
 
-  onMapInitialized(map: any) {
+  onMapInitialized(map: google.maps.Map): void {
     this.map = map;
     this.initializeDrawingManager();
   }
 
-  getUserLocation() {
+  getUserLocation(): void {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position) => {
         this.currentLocation = {
@@ -184,9 +192,8 @@ export class GooglemapComponent implements OnChanges {
     }
   }
 
-  addCurrentLocationMarker(position: google.maps.LatLngLiteral) {
+  addCurrentLocationMarker(position: google.maps.LatLngLiteral): void {
     if (this.googleMap && this.googleMap.googleMap) {
-      // Add a circle to represent the accuracy radius
       new google.maps.Circle({
         strokeColor: '#4285F4',
         strokeOpacity: 0.8,
@@ -195,10 +202,8 @@ export class GooglemapComponent implements OnChanges {
         fillOpacity: 0.35,
         map: this.googleMap.googleMap,
         center: position,
-        radius: 100, // Set the radius as needed (in meters)
+        radius: 100,
       });
-
-      // Add a marker to represent the current location
       new google.maps.Marker({
         position,
         map: this.googleMap.googleMap,
@@ -215,7 +220,7 @@ export class GooglemapComponent implements OnChanges {
     }
   }
 
-  addDestination() {
+  addDestination(): void {
     if (this.destination.trim() !== '') {
       this.waypoints.push(this.destination);
       this.destination = '';
@@ -223,7 +228,7 @@ export class GooglemapComponent implements OnChanges {
     }
   }
 
-  addDestinationFromParent(destination: string) {
+  addDestinationFromParent(destination: string): void {
     if (destination.trim() !== '') {
       this.waypoints.push(destination);
       this.destinationAdded.emit(destination);
@@ -231,7 +236,7 @@ export class GooglemapComponent implements OnChanges {
     }
   }
 
-  calculateAndDisplayRoute() {
+  calculateAndDisplayRoute(): void {
     if (!this.startLocation || this.waypoints.length === 0) {
       return;
     }
@@ -257,8 +262,7 @@ export class GooglemapComponent implements OnChanges {
             duration: response.routes[0].legs[0].duration,
             waypoints: this.waypoints.length,
           });
-          console.log(response.routes[0]);
-          this.highlightRouteWithoutLibraries(response.routes[0]);
+          this.highlightRoute(response.routes[0].overview_path);
           response.routes[0].legs[0].steps.forEach((step) => {
             const location = step.end_location;
             this.getNearbyPlaces(location);
@@ -271,142 +275,133 @@ export class GooglemapComponent implements OnChanges {
     );
   }
 
-  getNearbyPlaces(location: google.maps.LatLng) {
+  getNearbyPlaces(location: google.maps.LatLng): void {
     const request: google.maps.places.PlaceSearchRequest = {
       location,
-      radius: 1000, // 1 km
+      radius: this.radius ? this.radius * 1000 : 1000,
       type: 'restaurant',
     };
 
     this.placesService.nearbySearch(request, (results, status) => {
       if (status === google.maps.places.PlacesServiceStatus.OK && results) {
-        new google.maps.Marker({
-          position: results[0].geometry?.location,
-          map: this.googleMap.googleMap,
-          icon: ICONS.endMarkerImage,
+        results.forEach((item) => {
+          const marker = new google.maps.Marker({
+            position: item.geometry?.location,
+            map: this.googleMap.googleMap,
+            icon: ICONS.restu,
+          });
+
+          this.addMarkerEvents(marker, item);
         });
         this.nearbyPlaces.push(...results);
       }
     });
   }
 
-  private highlightRouteWithoutLibraries(route: google.maps.DirectionsRoute) {
-    const routePath = route.overview_path;
-    const radiusInMeters = 1000; // 1 km
+  addMarkerEvents(
+    marker: google.maps.Marker,
+    place: google.maps.places.PlaceResult,
+  ) {
+    let isMouseDown = false;
+    let clickAndHoldTimeout: number;
+    let isClickAndHoldTriggered = false;
 
-    // Arrays to store the left and right offset points
-    const leftOffsetPoints: google.maps.LatLngLiteral[] = [];
-    const rightOffsetPoints: google.maps.LatLngLiteral[] = [];
+    marker.addListener('mousedown', () => {
+      isMouseDown = true;
+      isClickAndHoldTriggered = false;
 
-    // Iterate through the route path
-    for (let i = 0; i < routePath.length - 1; i++) {
-      const start = routePath[i];
-      const end = routePath[i + 1];
-
-      // Calculate the bearing (direction) between the two points
-      const bearing = this.calculateBearing(start, end);
-
-      // Calculate the offset points to the left and right
-      const leftOffset = this.calculateOffsetPoint(
-        start,
-        bearing - 90,
-        radiusInMeters,
-      );
-      const rightOffset = this.calculateOffsetPoint(
-        start,
-        bearing + 90,
-        radiusInMeters,
-      );
-
-      leftOffsetPoints.push(leftOffset);
-      rightOffsetPoints.push(rightOffset);
-    }
-
-    // Combine the left and right offset points into a single polygon
-    const bufferPolygon = new google.maps.Polygon({
-      paths: [...leftOffsetPoints, ...rightOffsetPoints.reverse()], // Combine left and right offsets
-      strokeColor: '#FF0000',
-      strokeOpacity: 0.3,
-      strokeWeight: 0,
-      fillColor: '#FF0000',
-      fillOpacity: 0.3,
+      clickAndHoldTimeout = window.setTimeout(() => {
+        if (isMouseDown) {
+          isClickAndHoldTriggered = true;
+          console.log('Click and hold detected at:', place);
+        }
+      }, 1000);
     });
 
-    // Display the polygon on the map
-    bufferPolygon.setMap(this.map);
+    marker.addListener('mouseup', () => {
+      isMouseDown = false;
+      if (clickAndHoldTimeout) {
+        clearTimeout(clickAndHoldTimeout);
+      }
+    });
+
+    marker.addListener('click', () => {
+      if (!isClickAndHoldTriggered) {
+        console.log('Marker clicked at:', place);
+      }
+    });
   }
 
-  private calculateBearing(
-    start: google.maps.LatLng,
-    end: google.maps.LatLng,
-  ): number {
-    const lat1 = this.degreesToRadians(start.lat());
-    const lon1 = this.degreesToRadians(start.lng());
-    const lat2 = this.degreesToRadians(end.lat());
-    const lon2 = this.degreesToRadians(end.lng());
+  highlightRoute(overviewPath: google.maps.LatLng[]): void {
+    if (this.currentPolygon) {
+      this.currentPolygon.setMap(null);
+      this.currentPolygon = null;
+    }
 
-    const y = Math.sin(lon2 - lon1) * Math.cos(lat2);
-    const x =
-      Math.cos(lat1) * Math.sin(lat2) -
-      Math.sin(lat1) * Math.cos(lat2) * Math.cos(lon2 - lon1);
-    return (this.radiansToDegrees(Math.atan2(y, x)) + 360) % 360; // Normalize to 0–360 degrees
-  }
+    const bufferRadius = this.radius ? this.radius * 1000 : 1000;
+    const earthRadius = 6378137;
 
-  private calculateOffsetPoint(
-    point: google.maps.LatLng,
-    bearing: number,
-    distance: number,
-  ): google.maps.LatLngLiteral {
-    const earthRadius = 6378137; // Radius of Earth in meters
-    const distRatio = distance / earthRadius;
-    const bearingRad = this.degreesToRadians(bearing);
+    const allOuterCoords: google.maps.LatLngLiteral[] = [];
+    const allInnerCoords: google.maps.LatLngLiteral[] = [];
 
-    const lat1 = this.degreesToRadians(point.lat());
-    const lon1 = this.degreesToRadians(point.lng());
-
-    const lat2 = Math.asin(
-      Math.sin(lat1) * Math.cos(distRatio) +
-        Math.cos(lat1) * Math.sin(distRatio) * Math.cos(bearingRad),
-    );
-
-    const lon2 =
-      lon1 +
-      Math.atan2(
-        Math.sin(bearingRad) * Math.sin(distRatio) * Math.cos(lat1),
-        Math.cos(distRatio) - Math.sin(lat1) * Math.sin(lat2),
+    overviewPath.forEach((point) => {
+      const circlePoints = this.generateCircleAroundPoint(
+        point.lat(),
+        point.lng(),
+        bufferRadius,
+        earthRadius,
       );
+      allOuterCoords.push(...circlePoints);
+      allInnerCoords.unshift(...circlePoints);
+    });
+    const bufferCoords = [...allOuterCoords, ...allInnerCoords];
+    const routePolygon = new google.maps.Polygon({
+      paths: bufferCoords,
+      strokeColor: '#FF0000',
+      strokeOpacity: 0.35,
+      strokeWeight: 0,
+      fillColor: '#FF0000',
+      fillOpacity: 0.35,
+    });
 
-    return {
-      lat: this.radiansToDegrees(lat2),
-      lng: this.radiansToDegrees(lon2),
-    };
+    routePolygon.setMap(this.map);
+    this.currentPolygon = routePolygon;
   }
 
-  private degreesToRadians(degrees: number): number {
-    return (degrees * Math.PI) / 180;
+  generateCircleAroundPoint(
+    lat: number,
+    lng: number,
+    radius: number,
+    earthRadius: number,
+  ): google.maps.LatLngLiteral[] {
+    const points: google.maps.LatLngLiteral[] = [];
+    const numSegments = 36;
+    for (let i = 0; i < numSegments; i++) {
+      const angle = (i * 360) / numSegments;
+      const angleRad = (angle * Math.PI) / 180;
+      const offsetLat =
+        (radius / earthRadius) * (180 / Math.PI) * Math.sin(angleRad);
+      const offsetLng =
+        ((radius / earthRadius) * (180 / Math.PI) * Math.cos(angleRad)) /
+        Math.cos((lat * Math.PI) / 180);
+      points.push({
+        lat: lat + offsetLat,
+        lng: lng + offsetLng,
+      });
+    }
+
+    return points;
   }
 
-  private radiansToDegrees(radians: number): number {
-    return (radians * 180) / Math.PI;
-  }
-
-  placeMarkers(legs: google.maps.DirectionsLeg[]) {
-    const startMarkerImage = ICONS.startMarkerImage; // Replace with your custom start marker image URL
-    const endMarkerImage = ICONS.endMarkerImage; // Replace with your custom end marker image URL
-
-    // Clear existing markers if needed
+  placeMarkers(legs: google.maps.DirectionsLeg[]): void {
+    const startMarkerImage = ICONS.startMarkerImage;
+    const endMarkerImage = ICONS.endMarkerImage;
     this.directionsRenderer.setOptions({ markerOptions: { visible: false } });
-
-    console.log(legs[0]);
-    console.log(this.nearbyPlaces);
-    // Place custom start marker
     new google.maps.Marker({
       position: legs[0].start_location,
       map: this.googleMap.googleMap,
       icon: startMarkerImage,
     });
-
-    // Place custom end marker
     new google.maps.Marker({
       position: legs[legs.length - 1].end_location,
       map: this.googleMap.googleMap,
@@ -414,9 +409,9 @@ export class GooglemapComponent implements OnChanges {
     });
   }
 
-  initializeDrawingManager() {
+  initializeDrawingManager(): void {
     this.drawingManager = new google.maps.drawing.DrawingManager({
-      drawingMode: null, // Start with no drawing mode
+      drawingMode: null,
       drawingControl: false,
       drawingControlOptions: {
         position: google.maps.ControlPosition.TOP_CENTER,
@@ -425,8 +420,8 @@ export class GooglemapComponent implements OnChanges {
       polygonOptions: {
         editable: true,
         draggable: true,
-        fillColor: '#E17575', // Set your polygon fill color
-        strokeColor: '#E17575', // Set your polygon stroke color
+        fillColor: '#E17575',
+        strokeColor: '#E17575',
       },
     });
 
@@ -443,13 +438,12 @@ export class GooglemapComponent implements OnChanges {
             lng: vertex.lng(),
           }));
         }
-        // Stop drawing mode after a polygon is created
         this.drawingManager.setDrawingMode(null);
       },
     );
   }
 
-  startDrawingPolygon() {
+  startDrawingPolygon(): void {
     this.drawingManager.setDrawingMode(google.maps.drawing.OverlayType.POLYGON);
   }
 }

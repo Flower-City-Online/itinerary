@@ -1,8 +1,7 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { GoogleMap } from '@angular/google-maps';
-import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { ITINERARY_CREATION_TYPES } from 'src/app/constants/constants';
+import { ICONS, ITINERARY_CREATION_TYPES } from 'src/app/constants/constants';
 import { MapAreaService } from '../../../../../../services/core/map-area.service';
 
 @Component({
@@ -119,18 +118,12 @@ export class MapAreaComponent implements OnInit, AfterViewInit {
   drawingManager!: google.maps.drawing.DrawingManager;
   selectedPolygon: google.maps.Polygon | null = null;
 
-  constructor(
-    private mapAreaService: MapAreaService,
-    private router: Router,
-  ) {}
+  constructor(private mapAreaService: MapAreaService) {}
   polygonDrawn = false;
   private directionsService = new google.maps.DirectionsService();
 
   handleItineraryCreationTypeChange(value: string): void {
     this.itineraryCreationType = value;
-    // if (value === ITINERARY_CREATION_TYPES.pathway) {
-    //   this.router.navigate(['/pathway']);
-    // }
   }
 
   ngOnInit(): void {
@@ -158,7 +151,7 @@ export class MapAreaComponent implements OnInit, AfterViewInit {
     this.getUserLocation();
   }
 
-  getUserLocation() {
+  getUserLocation(): void {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         (position) => {
@@ -175,7 +168,7 @@ export class MapAreaComponent implements OnInit, AfterViewInit {
             position: userLocation,
             map: this.map.googleMap!,
             icon: {
-              url: '/assets/icons/not_blip.svg',
+              url: ICONS.notBlip,
               scaledSize: new google.maps.Size(30, 30),
             },
             title: 'You are here',
@@ -192,11 +185,10 @@ export class MapAreaComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    const service = new google.maps.places.PlacesService(this.map.googleMap!);
     this.initializeDrawingManager();
   }
 
-  initializeDrawingManager() {
+  initializeDrawingManager(): void {
     this.drawingManager = new google.maps.drawing.DrawingManager({
       drawingMode: google.maps.drawing.OverlayType.POLYGON,
       drawingControl: true,
@@ -218,15 +210,17 @@ export class MapAreaComponent implements OnInit, AfterViewInit {
     google.maps.event.addListener(
       this.drawingManager,
       'overlaycomplete',
-      (event: any) => {
+      (event: google.maps.drawing.OverlayCompleteEvent) => {
         if (this.selectedPolygon) this.selectedPolygon.setMap(null);
-        this.selectedPolygon = event.overlay;
-        this.polygonDrawn = true;
-
-        if (event.type === google.maps.drawing.OverlayType.POLYLINE) {
+        if (event.overlay instanceof google.maps.Polygon) {
+          this.selectedPolygon = event.overlay;
+          this.polygonDrawn = true;
+        } else {
+          this.selectedPolygon = null;
+        }
+        if (event.overlay instanceof google.maps.Polyline) {
           this.polylines.push(event.overlay);
         }
-
         this.mapAreaService.enableContinueButton(true);
         this.mapAreaService.disableDrawMode();
         this.capturePolygonCoordinates();
@@ -234,7 +228,7 @@ export class MapAreaComponent implements OnInit, AfterViewInit {
     );
   }
 
-  capturePolygonCoordinates() {
+  capturePolygonCoordinates(): void {
     if (this.selectedPolygon) {
       const path = this.selectedPolygon.getPath().getArray();
       const coordinates = path.map((latLng) => ({
@@ -245,7 +239,7 @@ export class MapAreaComponent implements OnInit, AfterViewInit {
     }
   }
 
-  findPlacesWithinZone(coordinates: { lat: number; lng: number }[]) {
+  findPlacesWithinZone(coordinates: { lat: number; lng: number }[]): void {
     const bounds = new google.maps.LatLngBounds();
     coordinates.forEach((coord) =>
       bounds.extend(new google.maps.LatLng(coord.lat, coord.lng)),
@@ -293,14 +287,14 @@ export class MapAreaComponent implements OnInit, AfterViewInit {
     return isInside;
   }
 
-  displayPlaces(places: google.maps.places.PlaceResult[]) {
+  displayPlaces(places: google.maps.places.PlaceResult[]): void {
     this.clearMarkers();
-    places.forEach((place, index) => {
+    places.forEach((place) => {
       const marker = new CustomMarker({
         position: place.geometry?.location!,
         map: this.map.googleMap!,
         title: place.name,
-        icon: '/assets/icons/rest-icon2.svg',
+        icon: ICONS.restu2,
       });
       marker['place'] = place;
       marker.addListener('click', () =>
@@ -314,7 +308,7 @@ export class MapAreaComponent implements OnInit, AfterViewInit {
     return this.markers.find((marker) => marker.place?.place_id === placeId);
   }
 
-  updateMarkers(places: google.maps.places.PlaceResult[]) {
+  updateMarkers(places: google.maps.places.PlaceResult[]): void {
     places.forEach((place, index) => {
       if (place.place_id) {
         const marker = this.getMarkerByPlaceId(place.place_id);
@@ -344,7 +338,7 @@ export class MapAreaComponent implements OnInit, AfterViewInit {
   togglePlaceSelection(
     place: google.maps.places.PlaceResult,
     marker: CustomMarker,
-  ) {
+  ): void {
     if (this.isSelectMode) {
       const index = this.selectedPlaces.findIndex(
         (selectedPlace) => selectedPlace.place_id === place.place_id,
@@ -352,18 +346,18 @@ export class MapAreaComponent implements OnInit, AfterViewInit {
 
       if (index > -1) {
         this.selectedPlaces.splice(index, 1);
-        marker.setIcon('/assets/icons/rest-icon2.svg');
+        marker.setIcon(ICONS.restu2);
       } else {
         this.selectedPlaces.push(place);
         const new_index = this.selectedPlaces.findIndex(
           (selectedPlace) => selectedPlace.place_id === place.place_id,
         );
         if (new_index === 0) {
-          marker.setIcon('/assets/icons/start-loc-marker.svg');
+          marker.setIcon(ICONS.startMarkerImage);
         } else if (new_index === this.selectedPlaces.length - 1) {
-          marker.setIcon('/assets/icons/end-loc-marker.svg');
+          marker.setIcon(ICONS.endMarkerImage);
         } else {
-          marker.setIcon('/assets/icons/restu-icon.svg');
+          marker.setIcon(ICONS.restu);
         }
       }
 
@@ -375,7 +369,7 @@ export class MapAreaComponent implements OnInit, AfterViewInit {
     }
   }
 
-  calculateTotalDistance(places: google.maps.places.PlaceResult[]) {
+  calculateTotalDistance(places: google.maps.places.PlaceResult[]): void {
     if (places.length < 2) {
       this.mapAreaService.updateSelectedPlaces([], 0, '0 minutes');
       return;
@@ -455,7 +449,7 @@ export class MapAreaComponent implements OnInit, AfterViewInit {
     this.polygonDrawn = true;
   }
 
-  clearMarkers() {
+  clearMarkers(): void {
     this.markers.forEach((marker) => marker.setMap(null));
     this.markers = [];
   }
@@ -478,7 +472,7 @@ export class MapAreaComponent implements OnInit, AfterViewInit {
     this.mapAreaService.enableContinueButton(false);
   }
 
-  enableDrawing() {
+  enableDrawing(): void {
     if (this.drawingManager) {
       this.drawingManager.setDrawingMode(
         google.maps.drawing.OverlayType.POLYGON,
@@ -486,7 +480,7 @@ export class MapAreaComponent implements OnInit, AfterViewInit {
     }
   }
 
-  disableDrawing() {
+  disableDrawing(): void {
     if (this.drawingManager) {
       this.drawingManager.setDrawingMode(null);
     }
