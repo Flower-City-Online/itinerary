@@ -22,12 +22,18 @@ export class GooglemapComponent implements OnChanges {
   @Input() newDestination!: string;
   @Input() startLocation!: string;
   @Input() radius: number | null = 1;
+  @Input() locationToAdd!: google.maps.places.PlaceResult | null;
+  @Input() locationToRemove!: google.maps.places.PlaceResult | null ;
   @Output() destinationAdded = new EventEmitter<string>();
+  @Output() timeToArrive = new EventEmitter<number>();
   @Output() routeRendered = new EventEmitter<{
     distance: google.maps.Distance | undefined;
     duration: google.maps.Duration | undefined;
     waypoints: number;
   }>();
+  @Output() markerSelected = new EventEmitter<google.maps.places.PlaceResult>();
+  previousSelectedMarker: google.maps.Marker | null = null;
+  currentSelectedMarker: google.maps.Marker | null = null;
   nearbyPlaces: google.maps.places.PlaceResult[] = [];
   mapOptions: google.maps.MapOptions = {
     styles: [
@@ -139,7 +145,7 @@ export class GooglemapComponent implements OnChanges {
   currentLocation!: google.maps.LatLngLiteral;
   destination: string = '';
   waypoints: string[] = [];
-
+  waypointsLatLong: google.maps.LatLng[] = [];
   @ViewChild(GoogleMap) googleMap!: GoogleMap;
 
   ngOnInit(): void {
@@ -160,6 +166,24 @@ export class GooglemapComponent implements OnChanges {
     }
     if (changes['radius'] && changes['radius'].currentValue) {
       this.radius = changes['radius'].currentValue;
+      this.calculateAndDisplayRoute();
+    }
+    if (changes['locationToAdd'] && changes['locationToAdd'].currentValue) {
+      this.waypointsLatLong.push(
+        changes['locationToAdd'].currentValue.geometry.location,
+      );
+      this.calculateAndDisplayRoute();
+    }
+    if (
+      changes['locationToRemove'] &&
+      changes['locationToRemove'].currentValue
+    ) {
+      this.waypointsLatLong = this.waypointsLatLong.filter(
+        (item) =>
+          !item.equals(
+            changes['locationToRemove'].currentValue.geometry.location,
+          ),
+      );
       this.calculateAndDisplayRoute();
     }
   }
@@ -235,23 +259,81 @@ export class GooglemapComponent implements OnChanges {
       this.calculateAndDisplayRoute();
     }
   }
-
-  calculateAndDisplayRoute(): void {
+  calculateRoute(location: google.maps.places.PlaceResult): void {
     if (!this.startLocation || this.waypoints.length === 0) {
       return;
     }
 
-    const waypts = this.waypoints.slice(0, -1).map((location) => ({
+    let waypts: {
+      location: string | google.maps.LatLng | undefined;
+      stopover: boolean;
+    }[] = this.waypoints.slice(0, -1).map((location) => ({
       location,
       stopover: true,
     }));
+    let wayptLatLng = this.waypointsLatLong.map((location) => ({
+      location,
+      stopover: true,
+    }));
+    waypts = [
+      ...waypts,
+      ...wayptLatLng,
+      { location: location.geometry?.location, stopover: true },
+    ];
 
     this.directionsService.route(
       {
         origin: this.startLocation,
         destination: this.waypoints[this.waypoints.length - 1],
         waypoints: waypts,
-        optimizeWaypoints: true,
+        optimizeWaypoints: false,
+        travelMode: google.maps.TravelMode.DRIVING,
+      },
+      (response, status) => {
+        if (status === google.maps.DirectionsStatus.OK && response) {
+          const route = response.routes[0];
+          const legs = route.legs;
+          console.log(legs);
+          let totalDuration = 0;
+          for (const item of legs) {
+            totalDuration = totalDuration + (item.duration?.value ?? 0);
+            console.log(
+              location.geometry?.location?.toString(),
+              item.end_location.toString(),
+            );
+            if (location.geometry?.location?.equals(item.end_location)) break;
+          }
+          this.timeToArrive.emit(totalDuration);
+        } else {
+          window.alert('Directions request failed due to ' + status);
+        }
+      },
+    );
+  }
+
+  calculateAndDisplayRoute(): void {
+    if (!this.startLocation || this.waypoints.length === 0) {
+      return;
+    }
+    let waypts: {
+      location: string | google.maps.LatLng | undefined;
+      stopover: boolean;
+    }[] = this.waypoints.slice(0, -1).map((location) => ({
+      location,
+      stopover: true,
+    }));
+
+    let wayptLatLng = this.waypointsLatLong.map((location) => ({
+      location,
+      stopover: true,
+    }));
+    waypts = [...waypts, ...wayptLatLng];
+    this.directionsService.route(
+      {
+        origin: this.startLocation,
+        destination: this.waypoints[this.waypoints.length - 1],
+        waypoints: waypts,
+        optimizeWaypoints: false,
         travelMode: google.maps.TravelMode.DRIVING,
       },
       (response, status) => {
@@ -294,6 +376,8 @@ export class GooglemapComponent implements OnChanges {
           this.addMarkerEvents(marker, item);
         });
         this.nearbyPlaces.push(...results);
+      } else {
+        console.error('Unable to find nearby places');
       }
     });
   }
@@ -313,7 +397,20 @@ export class GooglemapComponent implements OnChanges {
       clickAndHoldTimeout = window.setTimeout(() => {
         if (isMouseDown) {
           isClickAndHoldTriggered = true;
+          if (this.previousSelectedMarker) {
+            this.previousSelectedMarker.setIcon(ICONS.restu);
+          }
+          this.currentSelectedMarker = marker;
+          this.previousSelectedMarker = marker;
+          this.markerSelected.emit(place);
+          if (place?.geometry?.location) {
+            this.calculateRoute(place);
+          }
           console.log('Click and hold detected at:', place);
+          marker.setIcon({
+            url: ICONS.restu2,
+            scaledSize: new google.maps.Size(48, 48),
+          });
         }
       }, 1000);
     });
@@ -340,7 +437,6 @@ export class GooglemapComponent implements OnChanges {
 
     const bufferRadius = this.radius ? this.radius * 1000 : 1000;
     const earthRadius = 6378137;
-
     const allOuterCoords: google.maps.LatLngLiteral[] = [];
     const allInnerCoords: google.maps.LatLngLiteral[] = [];
 

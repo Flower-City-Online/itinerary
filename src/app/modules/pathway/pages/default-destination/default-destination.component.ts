@@ -21,10 +21,13 @@ export class DefaultDestinationComponent {
   showRouteTypeModal: boolean = false;
   navigationSteps: number = 1;
   radius: number | null = 1;
-
+  selectedLocation: google.maps.places.PlaceResult | null = null;
+  timeToArrive: number = 0;
   addDestination(): void {
     this.newDestination = this.destination;
   }
+  locationToAdd!: google.maps.places.PlaceResult | null;
+  locationToRemove!: google.maps.places.PlaceResult | null;
 
   onRouteRendered(data: {
     distance: google.maps.Distance | undefined;
@@ -69,5 +72,25 @@ export class DefaultDestinationComponent {
   handeRouteRadiusSelected(radius: number | null): void {
     this.radius = radius;
     this.navigationSteps = 6;
+  }
+
+  onMarkerSelected(location: google.maps.places.PlaceResult): void {
+    this.selectedLocation = location;
+    this.navigationSteps = 7;
+    console.log(this.navigationSteps);
+  }
+
+  onTimeToArriveChange(timeInSeconds: number): void {
+    this.timeToArrive = timeInSeconds;
+  }
+
+  handleStayTimeSelected(time: number | null): void {}
+
+  handleLocationAdd(location: google.maps.places.PlaceResult | null): void {
+    this.locationToAdd = location;
+  }
+  handleLocationRemove(location: google.maps.places.PlaceResult | null): void {
+    console.log(location);
+    this.locationToRemove = location;
   }
 }

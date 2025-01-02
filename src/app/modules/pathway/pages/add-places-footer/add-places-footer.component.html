@@ -1,0 +1,73 @@
+<div class="absolute bottom-0 py-3">
+  <section class="fixed bottom-0 w-full">
+    <div
+      class="tracking-widest px-5 py-2 rounded-t-3xl drawer-shadow bg-[#28252D]"
+    >
+      <div class="flex justify-between items-center">
+        <p
+          (click)="handleRemoveClick()"
+          class="text-white done-button cursor-pointer"
+        >
+          Remove
+        </p>
+        <p class="">Add place details</p>
+        <p
+          (click)="handleAddClick()"
+          class="text-[#FE3C72] done-button cursor-pointer"
+        >
+          Add
+        </p>
+      </div>
+    </div>
+    <lib-tab-menu
+      [items]="items"
+      (activeItemChange)="onActiveItemChange($event)"
+      #libTabMenu
+    >
+    </lib-tab-menu>
+    <div class="bg-[#28252D]" *ngIf="selectedTab === '1'">
+      <div class="flex items-center justify-start gap-x-4">
+        <div class="">
+          <img [src]="ICONS.start" alt="" />
+        </div>
+        <div class="text ml-10">
+          <h2 class="sm:text-sm xs:text-xs flex items-center gap-x-1">
+            {{ selectedLocation?.name | titlecase }}
+            <div class="ml-2 flex gap-2">
+              <img [src]="ICONS.yellowStar" alt="" />
+              {{ selectedLocation?.rating }} ({{
+                selectedLocation?.user_ratings_total
+              }}
+              reviews)
+            </div>
+          </h2>
+        </div>
+      </div>
+    </div>
+    <div class="bg-[#28252D]" *ngIf="selectedTab === '2'">
+      <div>
+        <p>{{ formattedArrivalTime }}</p>
+        <p>Arrival Time</p>
+      </div>
+      <div class="flex justify-between items-center cursor-pointer">
+        <p>Time to spend there</p>
+        <p>{{ stayTimeInMins.value }} Minutes</p>
+      </div>
+      <lib-range-selector
+        [formControl]="stayTimeInMins"
+        [dualKnobs]="false"
+        [pinValue]="true"
+        [reverseBarColor]="false"
+        [minValue]="1"
+        [maxValue]="20"
+        [stepValue]="1"
+      ></lib-range-selector>
+    </div>
+    <div class="bg-[#28252D]" *ngIf="selectedTab === '3'"></div>
+    <div class="background-gradient py-5 px-16">
+      <lib-primary-btn (click)="handleContinueClick()" class=""
+        >Continue</lib-primary-btn
+      >
+    </div>
+  </section>
+</div>

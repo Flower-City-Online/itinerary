@@ -27,6 +27,7 @@ import {
   ButtonsModule,
   InputFieldModule,
   LibMapModule,
+  LibTabMenuModule,
   RangeSelectorModule,
   ToggleModule,
 } from 'nextsapien-component-lib';
@@ -35,6 +36,7 @@ import { SharedModule } from '../../shared/shared.module';
 import { ItinerariesModule } from '../itineraries/itineraries.module';
 import { GooglemapComponent } from './components/googlemap/googlemap.component';
 import { MapHeaderComponent } from './components/map-header/map-header.component';
+import { AddPlacesFooterComponent } from './pages/add-places-footer/add-places-footer.component';
 import { DefaultDestinationComponent } from './pages/default-destination/default-destination.component';
 import { ItineraryPreviewComponent } from './pages/itinerary-preview/itinerary-preview.component';
 import { NonVisualMapFilterComponent } from './pages/non-visual-map-filter/non-visual-map-filter.component';
@@ -77,6 +79,7 @@ const COMPONENTS = [
     RouteTypeFooterComponent,
     RouteRadiusFooterComponent,
     PlacesFooterComponent,
+    AddPlacesFooterComponent,
   ],
   imports: [
     TranslateModule,
@@ -94,6 +97,7 @@ const COMPONENTS = [
     RangeSelectorModule,
     ReactiveFormsModule,
     ToggleModule,
+    LibTabMenuModule,
     LibMapModule.forRoot({
       googleMapsKey: environment.googleMapsKey,
       googleMapsURL: environment.googleMapsURL,

@@ -80,6 +80,7 @@ const ICONS = {
   untitled: 'assets/images/untitledImage.svg',
   notSpecified: 'assets/icons/questionMark.svg',
   horizontal: '/assets/images/horizontal.svg',
+  yellowStar: '/assets/icons/yellow-star.svg',
 };
 
 const ITINERARY_CREATION_TYPES = {

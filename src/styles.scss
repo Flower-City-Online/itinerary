@@ -37,6 +37,14 @@
   color: #fff;
 }
 
+.p-tabmenu {
+  background: #28252d;
+}
+
+.pac-item:hover {
+  background-color: #fe3c72;
+}
+
 $custom-typography: mat.define-typography-config(
   $font-family: "Gilroy-Regular, serif",
 );

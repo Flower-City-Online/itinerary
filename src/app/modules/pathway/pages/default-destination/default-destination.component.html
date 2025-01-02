@@ -10,9 +10,13 @@
     <app-googlemap
       [newDestination]="newDestination"
       [startLocation]="startLocation"
+      [locationToAdd]="locationToAdd"
+      [locationToRemove]="locationToRemove"
       [radius]="radius"
       (destinationAdded)="onDestinationAdded($event)"
       (routeRendered)="onRouteRendered($event)"
+      (markerSelected)="onMarkerSelected($event)"
+      (timeToArrive)="onTimeToArriveChange($event)"
     ></app-googlemap>
   </div>
 
@@ -127,3 +131,11 @@
   (radiusSelected)="handeRouteRadiusSelected($event)"
 ></app-route-radius-footer>
 <app-places-footer *ngIf="navigationSteps === 6"></app-places-footer>
+<app-add-places-footer
+  *ngIf="navigationSteps === 7"
+  [selectedLocation]="selectedLocation"
+  [timeToArrive]="timeToArrive"
+  (stayTimeSelected)="handleStayTimeSelected($event)"
+  (onLocationAdd)="handleLocationAdd($event)"
+  (onLocationRemove)="handleLocationRemove($event)"
+></app-add-places-footer>
