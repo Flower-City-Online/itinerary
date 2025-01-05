@@ -28,6 +28,17 @@ export class MapAreaService {
   private estimatedTime = new BehaviorSubject<string>('');
   estimatedTime$ = this.estimatedTime.asObservable();
 
+  private hideMap = new BehaviorSubject<boolean>(false);
+  hideMap$ = this.hideMap.asObservable();
+
+  hideMapAction(): void {
+    this.hideMap.next(true);
+  }
+
+  unHideMapAction(): void {
+    this.hideMap.next(false);
+  }
+
   triggerClearAction() {
     this.clearAction.next();
   }

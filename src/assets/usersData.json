@@ -1,0 +1,109 @@
+[
+  {
+    "id": 1,
+    "name": "Makenna Levin",
+    "email": "levinmakk@mail.com",
+    "image": "assets/icons/makenna.svg",
+    "favoriteFood": [
+      { "id": 1, "name": "Viynansa", "image": "assets/icons/viynasa.svg" },
+      {
+        "id": 2,
+        "name": "Boston Cream Pie",
+        "image": "assets/icons/cream-pie.svg"
+      }
+    ],
+    "favoriteDestination": []
+  },
+  {
+    "id": 2,
+    "name": "Jakob Vaccaro",
+    "email": "jackobvaccaro@mail.com",
+    "image": "assets/icons/jakob.svg",
+    "favoriteFood": [
+      { "id": 1, "name": "Viynansa", "image": "assets/icons/viynasa.svg" },
+      {
+        "id": 2,
+        "name": "Boston Cream Pie",
+        "image": "assets/icons/cream-pie.svg"
+      },
+      { "id": 3, "name": "Italian", "image": "assets/icons/italian.svg" }
+    ],
+    "favoriteDestination": [
+      {
+        "id": 1,
+        "name": "Bali - Indonesia",
+        "image": "assets/icons/bali.svg"
+      },
+      {
+        "id": 2,
+        "name": "Paris - France",
+        "image": "assets/icons/paris.svg"
+      },
+      {
+        "id": 3,
+        "name": "Dubai - United Arab Emirates",
+        "image": "assets/icons/dubai.svg"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Alfredo Bergson",
+    "email": "alfredobergson@mail.com",
+    "image": "assets/icons/alfredo.svg",
+    "favoriteFood": [
+      {
+        "id": 2,
+        "name": "Boston Cream Pie",
+        "image": "assets/icons/cream-pie.svg"
+      }
+    ],
+    "favoriteDestination": [
+      {
+        "id": 1,
+        "name": "Bali - Indonesia",
+        "image": "assets/icons/bali.svg"
+      },
+      {
+        "id": 2,
+        "name": "Paris - France",
+        "image": "assets/icons/paris.svg"
+      },
+      {
+        "id": 3,
+        "name": "Dubai - United Arab Emirates",
+        "image": "assets/icons/dubai.svg"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Alfonso Lipshutz",
+    "email": "alfonsolipshutz@mail.com",
+    "image": "assets/icons/alfonso.svg",
+    "favoriteFood": [
+      {
+        "id": 2,
+        "name": "Boston Cream Pie",
+        "image": "assets/icons/cream-pie.svg"
+      }
+    ],
+    "favoriteDestination": [
+      {
+        "id": 1,
+        "name": "Bali - Indonesia",
+        "image": "assets/icons/bali.svg"
+      },
+      {
+        "id": 2,
+        "name": "Paris - France",
+        "image": "assets/icons/paris.svg"
+      },
+      {
+        "id": 3,
+        "name": "Dubai - United Arab Emirates",
+        "image": "assets/icons/dubai.svg"
+      }
+    ]
+  }
+]

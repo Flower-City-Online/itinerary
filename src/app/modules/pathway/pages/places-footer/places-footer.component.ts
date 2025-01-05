@@ -1,4 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnChanges,
+  OnInit,
+  Output,
+  SimpleChanges,
+} from '@angular/core';
 import { FormControl } from '@angular/forms';
 
 @Component({
@@ -6,14 +14,21 @@ import { FormControl } from '@angular/forms';
   templateUrl: './places-footer.component.html',
   styleUrl: './places-footer.component.scss',
 })
-export class PlacesFooterComponent implements OnInit {
+export class PlacesFooterComponent implements OnInit, OnChanges {
   places: string[] = ['All', 'My interests', 'Popular'];
   selectedPlace: number | null = null;
   toggleState: boolean = false;
-  noOfPlaces = new FormControl<number | null>(0);
-
+  @Input() noOfPlaces: number = 0;
+  @Input() noOfPlacesFormControl = new FormControl<number | null>(0);
+  @Output() locationsAddContinue = new EventEmitter<void>();
   ngOnInit(): void {
-    this.noOfPlaces.valueChanges.subscribe();
+    this.noOfPlacesFormControl.setValue(this.noOfPlaces);
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['noOfPlaces'] && changes['noOfPlaces'].currentValue) {
+      this.noOfPlacesFormControl.setValue(this.noOfPlaces);
+    }
   }
 
   onToggleChange(value: boolean): void {
@@ -24,5 +39,7 @@ export class PlacesFooterComponent implements OnInit {
     this.selectedPlace = index;
   }
 
-  handleContinueClick(): void {}
+  handleContinueClick(): void {
+    this.locationsAddContinue.emit();
+  }
 }

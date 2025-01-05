@@ -11,6 +11,8 @@ import {
   ViewChild,
 } from '@angular/core';
 import { GoogleMap } from '@angular/google-maps';
+import { forkJoin, Observable, of } from 'rxjs';
+import { catchError, map } from 'rxjs/operators';
 import { ICONS } from 'src/app/constants/constants';
 
 @Component({
@@ -22,19 +24,21 @@ export class GooglemapComponent implements OnChanges {
   @Input() newDestination!: string;
   @Input() startLocation!: string;
   @Input() radius: number | null = 1;
+  @Input() navigationSteps: number = 1;
   @Input() locationToAdd!: google.maps.places.PlaceResult | null;
-  @Input() locationToRemove!: google.maps.places.PlaceResult | null ;
+  @Input() locationToRemove!: google.maps.places.PlaceResult | null;
   @Output() destinationAdded = new EventEmitter<string>();
   @Output() timeToArrive = new EventEmitter<number>();
   @Output() routeRendered = new EventEmitter<{
-    distance: google.maps.Distance | undefined;
-    duration: google.maps.Duration | undefined;
+    distance: number;
+    duration: number;
     waypoints: number;
   }>();
   @Output() markerSelected = new EventEmitter<google.maps.places.PlaceResult>();
   previousSelectedMarker: google.maps.Marker | null = null;
   currentSelectedMarker: google.maps.Marker | null = null;
   nearbyPlaces: google.maps.places.PlaceResult[] = [];
+  allMarkers: google.maps.Marker[] = [];
   mapOptions: google.maps.MapOptions = {
     styles: [
       { elementType: 'geometry', stylers: [{ color: '#212121' }] },
@@ -131,7 +135,7 @@ export class GooglemapComponent implements OnChanges {
     disableDefaultUI: true, // Disable default UI
     zoomControl: true, // Enable zoom control
   };
-
+  isRefetchNearbyPlaces: boolean = true;
   currentPolygon: google.maps.Polygon | null = null;
   center: google.maps.LatLngLiteral = { lat: 24, lng: 12 };
   zoom = 5;
@@ -157,7 +161,6 @@ export class GooglemapComponent implements OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    console.log(changes);
     if (changes['newDestination'] && changes['newDestination'].currentValue) {
       this.addDestinationFromParent(changes['newDestination'].currentValue);
     }
@@ -169,22 +172,45 @@ export class GooglemapComponent implements OnChanges {
       this.calculateAndDisplayRoute();
     }
     if (changes['locationToAdd'] && changes['locationToAdd'].currentValue) {
-      this.waypointsLatLong.push(
-        changes['locationToAdd'].currentValue.geometry.location,
+      this.previousSelectedMarker = null;
+      this.isRefetchNearbyPlaces = false;
+      this.currentSelectedMarker?.setIcon(ICONS.restu);
+      const locationExists = this.waypointsLatLong.filter((item) =>
+        item.equals(changes['locationToAdd'].currentValue.geometry.location),
       );
-      this.calculateAndDisplayRoute();
+      if (locationExists) {
+        this.waypointsLatLong.push(
+          changes['locationToAdd'].currentValue.geometry.location,
+        );
+        this.calculateAndDisplayRoute();
+      }
     }
     if (
       changes['locationToRemove'] &&
       changes['locationToRemove'].currentValue
     ) {
-      this.waypointsLatLong = this.waypointsLatLong.filter(
-        (item) =>
-          !item.equals(
-            changes['locationToRemove'].currentValue.geometry.location,
-          ),
-      );
-      this.calculateAndDisplayRoute();
+      this.isRefetchNearbyPlaces = false;
+      this.previousSelectedMarker = null;
+      let flag = false;
+      this.allMarkers.forEach((item) => {
+        if (
+          item
+            .getPosition()
+            ?.equals(changes['locationToRemove'].currentValue.geometry.location)
+        ) {
+          flag = true;
+          item.setIcon(ICONS.restu2);
+        }
+      });
+      if (!flag) {
+        this.waypointsLatLong = this.waypointsLatLong.filter(
+          (item) =>
+            !item.equals(
+              changes['locationToRemove'].currentValue.geometry.location,
+            ),
+        );
+        this.calculateAndDisplayRoute();
+      }
     }
   }
 
@@ -293,17 +319,31 @@ export class GooglemapComponent implements OnChanges {
         if (status === google.maps.DirectionsStatus.OK && response) {
           const route = response.routes[0];
           const legs = route.legs;
-          console.log(legs);
-          let totalDuration = 0;
-          for (const item of legs) {
-            totalDuration = totalDuration + (item.duration?.value ?? 0);
-            console.log(
-              location.geometry?.location?.toString(),
-              item.end_location.toString(),
-            );
-            if (location.geometry?.location?.equals(item.end_location)) break;
-          }
-          this.timeToArrive.emit(totalDuration);
+          const legObservables = legs.map((item) =>
+            this.checkIfMatchesNearbyLocation(
+              item.end_location,
+              location.place_id,
+            ).pipe(
+              map((isMatch) => ({
+                isMatch,
+                duration: item.duration?.value ?? 0,
+              })),
+              catchError(() => of({ isMatch: false, duration: 0 })),
+            ),
+          );
+
+          forkJoin(legObservables).subscribe((results) => {
+            let totalDuration = 0;
+
+            for (const result of results) {
+              totalDuration += result.duration;
+              if (result.isMatch) {
+                break;
+              }
+            }
+
+            this.timeToArrive.emit(totalDuration);
+          });
         } else {
           window.alert('Directions request failed due to ' + status);
         }
@@ -311,6 +351,32 @@ export class GooglemapComponent implements OnChanges {
     );
   }
 
+  checkIfMatchesNearbyLocation(
+    location: google.maps.LatLng,
+    locationToAdd: string | undefined,
+  ): Observable<boolean> {
+    const request: google.maps.places.PlaceSearchRequest = {
+      location,
+      radius: this.radius ? this.radius * 1000 : 1000,
+      type: 'restaurant',
+    };
+
+    return new Observable<boolean>((observer) => {
+      this.placesService.nearbySearch(request, (results, status) => {
+        if (status === google.maps.places.PlacesServiceStatus.OK && results) {
+          const locationMatched = results.some(
+            (item) => item.place_id === locationToAdd,
+          );
+          observer.next(locationMatched);
+          observer.complete();
+        } else {
+          console.error('Unable to find nearby places');
+          observer.next(false);
+          observer.complete();
+        }
+      });
+    });
+  }
   calculateAndDisplayRoute(): void {
     if (!this.startLocation || this.waypoints.length === 0) {
       return;
@@ -339,17 +405,30 @@ export class GooglemapComponent implements OnChanges {
       (response, status) => {
         if (status === google.maps.DirectionsStatus.OK && response) {
           this.directionsRenderer.setDirections(response);
+          let totalDistance = 0;
+          let totalDuration = 0;
+
+          response.routes[0].legs.forEach((leg) => {
+            const distance = leg.distance?.value ?? 0;
+            const duration = leg.duration?.value ?? 0;
+
+            totalDistance += distance;
+            totalDuration += duration;
+          });
+
           this.routeRendered.emit({
-            distance: response.routes[0].legs[0].distance,
-            duration: response.routes[0].legs[0].duration,
-            waypoints: this.waypoints.length,
+            distance: Math.round(totalDistance / 1000),
+            duration: Math.round(totalDuration / 60),
+            waypoints: 2 + this.waypointsLatLong.length,
           });
           this.highlightRoute(response.routes[0].overview_path);
-          response.routes[0].legs[0].steps.forEach((step) => {
-            const location = step.end_location;
-            this.getNearbyPlaces(location);
-          });
+          if (this.isRefetchNearbyPlaces)
+            response.routes[0].legs[0].steps.forEach((step) => {
+              const location = step.end_location;
+              this.getNearbyPlaces(location);
+            });
           this.placeMarkers(response.routes[0].legs);
+          this.isRefetchNearbyPlaces = false;
         } else {
           window.alert('Directions request failed due to ' + status);
         }
@@ -367,15 +446,21 @@ export class GooglemapComponent implements OnChanges {
     this.placesService.nearbySearch(request, (results, status) => {
       if (status === google.maps.places.PlacesServiceStatus.OK && results) {
         results.forEach((item) => {
-          const marker = new google.maps.Marker({
-            position: item.geometry?.location,
-            map: this.googleMap.googleMap,
-            icon: ICONS.restu,
-          });
+          const exists = this.nearbyPlaces.some(
+            (existingPlace) => existingPlace.place_id === item.place_id,
+          );
 
-          this.addMarkerEvents(marker, item);
+          if (!exists) {
+            const marker = new google.maps.Marker({
+              position: item.geometry?.location,
+              map: this.map,
+              icon: ICONS.restu2,
+            });
+            this.addMarkerEvents(marker, item);
+            this.allMarkers.push(marker);
+            this.nearbyPlaces.push(item);
+          }
         });
-        this.nearbyPlaces.push(...results);
       } else {
         console.error('Unable to find nearby places');
       }
@@ -395,10 +480,10 @@ export class GooglemapComponent implements OnChanges {
       isClickAndHoldTriggered = false;
 
       clickAndHoldTimeout = window.setTimeout(() => {
-        if (isMouseDown) {
+        if (isMouseDown && this.navigationSteps === 6) {
           isClickAndHoldTriggered = true;
           if (this.previousSelectedMarker) {
-            this.previousSelectedMarker.setIcon(ICONS.restu);
+            this.previousSelectedMarker.setIcon(ICONS.restu2);
           }
           this.currentSelectedMarker = marker;
           this.previousSelectedMarker = marker;
@@ -406,9 +491,8 @@ export class GooglemapComponent implements OnChanges {
           if (place?.geometry?.location) {
             this.calculateRoute(place);
           }
-          console.log('Click and hold detected at:', place);
-          marker.setIcon({
-            url: ICONS.restu2,
+          this.currentSelectedMarker.setIcon({
+            url: ICONS.restu,
             scaledSize: new google.maps.Size(48, 48),
           });
         }
@@ -419,12 +503,6 @@ export class GooglemapComponent implements OnChanges {
       isMouseDown = false;
       if (clickAndHoldTimeout) {
         clearTimeout(clickAndHoldTimeout);
-      }
-    });
-
-    marker.addListener('click', () => {
-      if (!isClickAndHoldTriggered) {
-        console.log('Marker clicked at:', place);
       }
     });
   }

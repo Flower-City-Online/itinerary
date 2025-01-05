@@ -1,4 +1,6 @@
 import {
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
   Component,
   EventEmitter,
   Input,
@@ -10,10 +12,14 @@ import {
 import { FormControl } from '@angular/forms';
 import { MenuItem } from 'primeng/api';
 import { ICONS } from 'src/app/constants/constants';
+import { IUserData } from 'src/app/interface/userData';
+import { ApiService } from 'src/app/services/core/api.service';
+import { MapAreaService } from 'src/app/services/core/map-area.service';
 @Component({
   selector: 'app-add-places-footer',
   templateUrl: './add-places-footer.component.html',
   styleUrl: './add-places-footer.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AddPlacesFooterComponent implements OnInit, OnChanges {
   @Input() selectedLocation!: google.maps.places.PlaceResult | null;
@@ -26,7 +32,11 @@ export class AddPlacesFooterComponent implements OnInit, OnChanges {
   @Output() onLocationRemove =
     new EventEmitter<google.maps.places.PlaceResult | null>();
   ICONS = ICONS;
-
+  groupedUsersByFood: {
+    food: { name: string; image: string };
+    users: IUserData[];
+  }[] = [];
+  showUsersSearch: boolean = false;
   selectedTab: string | undefined = '1';
   items: MenuItem[] = [
     {
@@ -43,8 +53,23 @@ export class AddPlacesFooterComponent implements OnInit, OnChanges {
     },
   ];
 
+  users: IUserData[] = [];
+  allInvitedUsers: IUserData[] = [];
+
+  constructor(
+    private apiService: ApiService,
+    private cdr: ChangeDetectorRef,
+    private mapAreaService: MapAreaService,
+  ) {}
+
   ngOnInit(): void {
-    console.log(this.timeToArrive);
+    this.apiService
+      .get<IUserData[]>('/assets/usersData.json')
+      .subscribe((data) => {
+        this.users = data;
+        this.groupUsersByFavoriteFood();
+        this.cdr.detectChanges();
+      });
     this.stayTimeInMins.valueChanges.subscribe();
     const currentTime = new Date();
     const arrivalTime = new Date(
@@ -60,6 +85,36 @@ export class AddPlacesFooterComponent implements OnInit, OnChanges {
       'en-US',
       options,
     );
+  }
+
+  groupUsersByFavoriteFood() {
+    const grouped = this.users.reduce(
+      (
+        acc: Record<
+          string,
+          {
+            food: { name: string; image: string };
+            users: IUserData[];
+          }
+        >,
+        user,
+      ) => {
+        user.favoriteFood.forEach((food) => {
+          const key = `${food.name}-${food.image}`;
+          if (!acc[key]) {
+            acc[key] = {
+              food: { name: food.name, image: food.image },
+              users: [],
+            };
+          }
+          acc[key].users.push(user);
+        });
+        return acc;
+      },
+      {},
+    );
+
+    this.groupedUsersByFood = Object.values(grouped);
   }
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -82,12 +137,17 @@ export class AddPlacesFooterComponent implements OnInit, OnChanges {
     }
   }
 
+  handlePeopleClick(): void {
+    this.showUsersSearch = true;
+    this.mapAreaService.hideMapAction();
+    this.cdr.detectChanges();
+  }
+
   onActiveItemChange(value: MenuItem) {
     this.selectedTab = value?.id;
   }
 
   handleAddClick(): void {
-    console.log(this.selectedLocation);
     this.onLocationAdd.emit(this.selectedLocation);
   }
 
@@ -97,5 +157,11 @@ export class AddPlacesFooterComponent implements OnInit, OnChanges {
 
   handleContinueClick(): void {
     this.stayTimeSelected.emit(this.stayTimeInMins.value);
+  }
+
+  handleInviteUser(user: IUserData): void {
+    this.showUsersSearch = false;
+    this.mapAreaService.unHideMapAction();
+    this.allInvitedUsers.push(user);
   }
 }

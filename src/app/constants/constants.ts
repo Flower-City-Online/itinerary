@@ -81,6 +81,8 @@ const ICONS = {
   notSpecified: 'assets/icons/questionMark.svg',
   horizontal: '/assets/images/horizontal.svg',
   yellowStar: '/assets/icons/yellow-star.svg',
+  hambuger: '/assets/icons/hamburger.svg',
+  restu3: '/assets/icons/restu3.svg',
 };
 
 const ITINERARY_CREATION_TYPES = {

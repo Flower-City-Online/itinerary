@@ -1,17 +1,20 @@
-<div *ngIf="navigationSteps !== 2">
+<div *ngIf="navigationSteps !== 2" [hidden]="showNothing">
   <div class="max-padd-container pt-10 pb-4">
     <app-map-header
+      [navigationSteps]="navigationSteps"
       [title]="'MAP_HEADER.CREATE_ITINERARY' | translate"
+      (tabItemChange)="handleTabItemChange($event)"
       [backLink]="'/'"
     ></app-map-header>
   </div>
 
-  <div class="">
+  <div *ngIf="showMap">
     <app-googlemap
       [newDestination]="newDestination"
       [startLocation]="startLocation"
       [locationToAdd]="locationToAdd"
       [locationToRemove]="locationToRemove"
+      [navigationSteps]="navigationSteps"
       [radius]="radius"
       (destinationAdded)="onDestinationAdded($event)"
       (routeRendered)="onRouteRendered($event)"
@@ -30,24 +33,28 @@
   ></app-map-area-footer>
 </div>
 
-<div *ngIf="navigationSteps === 3" class="">
-  <div class="absolute bottom-0 py-3">
-    <section class="fixed bottom-0 w-full">
+<div
+  *ngIf="navigationSteps === 3 || navigationSteps === 8 || showDetails"
+  class=""
+>
+  <div class="absolute py-3" [ngClass]="showDetails ? '' : ' bottom-0'">
+    <section class="w-full" [ngClass]="showDetails ? '' : ' fixed bottom-0'">
       <div
-        class="tracking-widest px-5 py-2 rounded-t-3xl drawer-shadow bg-[#28252D]"
+        class="tracking-widest px-5 py-2 rounded-t-3xl bg-[#28252D] locations-list"
+        [ngClass]="showDetails ? '' : 'drawer-shadow'"
       >
         <div class="">
           <div *ngIf="newDestination" class="flex justify-center">
             <p>{{ noOfPlaces }} places |</p>
-            <p>{{ duration?.text }} ({{ distance?.text }})</p>
+            <p>{{ duration }} mins ({{ distance }} km)</p>
           </div>
           <div class="bottom-modal mt-5 mb-3 flex flex-col gap-y-2">
-            <div class="flex items-center justify-between w-full gap-x-4">
+            <div class="flex items-center justify-between w-full">
               <div class="flex items-center justify-start gap-x-4">
                 <div class="">
                   <img [src]="ICONS.destination" alt="" />
                 </div>
-                <div class="text ml-10">
+                <div class="text">
                   <h2 class="sm:text-sm xs:text-xs flex items-center gap-x-1">
                     {{ startLocation }}
                   </h2>
@@ -56,7 +63,9 @@
                   </p>
                 </div>
               </div>
+
               <div
+                *ngIf="navigationSteps !== 9"
                 (click)="handleEditLocationClick('start')"
                 class="flex items-center gap-x-3"
               >
@@ -64,14 +73,49 @@
               </div>
             </div>
             <div
+              *ngFor="let location of addedLocations"
+              class="flex items-center justify-between w-full"
+            >
+              <div class="flex items-center justify-start gap-x-4">
+                <div class="">
+                  <img [src]="ICONS.restu3" alt="" />
+                </div>
+                <div class="text">
+                  <h2 class="sm:text-sm xs:text-xs flex items-center gap-x-1">
+                    {{ location.name }}
+                  </h2>
+                  <p class="xs:text-[10px] sm:text-xs text-secondary">
+                    {{
+                      location && location.types
+                        ? (location.types[0] | titlecase)
+                        : "Resturant"
+                    }}
+                  </p>
+                </div>
+              </div>
+
+              <div
+                *ngIf="navigationSteps !== 9"
+                class="flex items-center gap-x-3"
+              >
+                <img [src]="ICONS.hambuger" alt="" class="cursor-pointer" />
+                <img
+                  (click)="handleDeleteLocation(location)"
+                  [src]="ICONS.deleteSec"
+                  alt=""
+                  class="cursor-pointer"
+                />
+              </div>
+            </div>
+            <div
               *ngIf="newDestination"
-              class="flex items-center justify-between w-full gap-x-4"
+              class="flex items-center justify-between w-full"
             >
               <div class="flex items-center justify-start gap-x-4">
                 <div class="">
                   <img [src]="ICONS.start" alt="" />
                 </div>
-                <div class="text ml-10">
+                <div class="text">
                   <h2 class="sm:text-sm xs:text-xs flex items-center gap-x-1">
                     {{ newDestination }}
                   </h2>
@@ -81,6 +125,7 @@
                 </div>
               </div>
               <div
+                *ngIf="navigationSteps !== 9"
                 (click)="handleEditLocationClick('destination')"
                 class="flex items-center gap-x-3"
               >
@@ -109,13 +154,26 @@
         </div>
       </div>
 
-      <div class="background-gradient py-5 px-16">
+      <div *ngIf="navigationSteps === 3" class="background-gradient py-5 px-16">
         <lib-primary-btn (click)="handleContinueClick()" class=""
           >Continue</lib-primary-btn
         >
       </div>
+      <div *ngIf="navigationSteps === 8" class="background-gradient py-5 px-16">
+        <lib-primary-btn (click)="handlePreviewClick()" class=""
+          >Preview</lib-primary-btn
+        >
+      </div>
     </section>
   </div>
+</div>
+<div
+  *ngIf="navigationSteps === 9"
+  class="background-gradient py-5 px-16 position-fixed fixed bottom-0 w-full"
+>
+  <lib-primary-btn (click)="handlePreviewClick()" class=""
+    >Save</lib-primary-btn
+  >
 </div>
 <app-search-location
   [searchLocationType]="searchLocationType"
@@ -130,7 +188,11 @@
   *ngIf="navigationSteps === 5"
   (radiusSelected)="handeRouteRadiusSelected($event)"
 ></app-route-radius-footer>
-<app-places-footer *ngIf="navigationSteps === 6"></app-places-footer>
+<app-places-footer
+  [noOfPlaces]="noOfPlaces"
+  *ngIf="navigationSteps === 6"
+  (locationsAddContinue)="handleAddLocationsContinue()"
+></app-places-footer>
 <app-add-places-footer
   *ngIf="navigationSteps === 7"
   [selectedLocation]="selectedLocation"

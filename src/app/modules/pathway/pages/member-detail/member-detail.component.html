@@ -1,0 +1,50 @@
+<section [ngClass]="customcss">
+  <div class="flex justify-between md:gap-x-6 p-1">
+    <lib-icon-btn
+      (click)="goBack()"
+      class="bg-color mr-2 flex items-center justify-center rounded-full w-7 h-7 outset-shadow flexCenter"
+    >
+      <img [src]="ICONS.back" />
+    </lib-icon-btn>
+    <div class="font-Calistoga tracking-wide">Member Detail</div>
+    <lib-menu-btn
+      (select)="handleMenueItemSelect()"
+      (click)="handleMenuClick()"
+      (change)="handleMenuItemChange()"
+      class="lib-menu-custom-class"
+      [disableTextShadow]="true"
+      [menuItems]="libMenuItem"
+    >
+      <img [src]="ICONS.horizontal" alt="" />
+    </lib-menu-btn>
+  </div>
+  <div class="mt-3 mb-2 flex flex-col items-center gap-2">
+    <img
+      class="user-profile"
+      [src]="selectedUser.image"
+      [alt]="selectedUser.name"
+    />
+    <h1>{{ selectedUser.name }}</h1>
+    <h1>{{ selectedUser.email }}</h1>
+  </div>
+  <hr class="h-1 text-secondary opacity-25" />
+  <h1 class="mt-2">Favorite Food</h1>
+  <div *ngFor="let food of selectedUser.favoriteFood">
+    <div class="food-chip mb-2">
+      <div class="food-image">
+        <img [src]="food.image" [alt]="food.name" />
+      </div>
+      <div class="food-text">{{ food.name }}</div>
+    </div>
+  </div>
+  <hr class="h-1 text-secondary opacity-25" />
+  <h1 class="mt-2">Favorite Destination</h1>
+  <div *ngFor="let destination of selectedUser.favoriteDestination">
+    <div class="food-chip mb-2">
+      <div class="food-image">
+        <img [src]="destination.image" [alt]="destination.name" />
+      </div>
+      <div class="food-text">{{ destination.name }}</div>
+    </div>
+  </div>
+</section>

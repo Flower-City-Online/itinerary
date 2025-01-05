@@ -13,4 +13,12 @@
       {{ "IMAGE_CROPPER.DISCARD" | translate }}?
     </div>
   </div>
+  <lib-tab-menu
+    *ngIf="navigationSteps === 9"
+    [items]="items"
+    [activeItem]="items[0]"
+    (activeItemChange)="onActiveItemChange($event)"
+    #libTabMenu
+  >
+  </lib-tab-menu>
 </section>

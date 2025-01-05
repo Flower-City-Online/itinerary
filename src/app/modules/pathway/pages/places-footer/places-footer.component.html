@@ -37,13 +37,14 @@
       </div>
       <div class="flex justify-between items-center cursor-pointer mt-3">
         <p class="text-white">Number of places</p>
-        <p>{{ noOfPlaces.value }}</p>
+        <p>{{ noOfPlacesFormControl.value }}</p>
       </div>
       <lib-range-selector
-        [formControl]="noOfPlaces"
+        [formControl]="noOfPlacesFormControl"
         [dualKnobs]="false"
         [pinValue]="true"
         [reverseBarColor]="false"
+        [disabled]="true"
         [minValue]="0"
         [maxValue]="20"
         [stepValue]="1"

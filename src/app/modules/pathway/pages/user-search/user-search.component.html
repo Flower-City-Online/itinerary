@@ -1,0 +1,70 @@
+<section *ngIf="!showMemberDetail" [ngClass]="customcss">
+  <div class="flex justify-between md:gap-x-6 p-1">
+    <lib-icon-btn
+      (click)="goBack()"
+      class="bg-color mr-2 flex items-center justify-center rounded-full w-7 h-7 outset-shadow flexCenter"
+    >
+      <img [src]="ICONS.back" />
+    </lib-icon-btn>
+    <div class="font-Calistoga tracking-wide">User Search</div>
+    <div></div>
+  </div>
+  <div class="px-3">
+    <lib-search-bar
+      class="search-field"
+      [searchIcon]="ICONS.user"
+      [placeholderText]="'Invite people to this place'"
+    >
+    </lib-search-bar>
+  </div>
+  <div class="px-2">
+    <h1 class="mt-2">Total Users</h1>
+    <p class="mb-2">{{ users.length }} people</p>
+    <div *ngFor="let user of users">
+      <div class="flex justify-between items-center">
+        <div
+          (click)="handleUserClick(user)"
+          class="flex items-center gap-2 mb-2"
+        >
+          <img [src]="user.image" [alt]="user.name" />
+          <div>
+            <p>{{ user.name }}</p>
+            <p>{{ user.email }}</p>
+          </div>
+        </div>
+        <lib-menu-btn
+          class="lib-menu-custom-class"
+          [disableTextShadow]="true"
+          [menuItems]="libMenuItem"
+        >
+          <img [src]="ICONS.horizontal" alt="" />
+        </lib-menu-btn>
+      </div>
+    </div>
+    <hr class="h-1 text-secondary opacity-25" />
+    <h1 class="mt-2">Common Interests</h1>
+    <div *ngFor="let group of groupedUsersByFood">
+      <div class="food-chip mb-2">
+        <div class="food-image">
+          <img [src]="group.food.image" [alt]="group.food.name" />
+        </div>
+        <div class="food-text">{{ group.food.name }}</div>
+      </div>
+
+      <div *ngFor="let user of group.users">
+        <div
+          (click)="handleUserClick(user)"
+          class="flex items-center gap-2 mb-2"
+        >
+          <img [src]="user.image" [alt]="user.name" />
+          <p>{{ user.name }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<app-member-detail
+  [selectedUser]="selectedUser"
+  *ngIf="showMemberDetail"
+></app-member-detail>
