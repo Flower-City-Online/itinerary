@@ -8,13 +8,14 @@
     ></app-map-header>
   </div>
 
-  <div *ngIf="showMap">
+  <div [hidden]="!showMap">
     <app-googlemap
       [newDestination]="newDestination"
       [startLocation]="startLocation"
       [locationToAdd]="locationToAdd"
       [locationToRemove]="locationToRemove"
       [navigationSteps]="navigationSteps"
+      [isPreview]="isPreview"
       [radius]="radius"
       (destinationAdded)="onDestinationAdded($event)"
       (routeRendered)="onRouteRendered($event)"
@@ -82,12 +83,12 @@
                 </div>
                 <div class="text">
                   <h2 class="sm:text-sm xs:text-xs flex items-center gap-x-1">
-                    {{ location.name }}
+                    {{ location.location.name }}
                   </h2>
                   <p class="xs:text-[10px] sm:text-xs text-secondary">
                     {{
-                      location && location.types
-                        ? (location.types[0] | titlecase)
+                      location.location && location.location.types
+                        ? (location.location.types[0] | titlecase)
                         : "Resturant"
                     }}
                   </p>
@@ -100,11 +101,20 @@
               >
                 <img [src]="ICONS.hambuger" alt="" class="cursor-pointer" />
                 <img
-                  (click)="handleDeleteLocation(location)"
+                  (click)="handleDeleteLocation(location.location)"
                   [src]="ICONS.deleteSec"
                   alt=""
                   class="cursor-pointer"
                 />
+              </div>
+              <div *ngIf="navigationSteps === 9" class="image-stack">
+                <div
+                  class="image mt-2"
+                  *ngFor="let user of location.users; let i = index"
+                  [ngStyle]="{ 'z-index': i + 1 }"
+                >
+                  <img [src]="user.image" [alt]="user.name" />
+                </div>
               </div>
             </div>
             <div
@@ -200,4 +210,5 @@
   (stayTimeSelected)="handleStayTimeSelected($event)"
   (onLocationAdd)="handleLocationAdd($event)"
   (onLocationRemove)="handleLocationRemove($event)"
+  (addUsersToLocation)="handleAddUsersToLocation($event)"
 ></app-add-places-footer>

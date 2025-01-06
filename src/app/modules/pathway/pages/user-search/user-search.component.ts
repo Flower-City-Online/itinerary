@@ -35,6 +35,12 @@ export class UserSearchComponent {
         this.onInviteUser.emit(this.selectedUser);
       },
     },
+    {
+      title: 'Show Details',
+      command: () => {
+        this.showMemberDetail = true;
+      },
+    },
   ];
 
   constructor(private location: Location) {}
@@ -48,7 +54,6 @@ export class UserSearchComponent {
   }
 
   handleUserClick(user: IUserData): void {
-    this.showMemberDetail = true;
     this.selectedUser = user;
   }
 }

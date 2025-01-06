@@ -5,6 +5,7 @@ import {
   OnInit,
 } from '@angular/core';
 import { ICONS, ITINERARY_CREATION_TYPES } from 'src/app/constants/constants';
+import { IUserData } from 'src/app/interface/userData';
 import { MapAreaService } from 'src/app/services/core/map-area.service';
 
 @Component({
@@ -29,11 +30,15 @@ export class DefaultDestinationComponent implements OnInit {
   radius: number | null = 1;
   selectedLocation: google.maps.places.PlaceResult | null = null;
   timeToArrive: number = 0;
-  addedLocations: google.maps.places.PlaceResult[] = [];
+  addedLocations: {
+    location: google.maps.places.PlaceResult;
+    users: IUserData[];
+  }[] = [];
   totalStayTimeInMins: number = 0;
   showMap: boolean = true;
   showDetails: boolean = false;
   showNothing: boolean = false;
+  isPreview: boolean = false;
   constructor(
     private cdr: ChangeDetectorRef,
     public mapAreaService: MapAreaService,
@@ -112,21 +117,28 @@ export class DefaultDestinationComponent implements OnInit {
 
   handleLocationAdd(location: google.maps.places.PlaceResult | null): void {
     this.locationToAdd = location;
-    if (location) this.addedLocations.push(location);
     this.navigationSteps = 6;
   }
 
   handleDeleteLocation(location: google.maps.places.PlaceResult): void {
     this.addedLocations = this.addedLocations.filter(
-      (item) => item.place_id !== location.place_id,
+      (item) => item.location.place_id !== location.place_id,
     );
     this.locationToRemove = location;
+  }
+
+  handleAddUsersToLocation(users: IUserData[]): void {
+    if (this.locationToAdd)
+      this.addedLocations.push({
+        location: this.locationToAdd,
+        users: users,
+      });
   }
   handleLocationRemove(location: google.maps.places.PlaceResult | null): void {
     this.navigationSteps = 6;
     if (location)
       this.addedLocations = this.addedLocations.filter(
-        (item) => item.place_id !== location.place_id,
+        (item) => item.location.place_id !== location.place_id,
       );
     this.locationToRemove = location;
   }
@@ -138,6 +150,7 @@ export class DefaultDestinationComponent implements OnInit {
 
   handlePreviewClick(): void {
     this.navigationSteps = 9;
+    this.isPreview = true;
   }
 
   handleTabItemChange(value: string) {

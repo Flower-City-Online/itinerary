@@ -39,6 +39,7 @@ export class GooglemapComponent implements OnChanges {
   currentSelectedMarker: google.maps.Marker | null = null;
   nearbyPlaces: google.maps.places.PlaceResult[] = [];
   allMarkers: google.maps.Marker[] = [];
+  @Input() isPreview: boolean = false;
   mapOptions: google.maps.MapOptions = {
     styles: [
       { elementType: 'geometry', stylers: [{ color: '#212121' }] },
@@ -161,6 +162,22 @@ export class GooglemapComponent implements OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
+    if (changes['isPreview'] && changes['isPreview'].currentValue) {
+      if (changes['isPreview'].currentValue)
+        this.allMarkers = this.allMarkers.filter((item) => {
+          const position = item.getPosition();
+          if (
+            position !== null &&
+            position !== undefined &&
+            this.waypointsLatLong.includes(position)
+          ) {
+            return true;
+          } else {
+            item.setMap(null);
+            return false;
+          }
+        });
+    }
     if (changes['newDestination'] && changes['newDestination'].currentValue) {
       this.addDestinationFromParent(changes['newDestination'].currentValue);
     }
@@ -202,7 +219,7 @@ export class GooglemapComponent implements OnChanges {
           item.setIcon(ICONS.restu2);
         }
       });
-      if (!flag) {
+      if (flag) {
         this.waypointsLatLong = this.waypointsLatLong.filter(
           (item) =>
             !item.equals(

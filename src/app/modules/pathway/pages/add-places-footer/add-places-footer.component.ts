@@ -29,6 +29,7 @@ export class AddPlacesFooterComponent implements OnInit, OnChanges {
   @Output() stayTimeSelected = new EventEmitter<number | null>();
   @Output() onLocationAdd =
     new EventEmitter<google.maps.places.PlaceResult | null>();
+  @Output() addUsersToLocation = new EventEmitter<IUserData[]>();
   @Output() onLocationRemove =
     new EventEmitter<google.maps.places.PlaceResult | null>();
   ICONS = ICONS;
@@ -149,6 +150,7 @@ export class AddPlacesFooterComponent implements OnInit, OnChanges {
 
   handleAddClick(): void {
     this.onLocationAdd.emit(this.selectedLocation);
+    this.addUsersToLocation.emit(this.allInvitedUsers);
   }
 
   handleRemoveClick(): void {
@@ -162,6 +164,9 @@ export class AddPlacesFooterComponent implements OnInit, OnChanges {
   handleInviteUser(user: IUserData): void {
     this.showUsersSearch = false;
     this.mapAreaService.unHideMapAction();
-    this.allInvitedUsers.push(user);
+    const isUserAdded = this.allInvitedUsers.find(
+      (item) => item.id === user.id,
+    );
+    if (!isUserAdded) this.allInvitedUsers.push(user);
   }
 }

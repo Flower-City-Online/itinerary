@@ -20,12 +20,9 @@
   <div class="px-2">
     <h1 class="mt-2">Total Users</h1>
     <p class="mb-2">{{ users.length }} people</p>
-    <div *ngFor="let user of users">
+    <div (click)="handleUserClick(user)" *ngFor="let user of users">
       <div class="flex justify-between items-center">
-        <div
-          (click)="handleUserClick(user)"
-          class="flex items-center gap-2 mb-2"
-        >
+        <div class="flex items-center gap-2 mb-2">
           <img [src]="user.image" [alt]="user.name" />
           <div>
             <p>{{ user.name }}</p>
