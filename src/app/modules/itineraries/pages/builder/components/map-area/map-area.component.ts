@@ -117,10 +117,14 @@ export class MapAreaComponent implements OnInit, AfterViewInit {
 
   drawingManager!: google.maps.drawing.DrawingManager;
   selectedPolygon: google.maps.Polygon | null = null;
-
-  constructor(private mapAreaService: MapAreaService) {}
+  mapListeners: google.maps.MapsEventListener[] = [];
   polygonDrawn = false;
   private directionsService = new google.maps.DirectionsService();
+  isDrawing = false;
+  polylinePath: google.maps.LatLngLiteral[] = [];
+  polyline: google.maps.Polyline | null = null;
+
+  constructor(private mapAreaService: MapAreaService) {}
 
   handleItineraryCreationTypeChange(value: string): void {
     this.itineraryCreationType = value;
@@ -149,6 +153,99 @@ export class MapAreaComponent implements OnInit, AfterViewInit {
       }),
     );
     this.getUserLocation();
+  }
+
+  onMapReady(map: google.maps.Map): void {
+    const mouseUpListener = google.maps.event.addListener(
+      map,
+      'mouseup',
+      () => {
+        this.onMouseUp();
+      },
+    );
+    const mouseDownListener = google.maps.event.addListener(
+      map,
+      'mousedown',
+      () => {
+        this.onMapClick();
+      },
+    );
+
+    const mouseMoveListener = google.maps.event.addListener(
+      map,
+      'mousemove',
+      (event: google.maps.MapMouseEvent) => {
+        this.onMouseMove(event);
+      },
+    );
+    this.mapListeners.push(
+      mouseDownListener,
+      mouseMoveListener,
+      mouseUpListener,
+    );
+  }
+
+  onMapClick(): void {
+    if (this.map) {
+      this.map.googleMap?.setOptions({ draggable: false });
+    }
+    this.isDrawing = true;
+    this.polylinePath = [];
+    if (!this.polyline) {
+      this.polyline = new google.maps.Polyline({
+        strokeColor: '#FF0000',
+        strokeWeight: 2,
+        map: this.map?.googleMap ?? null,
+      });
+      google.maps.event.addListener(this.polyline, 'mouseup', () => {
+        this.onMouseUp();
+      });
+    }
+  }
+
+  onMouseMove(event: google.maps.MapMouseEvent): void {
+    if (this.isDrawing && event.latLng) {
+      this.polylinePath.push(event.latLng.toJSON());
+
+      if (this.polyline && this.polylinePath.length % 5 === 0) {
+        this.polyline.setPath(this.polylinePath);
+      }
+    }
+  }
+
+  onMouseUp(): void {
+    this.isDrawing = false;
+    if (this.map) {
+      this.map.googleMap?.setOptions({ draggable: true });
+    }
+
+    this.polyline?.setMap(null);
+    this.polyline = null;
+
+    const polygon = new google.maps.Polygon({
+      fillColor: '#FF0000',
+      fillOpacity: 0.1,
+      strokeWeight: 2,
+      paths: this.polylinePath,
+    });
+
+    polygon.setMap(this.map.googleMap ?? null);
+    this.mapListeners.forEach((listener) =>
+      google.maps.event.removeListener(listener),
+    );
+    this.selectedPolygon = polygon;
+    this.mapAreaService.enableContinueButton(true);
+    this.capturePolygonCoordinates();
+  }
+
+  resetDrawing(): void {
+    this.polylinePath = [];
+    this.isDrawing = false;
+    this.polyline?.setMap(null);
+    this.polyline = null;
+    if (this.map) {
+      this.map.googleMap?.setOptions({ draggable: true });
+    }
   }
 
   getUserLocation(): void {
@@ -185,7 +282,7 @@ export class MapAreaComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    this.initializeDrawingManager();
+    // this.initializeDrawingManager();
   }
 
   initializeDrawingManager(): void {
