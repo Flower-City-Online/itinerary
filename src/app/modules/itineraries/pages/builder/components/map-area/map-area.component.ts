@@ -552,6 +552,35 @@ export class MapAreaComponent implements OnInit, AfterViewInit {
   }
 
   onClear(): void {
+    if (this.map?.googleMap) {
+      const mouseUpListener = google.maps.event.addListener(
+        this.map.googleMap,
+        'mouseup',
+        () => {
+          this.onMouseUp();
+        },
+      );
+      const mouseDownListener = google.maps.event.addListener(
+        this.map.googleMap,
+        'mousedown',
+        () => {
+          this.onMapClick();
+        },
+      );
+
+      const mouseMoveListener = google.maps.event.addListener(
+        this.map.googleMap,
+        'mousemove',
+        (event: google.maps.MapMouseEvent) => {
+          this.onMouseMove(event);
+        },
+      );
+      this.mapListeners.push(
+        mouseDownListener,
+        mouseMoveListener,
+        mouseUpListener,
+      );
+    }
     if (this.polylines.length > 0) {
       this.polylines.forEach((polyline) => polyline.setMap(null));
       this.polylines = [];

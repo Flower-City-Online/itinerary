@@ -4,7 +4,13 @@
       class="tracking-widest px-5 py-6 rounded-t-xl drawer-shadow bg-[#28252D]"
     >
       <div class="flex justify-between items-center">
-        <h4 class="bottom-title" *ngIf="!isSelectMode">Draw</h4>
+        <h4 class="bottom-title" *ngIf="!isSelectMode">
+          {{
+            itineraryCreationType === ITINERARY_CREATION_TYPES.draw
+              ? "Draw"
+              : "Along The Way"
+          }}
+        </h4>
         <ng-container *ngIf="!isSelectMode">
           <div
             class="bg-grey rounded-full searchbar-shadow flex items-center justify-between"
@@ -89,8 +95,13 @@
           itineraryCreationType === ITINERARY_CREATION_TYPES.draw
         "
       >
-        <div class="h-[150px] overflow-y-auto">
-          <div class="font-Gilroy mt-5 mb-3 flex flex-col gap-y-5">
+        <div class="h-[150px] overflow-y-auto w-full">
+          <div
+            cdkDropList
+            [cdkDropListData]="selectedPlaces"
+            (cdkDropListDropped)="drop($event)"
+            class="font-Gilroy mt-5 mb-3 flex flex-col gap-y-5"
+          >
             <div
               *ngFor="let place of selectedPlaces; let i = index"
               class="flex items-center justify-between w-full gap-x-4"
@@ -121,8 +132,12 @@
                 </div>
               </div>
               <div class="flex items-center gap-x-3">
-                <div class="hamburger text-secondary cursor-pointer">
-                  <i class="icon-hamburger"></i>
+                <div cdkDrag class="hamburger text-secondary">
+                  <img
+                    [src]="ICONS.hambuger"
+                    alt="Delete Icon"
+                    class="cursor-pointer"
+                  />
                 </div>
                 <div
                   class="delete text-primary cursor-pointer"
@@ -132,7 +147,6 @@
                     [src]="ICONS.deleteSec"
                     alt="Delete Icon"
                     class="cursor-pointer"
-                    (click)="onDeletePlace(i)"
                   />
                 </div>
               </div>

@@ -1,3 +1,4 @@
+import { moveItemInArray } from '@angular/cdk/drag-drop';
 import {
   ChangeDetectorRef,
   Component,
@@ -8,6 +9,7 @@ import {
 } from '@angular/core';
 import { Router } from '@angular/router';
 import { ICONS, ITINERARY_CREATION_TYPES } from 'src/app/constants/constants';
+import { ItenariesRoutesEnum } from 'src/app/enums/ItenariesRoutes.enum';
 import { PathwayRoutesEnum } from 'src/app/enums/PathwayRoutes.enum';
 import { MapAreaService } from '../../../../../../../services/core/map-area.service';
 
@@ -25,9 +27,21 @@ export class MapAreaFooterComponent implements OnInit {
   isSelectMode = false;
   selectedPlaces: google.maps.places.PlaceResult[] = [];
   distance: string = '0.0 km';
+  dis: number = 0;
   estimatedTime: string = '0 minutes';
   ICONS = ICONS;
-
+  drop(event: any) {
+    moveItemInArray(
+      this.selectedPlaces,
+      event.previousIndex,
+      event.currentIndex,
+    );
+    this.mapAreaService.updateSelectedPlaces(
+      this.selectedPlaces,
+      this.dis,
+      this.estimatedTime,
+    );
+  }
   constructor(
     public mapAreaService: MapAreaService,
     private cdr: ChangeDetectorRef,
@@ -45,6 +59,7 @@ export class MapAreaFooterComponent implements OnInit {
     });
     this.mapAreaService.distance$.subscribe((distance) => {
       this.distance = `${(distance / 1000.0).toFixed(1)} km`;
+      this.dis = distance;
       this.cdr.detectChanges();
     });
     this.mapAreaService.selectedPlaces$.subscribe((places) => {
@@ -61,6 +76,8 @@ export class MapAreaFooterComponent implements OnInit {
     this.itineraryCreationTypeChangeEvent.emit(value);
     if (value === ITINERARY_CREATION_TYPES.pathway) {
       this.router.navigate([PathwayRoutesEnum.Pathway]);
+    } else if (value === ITINERARY_CREATION_TYPES.draw) {
+      this.router.navigate([ItenariesRoutesEnum.MAP_AREA]);
     }
   }
 

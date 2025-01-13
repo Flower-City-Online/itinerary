@@ -1,6 +1,7 @@
 import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { NgModule } from '@angular/core';
 
+import { DragDropModule } from '@angular/cdk/drag-drop';
 import { ReactiveFormsModule } from '@angular/forms';
 import { GoogleMapsModule } from '@angular/google-maps';
 import { TranslateModule } from '@ngx-translate/core';
@@ -71,6 +72,7 @@ import { FavoritesComponent } from './pages/favorites/favorites.component';
     SearchBarModule,
     GoogleMapsModule,
     InputFieldModule,
+    DragDropModule,
     LibMapModule.forRoot({
       googleMapsKey: 'AIzaSyDIXdQpCkQwLYuDvxK9Hbt4o9DFOop_YB8',
       googleMapsURL:
