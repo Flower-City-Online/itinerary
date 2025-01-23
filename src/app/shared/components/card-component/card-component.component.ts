@@ -5,8 +5,10 @@ import {
   Input,
   OnInit,
 } from '@angular/core';
+import { Router } from '@angular/router';
 import { LibMenuItem } from 'nextsapien-component-lib';
 import { ICONS } from 'src/app/constants/constants';
+import { ItenariesRoutesEnum } from 'src/app/enums/ItenariesRoutes.enum';
 import { ICardData } from 'src/app/interface/cardData';
 import { ApiService } from 'src/app/services/core/api.service';
 
@@ -40,6 +42,7 @@ export class CardComponent implements OnInit {
   constructor(
     private apiService: ApiService,
     private cdr: ChangeDetectorRef,
+    private router: Router,
   ) {}
 
   ngOnInit(): void {
@@ -102,4 +105,7 @@ export class CardComponent implements OnInit {
   handleMenueItemSelect(): void {}
   handleMenuItemChange(): void {}
   handleMenuClick(): void {}
+  navigateToComments(): void {
+    this.router.navigate([ItenariesRoutesEnum.COMMENTS]);
+  }
 }

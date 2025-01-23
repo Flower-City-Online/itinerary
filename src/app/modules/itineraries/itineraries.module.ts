@@ -77,6 +77,7 @@ import { FavoritesComponent } from './pages/favorites/favorites.component';
     GoogleMapsModule,
     InputFieldModule,
     DragDropModule,
+
     LibMapModule.forRoot({
       googleMapsKey: 'AIzaSyDIXdQpCkQwLYuDvxK9Hbt4o9DFOop_YB8',
       googleMapsURL:

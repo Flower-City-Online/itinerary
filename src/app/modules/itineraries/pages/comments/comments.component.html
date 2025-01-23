@@ -15,15 +15,16 @@
       <img [src]="ICONS.send" alt="send" class="arrow-icon" />
     </button>
   </div>
-  <lib-selectable
-    class="mb-[1rem]"
-    (click)="changeSelection()"
-    (selectionchange)="changeSelection()"
-    [formControl]="filterControl"
-    [options]="options"
-    [singleSelectionOnly]="true"
-  >
-  </lib-selectable>
+  <div class="mb-[1rem] pl-[1rem]">
+    <lib-selectable
+      (click)="changeSelection()"
+      (selectionchange)="changeSelection()"
+      [formControl]="filterControl"
+      [options]="options"
+      [singleSelectionOnly]="true"
+    >
+    </lib-selectable>
+  </div>
   <app-single-comment
     *ngFor="let comment of comments"
     [comment]="comment"
