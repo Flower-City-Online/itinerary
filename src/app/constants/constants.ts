@@ -1,5 +1,5 @@
-export const ICONS = {
-  plus: 'assets/icon/plus.svg',
+const ICONS = {
+  plus: 'assets/icons/plus.svg',
   sliders: 'assets/icon/common/sliders.svg',
   calendarFilter: 'assets/icon/calendar/calendar-filter.svg',
   speaker: 'assets/icon/common/speaker.svg',
@@ -43,11 +43,13 @@ export const ICONS = {
   startMarkerImage: '/assets/images/start-loc-marker.svg',
   endMarkerImage: '/assets/images/end-loc-marker.svg',
   destination: '/assets/icons/destination-icon.svg',
+  start: '/assets/icons/start-icon.svg',
   pen: '/assets/icons/penicon.svg',
   locationWhite: '/assets/icons/location-white-icon.svg',
   clock: '/assets/icons/clock-icon.svg',
   startLocation: '/assets/icons/start-location.svg',
   restu: '/assets/icons/restu-icon.svg',
+  restu2: '/assets/icons/rest-icon2.svg',
   groupBinBar: '/assets/icons/groupbinbar.svg',
   enLocation: '/assets/icons/en-location.svg',
   location: '/assets/icons/locationicon.svg',
@@ -78,4 +80,18 @@ export const ICONS = {
   untitled: 'assets/images/untitledImage.svg',
   notSpecified: 'assets/icons/questionMark.svg',
   horizontal: '/assets/images/horizontal.svg',
+  yellowStar: '/assets/icons/yellow-star.svg',
+  hambuger: '/assets/icons/hamburger.svg',
+  restu3: '/assets/icons/restu3.svg',
+  send: '/assets/icons/send.svg',
+  featured: '/assets/icons/featured.svg',
+  nonFeatured: '/assets/icons/non-featured.svg',
 };
+
+const ITINERARY_CREATION_TYPES = {
+  pathway: 'pathway',
+  draw: 'draw',
+  visualFilters: 'visualFilters',
+};
+
+export { ICONS, ITINERARY_CREATION_TYPES };

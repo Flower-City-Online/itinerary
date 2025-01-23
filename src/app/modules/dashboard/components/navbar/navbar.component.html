@@ -1,8 +1,13 @@
 <nav class="nav-bar text-white fixed top-0 left-0 w-full z-50">
   <div class="nav-main-bar">
-    <div class="flex ml-2">
-      <img class="navbar-logo" [ngSrc]="ICONS.logo" alt="logo" />
-    </div>
+    <img
+      class="navbar-logo"
+      [ngSrc]="ICONS.logo"
+      height="10"
+      width="50"
+      alt="logo"
+    />
+
     <div class="sub-nav mx-auto">
       <div *ngFor="let item of navigationItems">
         <app-bottom-navigation-items

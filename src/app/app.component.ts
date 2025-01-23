@@ -71,6 +71,14 @@ export class AppComponent implements OnInit, OnDestroy {
     }
   }
 
+  backButtonClick(): void {
+    window.history.back();
+  }
+
+  searchButtonClick(): void {
+    this.router.navigate([ItenariesRoutesEnum.SEARCH]).then((r) => {});
+  }
+
   ngOnDestroy(): void {
     this.breakpointSubscription.unsubscribe();
   }

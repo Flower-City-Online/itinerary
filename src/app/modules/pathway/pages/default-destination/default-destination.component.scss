@@ -1,2 +1,37 @@
+.location-name {
+  min-width: 200px;
+  width: auto;
+}
+.position-fixed {
+  bottom: 0;
+}
+.text {
+  width: 200px;
+}
+.locations-list {
+  max-height: 60vh;
+  overflow: auto;
+}
+.image-stack {
+  display: flex;
+  position: relative;
 
+  .image {
+    position: relative;
+    margin-left: -26px;
+    border-radius: 50%;
+    overflow: hidden;
+    height: 50px;
+    border: 2px solid #fff;
 
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    &:first-child {
+      margin-left: 0;
+    }
+  }
+}

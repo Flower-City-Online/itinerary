@@ -4,6 +4,7 @@ import {
   OnInit,
   ViewEncapsulation,
 } from '@angular/core';
+import { Router } from '@angular/router';
 import { ICONS } from 'src/app/constants/constants';
 import { ModalService } from '../../../../../../services/core/modal/modal.service';
 
@@ -16,7 +17,11 @@ import { ModalService } from '../../../../../../services/core/modal/modal.servic
 })
 export class CreateItineraryModalComponent implements OnInit {
   ICONS = ICONS;
-  constructor(public modalService: ModalService) {}
+  constructor(
+    public modalService: ModalService,
+    private router: Router,
+  ) {}
+
   ngOnInit(): void {
     this.modalService.bottomToggleModal = false;
   }
@@ -48,5 +53,10 @@ export class CreateItineraryModalComponent implements OnInit {
     this.modalService.bottomToggleModal = !this.modalService.bottomToggleModal;
   }
 
-  modalClick(itemId: number): void {}
+  modalClick(id: number) {
+    if (id === 1) {
+      this.modalService.bottomToggleModal = false;
+      this.router.navigate(['/itineraries/builder/map-area']);
+    }
+  }
 }

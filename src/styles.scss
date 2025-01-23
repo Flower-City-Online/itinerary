@@ -24,6 +24,27 @@
   --font-gilroy-thin: "Gilroy-Thin", serif;
 }
 
+.pac-container {
+  background: linear-gradient(191.18deg, #27242c 61.33%, #0c0b0e 101.43%);
+  border: none;
+}
+
+.pac-item {
+  border: none;
+  height: 50px;
+}
+.pac-item-query {
+  color: #fff;
+}
+
+.p-tabmenu {
+  background: #28252d;
+}
+
+.pac-item:hover {
+  background-color: #fe3c72;
+}
+
 $custom-typography: mat.define-typography-config(
   $font-family: "Gilroy-Regular, serif",
 );
@@ -282,7 +303,6 @@ input[type="checkbox"]:checked {
 html,
 body {
   height: 100%;
-  height: 200vh;
 }
 body {
   margin: 0;

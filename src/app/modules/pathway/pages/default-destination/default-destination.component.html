@@ -1,67 +1,214 @@
-<div class="max-padd-container pt-10 pb-4">
-  <app-map-header
-    [title]="'MAP_HEADER.CREATE_ITINERARY' | translate"
-    [backLink]="'/'"
-  ></app-map-header>
+<div *ngIf="navigationSteps !== 2" [hidden]="showNothing">
+  <div class="max-padd-container pt-10 pb-4">
+    <app-map-header
+      [navigationSteps]="navigationSteps"
+      [title]="'MAP_HEADER.CREATE_ITINERARY' | translate"
+      (tabItemChange)="handleTabItemChange($event)"
+      [backLink]="'/'"
+    ></app-map-header>
+  </div>
+
+  <div [hidden]="!showMap">
+    <app-googlemap
+      [newDestination]="newDestination"
+      [startLocation]="startLocation"
+      [locationToAdd]="locationToAdd"
+      [locationToRemove]="locationToRemove"
+      [navigationSteps]="navigationSteps"
+      [isPreview]="isPreview"
+      [radius]="radius"
+      (destinationAdded)="onDestinationAdded($event)"
+      (routeRendered)="onRouteRendered($event)"
+      (markerSelected)="onMarkerSelected($event)"
+      (timeToArrive)="onTimeToArriveChange($event)"
+    ></app-googlemap>
+  </div>
+
+  <app-map-area-footer
+    *ngIf="startLocation === ''"
+    [itineraryCreationType]="itineraryCreationType"
+    (itineraryCreationTypeChangeEvent)="
+      handleItineraryCreationTypeChange($event)
+    "
+    (continueClickedEvent)="handleContinueClick()"
+  ></app-map-area-footer>
 </div>
 
-<div class="">
-  <app-googlemap
-    [newDestination]="newDestination"
-    (destinationAdded)="onDestinationAdded($event)"
-  ></app-googlemap>
-</div>
-
-<div class="">
-  <div class="absolute bottom-0 py-3">
-    <section class="fixed bottom-0 w-full">
-      <div class="tracking-widest px-5 py-2 rounded-t-3xl drawer-shadow">
+<div
+  *ngIf="navigationSteps === 3 || navigationSteps === 8 || showDetails"
+  class=""
+>
+  <div class="absolute py-3" [ngClass]="showDetails ? '' : ' bottom-0'">
+    <section class="w-full" [ngClass]="showDetails ? '' : ' fixed bottom-0'">
+      <div
+        class="tracking-widest px-5 py-2 rounded-t-3xl bg-[#28252D] locations-list"
+        [ngClass]="showDetails ? '' : 'drawer-shadow'"
+      >
         <div class="">
-          <div class="bottomModal mt-5 mb-3 flex flex-col gap-y-2">
-            <div class="flex items-center justify-between w-full gap-x-4">
+          <div *ngIf="newDestination" class="flex justify-center">
+            <p>{{ noOfPlaces }} places |</p>
+            <p>{{ duration }} mins ({{ distance }} km)</p>
+          </div>
+          <div class="bottom-modal mt-5 mb-3 flex flex-col gap-y-2">
+            <div class="flex items-center justify-between w-full">
               <div class="flex items-center justify-start gap-x-4">
-                <div class="absolute left-0 top-3">
-                  <img [src]="ICONS.destination" alt="" class="w-20" />
+                <div class="">
+                  <img [src]="ICONS.destination" alt="" />
                 </div>
-                <div class="text ml-10">
+                <div class="text">
                   <h2 class="sm:text-sm xs:text-xs flex items-center gap-x-1">
-                    {{ "ITINERARY.STARTING_LOCATION" | translate }}
+                    {{ startLocation }}
                   </h2>
-                  <p class="sm:text-xs text-secondary">
-                    {{ "ITINERARY.STARTING_DESCRIPTION" | translate }}
+                  <p class="xs:text-[10px] sm:text-xs text-secondary">
+                    Starting Location
                   </p>
                 </div>
               </div>
-              <div class="flex items-center gap-x-3">
+
+              <div
+                *ngIf="navigationSteps !== 9"
+                (click)="handleEditLocationClick('start')"
+                class="flex items-center gap-x-3"
+              >
                 <img [src]="ICONS.pen" alt="" class="cursor-pointer" />
               </div>
             </div>
-            <div class="mt-2">
-              <h1 class="text-lg font-Calistoga">
-                {{ "ITINERARY.DESTINATION_TITLE" | translate }}
-              </h1>
-              <p class="py-2 text-white opacity-70 text-[10px]">
-                {{ "ITINERARY.DESTINATION_DESCRIPTION" | translate }}
-              </p>
+            <div
+              *ngFor="let location of addedLocations"
+              class="flex items-center justify-between w-full"
+            >
+              <div class="flex items-center justify-start gap-x-4">
+                <div class="">
+                  <img [src]="ICONS.restu3" alt="" />
+                </div>
+                <div class="text">
+                  <h2 class="sm:text-sm xs:text-xs flex items-center gap-x-1">
+                    {{ location.location.name }}
+                  </h2>
+                  <p class="xs:text-[10px] sm:text-xs text-secondary">
+                    {{
+                      location.location && location.location.types
+                        ? (location.location.types[0] | titlecase)
+                        : "Resturant"
+                    }}
+                  </p>
+                </div>
+              </div>
+
+              <div
+                *ngIf="navigationSteps !== 9"
+                class="flex items-center gap-x-3"
+              >
+                <img [src]="ICONS.hambuger" alt="" class="cursor-pointer" />
+                <img
+                  (click)="handleDeleteLocation(location.location)"
+                  [src]="ICONS.deleteSec"
+                  alt=""
+                  class="cursor-pointer"
+                />
+              </div>
+              <div *ngIf="navigationSteps === 9" class="image-stack">
+                <div
+                  class="image mt-2"
+                  *ngFor="let user of location.users; let i = index"
+                  [ngStyle]="{ 'z-index': i + 1 }"
+                >
+                  <img [src]="user.image" [alt]="user.name" />
+                </div>
+              </div>
             </div>
-            <div class="flex gap-x-4">
-              <lib-input-field
-                type="text"
-                [placeholder]="'ITINERARY.WHERE_TO' | translate"
-                class="!w-60 !py-1 text-white text-opacity-70"
-                [(ngModel)]="destination"
-              />
-              <lib-icon-btn (click)="addDestination()">+</lib-icon-btn>
+            <div
+              *ngIf="newDestination"
+              class="flex items-center justify-between w-full"
+            >
+              <div class="flex items-center justify-start gap-x-4">
+                <div class="">
+                  <img [src]="ICONS.start" alt="" />
+                </div>
+                <div class="text">
+                  <h2 class="sm:text-sm xs:text-xs flex items-center gap-x-1">
+                    {{ newDestination }}
+                  </h2>
+                  <p class="xs:text-[10px] sm:text-xs text-secondary">
+                    Destination
+                  </p>
+                </div>
+              </div>
+              <div
+                *ngIf="navigationSteps !== 9"
+                (click)="handleEditLocationClick('destination')"
+                class="flex items-center gap-x-3"
+              >
+                <img [src]="ICONS.pen" alt="" class="cursor-pointer" />
+              </div>
+            </div>
+            <div *ngIf="!newDestination">
+              <div class="mt-2">
+                <h1 class="text-lg font-Calistoga">Destination</h1>
+                <p class="py-2 text-white opacity-70 text-[10px]">
+                  Select final destination for itinenary route.
+                </p>
+              </div>
+              <div class="w-full gap-x-4 w-[20rem]">
+                <lib-input-field
+                  type="text"
+                  placeholder="Where to?"
+                  class="w-full !py-1 text-white text-opacity-70"
+                  [enableGoogleAddress]="true"
+                  (click)="handleContinueClick()"
+                  [(ngModel)]="destination"
+                ></lib-input-field>
+              </div>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="background-gradient">
-        <lib-primary-btn>{{
-          "IMAGE_CROPPER.CONTINUE" | translate
-        }}</lib-primary-btn>
+      <div *ngIf="navigationSteps === 3" class="background-gradient py-5 px-16">
+        <lib-primary-btn (click)="handleContinueClick()" class=""
+          >Continue</lib-primary-btn
+        >
+      </div>
+      <div *ngIf="navigationSteps === 8" class="background-gradient py-5 px-16">
+        <lib-primary-btn (click)="handlePreviewClick()" class=""
+          >Preview</lib-primary-btn
+        >
       </div>
     </section>
   </div>
 </div>
+<div
+  *ngIf="navigationSteps === 9"
+  class="background-gradient py-5 px-16 position-fixed fixed bottom-0 w-full"
+>
+  <lib-primary-btn (click)="handlePreviewClick()" class=""
+    >Save</lib-primary-btn
+  >
+</div>
+<app-search-location
+  [searchLocationType]="searchLocationType"
+  (searchedLocationEvent)="handleSearchedLocation($event)"
+  *ngIf="navigationSteps === 2"
+></app-search-location>
+<app-route-type-footer
+  (routeTypeSelected)="handleRouteTypeSelected()"
+  *ngIf="navigationSteps === 4"
+></app-route-type-footer>
+<app-route-radius-footer
+  *ngIf="navigationSteps === 5"
+  (radiusSelected)="handeRouteRadiusSelected($event)"
+></app-route-radius-footer>
+<app-places-footer
+  [noOfPlaces]="noOfPlaces"
+  *ngIf="navigationSteps === 6"
+  (locationsAddContinue)="handleAddLocationsContinue()"
+></app-places-footer>
+<app-add-places-footer
+  *ngIf="navigationSteps === 7"
+  [selectedLocation]="selectedLocation"
+  [timeToArrive]="timeToArrive"
+  (stayTimeSelected)="handleStayTimeSelected($event)"
+  (onLocationAdd)="handleLocationAdd($event)"
+  (onLocationRemove)="handleLocationRemove($event)"
+  (addUsersToLocation)="handleAddUsersToLocation($event)"
+></app-add-places-footer>

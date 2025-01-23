@@ -1,4 +1,10 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Input,
+  Output,
+} from '@angular/core';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -12,4 +18,6 @@ export class CustomHeadingWithButtonComponent {
   @Input() buttonIcon!: string;
   @Input() cssClass!: string;
   @Output() buttonClick = new EventEmitter<MouseEvent>();
+
+  ngOnInit() {}
 }

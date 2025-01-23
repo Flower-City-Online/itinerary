@@ -85,4 +85,8 @@ export class CreateItineraryComponent implements OnInit, AfterViewInit {
   openModal(): void {
     this.modalService.bottomToggleModal = !this.modalService.bottomToggleModal;
   }
+
+  closeModal(): void {
+    this.modalService.bottomToggleModal = !this.modalService.bottomToggleModal;
+  }
 }

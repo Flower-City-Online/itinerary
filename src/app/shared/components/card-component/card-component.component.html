@@ -99,7 +99,7 @@
         <img class="bottom-icons" [src]="ICONS.eye" alt="" />
         <span class="bottom-tags">{{ processedCardData.views }}</span>
       </div>
-      <div class="flex items-center gap-x-[6px]">
+      <div (click)="navigateToComments()" class="flex items-center gap-x-[6px]">
         <img class="bottom-icons" [src]="ICONS.comment2" alt="" />
         <span class="bottom-tags">{{ processedCardData.comments }}</span>
       </div>

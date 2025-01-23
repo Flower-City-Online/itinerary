@@ -138,7 +138,7 @@ ion-modal.lib-bottom-modal[_ngcontent-ng-c1153917535]::part(handle) {
 }
 
 .parent-class-for-modal {
-  margin-top: 40px;
+  // margin-top: 40px;
 }
 
 .modal-bottom-bar {
@@ -183,4 +183,9 @@ ion-modal.lib-bottom-modal[_ngcontent-ng-c1153917535]::part(handle) {
 
 .cdk-global-overlay-wrapper {
   align-items: end !important;
+}
+ion-modal.lib-bottom-modal[_ngcontent-ng-c815247385]
+  .wrapper[_ngcontent-ng-c815247385] {
+  margin-top: auto !important ;
+  min-height: auto !important;
 }

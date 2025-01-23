@@ -1,0 +1,32 @@
+<div class="min-screen-main w-screen h-screen max-padd-container">
+  <app-header
+    (firstButton)="backButtonClick()"
+    (lastButton)="searchButtonClick()"
+    [heading]="'Comments'"
+  ></app-header>
+  <div class="flex justify-between items-center">
+    <lib-text-box
+      [includeEmojiPicker]="true"
+      [includeImageAttachment]="true"
+      class="w-full"
+      [label]="'Add a comment'"
+    ></lib-text-box>
+    <button class="glow-button">
+      <img [src]="ICONS.send" alt="send" class="arrow-icon" />
+    </button>
+  </div>
+  <div class="mb-[1rem] pl-[1rem]">
+    <lib-selectable
+      (click)="changeSelection()"
+      (selectionchange)="changeSelection()"
+      [formControl]="filterControl"
+      [options]="options"
+      [singleSelectionOnly]="true"
+    >
+    </lib-selectable>
+  </div>
+  <app-single-comment
+    *ngFor="let comment of comments"
+    [comment]="comment"
+  ></app-single-comment>
+</div>

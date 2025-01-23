@@ -1,0 +1,40 @@
+<div class="absolute bottom-0 py-3">
+  <section class="fixed bottom-0 w-full">
+    <div
+      class="tracking-widest px-5 py-2 rounded-t-3xl drawer-shadow bg-[#28252D]"
+    >
+      <div class="flex justify-between items-center">
+        <p></p>
+        <p class="">Route Types</p>
+        <p
+          (click)="handleContinueClick()"
+          class="text-[#FE3C72] done-button cursor-pointer"
+        >
+          Done
+        </p>
+      </div>
+      <div class="my-1">
+        <div
+          class="chip"
+          *ngFor="let routeType of routeTypes; let i = index"
+          [class.selected]="selectedChips.includes(i)"
+          (click)="toggleChipSelection(i)"
+        >
+          {{ routeType }}
+        </div>
+      </div>
+      <hr class="h-1 text-secondary opacity-25" />
+      <div class="my-1">
+        <div>More</div>
+        <div
+          class="chip"
+          *ngFor="let routeType of moreRouteTypes; let i = index"
+          [class.selected]="selectedMoreChips.includes(i)"
+          (click)="toggleMoreChipSelection(i)"
+        >
+          {{ routeType }}
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
