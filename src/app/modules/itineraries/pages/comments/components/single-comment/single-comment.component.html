@@ -1,0 +1,51 @@
+<div class="flex justify-between gap-[15px] mb-[1rem]">
+  <div class="flex flex-col gap-[1.5rem]">
+    <img [src]="comment.userAvatar" alt="avatar" />
+    <div
+      [class]="
+        ' items-center sm:text-[10px] xs:text-[9px] flex flex-col gap-y-[0px]'
+      "
+    >
+      <img [src]="ICONS.upArrowWhite" alt="" />
+      <span [class]="'drah-voter-header'"> 2.4k </span>
+      <img [src]="ICONS.downvote" alt="" />
+    </div>
+  </div>
+  <div>
+    <h5
+      class="text-secondary opacity-80 text-[10px] xs:text-[9px] flex gap-[6px] items-center"
+    >
+      {{ comment.userName }} - {{ comment.time }}
+    </h5>
+    <h5 class="title medium-14 p-0 m-0">
+      {{ comment.comment }}
+    </h5>
+    <div class="flex gap-[2rem] mt-3">
+      <h5
+        class="text-secondary opacity-80 text-[10px] xs:text-[9px] flex gap-[6px] items-center"
+      >
+        <img [src]="ICONS.comment2" alt="" />
+        <span>Reply</span>
+      </h5>
+      <h5
+        class="text-secondary opacity-80 text-[10px] xs:text-[9px] flex gap-[6px] items-center"
+      >
+        <img *ngIf="comment.isFeatured" [src]="ICONS.featured" alt="" />
+        <span *ngIf="comment.isFeatured">Featured</span>
+        <img *ngIf="!comment.isFeatured" [src]="ICONS.nonFeatured" alt="" />
+        <span *ngIf="!comment.isFeatured">Feature Comment</span>
+      </h5>
+    </div>
+    <h4 class="mt-1 text-[#e55163] replies-text">View Replies</h4>
+  </div>
+  <div>
+    <lib-menu-btn
+      class="lib-menu-custom-class"
+      [disableTextShadow]="true"
+      [menuItems]="libMenuItem"
+    >
+      <img [src]="ICONS.horizontal" alt="" />
+    </lib-menu-btn>
+  </div>
+</div>
+<hr class="h-1 text-secondary opacity-25 mb-[1rem]" />

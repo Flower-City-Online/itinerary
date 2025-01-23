@@ -30,6 +30,8 @@ import { CreateItineraryComponent } from './pages/builder/components/create-itin
 import { MapAreaFooterComponent } from './pages/builder/components/map-area/map-area-footer/map-area-footer.component';
 import { MapAreaHeaderComponent } from './pages/builder/components/map-area/map-area-header/map-area-header.component';
 import { MapAreaComponent } from './pages/builder/components/map-area/map-area.component';
+import { CommentsComponent } from './pages/comments/comments.component';
+import { SingleCommentComponent } from './pages/comments/components/single-comment/single-comment.component';
 import { ExploreListComponent } from './pages/explore/components/explore-list/explore-list.component';
 import { ExploreComponent } from './pages/explore/explore.component';
 import { FavoritesComponent } from './pages/favorites/favorites.component';
@@ -49,6 +51,8 @@ import { FavoritesComponent } from './pages/favorites/favorites.component';
     CreateItineraryModalItemComponent,
     ExploreListComponent,
     DeleteItinerariesComponent,
+    CommentsComponent,
+    SingleCommentComponent,
   ],
   exports: [
     FilterMenuComponent,

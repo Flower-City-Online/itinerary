@@ -1,18 +1,17 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ItinerariesComponent } from './itineraries.component';
 import { BuilderComponent } from './pages/builder/builder.component';
 import { MapAreaComponent } from './pages/builder/components/map-area/map-area.component';
-import { ExploreComponent } from './pages/explore/explore.component';
+import { CommentsComponent } from './pages/comments/comments.component';
 import { FavoritesComponent } from './pages/favorites/favorites.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: ItinerariesComponent,
+    component: CommentsComponent,
     children: [
       { path: '', redirectTo: 'explore', pathMatch: 'full' },
-      { path: 'explore', component: ExploreComponent },
+      { path: 'explore', component: CommentsComponent },
       { path: 'builder', component: BuilderComponent },
       { path: 'favorites', component: FavoritesComponent },
     ],

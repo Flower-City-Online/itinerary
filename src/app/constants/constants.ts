@@ -83,6 +83,9 @@ const ICONS = {
   yellowStar: '/assets/icons/yellow-star.svg',
   hambuger: '/assets/icons/hamburger.svg',
   restu3: '/assets/icons/restu3.svg',
+  send: '/assets/icons/send.svg',
+  featured: '/assets/icons/featured.svg',
+  nonFeatured: '/assets/icons/non-featured.svg',
 };
 
 const ITINERARY_CREATION_TYPES = {

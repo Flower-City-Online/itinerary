@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "comment": "I had Great Experience out there. I would say its perfect for a coffee lover.",
+    "isFeatured": true,
+    "votes": "2.4k",
+    "time": "11 Hours ago",
+    "userAvatar": "assets/icons/makenna.svg",
+    "userName": "Jonathan"
+  },
+  {
+    "id": 2,
+    "comment": "I had Great Experience out there. I would say its perfect for a coffee lover.",
+    "isFeatured": false,
+    "votes": "2.4k",
+    "time": "11 Hours ago",
+    "userAvatar": "assets/icons/alfredo.svg",
+    "userName": "Jonathan"
+  },
+  {
+    "id": 3,
+    "comment": "I had Great Experience out there. I would say its perfect for a coffee lover.",
+    "isFeatured": false,
+    "votes": "2.4k",
+    "time": "11 Hours ago",
+    "userAvatar": "assets/icons/jakob.svg",
+    "userName": "Jonathan"
+  }
+]
