@@ -26,6 +26,8 @@ import { CreateItineraryComponent } from './pages/builder/components/create-itin
 import { ExploreListComponent } from './pages/explore/components/explore-list/explore-list.component';
 import { ExploreComponent } from './pages/explore/explore.component';
 import { FavoritesComponent } from './pages/favorites/favorites.component';
+import { StoryListComponent } from './pages/stories/components/story-list/story-list.component';
+import { StoryComponent } from './pages/stories/story.component';
 @NgModule({
   declarations: [
     ItinerariesComponent,
@@ -39,6 +41,7 @@ import { FavoritesComponent } from './pages/favorites/favorites.component';
     CreateItineraryModalItemComponent,
     ExploreListComponent,
     DeleteItinerariesComponent,
+    StoryComponent,
   ],
   exports: [FilterMenuComponent, DeleteItinerariesComponent],
   imports: [
@@ -56,6 +59,7 @@ import { FavoritesComponent } from './pages/favorites/favorites.component';
     DashedCheckboxModule,
     TranslateModule,
     SearchBarModule,
+    StoryListComponent,
   ],
 })
 export class ItinerariesModule {}

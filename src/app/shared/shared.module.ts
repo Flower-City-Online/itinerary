@@ -26,6 +26,7 @@ import {
 } from 'nextsapien-component-lib';
 import { CardComponent } from './components/card-component/card-component.component';
 import { CustomHeadingWithButtonComponent } from './components/custom-heading-with-button/custom-heading-with-button.component';
+import { CustomStoryCardComponent } from './components/custom-story-card/custom-story-card.component';
 import { CutomCardComponent } from './components/cutom-card/cutom-card.component';
 
 @NgModule({
@@ -33,11 +34,13 @@ import { CutomCardComponent } from './components/cutom-card/cutom-card.component
     CardComponent,
     CustomHeadingWithButtonComponent,
     CutomCardComponent,
+    CustomStoryCardComponent,
   ],
   exports: [
     CardComponent,
     CustomHeadingWithButtonComponent,
     CutomCardComponent,
+    CustomStoryCardComponent,
   ],
   imports: [
     BaseCardModule,
