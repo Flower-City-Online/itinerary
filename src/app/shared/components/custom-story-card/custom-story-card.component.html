@@ -3,11 +3,141 @@
     <!-- for the time being for an initial PR I am making 3 cards below
     in the updated version I will bind the cards with the data -->
     <div class="card above">
-      <img [src]="ICONS.storyBackGround" />
+
+
+      <lib-content-view-card>
+
+      </lib-content-view-card>
     </div>
 
-    <div class="card active"><img [src]="ICONS.storyBackGround" /></div>
+    <div class="card active">
+      <div class="flex justify-between">
 
-    <div class="card below"><img [src]="ICONS.storyBackGround" /></div>
+        <div class="flex">
+          <div class="items-start justify-between gap-5 px-4">
+            <button>
+              <img [src]="ICONS.back">
+            </button>
+          </div>
+          <div class="items-start justify-between gap-5 px-4">
+            <div class="flex">
+              <h5 class="text-secondary opacity-80 text-[10px] xs:text-[9px] flex gap-[6px] items-center">
+                <img [src]="ICONS.user" alt="" />
+              </h5>
+              <h4 class="title medium-14 p-0 px-4">
+                Jonathan
+              </h4>
+            </div>
+          </div>
+          <div class="items-start justify-between gap-5 px-4">
+            <button>
+              <img [src]="ICONS.king">
+            </button>
+          </div>
+        </div>
+        <div class="gap-5 px-4 py-2">
+          <lib-menu-btn (select)="handleMenueItemSelect()" (click)="handleMenuClick()" (change)="handleMenuItemChange()"
+            class="lib-menu-custom-class" [disableTextShadow]="true" [menuItems]="libMenuItem">
+            <img [src]="ICONS.horizontalWhite" alt="" />
+          </lib-menu-btn>
+        </div>
+      </div>
+
+      <div class="flex px-4">
+        <div class="progress-bar"></div>
+        <div class="progress-bar"></div>
+        <div class="progress-bar"></div>
+      </div>
+
+      <div class="py-2 px-4">
+
+        <div class="flex gap-5 items-start story-content">
+          <div class="items-center sm:text-[10px] xs:text-[9px] flex flex-col gap-y-[0px] px-4 py-2">
+            <img [src]="!isDraft ? ICONS.upvote : ICONS.upArrowWhite" alt="" />
+            <span [class]="!isDraft ? 'text-primary' : 'drah-voter-header'">
+              {{ processedCardData!.upVotes }}
+            </span>
+            <img [src]="ICONS.downvote" alt="" />
+          </div>
+          <div class="">
+            <h4 class="title medium-14 p-0 m-0">
+              {{ processedCardData!.title }}
+            </h4>
+            <h5 class="text-secondary opacity-80 text-[10px] xs:text-[9px] flex gap-[6px] items-center">
+              <img [src]="ICONS.user" alt="" />
+              <span>{{ processedCardData!.userName }}
+              </span> <img [src]="ICONS.king" />
+            </h5>
+
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing
+              elit, sed do eiusmod tempor incididunt Read More</p>
+          </div>
+        </div>
+
+        <div class="flex py-8 items-start justify-end">
+          <div class="flex flex-col items-end share-box">
+            <div class="px-4 py-2">
+              <img [src]="ICONS.upvotewhite" alt="" />
+              <span class="votes-Count">
+                {{ processedCardData!.upVotes }}
+              </span>
+              <img class="py-2" [src]="ICONS.downvotewhite" alt="" />
+            </div>
+            <div class="px-4 py-2">
+              <img [src]="ICONS.upvotewhite" alt="" />
+              <span class="votes-Count">
+                {{ processedCardData!.upVotes }}
+              </span>
+              <img class="py-2" [src]="ICONS.downvotewhite" alt="" />
+            </div>
+            <div class="px-4 py-2">
+              <img [src]="ICONS.upvotewhite" alt="" />
+              <span class="votes-Count">
+                {{ processedCardData!.upVotes }}
+              </span>
+              <img class="py-2" [src]="ICONS.downvotewhite" alt="" />
+            </div>
+          </div>
+        </div>
+
+        <div class="py-2 text-white absolute bottom-0 w-fit">
+          <div class="flex-1">
+            <h2 class="text-2xl font-bold story-title">Adventure Tour</h2>
+            <div>
+              <h5 class="text-secondary opacity-80 text-[10px] xs:text-[9px] flex gap-[6px] items-center">
+                <img [src]="ICONS.user" alt="" />
+                <span>{{ processedCardData!.userName }} - {{ processedCardData!.timeAgo }}</span>
+              </h5>
+            </div>
+          </div>
+          <div class="flex items-start justify-between">
+            <div class="flex space-x-4">
+              <span class="story-bottom-buttons-pink"><img [src]="ICONS.temp" /> Palace</span>
+              <span class="story-bottom-buttons-white"><img [src]="ICONS.coffee" /> Coffee</span>
+              <span class="story-bottom-buttons-white"><img [src]="ICONS.template" /> Temple</span>
+              <span class="story-bottom-buttons-white">More +6</span>
+            </div>
+            <div class="flex items-center">
+              <div class="flex">
+                <div class="flex items-center gap-x-2">
+                  <span class="text-xs userIconText">
+                    {{ processedCardData!.users }}
+                    <span class="user-icon-text" *ngIf="processedCardData!.users > 0">Users</span>
+                  </span>
+                  <img [src]="processedCardData!.userimageSrc" alt="" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+      </div>
+    </div>
+
+    <div class="card below">
+
+    </div>
   </div>
 </div>

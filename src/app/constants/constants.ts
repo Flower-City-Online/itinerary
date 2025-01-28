@@ -79,4 +79,8 @@ export const ICONS = {
   notSpecified: 'assets/icons/questionMark.svg',
   horizontal: '/assets/images/horizontal.svg',
   storyBackGround: '/assets/images/story-image.svg',
+  horizontalWhite: '/assets/images/horizontal-white.svg',
+  king: '/assets/images/king.svg',
+  upvotewhite: '/assets/images/upvote-white.svg',
+  downvotewhite: '/assets/images/downvote-white.svg',
 };

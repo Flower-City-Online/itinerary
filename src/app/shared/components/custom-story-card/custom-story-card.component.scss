@@ -1,3 +1,9 @@
+@use "src/styles/colors" as *;
+
+.card-component {
+  --width: auto;
+  background: $background-color-1;
+}
 .carousel-container {
   display: flex;
   justify-content: center;
@@ -16,29 +22,18 @@
 }
 
 .card {
+  background-color: gray;
   position: relative;
   width: 100%;
   border-radius: 6.56px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   overflow: hidden;
-  display: flex;
-  justify-content: center;
   align-items: center;
   font-size: 1.5rem;
   font-weight: bold;
   transition:
     transform 0.3s ease,
     opacity 0.3s ease;
-
-  img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: -1;
-  }
 
   &.above {
     border-radius: 0px 0px 6.56px 6.56px;
@@ -64,4 +59,113 @@
     height: 10%;
     width: 90%;
   }
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 16px;
+  background: #1a1a1a;
+  border-radius: 12px 12px 0 0;
+
+  .back-btn,
+  .menu-btn {
+    background: none;
+    border: none;
+    font-size: 20px;
+    color: white;
+    cursor: pointer;
+  }
+
+  .user-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    .avatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+    }
+
+    .username {
+      color: white;
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    .icon-crown {
+      color: gold;
+      font-size: 18px;
+    }
+  }
+}
+
+.progress-bar {
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(to right, #eaeaea80, #eaeaea80);
+  margin-top: 4px;
+  border-radius: 2px;
+  margin-left: 2px;
+}
+
+.story-content {
+  background: #27242c;
+  box-shadow:
+    9.0255px 8.205px 22.1535px rgba(17, 16, 20, 0.65),
+    -4.1025px -4.1025px 13.128px rgba(203, 199, 209, 0.25);
+  border-radius: 6.564px;
+}
+
+.votes-Count {
+  position: absolute;
+  width: 22px;
+  height: 10px;
+  font-family: "Gilroy";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 9.846px;
+  line-height: 100%;
+
+  color: #ffffff;
+
+  text-shadow: 0px 1.06548px 2.13097px rgba(0, 0, 0, 0.5);
+}
+
+.story-title {
+  font-family: "Gilroy";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 19.692px;
+  line-height: 100%;
+  /* identical to box height, or 20px */
+  display: flex;
+  align-items: center;
+  color: #ffffff;
+  text-shadow: 0px 1.06548px 2.13097px rgba(0, 0, 0, 0.5);
+}
+
+.story-bottom-buttons-pink {
+  font-family: "Gilroy";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 8.205px;
+  line-height: 100%;
+  display: flex;
+  align-items: center;
+
+  color: #fe3c72;
+}
+
+.story-bottom-buttons-white {
+  font-family: "Gilroy";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 8.205px;
+  line-height: 100%;
+  display: flex;
+  align-items: center;
+  color: white;
 }
