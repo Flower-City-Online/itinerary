@@ -83,4 +83,5 @@ export const ICONS = {
   king: '/assets/images/king.svg',
   upvotewhite: '/assets/images/upvote-white.svg',
   downvotewhite: '/assets/images/downvote-white.svg',
+  removeFeature: 'assets/icons/remove_feature.svg',
 };

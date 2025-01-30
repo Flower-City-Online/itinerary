@@ -62,6 +62,18 @@ export class CustomDropdownMenuService {
         this.openModal();
       },
     },
+    {
+      title: 'EDIT_COMMENT',
+      iconUrl: ICONS.edit,
+    },
+    {
+      title: 'REMOVE_FEATURE',
+      iconUrl: ICONS.removeFeature,
+    },
+    {
+      title: 'DELETE_COMMENT',
+      iconUrl: ICONS.deleteCross,
+    },
   ];
 
   pageList = [
@@ -124,6 +136,23 @@ export class CustomDropdownMenuService {
         },
         {
           title: 'SHARE_ITINERARY',
+        },
+        {
+          title: 'REPORT',
+        },
+      ],
+    },
+    {
+      pageName: 'stories',
+      itemList: [
+        {
+          title: 'EDIT_COMMENT',
+        },
+        {
+          title: 'REMOVE_FEATURE',
+        },
+        {
+          title: 'DELETE_COMMENT',
         },
         {
           title: 'REPORT',

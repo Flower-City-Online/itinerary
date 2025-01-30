@@ -713,5 +713,8 @@
     "NO_ITINERARIES_FAVORITE": "You have no Itineraries in favorite yet.",
     "EXPLORE_ITINERARIES": "Explore Itineraries",
     "CREATE_NOW": "Create Now"
-  }
+  },
+  "EDIT_COMMENT": "Edit Comment",
+  "REMOVE_FEATURE": "Remove Feature",
+  "DELETE_COMMENT": "Delete Comment"
 }
