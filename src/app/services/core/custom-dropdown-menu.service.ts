@@ -65,6 +65,9 @@ export class CustomDropdownMenuService {
     {
       title: 'EDIT_COMMENT',
       iconUrl: ICONS.edit,
+      command: () => {
+        this.navigateToRoute('comments');
+      },
     },
     {
       title: 'REMOVE_FEATURE',
@@ -195,5 +198,8 @@ export class CustomDropdownMenuService {
   }
   openReportModal(): void {
     this.modalService.toggleModal = !this.modalService.toggleModal;
+  }
+  navigateToRoute(path: string): void {
+    this.router.navigateByUrl(path);
   }
 }
