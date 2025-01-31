@@ -1,5 +1,8 @@
 <div class="z-auto">
   <div class="pb-10">
+    <app-header heading="Comments" (firstButton)="backButton()"></app-header>
+    <lib-text-box [includeEmojiPicker]="true" [includeImageAttachment]="true"></lib-text-box>
+    <app-filter-menu></app-filter-menu>
     <app-comments-list></app-comments-list>
   </div>
 </div>

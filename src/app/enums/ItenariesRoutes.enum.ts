@@ -9,4 +9,5 @@ export enum ItenariesRoutesEnum {
   INFO = '/info',
   PROFILE = '/profile',
   ARCHIVES = '/archives/archives',
+  COMMENTS = '/itineraries/comments',
 }

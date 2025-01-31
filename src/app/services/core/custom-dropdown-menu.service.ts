@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { LibMenuItem } from 'nextsapien-component-lib';
 import { ICONS } from 'src/app/constants/constants';
+import { ItenariesRoutesEnum } from 'src/app/enums/ItenariesRoutes.enum';
 import { ModalService } from './modal/modal.service';
 
 @Injectable({
@@ -200,6 +201,6 @@ export class CustomDropdownMenuService {
     this.modalService.toggleModal = !this.modalService.toggleModal;
   }
   navigateToRoute(path: string): void {
-    this.router.navigateByUrl(path);
+    this.router.navigate([ItenariesRoutesEnum.COMMENTS]);
   }
 }

@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
-import { CommentsListComponent } from './components/comments-list/comments-list.component';
-
 @Component({
   selector: 'app-comments-page',
-  standalone: true,
-  imports: [CommentsListComponent],
   templateUrl: './comments-page.component.html',
-  styleUrl: './comments-page.component.css',
+  styleUrl: './comments-page.component.scss',
 })
-export class CommentsPageComponent {}
+export class CommentsPageComponent {
+  backButton(): void {
+    window.history.back();
+  }
+}
