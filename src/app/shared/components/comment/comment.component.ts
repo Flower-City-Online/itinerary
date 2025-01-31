@@ -12,7 +12,7 @@ import { ApiService } from 'src/app/services/core/api.service';
 export class CommentComponent implements OnInit {
   @Input() libMenuItem!: LibMenuItem[];
   @Input() isDraft!: boolean;
-  cardData: ICommentsData | undefined;
+  commentsData: ICommentsData[] | undefined;
   processedCardData: ICommentsData | undefined;
   ICONS = ICONS;
   cardDataForLocations = {
@@ -36,27 +36,11 @@ export class CommentComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    if (!this.isDraft) {
-      this.apiService.get('/assets/commentsData.json').subscribe((data) => {
-        this.cardData = data as ICommentsData;
-        this.processedCardData = this.processCardData(this.cardData);
-        this.cdr.detectChanges();
-      });
-    } else {
-      this.cardData = {
-        upVotes: '',
-        downVotes: 5,
-        title: '',
-        userName: '',
-        timeAgo: '',
-        views: 0,
-        commentText: '',
-        hasAttachements: false,
-        userimageSrc: '',
-        attachments: [],
-      };
-      this.processedCardData = this.processCardData(this.cardData);
-    }
+    this.apiService.get('/assets/commentsData.json').subscribe((data) => {
+      this.commentsData = data as ICommentsData[];
+      console.log(this.commentsData);
+      this.cdr.detectChanges();
+    });
   }
 
   private nullCheck(data: string | number | null | undefined): boolean {

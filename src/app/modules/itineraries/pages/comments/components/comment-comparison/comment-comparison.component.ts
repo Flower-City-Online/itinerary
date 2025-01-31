@@ -10,7 +10,7 @@ import { ApiService } from 'src/app/services/core/api.service';
 })
 export class CommentComparisonComponent implements OnInit {
   @Input() isDraft!: boolean;
-  cardData: ICommentsData | undefined;
+  cardData: ICommentsData[] | undefined;
   processedCardData: ICommentsData | undefined;
   ICONS = ICONS;
   cardDataForLocations = {
@@ -36,24 +36,10 @@ export class CommentComparisonComponent implements OnInit {
   ngOnInit(): void {
     if (!this.isDraft) {
       this.apiService.get('/assets/commentsData.json').subscribe((data) => {
-        this.cardData = data as ICommentsData;
-        this.processedCardData = this.processCardData(this.cardData);
+        this.cardData = data as ICommentsData[];
+        this.processedCardData = this.processCardData(this.cardData[0]);
         this.cdr.detectChanges();
       });
-    } else {
-      this.cardData = {
-        upVotes: '',
-        downVotes: 5,
-        title: '',
-        userName: '',
-        timeAgo: '',
-        views: 0,
-        commentText: '',
-        hasAttachements: false,
-        userimageSrc: '',
-        attachments: [],
-      };
-      this.processedCardData = this.processCardData(this.cardData);
     }
   }
 
