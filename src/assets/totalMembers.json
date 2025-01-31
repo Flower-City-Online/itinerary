@@ -1,0 +1,20 @@
+[{
+  "memberName": "Makenna Levin",
+  "memberEmail": "levinmakk@mail.com",
+  "memberPic" : "/assets/images/image1.svg"
+},
+{
+  "memberName": "Jakob Vaccaro",
+  "memberEmail": "jackobvaccaro@mail.com",
+  "memberPic" : "/assets/images/image2.svg"
+},
+{
+  "memberName": "Alfredo Bergson",
+  "memberEmail": "alfredobergson@mail.com",
+  "memberPic" : "/assets/images/image3.svg"
+},
+{
+  "memberName": "Alfonso Lipshutz",
+  "memberEmail": "alfonsolipshutz@mail.com",
+  "memberPic" : "/assets/images/image3.svg"
+}]

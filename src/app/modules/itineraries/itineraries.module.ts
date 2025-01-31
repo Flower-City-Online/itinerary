@@ -36,6 +36,8 @@ import { NotificationsListComponent } from './pages/notifications/components/not
 import { NotificationsComponent } from './pages/notifications/notifications.component';
 import { StoryListComponent } from './pages/stories/components/story-list/story-list.component';
 import { StoryComponent } from './pages/stories/story.component';
+import { TotalMembersListComponent } from './pages/total-members/components/total-members-list/total-members-list.component';
+import { TotalMembersComponent } from './pages/total-members/total-members.component';
 @NgModule({
   declarations: [
     ItinerariesComponent,
@@ -55,6 +57,8 @@ import { StoryComponent } from './pages/stories/story.component';
     NotificationsListComponent,
     HandleUpdateCommentRequestComponent,
     CommentComparisonComponent,
+    TotalMembersComponent,
+    TotalMembersListComponent,
   ],
   exports: [FilterMenuComponent, DeleteItinerariesComponent],
   imports: [

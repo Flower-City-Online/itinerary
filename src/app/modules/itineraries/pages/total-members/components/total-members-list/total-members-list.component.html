@@ -1,0 +1,22 @@
+<div class="relative min-h-screen">
+  <div class="z-auto">
+    <div class="pb-10">
+      <app-header heading="Total Members" (firstButton)="backButton()"></app-header>
+      <app-itinerary-member></app-itinerary-member>
+      <div class="flex px-4">
+        <img [src]='ICONS.invitePint' />
+        <button class="inviteMorePeople">Invite more people</button>
+      </div>
+
+      <!-- Separator Line -->
+      <div class="border-t border-gray-700 mt-6 mb-6"></div>
+
+      <h2 class="commonInterests px-4 mb-4">Common Interests</h2>
+
+      <div class="commonInterestItem px-4 py-3 ms-4">
+        <img [src]='ICONS.food' />
+        <p class="text-black">Viynasa</p>
+      </div>
+    </div>
+  </div>
+</div>

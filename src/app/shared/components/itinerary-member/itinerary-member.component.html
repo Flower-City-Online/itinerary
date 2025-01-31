@@ -1,0 +1,17 @@
+<ng-container *ngFor="let data of itineraryMembers; let i = index">
+  <div class="comment-card text-white p-4 rounded-xl">
+    <div class="flex items-start justify-between">
+      <div class="flex space-x-3">
+        <img [src]="data.memberPic" alt="User" class="w-10 h-10 rounded-full" />
+        <div>
+          <h4 class="text-sm font-semibold">{{ data?.memberName }} </h4>
+          <p class="text-xs text-gray-300">{{ data?.memberEmail }}</p>
+        </div>
+      </div>
+      <lib-menu-btn (select)="handleMenueItemSelect()" (click)="handleMenuClick()" (change)="handleMenuItemChange()"
+        class="lib-menu-custom-class" [disableTextShadow]="true">
+        <img [src]="ICONS.horizontalWhite" alt="" />
+      </lib-menu-btn>
+    </div>
+  </div>
+</ng-container>

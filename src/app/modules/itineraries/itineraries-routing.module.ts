@@ -7,6 +7,7 @@ import { FavoritesComponent } from './pages/favorites/favorites.component';
 import { HandleUpdateCommentRequestComponent } from './pages/handle-update-comment-request/handle-update-comment-request.component';
 import { NotificationsComponent } from './pages/notifications/notifications.component';
 import { StoryComponent } from './pages/stories/story.component';
+import { TotalMembersComponent } from './pages/total-members/total-members.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'explore', pathMatch: 'full' },
@@ -20,6 +21,7 @@ const routes: Routes = [
     path: 'update-comment-request',
     component: HandleUpdateCommentRequestComponent,
   },
+  { path: 'total-members', component: TotalMembersComponent },
 ];
 
 @NgModule({
