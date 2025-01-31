@@ -30,6 +30,8 @@ import { CommentsListComponent } from './pages/comments/components/comments-list
 import { ExploreListComponent } from './pages/explore/components/explore-list/explore-list.component';
 import { ExploreComponent } from './pages/explore/explore.component';
 import { FavoritesComponent } from './pages/favorites/favorites.component';
+import { NotificationsListComponent } from './pages/notifications/components/notifications-list/notifications-list.component';
+import { NotificationsComponent } from './pages/notifications/notifications.component';
 import { StoryListComponent } from './pages/stories/components/story-list/story-list.component';
 import { StoryComponent } from './pages/stories/story.component';
 @NgModule({
@@ -47,6 +49,8 @@ import { StoryComponent } from './pages/stories/story.component';
     DeleteItinerariesComponent,
     StoryComponent,
     CommentsPageComponent,
+    NotificationsComponent,
+    NotificationsListComponent,
   ],
   exports: [FilterMenuComponent, DeleteItinerariesComponent],
   imports: [

@@ -4,6 +4,7 @@ import { BuilderComponent } from './pages/builder/builder.component';
 import { CommentsPageComponent } from './pages/comments/comments-page.component';
 import { ExploreComponent } from './pages/explore/explore.component';
 import { FavoritesComponent } from './pages/favorites/favorites.component';
+import { NotificationsComponent } from './pages/notifications/notifications.component';
 import { StoryComponent } from './pages/stories/story.component';
 
 const routes: Routes = [
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: 'favorites', component: FavoritesComponent },
   { path: 'stories', component: StoryComponent },
   { path: 'comments', component: CommentsPageComponent },
+  { path: 'notifications', component: NotificationsComponent },
 ];
 
 @NgModule({

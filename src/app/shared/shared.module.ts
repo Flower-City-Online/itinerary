@@ -31,6 +31,7 @@ import { CommentComponent } from './components/comment/comment.component';
 import { CustomHeadingWithButtonComponent } from './components/custom-heading-with-button/custom-heading-with-button.component';
 import { CustomStoryCardComponent } from './components/custom-story-card/custom-story-card.component';
 import { CutomCardComponent } from './components/cutom-card/cutom-card.component';
+import { NotificationComponent } from './components/notification/notification.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { CutomCardComponent } from './components/cutom-card/cutom-card.component
     CutomCardComponent,
     CustomStoryCardComponent,
     CommentComponent,
+    NotificationComponent,
   ],
   exports: [
     CardComponent,
@@ -46,6 +48,7 @@ import { CutomCardComponent } from './components/cutom-card/cutom-card.component
     CutomCardComponent,
     CustomStoryCardComponent,
     CommentComponent,
+    NotificationComponent,
   ],
   imports: [
     BaseCardModule,
