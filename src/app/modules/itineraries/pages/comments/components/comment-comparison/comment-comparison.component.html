@@ -1,0 +1,66 @@
+<div class="text-white p-4 rounded-xl">
+  <div class="flex items-start justify-between">
+    <!-- Left Side: Profile & Details -->
+    <div class="flex space-x-3">
+      <!-- Profile Image -->
+      <img [src]="ICONS.user" alt="User" class="w-10 h-10 rounded-full" />
+
+      <!-- Username & Timestamp -->
+      <div>
+        <h4 class="text-xs text-gray-300">Jonathan updated their comment from</h4>
+        <p class="text-md text-gray-300">{{ processedCardData?.commentText }}</p>
+      </div>
+    </div>
+
+
+  </div>
+
+  <!-- Attachments Section (Visible Only If hasAttachment is True) -->
+  <div *ngIf="true" class="grid grid-cols-2 gap-2 mt-3">
+    <ng-container *ngFor="let image of processedCardData?.attachments; let i = index">
+      <div class="relative" *ngIf="i < 4">
+        <img [src]="image" alt="Attachment" class="w-full h-28 rounded-lg object-cover" />
+        <div *ngIf="i === 3 && processedCardData?.attachments"
+          class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center text-white text-xl font-bold">
+          +{{ i }}
+        </div>
+      </div>
+    </ng-container>
+  </div>
+
+
+
+  <!-- Separator Line -->
+  <div class="border-t border-gray-700 mt-2 mb-5"></div>
+
+  <p>To</p>
+
+  <div class="flex items-start justify-between">
+    <div class="flex space-x-3">
+
+      <div>
+        <p class="text-md text-gray-300">I would like to change my statements here, that place was shit.</p>
+      </div>
+    </div>
+
+
+  </div>
+
+  <!-- Attachments Section (Visible Only If hasAttachment is True) -->
+  <div *ngIf="true" class="grid grid-cols-2 gap-2 mt-3">
+    <ng-container *ngFor="let image of processedCardData?.attachments; let i = index">
+      <div class="relative" *ngIf="i < 4">
+        <img [src]="image" alt="Attachment" class="w-full h-28 rounded-lg object-cover" />
+        <div *ngIf="i === 3 && processedCardData?.attachments"
+          class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center text-white text-xl font-bold">
+          +{{ i }}
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</div>
+
+<div class="flex items-center justify-center">
+  <lib-primary-btn [disableTextShadow]="true">Disapprove</lib-primary-btn>
+  <lib-primary-btn [hoverOutline]="true">Approve</lib-primary-btn>
+</div>
