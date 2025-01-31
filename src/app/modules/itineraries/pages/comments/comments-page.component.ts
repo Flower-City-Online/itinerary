@@ -5,6 +5,7 @@ import {
   ToastService,
 } from 'nextsapien-component-lib';
 import { ICONS } from 'src/app/constants/constants';
+import { ModalService } from 'src/app/services/core/modal/modal.service';
 @Component({
   selector: 'app-comments-page',
   templateUrl: './comments-page.component.html',
@@ -19,7 +20,11 @@ export class CommentsPageComponent {
       type: StatusTypes.Success,
     };
   }
-  constructor(private toastService: ToastService) {}
+  constructor(
+    private toastService: ToastService,
+    public modalService: ModalService,
+  ) {}
+
   ICONS = ICONS;
   StatusPosition = StatusPosition;
   backButton(): void {

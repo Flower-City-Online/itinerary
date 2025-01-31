@@ -98,6 +98,9 @@ export class CustomDropdownMenuService {
         },
         {
           title: 'REPORT',
+          command: () => {
+            this.openReportModal();
+          },
         },
       ],
     },

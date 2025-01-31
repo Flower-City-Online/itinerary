@@ -1,14 +1,12 @@
 <div class="z-auto">
-  <lib-search-bar
-    class="search-field"
-    (searchStringChange)="handleSearchStringChange($event)"
-    (cleared)="clear()"
-    [searchIcon]="ICONS.dashboardSearch"
-    [placeholderText]="'NG_GRID.searchOoo' | translate"
-  >
+  <lib-search-bar class="search-field" (searchStringChange)="handleSearchStringChange($event)" (cleared)="clear()"
+    [searchIcon]="ICONS.dashboardSearch" [placeholderText]="'NG_GRID.searchOoo' | translate">
   </lib-search-bar>
   <app-filter-menu></app-filter-menu>
   <div class="pb-10">
     <app-explore-list></app-explore-list>
   </div>
+  <lib-popup [isOpen]="modalService.toggleModal">
+    <app-report-itinerary-modal [popupTitle]="'Report Itinerary'"></app-report-itinerary-modal>
+  </lib-popup>
 </div>
