@@ -5,6 +5,7 @@ import { CommentsPageComponent } from './pages/comments/comments-page.component'
 import { ExploreComponent } from './pages/explore/explore.component';
 import { FavoritesComponent } from './pages/favorites/favorites.component';
 import { HandleUpdateCommentRequestComponent } from './pages/handle-update-comment-request/handle-update-comment-request.component';
+import { InvitePeopleComponent } from './pages/invite-people/invite-people.component';
 import { NotificationsComponent } from './pages/notifications/notifications.component';
 import { StoryComponent } from './pages/stories/story.component';
 import { TotalMembersComponent } from './pages/total-members/total-members.component';
@@ -22,6 +23,7 @@ const routes: Routes = [
     component: HandleUpdateCommentRequestComponent,
   },
   { path: 'total-members', component: TotalMembersComponent },
+  { path: 'invite-people', component: InvitePeopleComponent },
 ];
 
 @NgModule({

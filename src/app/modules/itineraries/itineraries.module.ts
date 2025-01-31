@@ -32,6 +32,8 @@ import { ExploreListComponent } from './pages/explore/components/explore-list/ex
 import { ExploreComponent } from './pages/explore/explore.component';
 import { FavoritesComponent } from './pages/favorites/favorites.component';
 import { HandleUpdateCommentRequestComponent } from './pages/handle-update-comment-request/handle-update-comment-request.component';
+import { ToInvitePeopleListComponent } from './pages/invite-people/components/to-invite-people-list/to-invite-people-list.component';
+import { InvitePeopleComponent } from './pages/invite-people/invite-people.component';
 import { NotificationsListComponent } from './pages/notifications/components/notifications-list/notifications-list.component';
 import { NotificationsComponent } from './pages/notifications/notifications.component';
 import { StoryListComponent } from './pages/stories/components/story-list/story-list.component';
@@ -59,6 +61,8 @@ import { TotalMembersComponent } from './pages/total-members/total-members.compo
     CommentComparisonComponent,
     TotalMembersComponent,
     TotalMembersListComponent,
+    InvitePeopleComponent,
+    ToInvitePeopleListComponent,
   ],
   exports: [FilterMenuComponent, DeleteItinerariesComponent],
   imports: [

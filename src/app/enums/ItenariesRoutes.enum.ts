@@ -10,4 +10,5 @@ export enum ItenariesRoutesEnum {
   PROFILE = '/profile',
   ARCHIVES = '/archives/archives',
   COMMENTS = '/itineraries/comments',
+  SENDINVITES = '/itineraries/invite-people',
 }

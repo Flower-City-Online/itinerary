@@ -32,6 +32,7 @@ import { CustomHeadingWithButtonComponent } from './components/custom-heading-wi
 import { CustomStoryCardComponent } from './components/custom-story-card/custom-story-card.component';
 import { CutomCardComponent } from './components/cutom-card/cutom-card.component';
 import { ItineraryMemberComponent } from './components/itinerary-member/itinerary-member.component';
+import { ItineraryPeopleComponent } from './components/itinerary-people/itinerary-people.component';
 import { NotificationComponent } from './components/notification/notification.component';
 
 @NgModule({
@@ -43,6 +44,7 @@ import { NotificationComponent } from './components/notification/notification.co
     CommentComponent,
     NotificationComponent,
     ItineraryMemberComponent,
+    ItineraryPeopleComponent,
   ],
   exports: [
     CardComponent,
@@ -52,6 +54,7 @@ import { NotificationComponent } from './components/notification/notification.co
     CommentComponent,
     NotificationComponent,
     ItineraryMemberComponent,
+    ItineraryPeopleComponent,
   ],
   imports: [
     BaseCardModule,

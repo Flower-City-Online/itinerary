@@ -87,4 +87,5 @@ export const ICONS = {
   submit: 'assets/icons/submit.svg',
   invitePint: 'assets/icons/invite_pink.svg',
   food: 'assets/icons/food.svg',
+  pic_map: 'assets/icons/pic_map.svg',
 };
