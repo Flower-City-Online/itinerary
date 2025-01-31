@@ -8,6 +8,8 @@ import {
   DashedCheckboxModule,
   FormFieldModule,
   LibModalModule,
+  LibToastrModule,
+  NotificationsModule,
   SearchBarModule,
   SelectableModule,
   TextBoxComponent,
@@ -64,6 +66,8 @@ import { StoryComponent } from './pages/stories/story.component';
     SearchBarModule,
     StoryListComponent,
     CommentsListComponent,
+    NotificationsModule,
+    LibToastrModule,
   ],
 })
 export class ItinerariesModule {}

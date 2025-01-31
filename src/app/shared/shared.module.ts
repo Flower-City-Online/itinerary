@@ -20,6 +20,8 @@ import {
   LibMapModule,
   LibModalModule,
   LibTabMenuModule,
+  LibToastrModule,
+  NotificationsModule,
   OtpInputModule,
   PopperModule,
   SearchBarModule,
@@ -71,6 +73,8 @@ import { CutomCardComponent } from './components/cutom-card/cutom-card.component
     LibModalModule,
     IonicModule,
     ContentViewCardModule,
+    NotificationsModule,
+    LibToastrModule,
   ],
 })
 export class SharedModule {}
