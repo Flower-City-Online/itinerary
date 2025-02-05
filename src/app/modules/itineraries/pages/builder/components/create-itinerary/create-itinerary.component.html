@@ -10,6 +10,7 @@
   (isOpenChange)="enableBack = !enableBack"
   [isOpen]="modalService.bottomToggleModal"
   [customClass]="'custom-modal'"
+  [attr.inert]="!modalService.bottomToggleModal ? '' : null"
   (closeModal)="closeModal()"
 >
   <app-create-itinerary-modal></app-create-itinerary-modal>

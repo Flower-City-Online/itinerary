@@ -21,10 +21,10 @@ export class HeaderComponent {
   ICONS = ICONS;
 
   handleBackBtnClicked(): void {
-    this.lastButton.emit;
+    this.lastButton.emit();
   }
 
   firstButtonClick(): void {
-    this.firstButton.emit;
+    this.firstButton.emit();
   }
 }
