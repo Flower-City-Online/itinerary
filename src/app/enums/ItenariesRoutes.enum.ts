@@ -11,4 +11,13 @@ export enum ItenariesRoutesEnum {
   ARCHIVES = '/archives/archives',
   COMMENTS = '/itineraries/comments',
   SENDINVITES = '/itineraries/invite-people',
+  EXPLORE = 'explore',
+  BUILDER = 'builder',
+  FAVORITES = 'favorites',
+  STORIES = 'stories',
+  COMMENTS_ROUTE = 'comments',
+  NOTIFICATIONS = 'notifications',
+  COMMENT_UPDATE_REQUEST = 'comment-update-request',
+  TOTAL_MEMBERS = 'total-members',
+  INVITE_PEOPLE = 'invite-people',
 }
