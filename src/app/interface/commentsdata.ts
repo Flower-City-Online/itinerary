@@ -6,7 +6,7 @@ export interface ICommentsData {
   timeAgo: string;
   views: number;
   commentText: string;
-  hasAttachements: boolean;
+  hasAttachments: boolean;
   isEditted: boolean;
   userimageSrc: string;
   attachments: [];

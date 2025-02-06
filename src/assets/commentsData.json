@@ -1,47 +1,49 @@
-[{
-  "upVotes": "2.4k",
-  "downVotes": 5,
-  "title": "Adventuretour",
-  "userName": "Jonathan",
-  "timeAgo": "2 hours ago",
-  "location": "WESTMINSITERO",
-  "views": 100,
-  "hasAttachements": true,
-  "isEditted": true,
-  "attachments": [
-    "/assets/images/image1.svg",
-    "/assets/images/image2.svg",
-    "/assets/images/image3.svg",
-    "/assets/images/image3.svg"
-  ],
-  "userimageSrc": "/assets/images/user-image.png",
-  "commentText": "I had Great Experience out there. I would say its perfect for a coffee lover."
-},
-{
-  "upVotes": "2.4k",
-  "downVotes": 5,
-  "title": "Adventuretour",
-  "userName": "Jonathan",
-  "timeAgo": "2 hours ago",
-  "location": "WESTMINSITERO",
-  "views": 100,
-  "hasAttachements": false,
-  "isEditted": true,
-  "attachments": [],
-  "userimageSrc": "/assets/images/user-image.png",
-  "commentText": "I had Great Experience out there. I would say its perfect for a coffee lover."
-},
-{
-  "upVotes": "2.4k",
-  "downVotes": 5,
-  "title": "Adventuretour",
-  "userName": "Jonathan",
-  "timeAgo": "2 hours ago",
-  "location": "WESTMINSITERO",
-  "views": 100,
-  "hasAttachement": false,
-  "isEditted": false,
-  "attachments": [],
-  "userimageSrc": "/assets/images/user-image.png",
-  "commentText": "I had Great Experience out there. I would say its perfect for a coffee lover."
-}]
+[
+  {
+    "upVotes": "2.4k",
+    "downVotes": 5,
+    "title": "Adventuretour",
+    "userName": "Jonathan",
+    "timeAgo": "2 hours ago",
+    "location": "WESTMINSITERO",
+    "views": 100,
+    "hasAttachments": true,
+    "isEditted": true,
+    "attachments": [
+      "/assets/images/image1.svg",
+      "/assets/images/image2.svg",
+      "/assets/images/image3.svg",
+      "/assets/images/image3.svg"
+    ],
+    "userimageSrc": "/assets/images/user-image.png",
+    "commentText": "I had Great Experience out there. I would say its perfect for a coffee lover."
+  },
+  {
+    "upVotes": "2.4k",
+    "downVotes": 5,
+    "title": "Adventuretour",
+    "userName": "Jonathan",
+    "timeAgo": "2 hours ago",
+    "location": "WESTMINSITERO",
+    "views": 100,
+    "hasAttachments": false,
+    "isEditted": true,
+    "attachments": [],
+    "userimageSrc": "/assets/images/user-image.png",
+    "commentText": "I had Great Experience out there. I would say its perfect for a coffee lover."
+  },
+  {
+    "upVotes": "2.4k",
+    "downVotes": 5,
+    "title": "Adventuretour",
+    "userName": "Jonathan",
+    "timeAgo": "2 hours ago",
+    "location": "WESTMINSITERO",
+    "views": 100,
+    "hasAttachement": false,
+    "isEditted": false,
+    "attachments": [],
+    "userimageSrc": "/assets/images/user-image.png",
+    "commentText": "I had Great Experience out there. I would say its perfect for a coffee lover."
+  }
+]
