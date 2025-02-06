@@ -85,7 +85,7 @@ export const ICONS = {
   downvotewhite: '/assets/images/downvote-white.svg',
   removeFeature: 'assets/icons/remove_feature.svg',
   submit: 'assets/icons/submit.svg',
-  invitePint: 'assets/icons/invite_pink.svg',
+  invitePink: 'assets/icons/invite_pink.svg',
   food: 'assets/icons/food.svg',
   pic_map: 'assets/icons/pic_map.svg',
 };
