@@ -1,3 +1,4 @@
+import { Location } from '@angular/common';
 import { Component } from '@angular/core';
 import {
   StatusPosition,
@@ -23,11 +24,12 @@ export class CommentsPageComponent {
   constructor(
     private toastService: ToastService,
     public modalService: ModalService,
+    private _location: Location,
   ) {}
 
   ICONS = ICONS;
   StatusPosition = StatusPosition;
   backButton(): void {
-    window.history.back();
+    this._location.back();
   }
 }

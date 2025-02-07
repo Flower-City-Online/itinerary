@@ -1,3 +1,4 @@
+import { Location } from '@angular/common';
 import { Component } from '@angular/core';
 import { ICONS } from 'src/app/constants/constants';
 
@@ -7,8 +8,9 @@ import { ICONS } from 'src/app/constants/constants';
   styleUrl: './handle-update-comment-request.component.scss',
 })
 export class HandleUpdateCommentRequestComponent {
+  constructor(private _location: Location) {}
   ICONS = ICONS;
   backButton(): void {
-    window.history.back();
+    this._location.back();
   }
 }

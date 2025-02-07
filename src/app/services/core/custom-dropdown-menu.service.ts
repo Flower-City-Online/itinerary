@@ -67,7 +67,7 @@ export class CustomDropdownMenuService {
       title: 'EDIT_COMMENT',
       iconUrl: ICONS.edit,
       command: () => {
-        this.navigateToRoute('comments');
+        this.navigateToRoute(ItenariesRoutesEnum.COMMENTS);
       },
     },
     {
@@ -204,6 +204,8 @@ export class CustomDropdownMenuService {
     this.modalService.toggleModal = !this.modalService.toggleModal;
   }
   navigateToRoute(path: string): void {
-    this.router.navigate([ItenariesRoutesEnum.COMMENTS]);
+    this.router.navigate([path], {
+      queryParams: { mode: 'edit' },
+    });
   }
 }

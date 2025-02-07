@@ -1,18 +1,11 @@
-<div
-  [class]="
+<div [class]="
     cssClass + ' header-main-bar pt-5 pb-5 flex items-center justify-between'
-  "
->
-  <lib-icon-btn class="header-back-btn" (click)="handleBackBtnClicked()">
+  ">
+  <lib-icon-btn class="header-back-btn" (click)="firstButtonClick()" type="btn">
     <img [ngSrc]="ICONS.back" height="12" width="13" />
   </lib-icon-btn>
   <h4>{{ heading }}</h4>
 
-  <lib-icon-btn
-    class="header-btn"
-    (clickFunction)="handleBackBtnClicked()"
-    type="btn"
-  >
-    <img [src]="ICONS.search" alt="back-btn"
-  /></lib-icon-btn>
+  <lib-icon-btn class="header-btn" (click)="handleBackBtnClicked()" type="btn">
+    <img [src]="ICONS.search" alt="back-btn" /></lib-icon-btn>
 </div>
