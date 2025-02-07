@@ -58,7 +58,9 @@ export class CommentComparisonComponent implements OnInit {
   getCommentsData() {
     this.apiService.get('/assets/commentsData.json').subscribe((data) => {
       this.cardData = data as ICommentsData[];
-      this.processedCardData = this.processCardData(this.cardData[0]);
+      this.processedCardData = this.cardData?.[0]
+        ? this.processCardData(this.cardData[0])
+        : undefined;
       this.cdr.detectChanges();
     });
   }
