@@ -1,9 +1,9 @@
+import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ICONS } from 'src/app/constants/constants';
 import { Iicon } from 'src/app/interface/icon';
 import { CustomDropdownMenuService } from 'src/app/services/core/custom-dropdown-menu.service';
 import { ModalService } from 'src/app/services/core/modal/modal.service';
-
 @Component({
   selector: 'app-invite-people',
   templateUrl: './invite-people.component.html',
@@ -20,6 +20,7 @@ export class InvitePeopleComponent implements OnInit {
   constructor(
     public customMenuList: CustomDropdownMenuService,
     public modalService: ModalService,
+    private _location: Location,
   ) {}
 
   handleSearchStringChange($event: string) {}
@@ -27,6 +28,6 @@ export class InvitePeopleComponent implements OnInit {
   clear(): void {}
 
   backButton(): void {
-    window.history.back();
+    this._location.back();
   }
 }
