@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LibMenuItem } from 'nextsapien-component-lib';
 import { ICONS } from 'src/app/constants/constants';
+import { Iicon } from 'src/app/interface/icon';
 import { CustomDropdownMenuService } from 'src/app/services/core/custom-dropdown-menu.service';
 import { ModalService } from 'src/app/services/core/modal/modal.service';
 
@@ -14,7 +15,7 @@ export class InvitePeopleComponent implements OnInit {
     throw new Error('Method not implemented.');
   }
   libMenuItem: LibMenuItem[] = [];
-  ICONS = ICONS;
+  ICONS: Iicon = ICONS;
 
   ngOnInit(): void {
     this.libMenuItem = this.customMenuList.getMenuList('itineraries');

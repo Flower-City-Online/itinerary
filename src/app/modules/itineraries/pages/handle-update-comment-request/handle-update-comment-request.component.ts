@@ -1,6 +1,5 @@
 import { Location } from '@angular/common';
 import { Component } from '@angular/core';
-import { ICONS } from 'src/app/constants/constants';
 
 @Component({
   selector: 'app-handle-update-comment-request',
@@ -9,7 +8,6 @@ import { ICONS } from 'src/app/constants/constants';
 })
 export class HandleUpdateCommentRequestComponent {
   constructor(private _location: Location) {}
-  ICONS = ICONS;
   backButton(): void {
     this._location.back();
   }

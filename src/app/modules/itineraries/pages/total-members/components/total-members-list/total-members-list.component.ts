@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { ICONS } from 'src/app/constants/constants';
 import { ItenariesRoutesEnum } from 'src/app/enums/ItenariesRoutes.enum';
+import { Iicon } from 'src/app/interface/icon';
 
 @Component({
   selector: 'app-total-members-list',
@@ -13,7 +14,7 @@ export class TotalMembersListComponent {
     this.router.navigate([ItenariesRoutesEnum.SENDINVITES]);
   }
   constructor(private router: Router) {}
-  ICONS = ICONS;
+  ICONS: Iicon = ICONS;
   backButton(): void {
     window.history.back();
   }

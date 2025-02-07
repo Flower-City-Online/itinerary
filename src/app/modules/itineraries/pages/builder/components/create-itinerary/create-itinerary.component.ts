@@ -7,6 +7,7 @@ import {
   ViewChild,
 } from '@angular/core';
 import { ICONS } from 'src/app/constants/constants';
+import { Iicon } from 'src/app/interface/icon';
 import { ShadowRootHandlerService } from 'src/app/services/core/shadow-root-handler.service';
 import { ModalService } from '../../../../../../services/core/modal/modal.service';
 
@@ -21,7 +22,7 @@ export class CreateItineraryComponent implements OnInit, AfterViewInit {
   testModal: CreateItineraryComponent | undefined;
   enableBack: boolean = true;
   cssClass = ['create-itinerary-modal'];
-  ICONS = ICONS;
+  ICONS: Iicon = ICONS;
 
   constructor(
     public modalService: ModalService,

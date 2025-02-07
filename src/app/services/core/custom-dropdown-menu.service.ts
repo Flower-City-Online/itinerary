@@ -4,6 +4,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { LibMenuItem } from 'nextsapien-component-lib';
 import { ICONS } from 'src/app/constants/constants';
 import { ItenariesRoutesEnum } from 'src/app/enums/ItenariesRoutes.enum';
+import { Iicon } from 'src/app/interface/icon';
 import { ModalService } from './modal/modal.service';
 
 @Injectable({
@@ -11,7 +12,7 @@ import { ModalService } from './modal/modal.service';
 })
 export class CustomDropdownMenuService {
   cssClasses = ['custom-modal-class'];
-  ICONS = ICONS;
+  ICONS: Iicon = ICONS;
   itemList: LibMenuItem[] = [
     {
       title: 'EDIT_ITINERARY',

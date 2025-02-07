@@ -1,6 +1,7 @@
 import { ChangeDetectorRef, Component, Input, OnInit } from '@angular/core';
 import { ICONS } from 'src/app/constants/constants';
 import { ICommentsData } from 'src/app/interface/commentsdata';
+import { Iicon } from 'src/app/interface/icon';
 import { ApiService } from 'src/app/services/core/api.service';
 
 @Component({
@@ -12,7 +13,7 @@ export class CommentComparisonComponent implements OnInit {
   @Input() isDraft!: boolean;
   cardData: ICommentsData[] | undefined;
   processedCardData: ICommentsData | undefined;
-  ICONS = ICONS;
+  ICONS: Iicon = ICONS;
 
   constructor(
     private apiService: ApiService,

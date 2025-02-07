@@ -1,4 +1,6 @@
-export const ICONS = {
+import { Iicon } from '../interface/icon';
+
+export const ICONS: Iicon = {
   plus: 'assets/icon/plus.svg',
   sliders: 'assets/icon/common/sliders.svg',
   calendarFilter: 'assets/icon/calendar/calendar-filter.svg',

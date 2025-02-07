@@ -6,6 +6,7 @@ import {
   ToastService,
 } from 'nextsapien-component-lib';
 import { ICONS } from 'src/app/constants/constants';
+import { Iicon } from 'src/app/interface/icon';
 import { ModalService } from 'src/app/services/core/modal/modal.service';
 @Component({
   selector: 'app-comments-page',
@@ -27,7 +28,7 @@ export class CommentsPageComponent {
     private _location: Location,
   ) {}
 
-  ICONS = ICONS;
+  ICONS: Iicon = ICONS;
   StatusPosition = StatusPosition;
   backButton(): void {
     this._location.back();

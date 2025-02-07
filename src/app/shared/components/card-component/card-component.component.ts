@@ -8,6 +8,7 @@ import {
 import { LibMenuItem } from 'nextsapien-component-lib';
 import { ICONS } from 'src/app/constants/constants';
 import { ICardData } from 'src/app/interface/cardData';
+import { Iicon } from 'src/app/interface/icon';
 import { ApiService } from 'src/app/services/core/api.service';
 
 @Component({
@@ -21,7 +22,7 @@ export class CardComponent implements OnInit {
   @Input() isDraft!: boolean;
   cardData: ICardData | undefined;
   processedCardData: ICardData | undefined;
-  ICONS = ICONS;
+  ICONS: Iicon = ICONS;
   cardDataForLocations = {
     locationColumn1: [
       { icon: ICONS.temp, name: 'Palace' },

@@ -8,6 +8,7 @@ import {
 import { FormControl } from '@angular/forms';
 import { ICONS } from 'src/app/constants/constants';
 import { IFilterMenuOptions } from 'src/app/interface/filterMenuOptions';
+import { Iicon } from 'src/app/interface/icon';
 import { ApiService } from 'src/app/services/core/api.service';
 
 @Component({
@@ -18,7 +19,7 @@ import { ApiService } from 'src/app/services/core/api.service';
 })
 export class FilterMenuComponent implements OnInit {
   @Input() cssClass!: string;
-  ICONS = ICONS;
+  ICONS: Iicon = ICONS;
   options: IFilterMenuOptions[] = [];
   filterControl = new FormControl();
   constructor(

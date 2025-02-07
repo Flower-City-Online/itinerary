@@ -1,5 +1,6 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { ICONS } from 'src/app/constants/constants';
+import { Iicon } from 'src/app/interface/icon';
 import { IItineraryMember } from 'src/app/interface/itineraryMember';
 import { ApiService } from 'src/app/services/core/api.service';
 
@@ -10,7 +11,7 @@ import { ApiService } from 'src/app/services/core/api.service';
 })
 export class ItineraryPeopleComponent implements OnInit {
   itineraryMembers: IItineraryMember[] | undefined;
-  ICONS = ICONS;
+  ICONS: Iicon = ICONS;
 
   constructor(
     private apiService: ApiService,

@@ -2,6 +2,7 @@ import { ChangeDetectorRef, Component, Input, OnInit } from '@angular/core';
 import { LibMenuItem } from 'nextsapien-component-lib';
 import { ICONS } from 'src/app/constants/constants';
 import { ICommentsData } from 'src/app/interface/commentsdata';
+import { Iicon } from 'src/app/interface/icon';
 import { ApiService } from 'src/app/services/core/api.service';
 
 @Component({
@@ -12,7 +13,7 @@ import { ApiService } from 'src/app/services/core/api.service';
 export class CommentComponent implements OnInit {
   @Input() libMenuItem!: LibMenuItem[];
   commentsData: ICommentsData[] | undefined;
-  ICONS = ICONS;
+  ICONS: Iicon = ICONS;
 
   constructor(
     private apiService: ApiService,

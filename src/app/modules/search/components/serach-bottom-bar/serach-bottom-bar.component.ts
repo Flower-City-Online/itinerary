@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { ICONS } from 'src/app/constants/constants';
+import { Iicon } from 'src/app/interface/icon';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -8,5 +9,5 @@ import { ICONS } from 'src/app/constants/constants';
   styleUrl: './serach-bottom-bar.component.scss',
 })
 export class SerachBottomBarComponent {
-  ICONS = ICONS;
+  ICONS: Iicon = ICONS;
 }

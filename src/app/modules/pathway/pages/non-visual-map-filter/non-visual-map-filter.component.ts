@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, ViewChild } from '@angular/core';
 import { ICONS } from 'src/app/constants/constants';
+import { Iicon } from 'src/app/interface/icon';
 import { GooglemapComponent } from '../../components/googlemap/googlemap.component';
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -14,7 +15,7 @@ export class NonVisualMapFilterComponent {
     { lat: 34.0522, lng: -118.2437, label: 'Los Angeles' },
   ];
   initialLocation = { lat: 36.7783, lng: -119.4179 };
-  ICONS = ICONS;
+  ICONS: Iicon = ICONS;
   @ViewChild('map') map!: GooglemapComponent;
 
   toggleDrawingTool(): void {
