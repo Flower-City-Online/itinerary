@@ -26,7 +26,11 @@ export class CommentComponent implements OnInit {
 
   getCommentsData() {
     this.apiService.get('/assets/commentsData.json').subscribe((data) => {
-      this.commentsData = data as ICommentsData[];
+      if (data && Array.isArray(data) && data.length > 0) {
+        this.commentsData = data as ICommentsData[];
+      } else {
+        this.commentsData = [];
+      }
       this.cdr.detectChanges();
     });
   }
