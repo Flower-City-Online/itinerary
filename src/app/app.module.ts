@@ -15,6 +15,7 @@ import {
 } from 'nextsapien-component-lib';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { Page1Component } from './core/components/milestone-4/page1/page1.component';
 import { CoreModule } from './core/core.module';
 export const httpLoaderFactory = (http: HttpBackend): TranslateHttpLoader =>
   new TranslateHttpLoader(new HttpClient(http), './assets/i18n/', '.json');
@@ -42,6 +43,7 @@ export const httpLoaderFactory = (http: HttpBackend): TranslateHttpLoader =>
     RangeSelectorModule,
     MatDialogModule,
     LibModalModule,
+    Page1Component,
   ],
   providers: [provideAnimationsAsync()],
   exports: [],
