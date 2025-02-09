@@ -19,12 +19,15 @@ export class ItineraryPeopleComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.getTotalItineraryMembers();
+  }
+
+  getTotalItineraryMembers() {
     this.apiService.get('/assets/totalMembers.json').subscribe((data) => {
       this.itineraryMembers = data as IItineraryMember[];
       this.cdr.detectChanges();
     });
   }
-
   handleMenueItemSelect(): void {}
   handleMenuItemChange(): void {}
   handleMenuClick(): void {}
