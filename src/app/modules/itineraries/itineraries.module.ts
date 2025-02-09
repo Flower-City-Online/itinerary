@@ -26,6 +26,7 @@ import { CreateItineraryComponent } from './pages/builder/components/create-itin
 import { ExploreListComponent } from './pages/explore/components/explore-list/explore-list.component';
 import { ExploreComponent } from './pages/explore/explore.component';
 import { FavoritesComponent } from './pages/favorites/favorites.component';
+import { BranchedItinerariesComponent } from './pages/branched-itineraries/branched-itineraries.component';
 @NgModule({
   declarations: [
     ItinerariesComponent,
@@ -39,6 +40,7 @@ import { FavoritesComponent } from './pages/favorites/favorites.component';
     CreateItineraryModalItemComponent,
     ExploreListComponent,
     DeleteItinerariesComponent,
+    BranchedItinerariesComponent
   ],
   exports: [FilterMenuComponent, DeleteItinerariesComponent],
   imports: [

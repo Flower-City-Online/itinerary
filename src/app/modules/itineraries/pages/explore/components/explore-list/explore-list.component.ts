@@ -12,8 +12,8 @@ export class ExploreListComponent implements OnInit {
   libMenuItem: LibMenuItem[] = [];
   libMenuItems = Array(10).fill(null);
 
+  constructor(public customMenuList: CustomDropdownMenuService) {}
   ngOnInit(): void {
     this.libMenuItem = this.customMenuList.getMenuList('itineraries');
   }
-  constructor(public customMenuList: CustomDropdownMenuService) {}
 }

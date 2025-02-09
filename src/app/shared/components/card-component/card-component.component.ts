@@ -2,8 +2,10 @@ import {
   ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
+  EventEmitter,
   Input,
   OnInit,
+  Output,
 } from '@angular/core';
 import { LibMenuItem } from 'nextsapien-component-lib';
 import { ICONS } from 'src/app/constants/constants';
@@ -22,6 +24,9 @@ export class CardComponent implements OnInit {
   cardData: ICardData | undefined;
   processedCardData: ICardData | undefined;
   ICONS = ICONS;
+  @Input() itineraryStarted: boolean = false;
+  @Output() StartItineraryClick: EventEmitter<void> = new EventEmitter<void>();
+
   cardDataForLocations = {
     locationColumn1: [
       { icon: ICONS.temp, name: 'Palace' },
@@ -102,4 +107,7 @@ export class CardComponent implements OnInit {
   handleMenueItemSelect(): void {}
   handleMenuItemChange(): void {}
   handleMenuClick(): void {}
+  handleStartItineraryClick(): void {
+    this.StartItineraryClick.emit();
+  }
 }

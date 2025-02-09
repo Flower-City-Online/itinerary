@@ -1,0 +1,25 @@
+<div class="ps-5 pe-5">
+  <app-header heading="Branched Itineraries"></app-header>
+
+  <lib-secondary-btn class="builder-add-btn">
+    <span class="me-1">
+      <img class="branchIcon" [src]="ICONS.branchPink" alt="icon" />
+    </span>
+    Branch the Itinerary
+  </lib-secondary-btn>
+
+  <app-filter-menu [ngStyle]="{ margin: '0px !important' }"></app-filter-menu>
+  <app-explore-list></app-explore-list>
+  <div
+    class="grid-columns sm:mt-3 md:mt-10 grid grid-cols-1 md:grid-cols-3 sm:gap-y-5 md:gap-y-10 gap-x-10"
+  >
+    <ng-container *ngFor="let item of libMenuItems; let i = index">
+      <app-card-component
+        [libMenuItem]="libMenuItem"
+        [isDraft]="false"
+        [itineraryStarted]="true"
+      ></app-card-component>
+    </ng-container>
+    <app-cutom-card></app-cutom-card>
+  </div>
+</div>
