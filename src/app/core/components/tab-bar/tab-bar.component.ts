@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { MenuItem } from 'primeng/api';
 import { ItenariesRoutesEnum } from 'src/app/enums/ItenariesRoutes.enum';
 @Component({
@@ -8,7 +8,7 @@ import { ItenariesRoutesEnum } from 'src/app/enums/ItenariesRoutes.enum';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TabBarComponent {
-  tabMenuItems = [
+  @Input() tabMenuItems = [
     {
       label: 'Explore',
       icon: 'pi pi-fw pi-home',

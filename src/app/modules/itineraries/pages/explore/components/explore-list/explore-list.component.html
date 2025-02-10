@@ -5,6 +5,7 @@
     <app-card-component
       [libMenuItem]="libMenuItem"
       [isDraft]="false"
+      (TitleClicked)="navigateToDetail(item)"
     ></app-card-component>
   </ng-container>
   <app-cutom-card></app-cutom-card>

@@ -1,17 +1,21 @@
 import { CommonModule, NgOptimizedImage } from '@angular/common';
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 
 import { ReactiveFormsModule } from '@angular/forms';
+import { GoogleMap, GoogleMapsModule } from '@angular/google-maps';
+import { MatIcon } from '@angular/material/icon';
 import { TranslateModule } from '@ngx-translate/core';
 import {
   ButtonsModule,
   DashedCheckboxModule,
   FormFieldModule,
+  LibMapModule,
   LibModalModule,
   SearchBarModule,
   SelectableModule,
   TextBoxComponent,
 } from 'nextsapien-component-lib';
+import { environment } from 'src/environments/environment';
 import { CoreModule } from '../../core/core.module';
 import { SharedModule } from '../../shared/shared.module';
 import { DeleteItinerariesComponent } from './components/delete-itineraries/delete-itineraries.component';
@@ -27,6 +31,9 @@ import { ExploreListComponent } from './pages/explore/components/explore-list/ex
 import { ExploreComponent } from './pages/explore/explore.component';
 import { FavoritesComponent } from './pages/favorites/favorites.component';
 import { BranchedItinerariesComponent } from './pages/branched-itineraries/branched-itineraries.component';
+import { MapComponent } from './pages/itinerary-detail/components/map/map.component';
+import { SummaryComponent } from './pages/itinerary-detail/components/summary/summary.component';
+import { ItineraryDetailComponent } from './pages/itinerary-detail/itinerary-detail.component';
 import { AdvancedFilterComponent } from './pages/advanced-filter/advanced-filter.component';
 @NgModule({
   declarations: [
@@ -42,6 +49,9 @@ import { AdvancedFilterComponent } from './pages/advanced-filter/advanced-filter
     ExploreListComponent,
     DeleteItinerariesComponent,
     BranchedItinerariesComponent,
+    ItineraryDetailComponent,
+    MapComponent,
+    SummaryComponent,
     AdvancedFilterComponent
   ],
   exports: [FilterMenuComponent, DeleteItinerariesComponent],
@@ -60,6 +70,14 @@ import { AdvancedFilterComponent } from './pages/advanced-filter/advanced-filter
     DashedCheckboxModule,
     TranslateModule,
     SearchBarModule,
+    GoogleMapsModule,
+    MatIcon,
+    LibMapModule.forRoot({
+      googleMapsKey: environment.googleMapsKey,
+      googleMapsURL: environment.googleMapsURL,
+    }),
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  providers: [GoogleMap],
 })
 export class ItinerariesModule {}

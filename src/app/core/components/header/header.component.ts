@@ -15,6 +15,7 @@ import { ICONS } from 'src/app/constants/constants';
 })
 export class HeaderComponent {
   @Input() heading!: string;
+  @Input() headerRightIcon: string = ICONS.search;
   @Output() firstButton = new EventEmitter<MouseEvent>();
   @Output() lastButton = new EventEmitter<MouseEvent>();
   @Input() cssClass!: string;
