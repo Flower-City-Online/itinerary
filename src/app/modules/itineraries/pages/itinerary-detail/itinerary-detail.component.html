@@ -1,0 +1,10 @@
+<div class="ps-5 pe-5">
+  <app-header
+    [headerRightIcon]="ICONS.horizontal"
+    heading="Adventure Tour"
+  ></app-header>
+  <app-tab-bar [tabMenuItems]="tabMenuItems"></app-tab-bar>
+  <div class="minScreen">
+    <router-outlet></router-outlet>
+  </div>
+</div>

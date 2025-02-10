@@ -19,7 +19,7 @@
         <img [src]="ICONS.downvote" alt="" />
       </div>
       <div class="">
-        <h4 class="title medium-14 p-0 m-0">
+        <h4 class="title medium-14 p-0 m-0" (click)="handleTitleClick()">
           {{ processedCardData.title }}
         </h4>
         <h5
