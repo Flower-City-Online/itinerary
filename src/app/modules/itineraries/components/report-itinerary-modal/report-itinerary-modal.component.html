@@ -1,29 +1,17 @@
 <div class="report-itineraies max-padd-container">
-  <h1 class="p-4">{{ "SNACKBAR.REPORT_ITINERARY" | translate }}</h1>
+  <h1 class="p-4">{{ popupTitle | translate }}</h1>
   <div>
-    <lib-form-field
-      [formFieldControl]="radio"
-      [submitted]="false"
-      [required]="true"
-      [maxLength]="10"
-      [type]="FormFieldType.radio"
-      [options]="options"
-      [radioDeselectable]="false"
-    ></lib-form-field>
+    <lib-form-field [formFieldControl]="radio" [submitted]="false" [required]="true" [maxLength]="10"
+      [type]="FormFieldType.radio" [options]="options" [radioDeselectable]="false"></lib-form-field>
   </div>
 
-  <lib-text-box
-    class="text-feild"
-    *ngIf="selectedItem == 9"
-    [label]="'Please brief your issue'"
-  ></lib-text-box>
+  <lib-text-box class="text-feild" *ngIf="selectedItem == 9" [label]="'Please brief your issue'"></lib-text-box>
   <div class="modal-bottom-bar">
     <lib-primary-btn (click)="closeModal()">{{
       "ADMIN.ORDER_STATUS.CANCEL" | translate
-    }}</lib-primary-btn>
+      }}</lib-primary-btn>
     <lib-primary-btn (click)="onOk()">{{
       "REPORT" | translate
-    }}</lib-primary-btn>
+      }}</lib-primary-btn>
   </div>
 </div>
-  

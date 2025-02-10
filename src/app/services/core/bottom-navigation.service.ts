@@ -2,13 +2,14 @@ import { Injectable } from '@angular/core';
 import { ICONS } from 'src/app/constants/constants';
 import { ItenariesRoutesEnum } from 'src/app/enums/ItenariesRoutes.enum';
 import { IBottomNavigationList } from 'src/app/interface/bottomNavigationList';
+import { Iicon } from 'src/app/interface/icon';
 
 @Injectable({
   providedIn: 'root',
 })
 export class BottomNavigationService {
   public isShowNavigation: boolean = false;
-  ICONS = ICONS;
+  ICONS: Iicon = ICONS;
   bottomNavList = [
     {
       id: 1,

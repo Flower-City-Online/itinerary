@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { LibMenuItem } from 'nextsapien-component-lib';
 import { ICONS } from 'src/app/constants/constants';
+import { Iicon } from 'src/app/interface/icon';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -10,7 +11,7 @@ import { ICONS } from 'src/app/constants/constants';
   styleUrls: ['./navbar.component.scss'],
 })
 export class NavbarComponent {
-  ICONS = ICONS;
+  ICONS: Iicon = ICONS;
   menuItems: LibMenuItem[] = [];
   navigationItems = [
     { label: 'MENU.HOME', iconPath: this.ICONS.dashHomeActive },

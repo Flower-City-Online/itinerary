@@ -1,0 +1,35 @@
+<app-header heading="Invite People" (firstButton)="backButton()"></app-header>
+<lib-search-bar class="search-field" [placeholderText]="'Search people to invite' | translate"
+  (searchStringChange)="handleSearchStringChange($event)" (cleared)="clear()" [searchIcon]="ICONS.dashboardSearch">
+</lib-search-bar>
+
+
+<app-to-invite-people-list class="py-4"></app-to-invite-people-list>
+
+<p class="interestedPeopleHeading py-2 px-4">People who might want to join this itinerary</p>
+<app-to-invite-people-list class="py-4"></app-to-invite-people-list>
+
+<!-- Separator Line -->
+<div class="border-t border-gray-700 mt-2"></div>
+
+<p class="interestedPeopleHeading py-2 px-4">Invites Sent</p>
+
+
+
+<div class="comment-card text-white py-2 px-4 ">
+  <div class="flex items-start justify-between">
+    <div class="flex space-x-3">
+      <div>
+        <span class="text-xs userIconText">
+          <p>16 People</p>
+        </span>
+        <img [src]="ICONS.pic_map" alt="Users" />
+      </div>
+    </div>
+    <div class="flex">
+      <img [src]='ICONS.invitePink' alt="Invite Lable" />
+      <button class="inviteMorePeople" (click)="routeToSentInvites()">View Invites</button>
+      <p class="px-1 text-white">></p>
+    </div>
+  </div>
+</div>

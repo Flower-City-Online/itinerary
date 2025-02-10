@@ -1,4 +1,6 @@
-export const ICONS = {
+import { Iicon } from '../interface/icon';
+
+export const ICONS: Iicon = {
   plus: 'assets/icon/plus.svg',
   sliders: 'assets/icon/common/sliders.svg',
   calendarFilter: 'assets/icon/calendar/calendar-filter.svg',
@@ -78,4 +80,14 @@ export const ICONS = {
   untitled: 'assets/images/untitledImage.svg',
   notSpecified: 'assets/icons/questionMark.svg',
   horizontal: '/assets/images/horizontal.svg',
+  storyBackGround: '/assets/images/story-image.svg',
+  horizontalWhite: '/assets/images/horizontal-white.svg',
+  king: '/assets/images/king.svg',
+  upvoteWhite: '/assets/images/upvote-white.svg',
+  downvoteWhite: '/assets/images/downvote-white.svg',
+  removeFeature: 'assets/icons/remove_feature.svg',
+  submit: 'assets/icons/submit.svg',
+  invitePink: 'assets/icons/invite_pink.svg',
+  food: 'assets/icons/food.svg',
+  picMap: 'assets/icons/pic_map.svg',
 };

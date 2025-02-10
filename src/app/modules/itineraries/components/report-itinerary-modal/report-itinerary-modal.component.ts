@@ -1,6 +1,7 @@
 import {
   ChangeDetectionStrategy,
   Component,
+  Input,
   OnDestroy,
   OnInit,
 } from '@angular/core';
@@ -20,6 +21,7 @@ import { ModalService } from '../../../../services/core/modal/modal.service';
   styleUrls: ['./report-itinerary-modal.component.scss'],
 })
 export class ReportItineraryModalComponent implements OnInit, OnDestroy {
+  @Input() popupTitle!: string;
   selectedItem: number | undefined;
   radio: FormControl = new FormControl(0);
   options: IReportOptions[] = [];

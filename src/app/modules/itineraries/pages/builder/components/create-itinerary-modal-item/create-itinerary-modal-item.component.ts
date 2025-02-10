@@ -7,6 +7,7 @@ import {
   Output,
 } from '@angular/core';
 import { ICONS } from 'src/app/constants/constants';
+import { Iicon } from 'src/app/interface/icon';
 import { ModalService } from 'src/app/services/core/modal/modal.service';
 
 @Component({
@@ -22,7 +23,7 @@ export class CreateItineraryModalItemComponent implements OnInit {
   @Input() description!: string;
   @Input() shortTitle!: boolean;
   titleList: string[] = [];
-  ICONS = ICONS;
+  ICONS: Iicon = ICONS;
 
   constructor(public modalService: ModalService) {}
 

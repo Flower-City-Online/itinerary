@@ -20,24 +20,41 @@ import {
   LibMapModule,
   LibModalModule,
   LibTabMenuModule,
+  LibToastrModule,
+  NotificationsModule,
   OtpInputModule,
   PopperModule,
   SearchBarModule,
 } from 'nextsapien-component-lib';
 import { CardComponent } from './components/card-component/card-component.component';
+import { CommentComponent } from './components/comment/comment.component';
 import { CustomHeadingWithButtonComponent } from './components/custom-heading-with-button/custom-heading-with-button.component';
+import { CustomStoryCardComponent } from './components/custom-story-card/custom-story-card.component';
 import { CutomCardComponent } from './components/cutom-card/cutom-card.component';
+import { ItineraryMemberComponent } from './components/itinerary-member/itinerary-member.component';
+import { ItineraryPeopleComponent } from './components/itinerary-people/itinerary-people.component';
+import { NotificationComponent } from './components/notification/notification.component';
 
 @NgModule({
   declarations: [
     CardComponent,
     CustomHeadingWithButtonComponent,
     CutomCardComponent,
+    CustomStoryCardComponent,
+    CommentComponent,
+    NotificationComponent,
+    ItineraryMemberComponent,
+    ItineraryPeopleComponent,
   ],
   exports: [
     CardComponent,
     CustomHeadingWithButtonComponent,
     CutomCardComponent,
+    CustomStoryCardComponent,
+    CommentComponent,
+    NotificationComponent,
+    ItineraryMemberComponent,
+    ItineraryPeopleComponent,
   ],
   imports: [
     BaseCardModule,
@@ -65,6 +82,8 @@ import { CutomCardComponent } from './components/cutom-card/cutom-card.component
     LibModalModule,
     IonicModule,
     ContentViewCardModule,
+    NotificationsModule,
+    LibToastrModule,
   ],
 })
 export class SharedModule {}

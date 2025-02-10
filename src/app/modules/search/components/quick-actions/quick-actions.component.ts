@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { ICONS } from 'src/app/constants/constants';
 import { ItenariesRoutesEnum } from 'src/app/enums/ItenariesRoutes.enum';
+import { Iicon } from 'src/app/interface/icon';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -9,6 +10,6 @@ import { ItenariesRoutesEnum } from 'src/app/enums/ItenariesRoutes.enum';
   styleUrl: './quick-actions.component.scss',
 })
 export class QuickActionsComponent {
-  ICONS = ICONS;
+  ICONS: Iicon = ICONS;
   ItineraryRoutes = ItenariesRoutesEnum;
 }

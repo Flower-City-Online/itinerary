@@ -5,6 +5,7 @@ import {
   ViewEncapsulation,
 } from '@angular/core';
 import { ICONS } from 'src/app/constants/constants';
+import { Iicon } from 'src/app/interface/icon';
 import { ModalService } from '../../../../../../services/core/modal/modal.service';
 
 @Component({
@@ -15,7 +16,7 @@ import { ModalService } from '../../../../../../services/core/modal/modal.servic
   encapsulation: ViewEncapsulation.Emulated,
 })
 export class CreateItineraryModalComponent implements OnInit {
-  ICONS = ICONS;
+  ICONS: Iicon = ICONS;
   constructor(public modalService: ModalService) {}
   ngOnInit(): void {
     this.modalService.bottomToggleModal = false;

@@ -1,0 +1,8 @@
+<div class="z-auto">
+  <div class="pb-10">
+    <app-story-list></app-story-list>
+  </div>
+  <lib-popup [isOpen]="modalService.toggleModal">
+    <app-report-itinerary-modal [popupTitle]="'Report Media'"></app-report-itinerary-modal>
+  </lib-popup>
+</div>

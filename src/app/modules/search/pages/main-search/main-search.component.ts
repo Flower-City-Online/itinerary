@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { ICONS } from 'src/app/constants/constants';
+import { Iicon } from 'src/app/interface/icon';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -8,7 +9,7 @@ import { ICONS } from 'src/app/constants/constants';
   styleUrl: './main-search.component.scss',
 })
 export class MainSearchComponent {
-  ICONS = ICONS;
+  ICONS: Iicon = ICONS;
 
   handleSearchStringChange($event: string) {}
 

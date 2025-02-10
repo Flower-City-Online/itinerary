@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { LibMenuItem } from 'nextsapien-component-lib';
 import { ICONS } from 'src/app/constants/constants';
+import { ItenariesRoutesEnum } from 'src/app/enums/ItenariesRoutes.enum';
+import { Iicon } from 'src/app/interface/icon';
 import { ModalService } from './modal/modal.service';
 
 @Injectable({
@@ -10,7 +12,7 @@ import { ModalService } from './modal/modal.service';
 })
 export class CustomDropdownMenuService {
   cssClasses = ['custom-modal-class'];
-  ICONS = ICONS;
+  ICONS: Iicon = ICONS;
   itemList: LibMenuItem[] = [
     {
       title: 'EDIT_ITINERARY',
@@ -62,6 +64,21 @@ export class CustomDropdownMenuService {
         this.openModal();
       },
     },
+    {
+      title: 'EDIT_COMMENT',
+      iconUrl: ICONS.edit,
+      command: () => {
+        this.navigateToRoute(ItenariesRoutesEnum.COMMENTS);
+      },
+    },
+    {
+      title: 'REMOVE_FEATURE',
+      iconUrl: ICONS.removeFeature,
+    },
+    {
+      title: 'DELETE_COMMENT',
+      iconUrl: ICONS.deleteCross,
+    },
   ];
 
   pageList = [
@@ -82,6 +99,9 @@ export class CustomDropdownMenuService {
         },
         {
           title: 'REPORT',
+          command: () => {
+            this.openReportModal();
+          },
         },
       ],
     },
@@ -130,6 +150,23 @@ export class CustomDropdownMenuService {
         },
       ],
     },
+    {
+      pageName: 'stories',
+      itemList: [
+        {
+          title: 'EDIT_COMMENT',
+        },
+        {
+          title: 'REMOVE_FEATURE',
+        },
+        {
+          title: 'DELETE_COMMENT',
+        },
+        {
+          title: 'REPORT',
+        },
+      ],
+    },
   ];
 
   constructor(
@@ -166,5 +203,10 @@ export class CustomDropdownMenuService {
   }
   openReportModal(): void {
     this.modalService.toggleModal = !this.modalService.toggleModal;
+  }
+  navigateToRoute(path: string): void {
+    this.router.navigate([path], {
+      queryParams: { mode: 'edit' },
+    });
   }
 }

@@ -6,6 +6,7 @@ import {
   Output,
 } from '@angular/core';
 import { ICONS } from 'src/app/constants/constants';
+import { Iicon } from 'src/app/interface/icon';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -18,13 +19,13 @@ export class HeaderComponent {
   @Output() firstButton = new EventEmitter<MouseEvent>();
   @Output() lastButton = new EventEmitter<MouseEvent>();
   @Input() cssClass!: string;
-  ICONS = ICONS;
+  ICONS: Iicon = ICONS;
 
   handleBackBtnClicked(): void {
-    this.lastButton.emit;
+    this.lastButton.emit();
   }
 
   firstButtonClick(): void {
-    this.firstButton.emit;
+    this.firstButton.emit();
   }
 }
