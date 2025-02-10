@@ -9,10 +9,12 @@
   <h4>{{ heading }}</h4>
 
   <lib-icon-btn
+    *ngIf="isSearchVisible"
     class="header-btn"
     (clickFunction)="handleBackBtnClicked()"
     type="btn"
   >
     <img [src]="ICONS.search" alt="back-btn"
   /></lib-icon-btn>
+  <div *ngIf="!isSearchVisible"></div>
 </div>

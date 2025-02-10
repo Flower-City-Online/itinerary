@@ -9,5 +9,6 @@ export enum ItenariesRoutesEnum {
   INFO = '/info',
   PROFILE = '/profile',
   ARCHIVES = '/archives/archives',
-  BRANCHED_ITINERARIES = 'branch'
+  BRANCHED_ITINERARIES = 'branch',
+  ADVANCED_FILTER = 'filter',
 }

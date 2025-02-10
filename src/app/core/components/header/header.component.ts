@@ -18,6 +18,7 @@ export class HeaderComponent {
   @Output() firstButton = new EventEmitter<MouseEvent>();
   @Output() lastButton = new EventEmitter<MouseEvent>();
   @Input() cssClass!: string;
+  @Input() isSearchVisible: boolean = true;
   ICONS = ICONS;
 
   handleBackBtnClicked(): void {
