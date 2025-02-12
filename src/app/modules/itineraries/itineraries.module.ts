@@ -31,6 +31,8 @@ import { CommentsListComponent } from './pages/comments/components/comments-list
 import { ExploreListComponent } from './pages/explore/components/explore-list/explore-list.component';
 import { ExploreComponent } from './pages/explore/explore.component';
 import { FavoritesComponent } from './pages/favorites/favorites.component';
+import { FriendRequestsListComponent } from './pages/friend-requests/components/friend-requests-list/friend-requests-list.component';
+import { FriendRequestsComponent } from './pages/friend-requests/friend-requests.component';
 import { HandleUpdateCommentRequestComponent } from './pages/handle-update-comment-request/handle-update-comment-request.component';
 import { ToInvitePeopleListComponent } from './pages/invite-people/components/to-invite-people-list/to-invite-people-list.component';
 import { InvitePeopleComponent } from './pages/invite-people/invite-people.component';
@@ -63,6 +65,8 @@ import { TotalMembersComponent } from './pages/total-members/total-members.compo
     TotalMembersListComponent,
     InvitePeopleComponent,
     ToInvitePeopleListComponent,
+    FriendRequestsComponent,
+    FriendRequestsListComponent,
   ],
   exports: [FilterMenuComponent, DeleteItinerariesComponent],
   imports: [

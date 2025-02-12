@@ -20,4 +20,5 @@ export enum ItenariesRoutesEnum {
   COMMENT_UPDATE_REQUEST = 'comment-update-request',
   TOTAL_MEMBERS = 'total-members',
   INVITE_PEOPLE = 'invite-people',
+  FRIEND_REQUESTS = 'friend-requests',
 }
