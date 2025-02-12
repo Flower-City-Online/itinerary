@@ -91,4 +91,5 @@ export const ICONS: Iicon = {
   food: 'assets/icons/food.svg',
   picMap: 'assets/icons/pic_map.svg',
   closePink: 'assets/icons/close_pink.svg',
+  unknownUser: 'assets/icons/unknown_user.svg',
 };

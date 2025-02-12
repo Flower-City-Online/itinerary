@@ -9,6 +9,7 @@ import { FriendRequestsComponent } from './pages/friend-requests/friend-requests
 import { HandleUpdateCommentRequestComponent } from './pages/handle-update-comment-request/handle-update-comment-request.component';
 import { InvitePeopleComponent } from './pages/invite-people/invite-people.component';
 import { NotificationsComponent } from './pages/notifications/notifications.component';
+import { SearchFriendComponent } from './pages/search-friend/search-friend.component';
 import { StoryComponent } from './pages/stories/story.component';
 import { TotalMembersComponent } from './pages/total-members/total-members.component';
 
@@ -39,6 +40,10 @@ const routes: Routes = [
   {
     path: ItenariesRoutesEnum.FRIEND_REQUESTS,
     component: FriendRequestsComponent,
+  },
+  {
+    path: ItenariesRoutesEnum.SEARCH_FRIEND,
+    component: SearchFriendComponent,
   },
 ];
 

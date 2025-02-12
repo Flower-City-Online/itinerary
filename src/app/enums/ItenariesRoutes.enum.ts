@@ -21,4 +21,5 @@ export enum ItenariesRoutesEnum {
   TOTAL_MEMBERS = 'total-members',
   INVITE_PEOPLE = 'invite-people',
   FRIEND_REQUESTS = 'friend-requests',
+  SEARCH_FRIEND = 'search-friend',
 }

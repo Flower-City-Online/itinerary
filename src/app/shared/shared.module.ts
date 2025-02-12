@@ -34,8 +34,8 @@ import { CutomCardComponent } from './components/cutom-card/cutom-card.component
 import { ItineraryFriendRequestComponent } from './components/itinerary-friend-request/itinerary-friend-request.component';
 import { ItineraryMemberComponent } from './components/itinerary-member/itinerary-member.component';
 import { ItineraryPeopleComponent } from './components/itinerary-people/itinerary-people.component';
+import { ItinerarySearchFriendComponent } from './components/itinerary-search-friend/itinerary-search-friend.component';
 import { NotificationComponent } from './components/notification/notification.component';
-
 @NgModule({
   declarations: [
     CardComponent,
@@ -47,6 +47,7 @@ import { NotificationComponent } from './components/notification/notification.co
     ItineraryMemberComponent,
     ItineraryPeopleComponent,
     ItineraryFriendRequestComponent,
+    ItinerarySearchFriendComponent,
   ],
   exports: [
     CardComponent,
@@ -58,6 +59,7 @@ import { NotificationComponent } from './components/notification/notification.co
     ItineraryMemberComponent,
     ItineraryPeopleComponent,
     ItineraryFriendRequestComponent,
+    ItinerarySearchFriendComponent,
   ],
   imports: [
     BaseCardModule,
