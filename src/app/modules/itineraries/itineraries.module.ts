@@ -9,6 +9,7 @@ import {
   ButtonsModule,
   DashedCheckboxModule,
   FormFieldModule,
+  InputFieldSelectModule,
   LibMapModule,
   LibModalModule,
   SearchBarModule,
@@ -35,6 +36,8 @@ import { MapComponent } from './pages/itinerary-detail/components/map/map.compon
 import { SummaryComponent } from './pages/itinerary-detail/components/summary/summary.component';
 import { ItineraryDetailComponent } from './pages/itinerary-detail/itinerary-detail.component';
 import { AdvancedFilterComponent } from './pages/advanced-filter/advanced-filter.component';
+import { AdvanceFilterTileComponent } from './pages/advanced-filter/components/advance-filter-tile/advance-filter-tile.component';
+
 @NgModule({
   declarations: [
     ItinerariesComponent,
@@ -52,7 +55,8 @@ import { AdvancedFilterComponent } from './pages/advanced-filter/advanced-filter
     ItineraryDetailComponent,
     MapComponent,
     SummaryComponent,
-    AdvancedFilterComponent
+    AdvancedFilterComponent,
+    AdvanceFilterTileComponent
   ],
   exports: [FilterMenuComponent, DeleteItinerariesComponent],
   imports: [
@@ -71,6 +75,7 @@ import { AdvancedFilterComponent } from './pages/advanced-filter/advanced-filter
     TranslateModule,
     SearchBarModule,
     GoogleMapsModule,
+    InputFieldSelectModule,
     MatIcon,
     LibMapModule.forRoot({
       googleMapsKey: environment.googleMapsKey,

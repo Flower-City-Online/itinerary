@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { SelectOption } from 'nextsapien-component-lib';
 import { ICONS } from 'src/app/constants/constants';
+import { AdvanceFilterActions } from 'src/app/interface/advanceFilterActions';
 
 @Component({
   selector: 'app-advanced-filter',
@@ -9,10 +9,37 @@ import { ICONS } from 'src/app/constants/constants';
 })
 export class AdvancedFilterComponent {
   ICONS = ICONS;
-  options: SelectOption<string>[] = [
+  options = [
+    { label: 'Apple', value: 'apple' },
+    { label: 'Banana', value: 'banana' },
+    { label: 'Cherry', value: 'cherry' },
+  ];
+
+  filters: AdvanceFilterActions[] = [
     {
-      label: 'Field',
-      value: 'Field'
+      title: 'Featured',
+      actions: 'Default',
+      visible: true,
+    },
+    {
+      title: 'Hot',
+      actions: 'Default',
+      visible: true,
+    },
+    {
+      title: 'Best',
+      actions: 'Default',
+      visible: true,
+    },
+    {
+      title: 'New',
+      actions: 'Default',
+      visible: false,
+    },
+    {
+      title: 'Filter 1 | fields and conditions',
+      actions: ['Delete', 'Edit'],
+      visible: true,
     },
   ];
 }

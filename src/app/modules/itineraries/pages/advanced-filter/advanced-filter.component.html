@@ -1,17 +1,32 @@
 <div class="ps-5 pe-5">
   <app-header [isSearchVisible]="false" heading="Advanced Filters"></app-header>
-  <p class="mt-2">Create and apply custom advance filters or select popular preset advance filters.</p>
+  <p class="mt-2">
+    Create and apply custom advance filters or select popular preset advance
+    filters.
+  </p>
   <div class="mt-5">Filters</div>
 
   <div class="flex items-center">
-      <lib-text-box class="ms-0 flex-1" label="Filter Name"></lib-text-box>
-      <div class="flex items-center">
-        <img class="me-2" [src]="ICONS.plus2" alt="img">
-        <span class="text">Add Filter</span>
-      </div>
+    <lib-text-box class="ms-0 flex-1" label="Filter Name"></lib-text-box>
+    <div class="flex items-center">
+      <img class="me-2" [src]="ICONS.plus2" alt="img" />
+      <span class="text">Add Filter</span>
+    </div>
+  </div>
+  <div>
+    <lib-input-field-select
+      [options]="options"
+      label="Field"
+    ></lib-input-field-select>
   </div>
 
-  <div class="flex items-center">
-    <lib-selectable [options]="options"></lib-selectable>
+  <img width="100%" [src]="ICONS.divider" alt="divider" />
+
+  <div class="mt-8">
+    <advance-filter-tile [filters]="filters"></advance-filter-tile>
+  </div>
+
+  <div class="p-3 applyBtn">
+    <lib-primary-btn>Apply</lib-primary-btn>
   </div>
 </div>
