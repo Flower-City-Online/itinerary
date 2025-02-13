@@ -691,5 +691,8 @@
     "NO_ITINERARIES_FAVORITE": "Aún no tienes itinerarios favoritos.",
     "EXPLORE_ITINERARIES": "Explorar itinerarios",
     "CREATE_NOW": "Crear ahora"
-  }
+  },
+  "EDIT_COMMENT": "Editar comentario",
+  "REMOVE_FEATURE": "Eliminar función",
+  "DELETE_COMMENT": "Eliminar comentario"
 }
