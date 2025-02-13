@@ -5,9 +5,11 @@ import { BuilderComponent } from './pages/builder/builder.component';
 import { CommentsPageComponent } from './pages/comments/comments-page.component';
 import { ExploreComponent } from './pages/explore/explore.component';
 import { FavoritesComponent } from './pages/favorites/favorites.component';
+import { FriendRequestsComponent } from './pages/friend-requests/friend-requests.component';
 import { HandleUpdateCommentRequestComponent } from './pages/handle-update-comment-request/handle-update-comment-request.component';
 import { InvitePeopleComponent } from './pages/invite-people/invite-people.component';
 import { NotificationsComponent } from './pages/notifications/notifications.component';
+import { SearchFriendComponent } from './pages/search-friend/search-friend.component';
 import { StoryComponent } from './pages/stories/story.component';
 import { TotalMembersComponent } from './pages/total-members/total-members.component';
 
@@ -35,6 +37,14 @@ const routes: Routes = [
   },
   { path: ItenariesRoutesEnum.TOTAL_MEMBERS, component: TotalMembersComponent },
   { path: ItenariesRoutesEnum.INVITE_PEOPLE, component: InvitePeopleComponent },
+  {
+    path: ItenariesRoutesEnum.FRIEND_REQUESTS,
+    component: FriendRequestsComponent,
+  },
+  {
+    path: ItenariesRoutesEnum.SEARCH_FRIEND,
+    component: SearchFriendComponent,
+  },
 ];
 
 @NgModule({

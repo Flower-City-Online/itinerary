@@ -31,11 +31,15 @@ import { CommentsListComponent } from './pages/comments/components/comments-list
 import { ExploreListComponent } from './pages/explore/components/explore-list/explore-list.component';
 import { ExploreComponent } from './pages/explore/explore.component';
 import { FavoritesComponent } from './pages/favorites/favorites.component';
+import { FriendRequestsListComponent } from './pages/friend-requests/components/friend-requests-list/friend-requests-list.component';
+import { FriendRequestsComponent } from './pages/friend-requests/friend-requests.component';
 import { HandleUpdateCommentRequestComponent } from './pages/handle-update-comment-request/handle-update-comment-request.component';
 import { ToInvitePeopleListComponent } from './pages/invite-people/components/to-invite-people-list/to-invite-people-list.component';
 import { InvitePeopleComponent } from './pages/invite-people/invite-people.component';
 import { NotificationsListComponent } from './pages/notifications/components/notifications-list/notifications-list.component';
 import { NotificationsComponent } from './pages/notifications/notifications.component';
+import { SearchFriendListComponent } from './pages/search-friend/components/search-friend-list/search-friend-list.component';
+import { SearchFriendComponent } from './pages/search-friend/search-friend.component';
 import { StoryListComponent } from './pages/stories/components/story-list/story-list.component';
 import { StoryComponent } from './pages/stories/story.component';
 import { TotalMembersListComponent } from './pages/total-members/components/total-members-list/total-members-list.component';
@@ -63,6 +67,10 @@ import { TotalMembersComponent } from './pages/total-members/total-members.compo
     TotalMembersListComponent,
     InvitePeopleComponent,
     ToInvitePeopleListComponent,
+    FriendRequestsComponent,
+    FriendRequestsListComponent,
+    SearchFriendComponent,
+    SearchFriendListComponent,
   ],
   exports: [FilterMenuComponent, DeleteItinerariesComponent],
   imports: [

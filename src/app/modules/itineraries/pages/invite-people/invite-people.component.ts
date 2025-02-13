@@ -1,6 +1,8 @@
 import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ICONS } from 'src/app/constants/constants';
+import { ItenariesRoutesEnum } from 'src/app/enums/ItenariesRoutes.enum';
 import { Iicon } from 'src/app/interface/icon';
 import { CustomDropdownMenuService } from 'src/app/services/core/custom-dropdown-menu.service';
 import { ModalService } from 'src/app/services/core/modal/modal.service';
@@ -11,7 +13,7 @@ import { ModalService } from 'src/app/services/core/modal/modal.service';
 })
 export class InvitePeopleComponent implements OnInit {
   routeToSentInvites() {
-    throw new Error('Method not implemented.');
+    this.router.navigate([ItenariesRoutesEnum.FRIEND_REQUESTS]);
   }
   ICONS: Iicon = ICONS;
 
@@ -21,6 +23,7 @@ export class InvitePeopleComponent implements OnInit {
     public customMenuList: CustomDropdownMenuService,
     public modalService: ModalService,
     private _location: Location,
+    private router: Router,
   ) {}
 
   handleSearchStringChange($event: string) {}
