@@ -11,7 +11,6 @@ import {
   ButtonsModule,
   LibModalModule,
   RangeSelectorModule,
-  SharedModule,
   ToggleModule,
 } from 'nextsapien-component-lib';
 import { AppRoutingModule } from './app-routing.module';

@@ -91,4 +91,5 @@ export const ICONS = {
   horizontal: '/assets/images/horizontal.svg',
   dummyUserProfile: '/assets/images/dummy-user-profile.jpg',
   rightArrow: '/assets/icons/right-arrow.svg',
+  message: '/assets/icons/message.svg',
 };

@@ -1,7 +1,7 @@
-<div class="px-5 py-6">
+<div class="px-5 py-4 overflow-y-auto">
   <h2 class="f-[13px]">Created By</h2>
 
-  <div class="m-5 flex justify-between">
+  <div class="my-5 flex justify-between">
     <div class="flex items-center gap-2">
       <img
         height="12"
@@ -19,7 +19,66 @@
     </div>
   </div>
 
-  <hr class="divider" />
+  <div class="border-t border-gray-700 mt-2"></div>
 
-  <h2 class="f-[13px] mt-5">Itinerary Passions</h2>
+  <h2 class="f-[13px] mt-5 mb-3">Itinerary Passions</h2>
+  <div class="flex flex-wrap gap-2">
+    <div *ngFor="let passion of passions" class="mb-3">
+      <app-tag-container [value]="passion"></app-tag-container>
+    </div>
+  </div>
+
+  <div class="border-t border-gray-700 mt-2"></div>
+
+  <div class="mt-4">
+    <p class="bottom-section-heading mt-2 mb-1">Total members</p>
+
+    <div class="comment-card text-white py-2">
+      <p class="text-xs">4.6k People</p>
+      <div class="mt-1 flex items-center justify-between">
+        <img [src]="usersImageSrc" alt="Users" height="35" width="87" />
+        <div class="flex">
+          <button class="view-more">View More</button>
+          <p class="px-1 text-white">></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="border-t border-gray-700 mt-2"></div>
+
+  <div class="mt-4">
+    <p class="bottom-section-heading mt-2 mb-1">Watching</p>
+
+    <div class="comment-card text-white py-2">
+      <p class="text-xs">4.6k People</p>
+      <div class="mt-1 flex items-center justify-between">
+        <img [src]="usersImageSrc" alt="Users" height="35" width="87" />
+        <div class="flex">
+          <button class="view-more">View More</button>
+          <p class="px-1 text-white">></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="border-t border-gray-700 mt-2"></div>
+
+  <div class="mt-5 flex justify-between">
+    <lib-chip-btn class="nav-btn">
+      <span class="inline-block inline-flex items-center gap-2">
+        <img [ngSrc]="ICONS.message" height="12" width="13" />
+        <span class="inline-block">Comments</span>
+        <p class="inline-block">17</p>
+      </span>
+    </lib-chip-btn>
+
+    <lib-chip-btn class="nav-btn">
+      <span class="inline-block inline-flex items-center gap-2">
+        <img [ngSrc]="ICONS.branch" height="12" width="13" />
+        <span class="inline-block">Branches</span>
+        <p class="inline-block">4</p>
+      </span>
+    </lib-chip-btn>
+  </div>
 </div>

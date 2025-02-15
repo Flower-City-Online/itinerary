@@ -2,8 +2,9 @@
   height: 31px;
   width: auto;
   display: inline;
+  font-weight: 500;
   border-radius: 82.05px;
-  padding: 6.56px 13.13px;
+  padding: 9px 13.13px;
   background: rgba(247, 245, 221, 1);
   box-shadow: 3.28px 3.28px 6.56px 0px rgba(0, 0, 0, 0.89);
   box-shadow: -1.64px -1.64px 10.67px 0px rgba(255, 255, 255, 0.5);
