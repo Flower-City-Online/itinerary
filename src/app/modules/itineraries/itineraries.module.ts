@@ -9,11 +9,13 @@ import {
   ButtonsModule,
   DashedCheckboxModule,
   FormFieldModule,
+  InputFieldSelectModule,
   LibMapModule,
   LibModalModule,
   SearchBarModule,
   SelectableModule,
   TextBoxComponent,
+  GridFiltersModule
 } from 'nextsapien-component-lib';
 import { environment } from 'src/environments/environment';
 import { CoreModule } from '../../core/core.module';
@@ -34,7 +36,9 @@ import { BranchedItinerariesComponent } from './pages/branched-itineraries/branc
 import { MapComponent } from './pages/itinerary-detail/components/map/map.component';
 import { SummaryComponent } from './pages/itinerary-detail/components/summary/summary.component';
 import { ItineraryDetailComponent } from './pages/itinerary-detail/itinerary-detail.component';
-import { AdvancedFilterComponent } from './pages/advanced-filter/advanced-filter.component';
+import { CommentSearchComponent } from './pages/comment-search/comment-search.component';
+import { AdvanceFilterTileComponent } from './pages/comment-search/components/advance-filter-tile/advance-filter-tile.component';
+
 @NgModule({
   declarations: [
     ItinerariesComponent,
@@ -52,7 +56,8 @@ import { AdvancedFilterComponent } from './pages/advanced-filter/advanced-filter
     ItineraryDetailComponent,
     MapComponent,
     SummaryComponent,
-    AdvancedFilterComponent
+    CommentSearchComponent,
+    AdvanceFilterTileComponent
   ],
   exports: [FilterMenuComponent, DeleteItinerariesComponent],
   imports: [
@@ -71,6 +76,8 @@ import { AdvancedFilterComponent } from './pages/advanced-filter/advanced-filter
     TranslateModule,
     SearchBarModule,
     GoogleMapsModule,
+    InputFieldSelectModule,
+    GridFiltersModule,
     MatIcon,
     LibMapModule.forRoot({
       googleMapsKey: environment.googleMapsKey,

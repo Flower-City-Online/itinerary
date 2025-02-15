@@ -1,0 +1,38 @@
+<div class="ps-5 pe-5">
+  <app-header heading="Profile" [headerRightIcon]="ICONS.horizontal">
+  </app-header>
+
+  <div class="mt-3 flex justify-center">
+    <img class="profile-pic" [src]="ICONS.dummyUserProfile" alt="profile" />
+  </div>
+
+  <h3 class="mt-4 text-center">Jonathan</h3>
+
+  <div class="mt-2 flex justify-center items-center">
+    <img class="icon me-1" [src]="ICONS.calendar" alt="calender" />
+    <span>23 year old</span>
+    <img class="icon ms-2 me-1" [src]="ICONS.locationLight" alt="location" />
+    <span>New York City, NY</span>
+  </div>
+
+  <hr />
+
+  <div>
+    <h4 class="mb-5">About me</h4>
+    <span
+      >Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laboriosam
+      minus officia provident in iusto nostrum nesciunt enim? At minima
+      doloremque, reiciendis suscipit magnam quam quae in vitae soluta? Fugiat,
+      adipisci!</span
+    >
+  </div>
+
+  <hr />
+
+  <h4 class="mb-5">Passions</h4>
+  <div class="flex flex-wrap gap-4">
+    <ng-container *ngFor="let p of passions">
+      <app-tag-container [value]="p"></app-tag-container>
+    </ng-container>
+  </div>
+</div>

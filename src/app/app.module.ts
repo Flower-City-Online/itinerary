@@ -11,11 +11,13 @@ import {
   ButtonsModule,
   LibModalModule,
   RangeSelectorModule,
+  SharedModule,
   ToggleModule,
 } from 'nextsapien-component-lib';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
+import { UserModule } from './modules/user/user.module';
 export const httpLoaderFactory = (http: HttpBackend): TranslateHttpLoader =>
   new TranslateHttpLoader(new HttpClient(http), './assets/i18n/', '.json');
 @NgModule({
@@ -42,6 +44,7 @@ export const httpLoaderFactory = (http: HttpBackend): TranslateHttpLoader =>
     RangeSelectorModule,
     MatDialogModule,
     LibModalModule,
+    UserModule,
   ],
   providers: [provideAnimationsAsync()],
   exports: [],

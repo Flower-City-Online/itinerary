@@ -27,4 +27,6 @@ export class ExploreListComponent implements OnInit {
       `itineraries/${ItenariesRoutesEnum.ITINERARY_DETAIL}`,
     ]);
   }
+
+  navToBranchItinerary = () => this.router.navigate([ItenariesRoutesEnum.ITINERARY, ItenariesRoutesEnum.BRANCHED_ITINERARIES]);
 }

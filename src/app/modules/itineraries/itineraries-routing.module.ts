@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ItenariesRoutesEnum } from 'src/app/enums/ItenariesRoutes.enum';
 import { BranchedItinerariesComponent } from './pages/branched-itineraries/branched-itineraries.component';
 import { BuilderComponent } from './pages/builder/builder.component';
+import { CommentSearchComponent } from './pages/comment-search/comment-search.component';
 import { ExploreComponent } from './pages/explore/explore.component';
 import { FavoritesComponent } from './pages/favorites/favorites.component';
 import { DetailsComponent } from './pages/itinerary-detail/components/details/details.component';
@@ -18,6 +19,10 @@ const routes: Routes = [
   {
     path: ItenariesRoutesEnum.BRANCHED_ITINERARIES,
     component: BranchedItinerariesComponent,
+  },
+  {
+    path: ItenariesRoutesEnum.COMMENT_SEARCH,
+    component: CommentSearchComponent,
   },
   {
     path: ItenariesRoutesEnum.ITINERARY_DETAIL,
