@@ -1,0 +1,27 @@
+* {
+  --main-color: #fe3c72;
+}
+
+.user-name {
+  color: var(--main-color);
+  font-size: 13px;
+}
+.last-seen {
+  color: #939195;
+  font-size: 9px;
+}
+
+.history {
+  color: var(--main-color);
+  font-size: 10px;
+}
+/* $primary-color: #fe3c72; */
+
+.divider {
+  border: none;
+  height: 1px;
+  background-color: #dcdcdc;
+  transform: scaleY(0.3);
+  margin-left: 8px;
+  margin-right: 8px;
+}

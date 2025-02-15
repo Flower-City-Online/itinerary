@@ -5,6 +5,7 @@ import { BranchedItinerariesComponent } from './pages/branched-itineraries/branc
 import { BuilderComponent } from './pages/builder/builder.component';
 import { ExploreComponent } from './pages/explore/explore.component';
 import { FavoritesComponent } from './pages/favorites/favorites.component';
+import { DetailsComponent } from './pages/itinerary-detail/components/details/details.component';
 import { MapComponent } from './pages/itinerary-detail/components/map/map.component';
 import { SummaryComponent } from './pages/itinerary-detail/components/summary/summary.component';
 import { ItineraryDetailComponent } from './pages/itinerary-detail/itinerary-detail.component';
@@ -25,6 +26,7 @@ const routes: Routes = [
       { path: '', redirectTo: 'summary', pathMatch: 'full' },
       { path: 'summary', component: SummaryComponent },
       { path: 'map', component: MapComponent },
+      { path: 'other-details', component: DetailsComponent },
     ],
   },
 ];

@@ -21,14 +21,19 @@
           ></div>
           <div class="font-Gilroy mt-5 mb-3 flex flex-col gap-y-5">
             <div
-              *ngFor="let place of places"
-              class="flex items-center justify-between w-full gap-x-4 mb-9"
+              *ngFor="let place of places; let i = index"
+              class="flex items-center justify-between w-full gap-x-4 mb-1"
             >
               <div class="flex items-center justify-start gap-x-6">
                 <div
-                  class="z-50 icon w-8 h-8 outset-shadow flex items-center justify-center rounded-full h-[37px] w-[37px]"
+                  class="z-50 icon w-8 h-8 outset-shadow flex items-center justify-center rounded-full h-[37px] w-[37px] relative"
                 >
                   <img [src]="ICONS[place.icon]" alt="" />
+                  <img
+                    *ngIf="i !== places.length - 1"
+                    class="dotted-line"
+                    src="../../../../../../../assets/images/dotted-line.svg"
+                  />
                 </div>
                 <div class="text">
                   <h2 class="f-sm f-xs flex items-center gap-x-1 text-xs mb-1">

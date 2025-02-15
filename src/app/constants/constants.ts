@@ -19,6 +19,7 @@ export const ICONS = {
   itinerariesRed: 'assets/icons/itineraries_red.svg',
   user: 'assets/icons/user.svg',
   userRed: 'assets/icons/user_red.svg',
+  userRedFilled: 'assets/icons/user-red-filled.svg',
   back: 'assets/icons/back.svg',
   search: 'assets/icons/search.svg',
   deleteSec: 'assets/icons/delete_sec.svg',
@@ -80,4 +81,5 @@ export const ICONS = {
   untitled: 'assets/images/untitledImage.svg',
   notSpecified: 'assets/icons/questionMark.svg',
   horizontal: '/assets/images/horizontal.svg',
+  rightArrow: '/assets/icons/right-arrow.svg',
 };

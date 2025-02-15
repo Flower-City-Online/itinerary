@@ -33,3 +33,10 @@
   color: #fe3c72;
   margin-left: 10px;
 }
+
+.dotted-line {
+  position: absolute;
+  width: 2px;
+  height: 100px;
+  top: 10px;
+}
