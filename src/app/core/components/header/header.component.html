@@ -8,13 +8,8 @@
   </lib-icon-btn>
   <h4>{{ heading }}</h4>
 
-  <lib-icon-btn
-    *ngIf="isSearchVisible"
-    class="header-btn"
-    (clickFunction)="handleBackBtnClicked()"
-    type="btn"
-  >
-    <img [src]="headerRightIcon" alt="right-icon"
-  /></lib-icon-btn>
+  <div (click)="handleBackBtnClicked()">
+    <img [src]="headerRightIcon" alt="right-icon" />
+  </div>
   <div *ngIf="!isSearchVisible"></div>
 </div>

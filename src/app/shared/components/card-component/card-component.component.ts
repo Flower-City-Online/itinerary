@@ -27,6 +27,7 @@ export class CardComponent implements OnInit {
   @Input() itineraryStarted: boolean = false;
   @Output() StartItineraryClick: EventEmitter<void> = new EventEmitter<void>();
   @Output() TitleClicked: EventEmitter<void> = new EventEmitter<void>();
+  @Output() forkClicked: EventEmitter<void> = new EventEmitter<void>();
 
   cardDataForLocations = {
     locationColumn1: [
@@ -108,6 +109,11 @@ export class CardComponent implements OnInit {
   handleMenueItemSelect(): void {}
   handleMenuItemChange(): void {}
   handleMenuClick(): void {}
+
+  handleForkClick():void{
+  debugger;
+    this.forkClicked.emit();
+  }
   handleStartItineraryClick(): void {
     this.StartItineraryClick.emit();
   }
