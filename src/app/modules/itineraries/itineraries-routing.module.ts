@@ -3,12 +3,12 @@ import { RouterModule, Routes } from '@angular/router';
 import { ItenariesRoutesEnum } from 'src/app/enums/ItenariesRoutes.enum';
 import { BranchedItinerariesComponent } from './pages/branched-itineraries/branched-itineraries.component';
 import { BuilderComponent } from './pages/builder/builder.component';
+import { CommentSearchComponent } from './pages/comment-search/comment-search.component';
 import { ExploreComponent } from './pages/explore/explore.component';
 import { FavoritesComponent } from './pages/favorites/favorites.component';
 import { MapComponent } from './pages/itinerary-detail/components/map/map.component';
 import { SummaryComponent } from './pages/itinerary-detail/components/summary/summary.component';
 import { ItineraryDetailComponent } from './pages/itinerary-detail/itinerary-detail.component';
-import { AdvancedFilterComponent } from './pages/advanced-filter/advanced-filter.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'explore', pathMatch: 'full' },
@@ -20,8 +20,8 @@ const routes: Routes = [
     component: BranchedItinerariesComponent,
   },
   {
-    path: ItenariesRoutesEnum.ADVANCED_FILTER,
-    component: AdvancedFilterComponent,
+    path: ItenariesRoutesEnum.COMMENT_SEARCH,
+    component: CommentSearchComponent,
   },
   {
     path: ItenariesRoutesEnum.ITINERARY_DETAIL,

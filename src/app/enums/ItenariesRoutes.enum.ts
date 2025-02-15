@@ -14,5 +14,5 @@ export enum ItenariesRoutesEnum {
   ITINERARY_MAP = 'map',
   ITINERARY_OTHER_DETAILS = 'other-details',
   BRANCHED_ITINERARIES = 'branch',
-  ADVANCED_FILTER = 'filter',
+  COMMENT_SEARCH = 'comment-search',
 }

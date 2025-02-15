@@ -1,6 +1,5 @@
 import { Component, Input } from '@angular/core';
 import { ICONS } from 'src/app/constants/constants';
-import { AdvanceFilterActions } from 'src/app/interface/advanceFilterActions';
 
 @Component({
   selector: 'advance-filter-tile',
@@ -8,6 +7,5 @@ import { AdvanceFilterActions } from 'src/app/interface/advanceFilterActions';
   styleUrl: './advance-filter-tile.component.css'
 })
 export class AdvanceFilterTileComponent {
-  ICONS:any = ICONS;
-  @Input() filters : AdvanceFilterActions[] = [];
+  ICONS:any = ICONS; 
 }
