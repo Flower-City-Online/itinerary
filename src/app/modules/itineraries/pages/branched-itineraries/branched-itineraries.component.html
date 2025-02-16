@@ -1,11 +1,11 @@
 <div class="ps-5 pe-5">
-  <app-header heading="Branched Itineraries"></app-header>
+  <app-header [heading]="'BRANCHED.BRANCHED_ITINERARIES' | translate"></app-header>
 
   <lib-secondary-btn class="builder-add-btn">
     <span class="me-1">
       <img class="branchIcon" [src]="ICONS.branchPink" alt="icon" />
     </span>
-    Branch the Itinerary
+    {{'BRANCHED.BRANCH_THE_ITINERARY' | translate}}
   </lib-secondary-btn>
 
   <app-filter-menu [ngStyle]="{ margin: '0px !important' }"></app-filter-menu>

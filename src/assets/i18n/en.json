@@ -713,5 +713,43 @@
     "NO_ITINERARIES_FAVORITE": "You have no Itineraries in favorite yet.",
     "EXPLORE_ITINERARIES": "Explore Itineraries",
     "CREATE_NOW": "Create Now"
+  },
+  "BRANCHED": {
+    "BRANCH_THE_ITINERARY": "Branch the Itinerary",
+    "BRANCHED_ITINERARIES": "Branched Itineraries"
+  },
+  "PROFILE": {
+    "PROFILE": "Profile",
+    "ABOUT_ME": "About Me",
+    "PASSION": "Passions"
+  },
+  "ITINERARY_DETAIL": {
+    "SUMMARY": "Summary",
+    "MAP": "Map",
+    "DETAILS": "Details",
+    "HISTORY": "History",
+    "ITINERARY_PASSIONS": "Itinerary Passions",
+    "TOTAL_MEMBERS": "Total Members",
+    "PEOPLE": "People",
+    "VIEW_MORE": "View More",
+    "WATCHING": "Watching",
+    "COMMENTS": "Comments",
+    "BRANCHES": "Branches"
+  },
+  "ITINERARY_SUMMARY": {
+    "ROUTE": "Route",
+    "PLACES": "PLACES",
+    "TOTAL_MEMBER": "Total Member",
+    "VIEW_MORE": "View More"
+  },
+  "DATE_TIME": {
+    "YEARS": "Years",
+    "MONTHS": "Months",
+    "WEEKS": "Weeks",
+    "DAYS": "Days",
+    "HOURS": "Hours",
+    "MINUTES": "Minutes",
+    "SECONDS": "Seconds",
+    "AGO": "ago"
   }
 }

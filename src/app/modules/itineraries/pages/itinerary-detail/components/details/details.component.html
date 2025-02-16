@@ -11,17 +11,20 @@
         class="mb-auto"
       />
       <p class="user-name">Jonathan</p>
-      <p class="last-seen">11 Hours ago</p>
+      <p class="last-seen">
+        11 {{ "DATE_TIME.HOURS" | translate }}
+        {{ "DATE_TIME.AGO" | translate }}
+      </p>
     </div>
     <div class="flex">
-      <p class="history mr-1">History</p>
+      <p class="history mr-1">{{"ITINERARY_DETAIL.HISTORY" | translate}}</p>
       <img height="5" width="5" [src]="ICONS.rightArrow" alt="right arrow" />
     </div>
   </div>
 
   <div class="border-t border-gray-700 mt-2"></div>
 
-  <h2 class="f-[13px] mt-5 mb-3">Itinerary Passions</h2>
+  <h2 class="f-[13px] mt-5 mb-3">{{'ITINERARY_DETAIL.ITINERARY_PASSIONS' | translate}}</h2>
   <div class="flex flex-wrap gap-2">
     <div *ngFor="let passion of passions" class="mb-3">
       <app-tag-container [value]="passion"></app-tag-container>
@@ -31,14 +34,14 @@
   <div class="border-t border-gray-700 mt-2"></div>
 
   <div class="mt-4">
-    <p class="bottom-section-heading mt-2 mb-1">Total members</p>
+    <p class="bottom-section-heading mt-2 mb-1">{{'ITINERARY_DETAIL.TOTAL_MEMBERS' | translate}}</p>
 
     <div class="comment-card text-white py-2">
-      <p class="text-xs">4.6k People</p>
+      <p class="text-xs">4.6k {{'ITINERARY_DETAIL.PEOPLE' | translate}}</p>
       <div class="mt-1 flex items-center justify-between">
         <img [src]="usersImageSrc" alt="Users" height="35" width="87" />
         <div class="flex">
-          <button class="view-more">View More</button>
+          <button class="view-more">{{'ITINERARY_DETAIL.VIEW_MORE' | translate}}</button>
           <p class="px-1 text-white">></p>
         </div>
       </div>
@@ -48,14 +51,14 @@
   <div class="border-t border-gray-700 mt-2"></div>
 
   <div class="mt-4">
-    <p class="bottom-section-heading mt-2 mb-1">Watching</p>
+    <p class="bottom-section-heading mt-2 mb-1">{{'ITINERARY_DETAIL.WATCHING' | translate}}</p>
 
     <div class="comment-card text-white py-2">
-      <p class="text-xs">4.6k People</p>
+      <p class="text-xs">4.6k {{'ITINERARY_DETAIL.PEOPLE' | translate}}</p>
       <div class="mt-1 flex items-center justify-between">
         <img [src]="usersImageSrc" alt="Users" height="35" width="87" />
         <div class="flex">
-          <button class="view-more">View More</button>
+          <button class="view-more">{{'ITINERARY_DETAIL.VIEW_MORE' | translate}}</button>
           <p class="px-1 text-white">></p>
         </div>
       </div>
@@ -68,7 +71,7 @@
     <lib-chip-btn class="nav-btn">
       <span class="inline-block inline-flex items-center gap-2">
         <img [ngSrc]="ICONS.message" height="12" width="13" />
-        <span class="inline-block">Comments</span>
+        <span class="inline-block">{{'ITINERARY_DETAIL.COMMENTS' | translate}}</span>
         <p class="inline-block">17</p>
       </span>
     </lib-chip-btn>
@@ -76,7 +79,7 @@
     <lib-chip-btn class="nav-btn">
       <span class="inline-block inline-flex items-center gap-2">
         <img [ngSrc]="ICONS.branch" height="12" width="13" />
-        <span class="inline-block">Branches</span>
+        <span class="inline-block">{{'ITINERARY_DETAIL.BRANCHES' | translate}}</span>
         <p class="inline-block">4</p>
       </span>
     </lib-chip-btn>

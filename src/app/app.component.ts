@@ -51,7 +51,7 @@ export class AppComponent implements OnInit, OnDestroy {
         if (this.isSmallScreen) {
           this.renderer.removeClass(document.body, 'customBody');
         } else {
-          this.router.navigate([ItenariesRoutesEnum.DASHBOARD]);
+          // this.router.navigate([ItenariesRoutesEnum.DASHBOARD]);
           this.renderer.addClass(document.body, 'customBody');
         }
       });
