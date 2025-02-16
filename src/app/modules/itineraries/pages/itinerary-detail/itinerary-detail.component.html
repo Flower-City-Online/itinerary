@@ -3,11 +3,24 @@
     <app-header
       [headerRightIcon]="ICONS.horizontal"
       heading="Adventure Tour"
+      [menuItems]="dropdownMenuItems"
     ></app-header>
     <app-tab-bar [tabMenuItems]="tabMenuItems"></app-tab-bar>
   </div>
-  
+
   <div class="minScreen">
     <router-outlet></router-outlet>
   </div>
 </div>
+
+<ng-container>
+  <lib-popup
+    [isOpen]="isModalOpen"
+    confirmButton="Delete"
+    cancelButton="Keep"
+    title="Delete Itinerary"
+    message="Are you sure you want to permanently delete this history?"
+    (modalConfirm)="onModalConfirmed()"
+    (modalDismiss)="onModalDismissed()"
+  ></lib-popup>
+</ng-container>

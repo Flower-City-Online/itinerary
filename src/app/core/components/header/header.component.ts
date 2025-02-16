@@ -5,6 +5,7 @@ import {
   Input,
   Output,
 } from '@angular/core';
+import { LibMenuItem } from 'nextsapien-component-lib';
 import { ICONS } from 'src/app/constants/constants';
 
 @Component({
@@ -20,6 +21,7 @@ export class HeaderComponent {
   @Output() lastButton = new EventEmitter<MouseEvent>();
   @Input() cssClass!: string;
   @Input() isSearchVisible: boolean = true;
+  @Input() menuItems: LibMenuItem[] = [];
   ICONS = ICONS;
 
   handleBackBtnClicked(): void {

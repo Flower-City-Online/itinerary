@@ -8,8 +8,14 @@
   </lib-icon-btn>
   <h4>{{ heading }}</h4>
 
-  <div (click)="handleBackBtnClicked()">
-    <img [src]="headerRightIcon" alt="right-icon" />
-  </div>
+  @if (menuItems.length === 0) {
+    <div (click)="handleBackBtnClicked()">
+      <img [src]="headerRightIcon" alt="right-icon" />
+    </div>
+  } @else {
+    <lib-menu-btn [menuItems]="menuItems">
+      <img [src]="headerRightIcon" alt="right-icon" />
+    </lib-menu-btn>
+  }
   <div *ngIf="!isSearchVisible"></div>
 </div>
