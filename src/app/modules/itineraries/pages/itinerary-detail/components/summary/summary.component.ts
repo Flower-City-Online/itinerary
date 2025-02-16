@@ -17,7 +17,7 @@ import { LocationService } from 'src/app/services/core/location.service';
 export class SummaryComponent {
   initialLocation = { lat: 24.8607, lng: 67.0011 }; // Centered on California
   ICONS: { [key: string]: string } = ICONS;
-  usersImageSrc = '/assets/images/user-image.png';
+  usersImageSrc = '/assets/images/users.svg';
 
   places: IItinerariesData[] = [];
 
@@ -29,7 +29,6 @@ export class SummaryComponent {
 
   ngOnInit(): void {
     this.apiService.get('/assets/ItinerariesData.json').subscribe((data) => {
-      console.log(data);
       this.places = data as IItinerariesData[];
       this.cdr.detectChanges();
     });

@@ -8,6 +8,6 @@ import { ICONS } from 'src/app/constants/constants';
 })
 export class DetailsComponent {
   ICONS = ICONS;
-  usersImageSrc = '/assets/images/user-image.png';
+  usersImageSrc = '/assets/images/users.svg';
   passions = ['Viynasa', 'Skincase', 'Baking', 'Hiking', 'Bicycle racing'];
 }
