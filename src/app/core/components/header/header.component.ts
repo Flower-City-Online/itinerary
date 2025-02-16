@@ -16,17 +16,19 @@ import { ICONS } from 'src/app/constants/constants';
 export class HeaderComponent {
   @Input() heading!: string;
   @Input() headerRightIcon: string = ICONS.search;
-  @Output() firstButton = new EventEmitter<MouseEvent>();
-  @Output() lastButton = new EventEmitter<MouseEvent>();
+  @Output() firstButton: EventEmitter<MouseEvent> =
+    new EventEmitter<MouseEvent>();
+  @Output() lastButton: EventEmitter<MouseEvent> =
+    new EventEmitter<MouseEvent>();
   @Input() cssClass!: string;
   @Input() isSearchVisible: boolean = true;
   ICONS = ICONS;
 
   handleBackBtnClicked(): void {
-    this.lastButton.emit;
+    this.lastButton.emit();
   }
 
   firstButtonClick(): void {
-    this.firstButton.emit;
+    this.firstButton.emit();
   }
 }

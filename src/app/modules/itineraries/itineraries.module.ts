@@ -31,7 +31,6 @@ import { CreateItineraryModalItemComponent } from './pages/builder/components/cr
 import { CreateItineraryModalComponent } from './pages/builder/components/create-itinerary-modal/create-itinerary-modal.component';
 import { CreateItineraryComponent } from './pages/builder/components/create-itinerary/create-itinerary.component';
 import { CommentSearchComponent } from './pages/comment-search/comment-search.component';
-import { AdvanceFilterTileComponent } from './pages/comment-search/components/advance-filter-tile/advance-filter-tile.component';
 import { ExploreListComponent } from './pages/explore/components/explore-list/explore-list.component';
 import { ExploreComponent } from './pages/explore/explore.component';
 import { FavoritesComponent } from './pages/favorites/favorites.component';
@@ -58,7 +57,6 @@ import { ItineraryDetailComponent } from './pages/itinerary-detail/itinerary-det
     MapComponent,
     SummaryComponent,
     CommentSearchComponent,
-    AdvanceFilterTileComponent,
     DetailsComponent,
   ],
   exports: [FilterMenuComponent, DeleteItinerariesComponent],

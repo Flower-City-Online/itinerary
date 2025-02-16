@@ -1,3 +1,4 @@
+import { Location } from '@angular/common';
 import { Component } from '@angular/core';
 import { LibMenuItem } from 'nextsapien-component-lib';
 import { ICONS } from 'src/app/constants/constants';
@@ -10,12 +11,17 @@ import { CustomDropdownMenuService } from 'src/app/services/core/custom-dropdown
 })
 export class BranchedItinerariesComponent {
   libMenuItem: LibMenuItem[] = [];
-  libMenuItems = Array(10).fill(null);
   ICONS: any = ICONS;
 
   ngOnInit(): void {
     this.libMenuItem = this.customMenuList.getMenuList('itineraries');
   }
 
-  constructor(public customMenuList: CustomDropdownMenuService) {}
+  constructor(
+    private customMenuList: CustomDropdownMenuService,
+    private location: Location,
+  ) {}
+
+  //NAVIGATIONS
+  back = (): void => this.location.back();
 }

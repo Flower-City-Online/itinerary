@@ -111,8 +111,7 @@ export class CardComponent implements OnInit {
   handleMenuClick(): void {}
 
   handleForkClick():void{
-  debugger;
-    this.forkClicked.emit();
+     this.forkClicked.emit();
   }
   handleStartItineraryClick(): void {
     this.StartItineraryClick.emit();

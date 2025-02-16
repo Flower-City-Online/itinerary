@@ -1,5 +1,5 @@
 <div class="ps-5 pe-5">
-  <app-header [heading]="'BRANCHED.BRANCHED_ITINERARIES' | translate"></app-header>
+  <app-header (firstButton)="back()" [heading]="'BRANCHED.BRANCHED_ITINERARIES' | translate"></app-header>
 
   <lib-secondary-btn class="builder-add-btn">
     <span class="me-1">
@@ -13,7 +13,7 @@
   <div
     class="grid-columns sm:mt-3 md:mt-10 grid grid-cols-1 md:grid-cols-3 sm:gap-y-5 md:gap-y-10 gap-x-10"
   >
-    <ng-container *ngFor="let item of libMenuItems; let i = index">
+    <ng-container *ngFor="let item of libMenuItem; let i = index">
       <app-card-component
         [libMenuItem]="libMenuItem"
         [isDraft]="false"
